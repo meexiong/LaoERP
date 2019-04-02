@@ -8,7 +8,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class AESecrp {
     private static final String ALGO = "AES";
-    private static final byte[] keyValue = new byte[] { '@', '$', '*', '?', '!', 's', 't','1', 'e', '~', 'r','%', 't', ')', '(', 'y' };
+    private static final byte[] keyValue = new byte[] { '!', '$', '*', '?', '%', 's', 't','1', 'e', '~', 'r','^', 't', ')', '(', 'y' };
      public static String encrypt(String Data) throws Exception {
         Key key = generateKey();
         Cipher c = Cipher.getInstance(ALGO);
