@@ -1,5 +1,5 @@
 
-package com.malimar.Enums;
+package com.malimar.utils;
 
 public enum EnumStatus {
     L1, L2

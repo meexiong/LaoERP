@@ -1,6 +1,6 @@
 package com.malimar.controllers;
 
-import com.malimar.Enums.EnumStatus;
+import com.malimar.utils.EnumStatus;
 import com.malimar.utils.MoveForm;
 import com.malimar.utils.Valiables;
 import com.malimar.views.FrmDatabaseSetting;

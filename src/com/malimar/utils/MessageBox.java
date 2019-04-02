@@ -1,7 +1,6 @@
 
 package com.malimar.utils;
 
-import com.malimar.Enums.EnumStatus;
 import static com.malimar.utils.Valiables.langType;
 import javax.swing.JOptionPane;
 
