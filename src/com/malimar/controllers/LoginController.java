@@ -1,10 +1,14 @@
 package com.malimar.controllers;
 
+import com.malimar.models.Login;
 import com.malimar.utils.EnumStatus;
 import com.malimar.utils.MoveForm;
 import com.malimar.utils.Valiables;
+import static com.malimar.utils.Valiables.langType;
+import com.malimar.views.FrmChangePassword;
 import com.malimar.views.FrmDatabaseSetting;
 import com.malimar.views.FrmLoginSystem;
+import com.malimar.views.FrmMainMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -14,16 +18,21 @@ import java.awt.event.MouseMotionListener;
 public class LoginController implements ActionListener, MouseListener, MouseMotionListener {
 
     private final FrmLoginSystem view;
+    private final Login model;
 
     public LoginController(FrmLoginSystem view) {
         this.view = view;
+        Login l = new Login();
+        this.model = l;
+        this.view.getTxtUsername().addActionListener((ActionListener) this);
+        this.view.getTxtPassword().addActionListener((ActionListener) this);
         this.view.getMenuExit().addActionListener((ActionListener) this);
         this.view.getBtnDatabaseSetting().addActionListener((ActionListener) this);
         this.view.getBtnLogin().addActionListener((ActionListener) this);
         this.view.getBtnEnglish().addActionListener((ActionListener) this);
         this.view.getBtnLaos().addActionListener((ActionListener) this);
-        this.view.getMainPanel().addMouseListener((MouseListener)this);
-        this.view.getMainPanel().addMouseMotionListener((MouseMotionListener)this);
+        this.view.getMainPanel().addMouseListener((MouseListener) this);
+        this.view.getMainPanel().addMouseMotionListener((MouseMotionListener) this);
         this.view.getBtnLaos().setVisible(false);
         this.view.getBtnEnglish().setVisible(true);
         this.view.getLblWelcome().setText("ຍິນດີເຂົ້າສູ່ລະບົບ");
@@ -31,13 +40,24 @@ public class LoginController implements ActionListener, MouseListener, MouseMoti
         this.view.getLblPassword().setText("ລະຫັດຜ່ານ");
         this.view.getBtnLogin().setText("ເຂົ້າໃຊ້ລະບົບ");
         this.view.getBtnDatabaseSetting().setText("ຕັ້ງຄ່າຖານຂໍ້ມູນ");
-        Valiables.langType= EnumStatus.L1.name();
+        Valiables.langType = EnumStatus.L1.name();
+        this.view.getTxtUsername().requestFocus();
+    }
+
+    private boolean verifyPassword() {
+        try {
+            if (this.view.getTxtPassword().getText().equals(this.model.getUserPassword())) {
+                return true;
+            }
+        } catch (Exception e) {
+        }
+        return false;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.view.getBtnLaos()) {
-            Valiables.langType= EnumStatus.L1.name();
+            Valiables.langType = EnumStatus.L1.name();
             this.view.getBtnLaos().setVisible(false);
             this.view.getBtnEnglish().setVisible(true);
             this.view.getLblWelcome().setText("ຍິນດີເຂົ້າສູ່ລະບົບ");
@@ -45,8 +65,9 @@ public class LoginController implements ActionListener, MouseListener, MouseMoti
             this.view.getLblPassword().setText("ລະຫັດຜ່ານ");
             this.view.getBtnLogin().setText("ເຂົ້າໃຊ້ລະບົບ");
             this.view.getBtnDatabaseSetting().setText("ຕັ້ງຄ່າຖານຂໍ້ມູນ");
+            this.view.getTxtUsername().requestFocus();
         } else if (e.getSource() == this.view.getBtnEnglish()) {
-             Valiables.langType= EnumStatus.L2.name();
+            Valiables.langType = EnumStatus.L2.name();
             this.view.getBtnLaos().setVisible(true);
             this.view.getBtnEnglish().setVisible(false);
             this.view.getLblWelcome().setText("Welcome to LaoERP");
@@ -54,11 +75,53 @@ public class LoginController implements ActionListener, MouseListener, MouseMoti
             this.view.getLblPassword().setText("Password");
             this.view.getBtnLogin().setText("Login");
             this.view.getBtnDatabaseSetting().setText("Database Setting");
+            this.view.getTxtUsername().requestFocus();
         } else if (e.getSource() == this.view.getMenuExit()) {
             System.exit(0);
         } else if (e.getSource() == this.view.getBtnDatabaseSetting()) {
             FrmDatabaseSetting frm = new FrmDatabaseSetting(null, true);
             frm.setVisible(true);
+            this.view.getTxtUsername().requestFocus();
+        } else if (e.getSource() == this.view.getBtnLogin()) {
+            this.model.setUsername(this.view.getTxtUsername().getText());
+            if (this.model.getNewUser() == true) {
+                FrmChangePassword frm = new FrmChangePassword(null, true);
+                frm.setVisible(true);
+                this.view.getTxtUsername().requestFocus();
+            } else {
+                if (this.verifyPassword() == true) {
+                    this.view.dispose();
+                    FrmMainMenu frm = new FrmMainMenu();
+                    frm.setVisible(true);
+                } else {
+                    if (langType.equals(EnumStatus.L1.name())) {
+                        this.view.getLblIncorrect().setText("ຊື່ ຫຼື ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ");
+                    } else {
+                        this.view.getLblIncorrect().setText("User or Password Incorrect");
+                    }
+                }
+            }
+        } else if (e.getSource() == this.view.getTxtUsername()) {
+            this.view.getTxtPassword().requestFocus();
+        } else if (e.getSource() == this.view.getTxtPassword()) {
+            this.model.setUsername(this.view.getTxtUsername().getText());
+            if (this.model.getNewUser() == true) {
+                FrmChangePassword frm = new FrmChangePassword(null, true);
+                frm.setVisible(true);
+                this.view.getTxtUsername().requestFocus();
+            } else {
+                if (this.verifyPassword() == true) {
+                    this.view.dispose();
+                    FrmMainMenu frm = new FrmMainMenu();
+                    frm.setVisible(true);
+                } else {
+                    if (langType.equals(EnumStatus.L1.name())) {
+                        this.view.getLblIncorrect().setText("ຊື່ ຫຼື ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ");
+                    } else {
+                        this.view.getLblIncorrect().setText("User or Password Incorrect");
+                    }
+                }
+            }
         }
     }
 
@@ -69,7 +132,7 @@ public class LoginController implements ActionListener, MouseListener, MouseMoti
 
     @Override
     public void mousePressed(MouseEvent e) {
-        if(e.getSource() == this.view.getMainPanel()){
+        if (e.getSource() == this.view.getMainPanel()) {
             MoveForm.mousePressed(e);
         }
     }
@@ -91,13 +154,13 @@ public class LoginController implements ActionListener, MouseListener, MouseMoti
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        if(e.getSource() == this.view.getMainPanel()){
+        if (e.getSource() == this.view.getMainPanel()) {
             MoveForm.mouseDragded(e, this.view);
         }
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        
+
     }
 }

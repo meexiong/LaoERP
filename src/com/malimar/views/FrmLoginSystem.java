@@ -16,6 +16,10 @@ public class FrmLoginSystem extends javax.swing.JFrame {
         LoginController lc = new LoginController(this);
     }
 
+    public JLabel getLblIncorrect() {
+        return lblIncorrect;
+    }
+
     public JLabel getMainPanel() {
         return MainPanel;
     }
@@ -79,6 +83,7 @@ public class FrmLoginSystem extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         btnDatabaseSetting = new com.xzq.osc.JocHyperlink();
         btnLogin = new com.xzq.osc.JocHyperlink();
+        lblIncorrect = new javax.swing.JLabel();
         MainPanel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -142,6 +147,12 @@ public class FrmLoginSystem extends javax.swing.JFrame {
         btnLogin.setFont(new java.awt.Font("Saysettha OT", 1, 14)); // NOI18N
         jPanel3.add(btnLogin);
         btnLogin.setBounds(130, 416, 268, 40);
+
+        lblIncorrect.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblIncorrect.setForeground(java.awt.Color.red);
+        lblIncorrect.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel3.add(lblIncorrect);
+        lblIncorrect.setBounds(160, 390, 210, 20);
 
         MainPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Login.png"))); // NOI18N
         jPanel3.add(MainPanel);
@@ -212,6 +223,7 @@ public class FrmLoginSystem extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblIcon;
+    private javax.swing.JLabel lblIncorrect;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblUsername;
     private javax.swing.JLabel lblWelcome;

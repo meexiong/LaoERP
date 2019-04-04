@@ -1,5 +1,6 @@
 package com.malimar.controllers;
 
+import com.malimar.utils.Valiables;
 import com.malimar.views.FrmMainMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +16,7 @@ public class MainController implements ActionListener, MouseListener, MouseMotio
 
     public MainController(FrmMainMenu view) {
         this.view = view;
+        this.view.getLblUserlogin().setText(Valiables.emailLogin);
         this.view.getMenuDashboard().addActionListener((ActionListener) this);
         this.view.getMenuHR().addActionListener((ActionListener) this);
         this.view.getMenuSetting().addActionListener((ActionListener) this);
