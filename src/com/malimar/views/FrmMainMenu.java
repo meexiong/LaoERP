@@ -14,6 +14,14 @@ public class FrmMainMenu extends javax.swing.JFrame {
         MainController mc = new MainController(this);
     }
 
+    public JLabel getLblMainData() {
+        return lblMainData;
+    }
+
+    public JLabel getLblLaoERP() {
+        return lblLaoERP;
+    }
+
     public JLabel getMenuAbsentTypeG() {
         return menuAbsentTypeG;
     }
@@ -631,10 +639,15 @@ public class FrmMainMenu extends javax.swing.JFrame {
         panelTitle.setBackground(new java.awt.Color(81, 87, 99));
         panelTitle.setPreferredSize(new java.awt.Dimension(1144, 55));
 
-        lblLaoERP.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        lblLaoERP.setFont(new java.awt.Font("Saysettha OT", 1, 24)); // NOI18N
         lblLaoERP.setForeground(new java.awt.Color(255, 255, 255));
         lblLaoERP.setText("HRMS");
         lblLaoERP.setPreferredSize(new java.awt.Dimension(140, 60));
+        lblLaoERP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblLaoERPMouseClicked(evt);
+            }
+        });
 
         menuExit.setActiveColor(new java.awt.Color(255, 50, 50));
         menuExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Delete_30px.png"))); // NOI18N
@@ -642,7 +655,6 @@ public class FrmMainMenu extends javax.swing.JFrame {
         menuExit.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(81, 87, 99));
-        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
 
         menuDashboard.setText("Dashboard");
         menuDashboard.setFont(new java.awt.Font("Saysettha OT", 1, 20)); // NOI18N
@@ -662,7 +674,6 @@ public class FrmMainMenu extends javax.swing.JFrame {
                 menuDashboardActionPerformed(evt);
             }
         });
-        jPanel2.add(menuDashboard);
 
         menuHR.setText("HR");
         menuHR.setFont(new java.awt.Font("Saysettha OT", 1, 20)); // NOI18N
@@ -682,7 +693,6 @@ public class FrmMainMenu extends javax.swing.JFrame {
                 menuHRActionPerformed(evt);
             }
         });
-        jPanel2.add(menuHR);
 
         menuSetting.setText("Setting");
         menuSetting.setFont(new java.awt.Font("Saysettha OT", 1, 20)); // NOI18N
@@ -702,7 +712,29 @@ public class FrmMainMenu extends javax.swing.JFrame {
                 menuSettingActionPerformed(evt);
             }
         });
-        jPanel2.add(menuSetting);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(menuDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(menuHR, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(menuSetting, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(98, Short.MAX_VALUE))
+        );
+
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {menuDashboard, menuHR, menuSetting});
+
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(menuDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(menuHR, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(menuSetting, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         lblUserlogin.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblUserlogin.setForeground(new java.awt.Color(255, 255, 255));
@@ -725,11 +757,10 @@ public class FrmMainMenu extends javax.swing.JFrame {
         panelTitleLayout.setHorizontalGroup(
             panelTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelTitleLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(lblLaoERP, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblLaoERP, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblUserlogin, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(menuMinimum, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -743,7 +774,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
             .addComponent(lblLaoERP, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(panelTitleLayout.createSequentialGroup()
                 .addGap(11, 11, 11)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(panelTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                 .addComponent(menuExit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addComponent(menuMaximum, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -784,24 +815,30 @@ public class FrmMainMenu extends javax.swing.JFrame {
         jPanel1.setBounds(0, 43, 200, 43);
 
         menuCompany.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Company_25px.png"))); // NOI18N
+        menuCompany.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuCompany.setText("Company");
         menuCompany.setUnvisitColor(new java.awt.Color(255, 255, 255));
+        menuCompany.setVisitedColor(new java.awt.Color(255, 255, 255));
         menuCompany.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         menuCompany.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         panelSideMenu.add(menuCompany);
         menuCompany.setBounds(10, 105, 180, 27);
 
         menuLocation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Location_25px.png"))); // NOI18N
+        menuLocation.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuLocation.setText("Location");
         menuLocation.setUnvisitColor(new java.awt.Color(255, 255, 255));
+        menuLocation.setVisitedColor(new java.awt.Color(255, 255, 255));
         menuLocation.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         menuLocation.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         panelSideMenu.add(menuLocation);
         menuLocation.setBounds(10, 137, 180, 27);
 
         menuDivision.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Small Business_25px.png"))); // NOI18N
+        menuDivision.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuDivision.setText("Division");
         menuDivision.setUnvisitColor(new java.awt.Color(255, 255, 255));
+        menuDivision.setVisitedColor(new java.awt.Color(255, 255, 255));
         menuDivision.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         menuDivision.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         menuDivision.addActionListener(new java.awt.event.ActionListener() {
@@ -813,104 +850,130 @@ public class FrmMainMenu extends javax.swing.JFrame {
         menuDivision.setBounds(10, 169, 180, 27);
 
         menuDepartment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Department_25px.png"))); // NOI18N
+        menuDepartment.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuDepartment.setText("Department");
         menuDepartment.setUnvisitColor(new java.awt.Color(255, 255, 255));
+        menuDepartment.setVisitedColor(new java.awt.Color(255, 255, 255));
         menuDepartment.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         menuDepartment.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         panelSideMenu.add(menuDepartment);
         menuDepartment.setBounds(10, 201, 180, 27);
 
         menuUnitWork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Unit_25px.png"))); // NOI18N
+        menuUnitWork.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuUnitWork.setText("Unit");
         menuUnitWork.setUnvisitColor(new java.awt.Color(255, 255, 255));
+        menuUnitWork.setVisitedColor(new java.awt.Color(255, 255, 255));
         menuUnitWork.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         menuUnitWork.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         panelSideMenu.add(menuUnitWork);
         menuUnitWork.setBounds(10, 233, 180, 27);
 
         menuTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Medal Third Place_25px.png"))); // NOI18N
+        menuTitle.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuTitle.setText("Title");
         menuTitle.setUnvisitColor(new java.awt.Color(255, 255, 255));
+        menuTitle.setVisitedColor(new java.awt.Color(255, 255, 255));
         menuTitle.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         menuTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         panelSideMenu.add(menuTitle);
         menuTitle.setBounds(10, 265, 180, 27);
 
         menuNationality.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Destination_25px.png"))); // NOI18N
+        menuNationality.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuNationality.setText("Nationality");
         menuNationality.setUnvisitColor(new java.awt.Color(255, 255, 255));
+        menuNationality.setVisitedColor(new java.awt.Color(255, 255, 255));
         menuNationality.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         menuNationality.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         panelSideMenu.add(menuNationality);
         menuNationality.setBounds(10, 297, 180, 27);
 
         menuEthnic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Hula Girl_25px.png"))); // NOI18N
+        menuEthnic.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuEthnic.setText("Ethnic");
         menuEthnic.setUnvisitColor(new java.awt.Color(255, 255, 255));
+        menuEthnic.setVisitedColor(new java.awt.Color(255, 255, 255));
         menuEthnic.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         menuEthnic.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         panelSideMenu.add(menuEthnic);
         menuEthnic.setBounds(10, 329, 180, 27);
 
         menuReligion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Church_25px.png"))); // NOI18N
+        menuReligion.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuReligion.setText("Religion");
         menuReligion.setUnvisitColor(new java.awt.Color(255, 255, 255));
+        menuReligion.setVisitedColor(new java.awt.Color(255, 255, 255));
         menuReligion.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         menuReligion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         panelSideMenu.add(menuReligion);
         menuReligion.setBounds(10, 361, 180, 27);
 
         menuBank.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Bank Building_25px.png"))); // NOI18N
+        menuBank.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuBank.setText("Bank");
         menuBank.setUnvisitColor(new java.awt.Color(255, 255, 255));
+        menuBank.setVisitedColor(new java.awt.Color(255, 255, 255));
         menuBank.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         menuBank.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         panelSideMenu.add(menuBank);
         menuBank.setBounds(10, 393, 180, 27);
 
         menuInsurance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Car Insurance_25px.png"))); // NOI18N
+        menuInsurance.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuInsurance.setText("Insurance");
         menuInsurance.setUnvisitColor(new java.awt.Color(255, 255, 255));
+        menuInsurance.setVisitedColor(new java.awt.Color(255, 255, 255));
         menuInsurance.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         menuInsurance.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         panelSideMenu.add(menuInsurance);
         menuInsurance.setBounds(10, 425, 180, 27);
 
         menuEmpStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Employee_25px.png"))); // NOI18N
+        menuEmpStatus.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuEmpStatus.setText("Employee Status");
         menuEmpStatus.setUnvisitColor(new java.awt.Color(255, 255, 255));
+        menuEmpStatus.setVisitedColor(new java.awt.Color(255, 255, 255));
         menuEmpStatus.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         menuEmpStatus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         panelSideMenu.add(menuEmpStatus);
         menuEmpStatus.setBounds(10, 457, 180, 27);
 
         menuAbsentType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Leave_25px.png"))); // NOI18N
+        menuAbsentType.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuAbsentType.setText("Absent Type");
         menuAbsentType.setUnvisitColor(new java.awt.Color(255, 255, 255));
+        menuAbsentType.setVisitedColor(new java.awt.Color(255, 255, 255));
         menuAbsentType.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         menuAbsentType.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         panelSideMenu.add(menuAbsentType);
         menuAbsentType.setBounds(10, 489, 180, 27);
 
         menuOverTimeType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Schedule_25px.png"))); // NOI18N
+        menuOverTimeType.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuOverTimeType.setText("Overtime Type");
         menuOverTimeType.setUnvisitColor(new java.awt.Color(255, 255, 255));
+        menuOverTimeType.setVisitedColor(new java.awt.Color(255, 255, 255));
         menuOverTimeType.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         menuOverTimeType.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         panelSideMenu.add(menuOverTimeType);
         menuOverTimeType.setBounds(10, 521, 180, 27);
 
         menuSalaryType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Stack of Money_25px.png"))); // NOI18N
+        menuSalaryType.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuSalaryType.setText("Salary Type");
         menuSalaryType.setUnvisitColor(new java.awt.Color(255, 255, 255));
+        menuSalaryType.setVisitedColor(new java.awt.Color(255, 255, 255));
         menuSalaryType.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         menuSalaryType.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         panelSideMenu.add(menuSalaryType);
         menuSalaryType.setBounds(10, 553, 180, 27);
 
         menuDeductionType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Minus_25px.png"))); // NOI18N
+        menuDeductionType.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuDeductionType.setText("Deduction Type");
         menuDeductionType.setUnvisitColor(new java.awt.Color(255, 255, 255));
+        menuDeductionType.setVisitedColor(new java.awt.Color(255, 255, 255));
         menuDeductionType.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         menuDeductionType.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         panelSideMenu.add(menuDeductionType);
@@ -1185,7 +1248,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
 
         menuEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/employee1.png"))); // NOI18N
         pnControllHR.add(menuEmployee);
-        menuEmployee.setBounds(55, 65, 150, 150);
+        menuEmployee.setBounds(55, 65, 150, 130);
 
         lblEmployee.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         lblEmployee.setForeground(new java.awt.Color(255, 255, 255));
@@ -1213,7 +1276,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
 
         menuPayroll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/payroll1.png"))); // NOI18N
         pnControllHR.add(menuPayroll);
-        menuPayroll.setBounds(245, 65, 150, 150);
+        menuPayroll.setBounds(245, 65, 150, 130);
 
         groupMenuPayroll.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         groupMenuPayroll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menu.png"))); // NOI18N
@@ -1234,7 +1297,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
 
         menuUpSalary.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/UpSalary.png"))); // NOI18N
         pnControllHR.add(menuUpSalary);
-        menuUpSalary.setBounds(436, 65, 150, 150);
+        menuUpSalary.setBounds(436, 65, 150, 130);
 
         groupMenuUpSalary.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         groupMenuUpSalary.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menu.png"))); // NOI18N
@@ -1255,7 +1318,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
 
         menuLoan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Loan.png"))); // NOI18N
         pnControllHR.add(menuLoan);
-        menuLoan.setBounds(626, 65, 150, 150);
+        menuLoan.setBounds(626, 65, 150, 130);
 
         groupMenuLoan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         groupMenuLoan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menu.png"))); // NOI18N
@@ -1276,7 +1339,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
 
         menuAbsent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Absent.png"))); // NOI18N
         pnControllHR.add(menuAbsent);
-        menuAbsent.setBounds(55, 275, 150, 150);
+        menuAbsent.setBounds(55, 275, 150, 130);
 
         groupMenuAbsent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         groupMenuAbsent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menu.png"))); // NOI18N
@@ -1297,7 +1360,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
 
         menuOverTime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/OverTime.png"))); // NOI18N
         pnControllHR.add(menuOverTime);
-        menuOverTime.setBounds(245, 275, 150, 150);
+        menuOverTime.setBounds(245, 275, 150, 130);
 
         groupMenuOverTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         groupMenuOverTime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menu.png"))); // NOI18N
@@ -1318,7 +1381,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
 
         menuUserSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/UserSetting.png"))); // NOI18N
         pnControllHR.add(menuUserSetting);
-        menuUserSetting.setBounds(436, 275, 150, 150);
+        menuUserSetting.setBounds(436, 275, 150, 130);
 
         groupMenuUserSetting.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         groupMenuUserSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menu.png"))); // NOI18N
@@ -1339,7 +1402,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
 
         menuReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Report.png"))); // NOI18N
         pnControllHR.add(menuReport);
-        menuReport.setBounds(626, 275, 150, 150);
+        menuReport.setBounds(626, 275, 150, 130);
 
         groupMenuReport.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         groupMenuReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menu.png"))); // NOI18N
@@ -1359,7 +1422,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
 
         menuSystemSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/SystemSetting.png"))); // NOI18N
         pnControllSetting.add(menuSystemSetting);
-        menuSystemSetting.setBounds(55, 65, 150, 150);
+        menuSystemSetting.setBounds(55, 65, 150, 130);
 
         lblSystemSetting.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         lblSystemSetting.setForeground(new java.awt.Color(255, 255, 255));
@@ -1387,7 +1450,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
 
         menuTaxSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/UserSetting.png"))); // NOI18N
         pnControllSetting.add(menuTaxSetting);
-        menuTaxSetting.setBounds(246, 65, 150, 150);
+        menuTaxSetting.setBounds(246, 65, 150, 130);
 
         groupMenuTaxSetting.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         groupMenuTaxSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menu.png"))); // NOI18N
@@ -1408,7 +1471,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
 
         menuPayrollSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/PaySetting.png"))); // NOI18N
         pnControllSetting.add(menuPayrollSetting);
-        menuPayrollSetting.setBounds(436, 65, 150, 150);
+        menuPayrollSetting.setBounds(436, 65, 150, 130);
 
         groupMenuPayrollSetting.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         groupMenuPayrollSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menu.png"))); // NOI18N
@@ -1459,6 +1522,10 @@ public class FrmMainMenu extends javax.swing.JFrame {
     private void menuSettingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSettingActionPerformed
 
     }//GEN-LAST:event_menuSettingActionPerformed
+
+    private void lblLaoERPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLaoERPMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblLaoERPMouseClicked
 
     /**
      * @param args the command line arguments

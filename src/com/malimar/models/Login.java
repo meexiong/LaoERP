@@ -6,7 +6,6 @@ import com.malimar.utils.Valiables;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
 
 public class Login {
     String username;

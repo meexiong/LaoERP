@@ -1,5 +1,6 @@
 package com.malimar.controllers;
 
+import com.malimar.models.Label;
 import com.malimar.models.Login;
 import com.malimar.utils.EnumStatus;
 import com.malimar.utils.MoveForm;
@@ -54,6 +55,33 @@ public class LoginController implements ActionListener, MouseListener, MouseMoti
         return false;
     }
 
+    private void login() {
+        this.model.setUsername(this.view.getTxtUsername().getText());
+        if (this.model.getNewUser() == true) {
+            FrmChangePassword frm = new FrmChangePassword(null, true);
+            frm.setVisible(true);
+            this.view.getTxtUsername().requestFocus();
+        } else {
+            if (this.verifyPassword() == true) {
+                this.view.dispose();
+                if(Valiables.langType.equals(EnumStatus.L1.name())){
+                    Label.LN = 0;
+                }else{
+                    Label.LN = 1;
+                }
+                Label.getLabelLang();
+                FrmMainMenu frm = new FrmMainMenu();
+                frm.setVisible(true);
+            } else {
+                if (langType.equals(EnumStatus.L1.name())) {
+                    this.view.getLblIncorrect().setText("ຊື່ ຫຼື ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ");
+                } else {
+                    this.view.getLblIncorrect().setText("User or Password Incorrect");
+                }
+            }
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.view.getBtnLaos()) {
@@ -83,45 +111,11 @@ public class LoginController implements ActionListener, MouseListener, MouseMoti
             frm.setVisible(true);
             this.view.getTxtUsername().requestFocus();
         } else if (e.getSource() == this.view.getBtnLogin()) {
-            this.model.setUsername(this.view.getTxtUsername().getText());
-            if (this.model.getNewUser() == true) {
-                FrmChangePassword frm = new FrmChangePassword(null, true);
-                frm.setVisible(true);
-                this.view.getTxtUsername().requestFocus();
-            } else {
-                if (this.verifyPassword() == true) {
-                    this.view.dispose();
-                    FrmMainMenu frm = new FrmMainMenu();
-                    frm.setVisible(true);
-                } else {
-                    if (langType.equals(EnumStatus.L1.name())) {
-                        this.view.getLblIncorrect().setText("ຊື່ ຫຼື ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ");
-                    } else {
-                        this.view.getLblIncorrect().setText("User or Password Incorrect");
-                    }
-                }
-            }
+            this.login();
         } else if (e.getSource() == this.view.getTxtUsername()) {
             this.view.getTxtPassword().requestFocus();
         } else if (e.getSource() == this.view.getTxtPassword()) {
-            this.model.setUsername(this.view.getTxtUsername().getText());
-            if (this.model.getNewUser() == true) {
-                FrmChangePassword frm = new FrmChangePassword(null, true);
-                frm.setVisible(true);
-                this.view.getTxtUsername().requestFocus();
-            } else {
-                if (this.verifyPassword() == true) {
-                    this.view.dispose();
-                    FrmMainMenu frm = new FrmMainMenu();
-                    frm.setVisible(true);
-                } else {
-                    if (langType.equals(EnumStatus.L1.name())) {
-                        this.view.getLblIncorrect().setText("ຊື່ ຫຼື ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ");
-                    } else {
-                        this.view.getLblIncorrect().setText("User or Password Incorrect");
-                    }
-                }
-            }
+            this.login();
         }
     }
 
