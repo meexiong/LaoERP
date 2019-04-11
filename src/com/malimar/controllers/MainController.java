@@ -5,6 +5,9 @@ import static com.malimar.models.Label.LN;
 import static com.malimar.models.Label.hmapLang;
 import com.malimar.utils.Valiables;
 import com.malimar.views.FrmCompany;
+import com.malimar.views.FrmDepartment;
+import com.malimar.views.FrmDivision;
+import com.malimar.views.FrmLocation;
 import com.malimar.views.FrmMainMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -203,6 +206,15 @@ public class MainController implements ActionListener, MouseListener, MouseMotio
             this.view.setState(JFrame.ICONIFIED);
         }else if(e.getSource() == this.view.getMenuCompany()){
             FrmCompany f = new FrmCompany();
+            f.setVisible(true);
+        }else if(e.getSource() == this.view.getMenuLocation()){
+            FrmLocation f = new FrmLocation();
+            f.setVisible(true);
+        }else if(e.getSource() == this.view.getMenuDivision()){
+            FrmDivision f = new FrmDivision(null, true);
+            f.setVisible(true);
+        }else if(e.getSource() == this.view.getMenuDepartment()){
+            FrmDepartment f = new FrmDepartment(null, true);
             f.setVisible(true);
         }
     }
