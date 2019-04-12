@@ -1,11 +1,10 @@
 
 package com.malimar.views;
 
-import javax.swing.plaf.basic.BasicComboBoxUI;
 
-public class FrmDepartment extends javax.swing.JDialog {
+public class FrmUnitWork extends javax.swing.JDialog {
     
-    public FrmDepartment(java.awt.Frame parent, boolean modal) {
+    public FrmUnitWork(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -18,21 +17,21 @@ public class FrmDepartment extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         menuExit = new com.xzq.osc.JocHyperlink();
-        lblDivisionInfo = new javax.swing.JLabel();
-        txtProvinceID = new javax.swing.JTextField();
-        lblDivision = new javax.swing.JLabel();
+        lblBusinessUnit = new javax.swing.JLabel();
+        txtBusinessID = new javax.swing.JTextField();
+        lblBusinessID = new javax.swing.JLabel();
         lblSortBy = new javax.swing.JLabel();
         txtSortBy = new javax.swing.JTextField();
-        txtDivision_L1 = new javax.swing.JTextField();
-        lblDepartment_L1 = new javax.swing.JLabel();
+        txtBusiness_L1 = new javax.swing.JTextField();
+        lblBusiness_L1 = new javax.swing.JLabel();
         btnSave = new com.xzq.osc.JocHyperlink();
         panelSave = new com.xzq.osc.JocHyperlink();
         panelHover = new com.xzq.osc.JocHyperlink();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        lblDepartment_L2 = new javax.swing.JLabel();
-        txtDivision_L2 = new javax.swing.JTextField();
+        lblBusiness_L2 = new javax.swing.JLabel();
+        txtBusiness_L2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -55,10 +54,10 @@ public class FrmDepartment extends javax.swing.JDialog {
             }
         });
 
-        lblDivisionInfo.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
-        lblDivisionInfo.setForeground(new java.awt.Color(255, 255, 255));
-        lblDivisionInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDivisionInfo.setText("Department");
+        lblBusinessUnit.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
+        lblBusinessUnit.setForeground(new java.awt.Color(255, 255, 255));
+        lblBusinessUnit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBusinessUnit.setText("Business Unit");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -66,7 +65,7 @@ public class FrmDepartment extends javax.swing.JDialog {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(2, 2, 2)
-                .addComponent(lblDivisionInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
+                .addComponent(lblBusinessUnit, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(menuExit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -74,7 +73,7 @@ public class FrmDepartment extends javax.swing.JDialog {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblDivisionInfo)
+                    .addComponent(lblBusinessUnit)
                     .addComponent(menuExit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 5, Short.MAX_VALUE))
         );
@@ -82,17 +81,17 @@ public class FrmDepartment extends javax.swing.JDialog {
         jPanel2.add(jPanel3);
         jPanel3.setBounds(0, 0, 526, 30);
 
-        txtProvinceID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtProvinceID.setText("New");
-        txtProvinceID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel2.add(txtProvinceID);
-        txtProvinceID.setBounds(170, 40, 100, 25);
+        txtBusinessID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtBusinessID.setText("New");
+        txtBusinessID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel2.add(txtBusinessID);
+        txtBusinessID.setBounds(170, 40, 100, 25);
 
-        lblDivision.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblDivision.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblDivision.setText("ID");
-        jPanel2.add(lblDivision);
-        lblDivision.setBounds(30, 40, 120, 25);
+        lblBusinessID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblBusinessID.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblBusinessID.setText("ID");
+        jPanel2.add(lblBusinessID);
+        lblBusinessID.setBounds(30, 40, 120, 25);
 
         lblSortBy.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblSortBy.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -105,23 +104,23 @@ public class FrmDepartment extends javax.swing.JDialog {
         jPanel2.add(txtSortBy);
         txtSortBy.setBounds(170, 80, 260, 25);
 
-        txtDivision_L1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtDivision_L1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel2.add(txtDivision_L1);
-        txtDivision_L1.setBounds(170, 120, 260, 25);
+        txtBusiness_L1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtBusiness_L1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel2.add(txtBusiness_L1);
+        txtBusiness_L1.setBounds(170, 120, 260, 25);
 
-        lblDepartment_L1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblDepartment_L1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblDepartment_L1.setText("Department(Lao)");
-        jPanel2.add(lblDepartment_L1);
-        lblDepartment_L1.setBounds(30, 120, 120, 25);
+        lblBusiness_L1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblBusiness_L1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblBusiness_L1.setText("Business Unit(Lao)");
+        jPanel2.add(lblBusiness_L1);
+        lblBusiness_L1.setBounds(30, 120, 120, 25);
 
         btnSave.setText("Save");
         btnSave.setUnvisitColor(new java.awt.Color(255, 255, 255));
         btnSave.setVisitedColor(new java.awt.Color(255, 255, 255));
         btnSave.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(btnSave);
-        btnSave.setBounds(350, 200, 82, 26);
+        btnSave.setBounds(347, 203, 82, 26);
 
         panelSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Button.png"))); // NOI18N
         panelSave.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
@@ -142,7 +141,7 @@ public class FrmDepartment extends javax.swing.JDialog {
                 {null, null, null, null}
             },
             new String [] {
-                "lblID", "lblSortBy", "lblDepartment_L1", "lblDepartment_2"
+                "lblID", "lblSortBy", "lblBusiness_L1", "lblBusiness_L2"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -175,16 +174,16 @@ public class FrmDepartment extends javax.swing.JDialog {
         jPanel2.add(jPanel4);
         jPanel4.setBounds(20, 240, 480, 330);
 
-        lblDepartment_L2.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblDepartment_L2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblDepartment_L2.setText("Department(EN)");
-        jPanel2.add(lblDepartment_L2);
-        lblDepartment_L2.setBounds(30, 160, 120, 25);
+        lblBusiness_L2.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblBusiness_L2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblBusiness_L2.setText("Business Unit(EN)");
+        jPanel2.add(lblBusiness_L2);
+        lblBusiness_L2.setBounds(30, 160, 120, 25);
 
-        txtDivision_L2.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtDivision_L2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel2.add(txtDivision_L2);
-        txtDivision_L2.setBounds(170, 160, 260, 25);
+        txtBusiness_L2.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtBusiness_L2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel2.add(txtBusiness_L2);
+        txtBusiness_L2.setBounds(170, 160, 260, 25);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -224,21 +223,23 @@ public class FrmDepartment extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmDepartment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmUnitWork.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmDepartment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmUnitWork.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmDepartment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmUnitWork.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmDepartment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmUnitWork.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                FrmDepartment dialog = new FrmDepartment(new javax.swing.JFrame(), true);
+                FrmUnitWork dialog = new FrmUnitWork(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -258,17 +259,17 @@ public class FrmDepartment extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lblDepartment_L1;
-    private javax.swing.JLabel lblDepartment_L2;
-    private javax.swing.JLabel lblDivision;
-    private javax.swing.JLabel lblDivisionInfo;
+    private javax.swing.JLabel lblBusinessID;
+    private javax.swing.JLabel lblBusinessUnit;
+    private javax.swing.JLabel lblBusiness_L1;
+    private javax.swing.JLabel lblBusiness_L2;
     private javax.swing.JLabel lblSortBy;
     private com.xzq.osc.JocHyperlink menuExit;
     private com.xzq.osc.JocHyperlink panelHover;
     private com.xzq.osc.JocHyperlink panelSave;
-    private javax.swing.JTextField txtDivision_L1;
-    private javax.swing.JTextField txtDivision_L2;
-    private javax.swing.JTextField txtProvinceID;
+    private javax.swing.JTextField txtBusinessID;
+    private javax.swing.JTextField txtBusiness_L1;
+    private javax.swing.JTextField txtBusiness_L2;
     private javax.swing.JTextField txtSortBy;
     // End of variables declaration//GEN-END:variables
 }

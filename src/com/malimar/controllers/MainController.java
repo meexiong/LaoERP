@@ -4,11 +4,27 @@ import com.malimar.models.Label;
 import static com.malimar.models.Label.LN;
 import static com.malimar.models.Label.hmapLang;
 import com.malimar.utils.Valiables;
+import com.malimar.views.FrmAbsentType;
+import com.malimar.views.FrmBank;
 import com.malimar.views.FrmCompany;
+import com.malimar.views.FrmDeductionType;
 import com.malimar.views.FrmDepartment;
 import com.malimar.views.FrmDivision;
+import com.malimar.views.FrmEmpStatus;
+import com.malimar.views.FrmEmployee;
+import com.malimar.views.FrmEthnic;
+import com.malimar.views.FrmInsurance;
 import com.malimar.views.FrmLocation;
 import com.malimar.views.FrmMainMenu;
+import com.malimar.views.FrmNationality;
+import com.malimar.views.FrmOverTimeType;
+import com.malimar.views.FrmReligion;
+import com.malimar.views.FrmSalaryType;
+import com.malimar.views.FrmTitle;
+import com.malimar.views.FrmUnitWork;
+import com.malimar.views.FrmWorkStatus;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -55,6 +71,7 @@ public class MainController implements ActionListener, MouseListener, MouseMotio
         this.view.getMenuOverTimeType().addActionListener((ActionListener) this);
         this.view.getMenuSalaryType().addActionListener((ActionListener) this);
         this.view.getMenuDeductionType().addActionListener((ActionListener) this);
+        this.view.getMenuEmployee().addActionListener((ActionListener) this);
         this.view.getMenuEmployee().addMouseListener((MouseListener) this);
         this.view.getMenuEmployee().addMouseMotionListener((MouseMotionListener) this);
         this.view.getMenuPayroll().addMouseListener((MouseListener) this);
@@ -196,7 +213,7 @@ public class MainController implements ActionListener, MouseListener, MouseMotio
             System.exit(0);
         } else if (e.getSource() == this.view.getMenuMaximum()) {
             if (cnt == 0) {
-                this.view.setExtendedState(FrmMainMenu.MAXIMIZED_BOTH);
+                this.view.setExtendedState(this.view.getExtendedState() | JFrame.MAXIMIZED_BOTH);
                 cnt++;
             } else {
                 this.view.setExtendedState(FrmMainMenu.NORMAL);
@@ -215,6 +232,45 @@ public class MainController implements ActionListener, MouseListener, MouseMotio
             f.setVisible(true);
         }else if(e.getSource() == this.view.getMenuDepartment()){
             FrmDepartment f = new FrmDepartment(null, true);
+            f.setVisible(true);
+        }else if(e.getSource() == this.view.getMenuUnitWork()){
+            FrmUnitWork f = new FrmUnitWork(null, true);
+            f.setVisible(true);
+        }else if(e.getSource() == this.view.getMenuTitle()){
+            FrmTitle f = new FrmTitle(null, true);
+            f.setVisible(true);
+        }else if(e.getSource() == this.view.getMenuNationality()){
+            FrmNationality f = new FrmNationality(null, true);
+            f.setVisible(true);
+        }else if(e.getSource() == this.view.getMenuEthnic()){
+            FrmEthnic f = new FrmEthnic(null, true);
+            f.setVisible(true);
+        }else if(e.getSource() == this.view.getMenuReligion()){
+            FrmReligion f = new FrmReligion(null, true);
+            f.setVisible(true);
+        }else if(e.getSource() == this.view.getMenuBank()){
+            FrmBank f = new FrmBank(null, true);
+            f.setVisible(true);
+        }else if(e.getSource() == this.view.getMenuInsurance()){
+            FrmInsurance f = new FrmInsurance(null, true);
+            f.setVisible(true);
+        }else if(e.getSource() == this.view.getMenuEmpStatus()){
+            FrmEmpStatus f = new FrmEmpStatus(null, true);
+            f.setVisible(true);
+        }else if(e.getSource() == this.view.getMenuAbsentType()){
+            FrmAbsentType f = new FrmAbsentType(null, true);
+            f.setVisible(true);
+        }else if(e.getSource() == this.view.getMenuOverTimeType()){
+            FrmOverTimeType f = new FrmOverTimeType(null, true);
+            f.setVisible(true);
+        }else if(e.getSource() == this.view.getMenuSalaryType()){
+            FrmSalaryType f = new FrmSalaryType(null, true);
+            f.setVisible(true);
+        }else if(e.getSource() == this.view.getMenuDeductionType()){
+            FrmDeductionType f = new FrmDeductionType(null, true);
+            f.setVisible(true);
+        }else if(e.getSource() == this.view.getMenuEmployee()){
+            FrmEmployee f = new FrmEmployee();
             f.setVisible(true);
         }
     }

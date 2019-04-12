@@ -124,6 +124,8 @@ public class FrmLoginSystem extends javax.swing.JFrame {
         lblPassword.setText("Password");
         jPanel3.add(lblPassword);
         lblPassword.setBounds(55, 270, 210, 25);
+
+        txtUsername.setText("admin@malimar.com");
         jPanel3.add(txtUsername);
         txtUsername.setBounds(55, 240, 210, 25);
 
@@ -139,6 +141,8 @@ public class FrmLoginSystem extends javax.swing.JFrame {
         lblUsername.setText("User name");
         jPanel3.add(lblUsername);
         lblUsername.setBounds(55, 210, 210, 25);
+
+        txtPassword.setText("123");
         jPanel3.add(txtPassword);
         txtPassword.setBounds(55, 300, 210, 25);
 

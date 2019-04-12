@@ -84,7 +84,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                          <Component id="lblDivisionInfo" pref="495" max="32767" attributes="0"/>
+                          <Component id="lblBusinessUnit" pref="495" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="menuExit" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
@@ -94,7 +94,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="lblDivisionInfo" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblBusinessUnit" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="menuExit" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="5" max="32767" attributes="0"/>
@@ -122,7 +122,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuExitActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblDivisionInfo">
+                <Component class="javax.swing.JLabel" name="lblBusinessUnit">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Saysettha OT" size="12" style="1"/>
@@ -131,12 +131,12 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="Department"/>
+                    <Property name="text" type="java.lang.String" value="Business Unit"/>
                   </Properties>
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JTextField" name="txtProvinceID">
+            <Component class="javax.swing.JTextField" name="txtBusinessID">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Saysettha OT" size="12" style="0"/>
@@ -156,7 +156,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblDivision">
+            <Component class="javax.swing.JLabel" name="lblBusinessID">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Saysettha OT" size="12" style="0"/>
@@ -203,7 +203,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtDivision_L1">
+            <Component class="javax.swing.JTextField" name="txtBusiness_L1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Saysettha OT" size="12" style="0"/>
@@ -222,13 +222,13 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblDepartment_L1">
+            <Component class="javax.swing.JLabel" name="lblBusiness_L1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Saysettha OT" size="12" style="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="4"/>
-                <Property name="text" type="java.lang.String" value="Department(Lao)"/>
+                <Property name="text" type="java.lang.String" value="Business Unit(Lao)"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -251,7 +251,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="350" y="200" width="82" height="26"/>
+                  <AbsoluteConstraints x="347" y="203" width="82" height="26"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -320,8 +320,8 @@
                           <Table columnCount="4" rowCount="1">
                             <Column editable="false" title="lblID" type="java.lang.Object"/>
                             <Column editable="false" title="lblSortBy" type="java.lang.Object"/>
-                            <Column editable="false" title="lblDepartment_L1" type="java.lang.Object"/>
-                            <Column editable="false" title="lblDepartment_2" type="java.lang.Object"/>
+                            <Column editable="false" title="lblBusiness_L1" type="java.lang.Object"/>
+                            <Column editable="false" title="lblBusiness_L2" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="autoResizeMode" type="int" value="0"/>
@@ -368,13 +368,13 @@
                 </Container>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="lblDepartment_L2">
+            <Component class="javax.swing.JLabel" name="lblBusiness_L2">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Saysettha OT" size="12" style="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="4"/>
-                <Property name="text" type="java.lang.String" value="Department(EN)"/>
+                <Property name="text" type="java.lang.String" value="Business Unit(EN)"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -382,7 +382,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtDivision_L2">
+            <Component class="javax.swing.JTextField" name="txtBusiness_L2">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Saysettha OT" size="12" style="0"/>

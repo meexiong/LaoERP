@@ -1241,7 +1241,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         jLabel10.setBounds(545, 20, 410, 170);
 
         pnDashboardMain.add(pnControllDashboard);
-        pnControllDashboard.setBounds(0, 0, 980, 660);
+        pnControllDashboard.setBounds(0, 0, 990, 660);
 
         pnControllHR.setBackground(new java.awt.Color(255, 255, 255));
         pnControllHR.setLayout(null);
@@ -1490,9 +1490,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         DashboardControll.setLayout(DashboardControllLayout);
         DashboardControllLayout.setHorizontalGroup(
             DashboardControllLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DashboardControllLayout.createSequentialGroup()
-                .addComponent(pnDashboardMain, javax.swing.GroupLayout.DEFAULT_SIZE, 980, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(pnDashboardMain, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)
         );
         DashboardControllLayout.setVerticalGroup(
             DashboardControllLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
