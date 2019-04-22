@@ -3,6 +3,7 @@ package com.malimar.controllers;
 import com.malimar.models.Label;
 import static com.malimar.models.Label.LN;
 import static com.malimar.models.Label.hmapLang;
+import com.malimar.utils.MoveForm;
 import com.malimar.utils.Valiables;
 import com.malimar.views.FrmAbsentType;
 import com.malimar.views.FrmBank;
@@ -22,9 +23,6 @@ import com.malimar.views.FrmReligion;
 import com.malimar.views.FrmSalaryType;
 import com.malimar.views.FrmTitle;
 import com.malimar.views.FrmUnitWork;
-import com.malimar.views.FrmWorkStatus;
-import java.awt.Dimension;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -132,6 +130,7 @@ public class MainController implements ActionListener, MouseListener, MouseMotio
         this.view.getPnControllHR().setVisible(false);
         this.view.getPnControllSetting().setVisible(false);   
         this.view.getLblLaoERP().addMouseListener((MouseListener)this);
+        this.view.getLblLaoERP().addMouseMotionListener((MouseMotionListener) this);
         this.view.getMenuDashboard().addMouseListener((MouseListener)this);
         this.view.getMenuHR().addMouseListener((MouseListener)this);
         this.view.getMenuSetting().addMouseListener((MouseListener)this);
@@ -153,6 +152,8 @@ public class MainController implements ActionListener, MouseListener, MouseMotio
         this.view.getLblMOT().addMouseListener((MouseListener)this);
         this.view.getLblMSBD().addMouseListener((MouseListener)this);
         this.view.getLblYSBM().addMouseListener((MouseListener)this);
+        this.view.getPanelTitle().addMouseListener((MouseListener)this);
+        this.view.getPanelTitle().addMouseMotionListener((MouseMotionListener) this);
     }
     private void changeLabel(){
         this.view.getLblLaoERP().setText(hmapLang.get("lblLaoERP".concat(frm).toUpperCase()) [LN]);
@@ -361,7 +362,11 @@ public class MainController implements ActionListener, MouseListener, MouseMotio
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        if (e.getSource() == this.view.getPanelTitle()) {
+            MoveForm.mousePressed(e);
+        }else if(e.getSource() == this.view.getLblLaoERP()){
+            MoveForm.mousePressed(e);
+        }
     }
 
     @Override
@@ -462,7 +467,11 @@ public class MainController implements ActionListener, MouseListener, MouseMotio
 
     @Override
     public void mouseDragged(MouseEvent e) {
-
+        if (e.getSource() == this.view.getPanelTitle()) {
+            MoveForm.mouseDragded(e, this.view);
+        }else if(e.getSource() == this.view.getLblLaoERP()){
+            MoveForm.mouseDragded(e, this.view);
+        }
     }
 
     @Override

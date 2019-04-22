@@ -814,6 +814,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         panelSideMenu.add(jPanel1);
         jPanel1.setBounds(0, 43, 200, 43);
 
+        menuCompany.setActiveColor(new java.awt.Color(255, 255, 255));
         menuCompany.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Company_25px.png"))); // NOI18N
         menuCompany.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuCompany.setText("Company");
@@ -824,6 +825,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         panelSideMenu.add(menuCompany);
         menuCompany.setBounds(10, 105, 180, 27);
 
+        menuLocation.setActiveColor(new java.awt.Color(255, 255, 255));
         menuLocation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Location_25px.png"))); // NOI18N
         menuLocation.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuLocation.setText("Location");
@@ -834,6 +836,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         panelSideMenu.add(menuLocation);
         menuLocation.setBounds(10, 137, 180, 27);
 
+        menuDivision.setActiveColor(new java.awt.Color(255, 255, 255));
         menuDivision.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Small Business_25px.png"))); // NOI18N
         menuDivision.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuDivision.setText("Division");
@@ -849,6 +852,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         panelSideMenu.add(menuDivision);
         menuDivision.setBounds(10, 169, 180, 27);
 
+        menuDepartment.setActiveColor(new java.awt.Color(255, 255, 255));
         menuDepartment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Department_25px.png"))); // NOI18N
         menuDepartment.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuDepartment.setText("Department");
@@ -859,6 +863,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         panelSideMenu.add(menuDepartment);
         menuDepartment.setBounds(10, 201, 180, 27);
 
+        menuUnitWork.setActiveColor(new java.awt.Color(255, 255, 255));
         menuUnitWork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Unit_25px.png"))); // NOI18N
         menuUnitWork.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuUnitWork.setText("Unit");
@@ -869,6 +874,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         panelSideMenu.add(menuUnitWork);
         menuUnitWork.setBounds(10, 233, 180, 27);
 
+        menuTitle.setActiveColor(new java.awt.Color(255, 255, 255));
         menuTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Medal Third Place_25px.png"))); // NOI18N
         menuTitle.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuTitle.setText("Title");
@@ -879,6 +885,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         panelSideMenu.add(menuTitle);
         menuTitle.setBounds(10, 265, 180, 27);
 
+        menuNationality.setActiveColor(new java.awt.Color(255, 255, 255));
         menuNationality.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Destination_25px.png"))); // NOI18N
         menuNationality.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuNationality.setText("Nationality");
@@ -889,6 +896,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         panelSideMenu.add(menuNationality);
         menuNationality.setBounds(10, 297, 180, 27);
 
+        menuEthnic.setActiveColor(new java.awt.Color(255, 255, 255));
         menuEthnic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Hula Girl_25px.png"))); // NOI18N
         menuEthnic.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuEthnic.setText("Ethnic");
@@ -899,6 +907,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         panelSideMenu.add(menuEthnic);
         menuEthnic.setBounds(10, 329, 180, 27);
 
+        menuReligion.setActiveColor(new java.awt.Color(255, 255, 255));
         menuReligion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Church_25px.png"))); // NOI18N
         menuReligion.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuReligion.setText("Religion");
@@ -909,6 +918,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         panelSideMenu.add(menuReligion);
         menuReligion.setBounds(10, 361, 180, 27);
 
+        menuBank.setActiveColor(new java.awt.Color(255, 255, 255));
         menuBank.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Bank Building_25px.png"))); // NOI18N
         menuBank.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuBank.setText("Bank");
@@ -919,6 +929,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         panelSideMenu.add(menuBank);
         menuBank.setBounds(10, 393, 180, 27);
 
+        menuInsurance.setActiveColor(new java.awt.Color(255, 255, 255));
         menuInsurance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Car Insurance_25px.png"))); // NOI18N
         menuInsurance.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuInsurance.setText("Insurance");
@@ -929,6 +940,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         panelSideMenu.add(menuInsurance);
         menuInsurance.setBounds(10, 425, 180, 27);
 
+        menuEmpStatus.setActiveColor(new java.awt.Color(255, 255, 255));
         menuEmpStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Employee_25px.png"))); // NOI18N
         menuEmpStatus.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuEmpStatus.setText("Employee Status");
@@ -939,6 +951,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         panelSideMenu.add(menuEmpStatus);
         menuEmpStatus.setBounds(10, 457, 180, 27);
 
+        menuAbsentType.setActiveColor(new java.awt.Color(255, 255, 255));
         menuAbsentType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Leave_25px.png"))); // NOI18N
         menuAbsentType.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuAbsentType.setText("Absent Type");
@@ -949,6 +962,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         panelSideMenu.add(menuAbsentType);
         menuAbsentType.setBounds(10, 489, 180, 27);
 
+        menuOverTimeType.setActiveColor(new java.awt.Color(255, 255, 255));
         menuOverTimeType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Schedule_25px.png"))); // NOI18N
         menuOverTimeType.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuOverTimeType.setText("Overtime Type");
@@ -959,6 +973,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         panelSideMenu.add(menuOverTimeType);
         menuOverTimeType.setBounds(10, 521, 180, 27);
 
+        menuSalaryType.setActiveColor(new java.awt.Color(255, 255, 255));
         menuSalaryType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Stack of Money_25px.png"))); // NOI18N
         menuSalaryType.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuSalaryType.setText("Salary Type");
@@ -969,6 +984,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         panelSideMenu.add(menuSalaryType);
         menuSalaryType.setBounds(10, 553, 180, 27);
 
+        menuDeductionType.setActiveColor(new java.awt.Color(255, 255, 255));
         menuDeductionType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Minus_25px.png"))); // NOI18N
         menuDeductionType.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuDeductionType.setText("Deduction Type");

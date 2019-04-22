@@ -1,6 +1,7 @@
 
 package com.malimar.views;
 
+import com.malimar.controllers.CompanyController;
 import com.xzq.osc.JocHyperlink;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -9,6 +10,7 @@ public class FrmCompany extends javax.swing.JFrame {
 
     public FrmCompany() {
         initComponents();
+        CompanyController cc = new CompanyController(this);
     }
 
     public JocHyperlink getBtnSave() {
@@ -258,6 +260,9 @@ public class FrmCompany extends javax.swing.JFrame {
         txtID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         txtID.setText("New");
         txtID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        txtID.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtID.setEnabled(false);
+        txtID.setOpaque(false);
         jPanel2.add(txtID);
         txtID.setBounds(170, 70, 100, 23);
 
@@ -327,9 +332,12 @@ public class FrmCompany extends javax.swing.JFrame {
         jPanel2.add(txtAddress_L2);
         txtAddress_L2.setBounds(170, 310, 300, 23);
 
+        btnSave.setActiveColor(new java.awt.Color(255, 255, 255));
+        btnSave.setRolloverColor(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
         btnSave.setUnvisitColor(new java.awt.Color(255, 255, 255));
         btnSave.setVisitedColor(new java.awt.Color(255, 255, 255));
+        btnSave.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(btnSave);
         btnSave.setBounds(387, 363, 82, 26);
 
@@ -350,6 +358,7 @@ public class FrmCompany extends javax.swing.JFrame {
         lblImage.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblImage.setText("Image");
+        lblImage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel4.add(lblImage, java.awt.BorderLayout.CENTER);
 
         jPanel2.add(jPanel4);
@@ -373,7 +382,7 @@ public class FrmCompany extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExitActionPerformed
-         this.dispose();
+        
     }//GEN-LAST:event_menuExitActionPerformed
 
     /**
