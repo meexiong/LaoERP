@@ -6,10 +6,10 @@ import com.malimar.views.FrmChangeLabel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ChangeLabelManager implements ActionListener{
+public class ChangeLabelController implements ActionListener{
     private final FrmChangeLabel view;
     private final Label model;
-    public ChangeLabelManager(FrmChangeLabel view){
+    public ChangeLabelController(FrmChangeLabel view){
         this.view = view;
         Label lb = new Label();
         this.model = lb;

@@ -1,12 +1,172 @@
 
 package com.malimar.views;
 
+import com.malimar.controllers.InsuranceController;
+import com.xzq.osc.JocHyperlink;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 
 public class FrmInsurance extends javax.swing.JDialog {
     
     public FrmInsurance(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        InsuranceController ic = new InsuranceController(this);
+    }
+
+    public JocHyperlink getBtnSave() {
+        return btnSave;
+    }
+
+    public void setBtnSave(JocHyperlink btnSave) {
+        this.btnSave = btnSave;
+    }
+
+    public JLabel getLblComPercent() {
+        return lblComPercent;
+    }
+
+    public void setLblComPercent(JLabel lblComPercent) {
+        this.lblComPercent = lblComPercent;
+    }
+
+    public JLabel getLblEmpPercent() {
+        return lblEmpPercent;
+    }
+
+    public void setLblEmpPercent(JLabel lblEmpPercent) {
+        this.lblEmpPercent = lblEmpPercent;
+    }
+
+    public JLabel getLblInsuranceID() {
+        return lblInsuranceID;
+    }
+
+    public void setLblInsuranceID(JLabel lblInsuranceID) {
+        this.lblInsuranceID = lblInsuranceID;
+    }
+
+    public JLabel getLblInsuranceInfo() {
+        return lblInsuranceInfo;
+    }
+
+    public void setLblInsuranceInfo(JLabel lblInsuranceInfo) {
+        this.lblInsuranceInfo = lblInsuranceInfo;
+    }
+
+    public JLabel getLblInsurance_L1() {
+        return lblInsurance_L1;
+    }
+
+    public void setLblInsurance_L1(JLabel lblInsurance_L1) {
+        this.lblInsurance_L1 = lblInsurance_L1;
+    }
+
+    public JLabel getLblInsurance_L2() {
+        return lblInsurance_L2;
+    }
+
+    public void setLblInsurance_L2(JLabel lblInsurance_L2) {
+        this.lblInsurance_L2 = lblInsurance_L2;
+    }
+
+    public JLabel getLblMaxMoney() {
+        return lblMaxMoney;
+    }
+
+    public void setLblMaxMoney(JLabel lblMaxMoney) {
+        this.lblMaxMoney = lblMaxMoney;
+    }
+
+    public JocHyperlink getMenuExit() {
+        return menuExit;
+    }
+
+    public void setMenuExit(JocHyperlink menuExit) {
+        this.menuExit = menuExit;
+    }
+
+    public JocHyperlink getPanelHover() {
+        return panelHover;
+    }
+
+    public void setPanelHover(JocHyperlink panelHover) {
+        this.panelHover = panelHover;
+    }
+
+    public JocHyperlink getPanelSave() {
+        return panelSave;
+    }
+
+    public void setPanelSave(JocHyperlink panelSave) {
+        this.panelSave = panelSave;
+    }
+
+    public JScrollPane getScrollPanel() {
+        return scrollPanel;
+    }
+
+    public void setScrollPanel(JScrollPane scrollPanel) {
+        this.scrollPanel = scrollPanel;
+    }
+
+    public JTable getTable() {
+        return table;
+    }
+
+    public void setTable(JTable table) {
+        this.table = table;
+    }
+
+    public JTextField getTxtComPercentage() {
+        return txtComPercentage;
+    }
+
+    public void setTxtComPercentage(JTextField txtComPercentage) {
+        this.txtComPercentage = txtComPercentage;
+    }
+
+    public JTextField getTxtEmpPercentage() {
+        return txtEmpPercentage;
+    }
+
+    public void setTxtEmpPercentage(JTextField txtEmpPercentage) {
+        this.txtEmpPercentage = txtEmpPercentage;
+    }
+
+    public JTextField getTxtInsuranceID() {
+        return txtInsuranceID;
+    }
+
+    public void setTxtInsuranceID(JTextField txtInsuranceID) {
+        this.txtInsuranceID = txtInsuranceID;
+    }
+
+    public JTextField getTxtInsurance_L1() {
+        return txtInsurance_L1;
+    }
+
+    public void setTxtInsurance_L1(JTextField txtInsurance_L1) {
+        this.txtInsurance_L1 = txtInsurance_L1;
+    }
+
+    public JTextField getTxtInsurance_L2() {
+        return txtInsurance_L2;
+    }
+
+    public void setTxtInsurance_L2(JTextField txtInsurance_L2) {
+        this.txtInsurance_L2 = txtInsurance_L2;
+    }
+
+    public JTextField getTxtMaxMoney() {
+        return txtMaxMoney;
+    }
+
+    public void setTxtMaxMoney(JTextField txtMaxMoney) {
+        this.txtMaxMoney = txtMaxMoney;
     }
 
     @SuppressWarnings("unchecked")
@@ -31,11 +191,11 @@ public class FrmInsurance extends javax.swing.JDialog {
         lblInsurance_L2 = new javax.swing.JLabel();
         txtInsurance_L2 = new javax.swing.JTextField();
         lblEmpPercent = new javax.swing.JLabel();
-        txtInsurance_L3 = new javax.swing.JTextField();
+        txtEmpPercentage = new javax.swing.JTextField();
         lblComPercent = new javax.swing.JLabel();
-        txtInsurance_L4 = new javax.swing.JTextField();
+        txtComPercentage = new javax.swing.JTextField();
         lblMaxMoney = new javax.swing.JLabel();
-        txtInsurance_L5 = new javax.swing.JTextField();
+        txtMaxMoney = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -88,6 +248,9 @@ public class FrmInsurance extends javax.swing.JDialog {
         txtInsuranceID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         txtInsuranceID.setText("New");
         txtInsuranceID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        txtInsuranceID.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtInsuranceID.setEnabled(false);
+        txtInsuranceID.setOpaque(false);
         jPanel2.add(txtInsuranceID);
         txtInsuranceID.setBounds(170, 40, 100, 25);
 
@@ -108,6 +271,8 @@ public class FrmInsurance extends javax.swing.JDialog {
         jPanel2.add(lblInsurance_L1);
         lblInsurance_L1.setBounds(30, 80, 120, 25);
 
+        btnSave.setActiveColor(new java.awt.Color(255, 255, 255));
+        btnSave.setRolloverColor(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
         btnSave.setUnvisitColor(new java.awt.Color(255, 255, 255));
         btnSave.setVisitedColor(new java.awt.Color(255, 255, 255));
@@ -134,7 +299,7 @@ public class FrmInsurance extends javax.swing.JDialog {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "lblInsuranceID", "lblInsurance_L1", "lblInsurance_L2", "lblEmpPercent", "lblComPervent", "lblMaxMoney"
+                "lblInsuranceID", "lblInsurance_L1", "lblInsurance_L2", "lblEmpPercent", "lblComPercent", "lblMaxMoney"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -188,10 +353,10 @@ public class FrmInsurance extends javax.swing.JDialog {
         jPanel2.add(lblEmpPercent);
         lblEmpPercent.setBounds(30, 160, 120, 25);
 
-        txtInsurance_L3.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtInsurance_L3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel2.add(txtInsurance_L3);
-        txtInsurance_L3.setBounds(170, 160, 60, 25);
+        txtEmpPercentage.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtEmpPercentage.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel2.add(txtEmpPercentage);
+        txtEmpPercentage.setBounds(170, 160, 60, 25);
 
         lblComPercent.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblComPercent.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -199,10 +364,10 @@ public class FrmInsurance extends javax.swing.JDialog {
         jPanel2.add(lblComPercent);
         lblComPercent.setBounds(250, 160, 100, 25);
 
-        txtInsurance_L4.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtInsurance_L4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel2.add(txtInsurance_L4);
-        txtInsurance_L4.setBounds(370, 160, 60, 25);
+        txtComPercentage.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtComPercentage.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel2.add(txtComPercentage);
+        txtComPercentage.setBounds(370, 160, 60, 25);
 
         lblMaxMoney.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblMaxMoney.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -210,10 +375,10 @@ public class FrmInsurance extends javax.swing.JDialog {
         jPanel2.add(lblMaxMoney);
         lblMaxMoney.setBounds(30, 200, 120, 25);
 
-        txtInsurance_L5.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtInsurance_L5.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel2.add(txtInsurance_L5);
-        txtInsurance_L5.setBounds(170, 200, 140, 25);
+        txtMaxMoney.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtMaxMoney.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel2.add(txtMaxMoney);
+        txtMaxMoney.setBounds(170, 200, 140, 25);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -311,11 +476,11 @@ public class FrmInsurance extends javax.swing.JDialog {
     private com.xzq.osc.JocHyperlink panelSave;
     private javax.swing.JScrollPane scrollPanel;
     private javax.swing.JTable table;
+    private javax.swing.JTextField txtComPercentage;
+    private javax.swing.JTextField txtEmpPercentage;
     private javax.swing.JTextField txtInsuranceID;
     private javax.swing.JTextField txtInsurance_L1;
     private javax.swing.JTextField txtInsurance_L2;
-    private javax.swing.JTextField txtInsurance_L3;
-    private javax.swing.JTextField txtInsurance_L4;
-    private javax.swing.JTextField txtInsurance_L5;
+    private javax.swing.JTextField txtMaxMoney;
     // End of variables declaration//GEN-END:variables
 }

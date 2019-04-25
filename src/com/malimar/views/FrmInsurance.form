@@ -149,6 +149,11 @@
                     </MatteColorBorder>
                   </Border>
                 </Property>
+                <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
+                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="opaque" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -205,6 +210,12 @@
             </Component>
             <Component class="com.xzq.osc.JocHyperlink" name="btnSave">
               <Properties>
+                <Property name="activeColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="rolloverColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Save"/>
                 <Property name="unvisitColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -289,7 +300,7 @@
                             <Column editable="false" title="lblInsurance_L1" type="java.lang.Object"/>
                             <Column editable="false" title="lblInsurance_L2" type="java.lang.Object"/>
                             <Column editable="false" title="lblEmpPercent" type="java.lang.Object"/>
-                            <Column editable="false" title="lblComPervent" type="java.lang.Object"/>
+                            <Column editable="false" title="lblComPercent" type="java.lang.Object"/>
                             <Column editable="false" title="lblMaxMoney" type="java.lang.Object"/>
                           </Table>
                         </Property>
@@ -394,7 +405,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtInsurance_L3">
+            <Component class="javax.swing.JTextField" name="txtEmpPercentage">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Saysettha OT" size="12" style="0"/>
@@ -427,7 +438,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtInsurance_L4">
+            <Component class="javax.swing.JTextField" name="txtComPercentage">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Saysettha OT" size="12" style="0"/>
@@ -460,7 +471,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtInsurance_L5">
+            <Component class="javax.swing.JTextField" name="txtMaxMoney">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Saysettha OT" size="12" style="0"/>

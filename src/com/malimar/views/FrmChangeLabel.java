@@ -1,7 +1,7 @@
 
 package com.malimar.views;
 
-import com.malimar.controllers.ChangeLabelManager;
+import com.malimar.controllers.ChangeLabelController;
 import com.xzq.osc.JocHyperlink;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -11,7 +11,7 @@ public class FrmChangeLabel extends javax.swing.JDialog {
     public FrmChangeLabel(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        ChangeLabelManager cl = new ChangeLabelManager(this);
+        ChangeLabelController cl = new ChangeLabelController(this);
     }
 
     public JocHyperlink getBtnSave() {

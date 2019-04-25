@@ -23,6 +23,7 @@ import com.malimar.views.FrmReligion;
 import com.malimar.views.FrmSalaryType;
 import com.malimar.views.FrmTitle;
 import com.malimar.views.FrmUnitWork;
+import com.malimar.views.FrmWorkStatus;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -256,7 +257,7 @@ public class MainController implements ActionListener, MouseListener, MouseMotio
             FrmInsurance f = new FrmInsurance(null, true);
             f.setVisible(true);
         }else if(e.getSource() == this.view.getMenuEmpStatus()){
-            FrmEmpStatus f = new FrmEmpStatus(null, true);
+            FrmWorkStatus f = new FrmWorkStatus(null, true);
             f.setVisible(true);
         }else if(e.getSource() == this.view.getMenuAbsentType()){
             FrmAbsentType f = new FrmAbsentType(null, true);

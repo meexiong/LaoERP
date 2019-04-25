@@ -1,10 +1,12 @@
 package com.malimar.controllers;
 
 import com.malimar.models.District;
+import com.malimar.models.Label;
 import static com.malimar.models.Label.LN;
 import static com.malimar.models.Label.hmapLang;
 import com.malimar.models.Location;
 import com.malimar.models.Province;
+import com.malimar.utils.CheckField;
 import com.malimar.utils.ManageTable;
 import com.malimar.utils.MessageBox;
 import com.malimar.utils.MoveForm;
@@ -19,6 +21,7 @@ import java.awt.event.MouseMotionListener;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
+import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.basic.BasicComboBoxUI;
 import javax.swing.table.DefaultTableModel;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
@@ -96,6 +99,30 @@ public class LocationController implements ActionListener, MouseListener, KeyLis
         this.view.getBtnDeleteLoc().addMouseListener(this);
         this.view.getBtnDeleteLoc().addMouseMotionListener(this);
         this.view.getTableLocation().addMouseListener(this);
+        this.view.getCmbDisProvince().addActionListener(this);
+        this.view.getCmbDivision().addActionListener(this);
+        this.view.getCmbLocProvince().addActionListener(this);
+        this.view.getCmbLocDistrict().addActionListener(this);
+        this.view.getCmbManager().addActionListener(this);
+        this.view.getCmbAssistant().addActionListener(this);
+        this.view.getTxtLocationID().addMouseListener(this);
+        this.view.getLblDistrictID().addMouseListener(this);
+        this.view.getLblDistrict_L1().addMouseListener(this);
+        this.view.getLblDistrict_L2().addMouseListener(this);
+        this.view.getLblDistrictProvince().addMouseListener(this);
+        this.view.getLblLocationID().addMouseListener(this);
+        this.view.getLblLocNumber().addMouseListener(this);
+        this.view.getLblSortBy().addMouseListener(this);
+        this.view.getLblDivision().addMouseListener(this);
+        this.view.getLblLocation_L1().addMouseListener(this);
+        this.view.getLblLocation_L2().addMouseListener(this);
+        this.view.getLblTelephone().addMouseListener(this);
+        this.view.getLblLocProvince().addMouseListener(this);
+        this.view.getLblLocDistrict().addMouseListener(this);
+        this.view.getLblAddress_L1().addMouseListener(this);
+        this.view.getLblAddress_L2().addMouseListener(this);
+        this.view.getLblManager().addMouseListener(this);
+        this.view.getLblAssistant().addMouseListener(this);
     }
 
     private void changeLabel() {
@@ -288,6 +315,9 @@ public class LocationController implements ActionListener, MouseListener, KeyLis
             this.provinceModel.load(this.view.getTableProvince(), tableProvinceModel);
             this.clearProvinceText();
         } else if (e.getSource() == this.view.getBtnSaveDistrict()) {
+            if (CheckField.comboBox(this.view.getCmbDisProvince()) == false) {
+                return;
+            }
             String distPro = this.view.getCmbDisProvince().getSelectedItem().toString();
             this.districtModel.setProvinceID(Integer.parseInt(mapdistProvince.get(distPro)[0].toString()));
             this.districtModel.setDistrictName_L1(this.view.getTxtDistrict_L1().getText());
@@ -318,6 +348,21 @@ public class LocationController implements ActionListener, MouseListener, KeyLis
             this.districtModel.load(this.view.getTableDistrict(), tableDistrictModel);
             this.clearDistrictText();
         } else if (e.getSource() == this.view.getBtnSaveLoc()) {
+            if (CheckField.comboBox(this.view.getCmbDivision()) == false) {
+                return;
+            }
+            if (CheckField.comboBox(this.view.getCmbLocProvince()) == false) {
+                return;
+            }
+            if (CheckField.comboBox(this.view.getCmbLocDistrict()) == false) {
+                return;
+            }
+            if (CheckField.comboBox(this.view.getCmbManager()) == false) {
+                return;
+            }
+            if (CheckField.comboBox(this.view.getCmbAssistant()) == false) {
+                return;
+            }
             this.locModel.setLocNumber(this.view.getTxtLocNumber().getText());
             this.locModel.setSortBy(Integer.parseInt(this.view.getTxtSortBy().getText()));
             String divi = this.view.getCmbDivision().getSelectedItem().toString();
@@ -358,17 +403,45 @@ public class LocationController implements ActionListener, MouseListener, KeyLis
                 this.locModel.load(this.view.getTableLocation(), tableLocationModel);
                 this.clearText();
             }
+        } else if (e.getSource() == this.view.getCmbDisProvince()) {
+            this.view.getCmbDisProvince().setBorder(new EmptyBorder(0, 0, 0, 0));
+        } else if (e.getSource() == this.view.getCmbDivision()) {
+            this.view.getCmbDivision().setBorder(new EmptyBorder(0, 0, 0, 0));
+        } else if (e.getSource() == this.view.getCmbLocProvince()) {
+            this.view.getCmbLocProvince().setBorder(new EmptyBorder(0, 0, 0, 0));
+        } else if (e.getSource() == this.view.getCmbLocDistrict()) {
+            this.view.getCmbLocDistrict().setBorder(new EmptyBorder(0, 0, 0, 0));
+        } else if (e.getSource() == this.view.getCmbManager()) {
+            this.view.getCmbManager().setBorder(new EmptyBorder(0, 0, 0, 0));
+        } else if (e.getSource() == this.view.getCmbAssistant()) {
+            this.view.getCmbAssistant().setBorder(new EmptyBorder(0, 0, 0, 0));
         }
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == this.view.getTabPanel()) {
-            if (this.view.getTabPanel().getSelectedIndex() == 2) {
-                this.provinceModel.load(this.view.getTableProvince(), tableProvinceModel);
-            } else if (this.view.getTabPanel().getSelectedIndex() == 1) {
-                this.districtModel.load(this.view.getTableDistrict(), tableDistrictModel);
-                this.setProvinceCombox();
+            switch (this.view.getTabPanel().getSelectedIndex()) {
+                case 2:
+                    Label.WindowChangeLabel("tabProvince", frm, e);
+                    this.provinceModel.load(this.view.getTableProvince(), tableProvinceModel);
+                    break;
+                case 1:
+                    Label.WindowChangeLabel("tabDistrict", frm, e);
+                    this.districtModel.load(this.view.getTableDistrict(), tableDistrictModel);
+                    this.setProvinceCombox();
+                    break;
+                case 0:
+                    Label.WindowChangeLabel("tabLocation", frm, e);
+                    this.setDivisionCombox();
+                    this.setGroupCombox();
+                    this.setDistrictCombox();
+                    this.setManagerCombox();
+                    this.setAssistantCombox();
+                    this.locModel.load(this.view.getTableLocation(), tableLocationModel);
+                    break;
+                default:
+                    break;
             }
         } else if (e.getSource() == this.view.getTableProvince()) {
             int row = this.view.getTableProvince().getSelectedRow();
@@ -404,6 +477,64 @@ public class LocationController implements ActionListener, MouseListener, KeyLis
             this.view.getCmbAssistant().setSelectedItem(this.view.getTableLocation().getValueAt(row, 10).toString());
             this.view.getCmbDivision().setSelectedItem(this.view.getTableLocation().getValueAt(row, 11).toString());
             this.view.getTxtSortBy().setText(this.view.getTableLocation().getValueAt(row, 12).toString());
+        } else if (e.getSource() == this.view.getTxtLocationID()) {
+            if (e.getClickCount() == 2) {
+                this.clearText();
+            }
+        } else if (e.getSource() == this.view.getLblProvinceID()) {
+            Label.WindowChangeLabel("lblProvinceID", frm, e);
+        } else if (e.getSource() == this.view.getLblProvince_L1()) {
+            Label.WindowChangeLabel("lblProvince_L1", frm, e);
+        } else if (e.getSource() == this.view.getLblProvince_L2()) {
+            Label.WindowChangeLabel("lblProvince_L2", frm, e);
+        } else if (e.getSource() == this.view.getBtnSaveProvince()) {
+            Label.WindowChangeLabel("btnSave", frm, e);
+        } else if (e.getSource() == this.view.getBtnDeleteProvince()) {
+            Label.WindowChangeLabel("btnDelete", frm, e);
+        } else if (e.getSource() == this.view.getLblDistrictID()) {
+            Label.WindowChangeLabel("lblDistrictID", frm, e);
+        } else if (e.getSource() == this.view.getLblDistrict_L1()) {
+            Label.WindowChangeLabel("lblDistrict_L1", frm, e);
+        } else if (e.getSource() == this.view.getLblDistrict_L2()) {
+            Label.WindowChangeLabel("lblDistrict_L2", frm, e);
+        } else if (e.getSource() == this.view.getLblDistrictProvince()) {
+            Label.WindowChangeLabel("lblDistrictProvince", frm, e);
+        } else if (e.getSource() == this.view.getBtnSaveDistrict()) {
+            Label.WindowChangeLabel("btnSave", frm, e);
+        } else if (e.getSource() == this.view.getBtnDeleteDistrict()) {
+            Label.WindowChangeLabel("btnDelete", frm, e);
+        } else if (e.getSource() == this.view.getLblLocationID()) {
+            Label.WindowChangeLabel("lblLocationID", frm, e);
+        } else if (e.getSource() == this.view.getLblLocNumber()) {
+            Label.WindowChangeLabel("lblLocNumber", frm, e);
+        } else if (e.getSource() == this.view.getLblSortBy()) {
+            Label.WindowChangeLabel("lblSortBy", frm, e);
+        } else if (e.getSource() == this.view.getLblLocation_L1()) {
+            Label.WindowChangeLabel("lblLocation_L1", frm, e);
+        } else if (e.getSource() == this.view.getLblLocation_L2()) {
+            Label.WindowChangeLabel("lblLocation_L2", frm, e);
+        } else if (e.getSource() == this.view.getLblTelephone()) {
+            Label.WindowChangeLabel("lblTelephone", frm, e);
+        } else if (e.getSource() == this.view.getLblLocProvince()) {
+            Label.WindowChangeLabel("lblLocProvince", frm, e);
+        } else if (e.getSource() == this.view.getLblLocDistrict()) {
+            Label.WindowChangeLabel("lblLocDistrict", frm, e);
+        } else if (e.getSource() == this.view.getLblAddress_L1()) {
+            Label.WindowChangeLabel("lblAddress_L1", frm, e);
+        } else if (e.getSource() == this.view.getLblAddress_L2()) {
+            Label.WindowChangeLabel("lblAddress_L2", frm, e);
+        } else if (e.getSource() == this.view.getLblManager()) {
+            Label.WindowChangeLabel("lblManager", frm, e);
+        } else if (e.getSource() == this.view.getLblAssistant()) {
+            Label.WindowChangeLabel("lblAssistant", frm, e);
+        } else if (e.getSource() == this.view.getBtnSaveLoc()) {
+            Label.WindowChangeLabel("btnSave", frm, e);
+        } else if (e.getSource() == this.view.getBtnDeleteLoc()) {
+            Label.WindowChangeLabel("btnDelete", frm, e);
+        } else if (e.getSource() == this.view.getLblDivision()) {
+            Label.WindowChangeLabel("lblDivision", frm, e);
+        }else if (e.getSource() == this.view.getLblLocationInfo()) {
+            Label.WindowChangeLabel("lblLocationInfo", frm, e);
         }
     }
 

@@ -1,12 +1,84 @@
 
 package com.malimar.views;
 
+import com.malimar.controllers.ReligionController;
+import com.xzq.osc.JocHyperlink;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 
 public class FrmReligion extends javax.swing.JDialog {
     
     public FrmReligion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        ReligionController rc = new ReligionController(this);
+    }
+
+    public JocHyperlink getBtnDelete() {
+        return btnDelete;
+    }
+
+    public JocHyperlink getBtnSave() {
+        return btnSave;
+    }
+
+    public JLabel getLblReligionID() {
+        return lblReligionID;
+    }
+
+    public JLabel getLblReligionInfo() {
+        return lblReligionInfo;
+    }
+
+    public JLabel getLblReligion_L1() {
+        return lblReligion_L1;
+    }
+
+    public JLabel getLblReligion_L2() {
+        return lblReligion_L2;
+    }
+
+    public JocHyperlink getMenuExit() {
+        return menuExit;
+    }
+
+    public JocHyperlink getPanelDelete() {
+        return panelDelete;
+    }
+
+    public JocHyperlink getPanelHover() {
+        return panelHover;
+    }
+
+    public JocHyperlink getPanelHoverDelete() {
+        return panelHoverDelete;
+    }
+
+    public JocHyperlink getPanelSave() {
+        return panelSave;
+    }
+
+    public JTable getTable() {
+        return table;
+    }
+
+    public JScrollPane getTableScrollPanel() {
+        return tableScrollPanel;
+    }
+
+    public JTextField getTxtReligionID() {
+        return txtReligionID;
+    }
+
+    public JTextField getTxtReligion_L1() {
+        return txtReligion_L1;
+    }
+
+    public JTextField getTxtReligion_L2() {
+        return txtReligion_L2;
     }
 
     @SuppressWarnings("unchecked")
@@ -26,10 +98,13 @@ public class FrmReligion extends javax.swing.JDialog {
         panelSave = new com.xzq.osc.JocHyperlink();
         panelHover = new com.xzq.osc.JocHyperlink();
         jPanel4 = new javax.swing.JPanel();
-        scrollPanel = new javax.swing.JScrollPane();
+        tableScrollPanel = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         lblReligion_L2 = new javax.swing.JLabel();
         txtReligion_L2 = new javax.swing.JTextField();
+        btnDelete = new com.xzq.osc.JocHyperlink();
+        panelDelete = new com.xzq.osc.JocHyperlink();
+        panelHoverDelete = new com.xzq.osc.JocHyperlink();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -82,6 +157,9 @@ public class FrmReligion extends javax.swing.JDialog {
         txtReligionID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         txtReligionID.setText("New");
         txtReligionID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        txtReligionID.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtReligionID.setEnabled(false);
+        txtReligionID.setOpaque(false);
         jPanel2.add(txtReligionID);
         txtReligionID.setBounds(170, 40, 100, 25);
 
@@ -102,22 +180,24 @@ public class FrmReligion extends javax.swing.JDialog {
         jPanel2.add(lblReligion_L1);
         lblReligion_L1.setBounds(30, 80, 120, 25);
 
+        btnSave.setActiveColor(new java.awt.Color(255, 255, 255));
+        btnSave.setRolloverColor(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
         btnSave.setUnvisitColor(new java.awt.Color(255, 255, 255));
         btnSave.setVisitedColor(new java.awt.Color(255, 255, 255));
         btnSave.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(btnSave);
-        btnSave.setBounds(348, 163, 82, 26);
+        btnSave.setBounds(227, 163, 82, 26);
 
         panelSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Button.png"))); // NOI18N
         panelSave.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(panelSave);
-        panelSave.setBounds(340, 160, 96, 32);
+        panelSave.setBounds(220, 160, 96, 32);
 
         panelHover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/ButtonHover.png"))); // NOI18N
         panelHover.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(panelHover);
-        panelHover.setBounds(340, 160, 96, 32);
+        panelHover.setBounds(220, 160, 96, 32);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new java.awt.BorderLayout());
@@ -144,7 +224,7 @@ public class FrmReligion extends javax.swing.JDialog {
         table.setRowHeight(25);
         table.setSelectionBackground(new java.awt.Color(255, 255, 255));
         table.setSelectionForeground(java.awt.Color.red);
-        scrollPanel.setViewportView(table);
+        tableScrollPanel.setViewportView(table);
         if (table.getColumnModel().getColumnCount() > 0) {
             table.getColumnModel().getColumn(0).setMinWidth(70);
             table.getColumnModel().getColumn(0).setMaxWidth(70);
@@ -154,10 +234,10 @@ public class FrmReligion extends javax.swing.JDialog {
             table.getColumnModel().getColumn(2).setMaxWidth(202);
         }
 
-        jPanel4.add(scrollPanel, java.awt.BorderLayout.CENTER);
+        jPanel4.add(tableScrollPanel, java.awt.BorderLayout.CENTER);
 
         jPanel2.add(jPanel4);
-        jPanel4.setBounds(10, 240, 480, 330);
+        jPanel4.setBounds(10, 210, 480, 360);
 
         lblReligion_L2.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblReligion_L2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -169,6 +249,25 @@ public class FrmReligion extends javax.swing.JDialog {
         txtReligion_L2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
         jPanel2.add(txtReligion_L2);
         txtReligion_L2.setBounds(170, 120, 260, 25);
+
+        btnDelete.setActiveColor(new java.awt.Color(255, 255, 255));
+        btnDelete.setRolloverColor(new java.awt.Color(255, 255, 255));
+        btnDelete.setText("Delete");
+        btnDelete.setUnvisitColor(new java.awt.Color(255, 255, 255));
+        btnDelete.setVisitedColor(new java.awt.Color(255, 255, 255));
+        btnDelete.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel2.add(btnDelete);
+        btnDelete.setBounds(337, 163, 82, 26);
+
+        panelDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Button.png"))); // NOI18N
+        panelDelete.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel2.add(panelDelete);
+        panelDelete.setBounds(330, 160, 96, 32);
+
+        panelHoverDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/ButtonHover.png"))); // NOI18N
+        panelHoverDelete.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel2.add(panelHoverDelete);
+        panelHoverDelete.setBounds(330, 160, 96, 32);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -188,7 +287,7 @@ public class FrmReligion extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExitActionPerformed
-        this.dispose();
+        
     }//GEN-LAST:event_menuExitActionPerformed
 
     /**
@@ -265,6 +364,7 @@ public class FrmReligion extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.xzq.osc.JocHyperlink btnDelete;
     private com.xzq.osc.JocHyperlink btnSave;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -275,10 +375,12 @@ public class FrmReligion extends javax.swing.JDialog {
     private javax.swing.JLabel lblReligion_L1;
     private javax.swing.JLabel lblReligion_L2;
     private com.xzq.osc.JocHyperlink menuExit;
+    private com.xzq.osc.JocHyperlink panelDelete;
     private com.xzq.osc.JocHyperlink panelHover;
+    private com.xzq.osc.JocHyperlink panelHoverDelete;
     private com.xzq.osc.JocHyperlink panelSave;
-    private javax.swing.JScrollPane scrollPanel;
     private javax.swing.JTable table;
+    private javax.swing.JScrollPane tableScrollPanel;
     private javax.swing.JTextField txtReligionID;
     private javax.swing.JTextField txtReligion_L1;
     private javax.swing.JTextField txtReligion_L2;
