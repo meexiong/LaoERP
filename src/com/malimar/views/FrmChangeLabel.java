@@ -75,27 +75,27 @@ public class FrmChangeLabel extends javax.swing.JDialog {
         txtLao.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         txtLao.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
         jPanel2.add(txtLao);
-        txtLao.setBounds(70, 80, 240, 25);
+        txtLao.setBounds(70, 60, 240, 25);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Great Britain_30px.png"))); // NOI18N
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(30, 120, 30, 25);
+        jLabel2.setBounds(30, 100, 30, 25);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Laos_30px.png"))); // NOI18N
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(30, 80, 30, 25);
+        jLabel1.setBounds(30, 60, 30, 25);
 
         txtFieldName.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         txtFieldName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtFieldName.setText("FieldName");
         jPanel2.add(txtFieldName);
-        txtFieldName.setBounds(70, 40, 239, 22);
+        txtFieldName.setBounds(70, 30, 239, 22);
 
         lblTitle.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Change Label");
         jPanel2.add(lblTitle);
-        lblTitle.setBounds(90, 2, 200, 22);
+        lblTitle.setBounds(10, 2, 300, 22);
 
         menuExit.setActiveColor(new java.awt.Color(255, 50, 50));
         menuExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Delete_30px.png"))); // NOI18N
@@ -112,7 +112,7 @@ public class FrmChangeLabel extends javax.swing.JDialog {
         txtEN.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         txtEN.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
         jPanel2.add(txtEN);
-        txtEN.setBounds(70, 120, 240, 25);
+        txtEN.setBounds(70, 100, 240, 25);
 
         btnSave.setActiveColor(new java.awt.Color(255, 255, 255));
         btnSave.setRolloverColor(new java.awt.Color(255, 255, 255));
@@ -121,15 +121,15 @@ public class FrmChangeLabel extends javax.swing.JDialog {
         btnSave.setVisitedColor(new java.awt.Color(255, 255, 255));
         btnSave.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(btnSave);
-        btnSave.setBounds(226, 162, 80, 25);
+        btnSave.setBounds(227, 142, 80, 25);
 
         panelSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Button.png"))); // NOI18N
         jPanel2.add(panelSave);
-        panelSave.setBounds(220, 160, 94, 30);
+        panelSave.setBounds(220, 140, 94, 30);
 
         panelSaveHover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/ButtonHover.png"))); // NOI18N
         jPanel2.add(panelSaveHover);
-        panelSaveHover.setBounds(220, 160, 94, 30);
+        panelSaveHover.setBounds(220, 140, 94, 30);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -142,7 +142,7 @@ public class FrmChangeLabel extends javax.swing.JDialog {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 

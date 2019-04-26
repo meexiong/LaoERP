@@ -1,13 +1,13 @@
 package com.malimar.controllers;
 
+import com.malimar.models.AbsentType;
 import com.malimar.models.Label;
 import static com.malimar.models.Label.LN;
 import static com.malimar.models.Label.hmapLang;
-import com.malimar.models.WorkStatus;
 import com.malimar.utils.ManageTable;
 import com.malimar.utils.MessageBox;
 import com.malimar.utils.MoveForm;
-import com.malimar.views.FrmWorkStatus;
+import com.malimar.views.FrmAbsentType;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -15,17 +15,17 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import javax.swing.table.DefaultTableModel;
 
-public class WorkStatusController implements ActionListener, MouseListener, MouseMotionListener {
+public class AbsentTypeController implements ActionListener, MouseListener, MouseMotionListener {
 
-    private final FrmWorkStatus view;
-    private final WorkStatus model;
+    private final FrmAbsentType view;
+    private final AbsentType model;
     DefaultTableModel tableModel = new DefaultTableModel();
     String frm;
 
-    public WorkStatusController(FrmWorkStatus view) {
+    public AbsentTypeController(FrmAbsentType view) {
         this.view = view;
-        WorkStatus ws = new WorkStatus();
-        this.model = ws;
+        AbsentType at = new AbsentType();
+        this.model = at;
         this.frm = this.view.getClass().getSimpleName();
         tableModel = (DefaultTableModel) this.view.getTable().getModel();
         this.setEvent();
@@ -34,40 +34,37 @@ public class WorkStatusController implements ActionListener, MouseListener, Mous
     }
 
     private void setEvent() {
-        this.view.getLblWorkStatusInfo().addMouseListener(this);
-        this.view.getLblWorkStatusInfo().addMouseMotionListener(this);
-        this.view.getLblWorkStatusID().addMouseListener(this);
-        this.view.getLblWorkStatus_L1().addMouseListener(this);
-        this.view.getLblWorkStatus_L2().addMouseListener(this);
-        this.view.getLblHour().addMouseListener(this);
-        this.view.getTxtWorkStatusID().addMouseListener(this);
+        this.view.getLblAbsentType().addMouseListener(this);
+        this.view.getLblAbsentType().addMouseMotionListener(this);
+        this.view.getLblAbsentTypeID().addMouseListener(this);
+        this.view.getLblAbsentType_L1().addMouseListener(this);
+        this.view.getLblAbsentType_L2().addMouseListener(this);
         this.view.getBtnSave().addActionListener(this);
         this.view.getBtnSave().addMouseListener(this);
         this.view.getBtnSave().addMouseMotionListener(this);
-        this.view.getTable().addMouseListener(this);
         this.view.getBtnDelete().addActionListener(this);
         this.view.getBtnDelete().addMouseListener(this);
         this.view.getBtnDelete().addMouseMotionListener(this);
         this.view.getMenuExit().addActionListener(this);
+        this.view.getTxtAbsentTypeID().addMouseListener(this);
+        this.view.getTable().addMouseListener(this);
     }
 
     private void changeLabel() {
-        ManageTable.setTableHeader(this.view.getTable(), this.view.getScrollPanel());
+        ManageTable.setTableHeader(this.view.getTable(), this.view.getTableScrollPanel());
         ManageTable.changeTableHeaderLabel(this.view.getTable(), frm);
-        this.view.getLblWorkStatusInfo().setText(hmapLang.get("lblWorkStatusInfo".concat(frm).toUpperCase())[LN]);
-        this.view.getLblWorkStatusID().setText(hmapLang.get("lblWorkStatusID".concat(frm).toUpperCase())[LN]);
-        this.view.getLblWorkStatus_L1().setText(hmapLang.get("lblWorkStatus_L1".concat(frm).toUpperCase())[LN]);
-        this.view.getLblWorkStatus_L2().setText(hmapLang.get("lblWorkStatus_L2".concat(frm).toUpperCase())[LN]);
+        this.view.getLblAbsentType().setText(hmapLang.get("lblAbsentType".concat(frm).toUpperCase())[LN]);
+        this.view.getLblAbsentTypeID().setText(hmapLang.get("lblAbsentTypeID".concat(frm).toUpperCase())[LN]);
+        this.view.getLblAbsentType_L1().setText(hmapLang.get("lblAbsentType_L1".concat(frm).toUpperCase())[LN]);
+        this.view.getLblAbsentType_L2().setText(hmapLang.get("lblAbsentType_L2".concat(frm).toUpperCase())[LN]);
         this.view.getBtnSave().setText(hmapLang.get("btnSave".concat(frm).toUpperCase())[LN]);
-        this.view.getLblHour().setText(hmapLang.get("lblHour".concat(frm).toUpperCase())[LN]);
         this.view.getBtnDelete().setText(hmapLang.get("btnDelete".concat(frm).toUpperCase())[LN]);
     }
 
     private void clearText() {
-        this.view.getTxtWorkStatusID().setText("New");
-        this.view.getTxtWorkStatus_L1().setText("");
-        this.view.getTxtWorkStatus_L2().setText("");
-        this.view.getTxtHour().setText("0");
+        this.view.getTxtAbsentTypeID().setText("New");
+        this.view.getTxtAbsentType_L1().setText("");
+        this.view.getTxtAbsentType_L2().setText("");
     }
 
     @Override
@@ -75,17 +72,16 @@ public class WorkStatusController implements ActionListener, MouseListener, Mous
         if (e.getSource() == this.view.getMenuExit()) {
             this.view.dispose();
         } else if (e.getSource() == this.view.getBtnSave()) {
-            this.model.setWorkStatus_L1(this.view.getTxtWorkStatus_L1().getText());
-            this.model.setWorkStatus_L2(this.view.getTxtWorkStatus_L2().getText());
-            this.model.setHour(Integer.parseInt(this.view.getTxtHour().getText()));
-            if (this.view.getTxtWorkStatusID().getText().equals("New")) {
+            this.model.setAbsentType_L1(this.view.getTxtAbsentType_L1().getText());
+            this.model.setAbsentType_L2(this.view.getTxtAbsentType_L2().getText());
+            if (this.view.getTxtAbsentTypeID().getText().equals("New")) {
                 if (this.model.insert() != true) {
                     MessageBox.msgError();
                 } else {
                     MessageBox.msgSuccess();
                 }
             } else {
-                this.model.setWorkStatusID(Integer.parseInt(this.view.getTxtWorkStatusID().getText()));
+                this.model.setAbsentTypeID(Integer.parseInt(this.view.getTxtAbsentTypeID().getText()));
                 if (this.model.update() != true) {
                     MessageBox.msgError();
                 } else {
@@ -95,7 +91,7 @@ public class WorkStatusController implements ActionListener, MouseListener, Mous
             this.model.load(this.view.getTable(), tableModel);
             this.clearText();
         } else if (e.getSource() == this.view.getBtnDelete()) {
-            this.model.setWorkStatusID(Integer.parseInt(this.view.getTxtWorkStatusID().getText()));
+            this.model.setAbsentTypeID(Integer.parseInt(this.view.getTxtAbsentTypeID().getText()));
             if (this.model.delete() == true) {
                 MessageBox.msgSuccess();
                 this.model.load(this.view.getTable(), tableModel);
@@ -106,36 +102,33 @@ public class WorkStatusController implements ActionListener, MouseListener, Mous
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if (e.getSource() == this.view.getTxtWorkStatusID()) {
+        if (e.getSource() == this.view.getTxtAbsentTypeID()) {
             if (e.getClickCount() == 2) {
                 this.clearText();
             }
-        }else if(e.getSource() == this.view.getTable()){
+        } else if (e.getSource() == this.view.getTable()) {
             int row = this.view.getTable().getSelectedRow();
-            this.view.getTxtWorkStatusID().setText(this.view.getTable().getValueAt(row, 0).toString());
-            this.view.getTxtWorkStatus_L1().setText(this.view.getTable().getValueAt(row, 1).toString());
-            this.view.getTxtWorkStatus_L2().setText(this.view.getTable().getValueAt(row, 2).toString());
-            this.view.getTxtHour().setText(this.view.getTable().getValueAt(row, 3).toString());
-        }else if (e.getSource() == this.view.getLblWorkStatusInfo()) {
-            Label.WindowChangeLabel("lblWorkStatusInfo", frm, e);
-        } else if (e.getSource() == this.view.getLblWorkStatusID()) {
-            Label.WindowChangeLabel("lblWorkStatusID", frm, e);
-        } else if (e.getSource() == this.view.getLblWorkStatus_L1()) {
-            Label.WindowChangeLabel("lblWorkStatus_L1", frm, e);
-        } else if (e.getSource() == this.view.getLblWorkStatus_L2()) {
-            Label.WindowChangeLabel("lblWorkStatus_L2", frm, e);
+            this.view.getTxtAbsentTypeID().setText(this.view.getTable().getValueAt(row, 0).toString());
+            this.view.getTxtAbsentType_L1().setText(this.view.getTable().getValueAt(row, 1).toString());
+            this.view.getTxtAbsentType_L2().setText(this.view.getTable().getValueAt(row, 2).toString());
+        } else if (e.getSource() == this.view.getLblAbsentType()) {
+            Label.WindowChangeLabel("lblAbsentType", frm, e);
+        } else if (e.getSource() == this.view.getLblAbsentTypeID()) {
+            Label.WindowChangeLabel("lblAbsentTypeID", frm, e);
+        } else if (e.getSource() == this.view.getLblAbsentType_L1()) {
+            Label.WindowChangeLabel("lblAbsentType_L1", frm, e);
+        } else if (e.getSource() == this.view.getLblAbsentType_L2()) {
+            Label.WindowChangeLabel("lblAbsentType_L2", frm, e);
         } else if (e.getSource() == this.view.getBtnSave()) {
             Label.WindowChangeLabel("btnSave", frm, e);
         } else if (e.getSource() == this.view.getBtnDelete()) {
             Label.WindowChangeLabel("btnDelete", frm, e);
-        }else if (e.getSource() == this.view.getLblHour()) {
-            Label.WindowChangeLabel("lblHour", frm, e);
         }
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        if (e.getSource() == this.view.getLblWorkStatusInfo()) {
+        if (e.getSource() == this.view.getLblAbsentType()) {
             MoveForm.mousePressed(e);
         }
     }
@@ -163,7 +156,7 @@ public class WorkStatusController implements ActionListener, MouseListener, Mous
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        if (e.getSource() == this.view.getLblWorkStatusInfo()) {
+        if (e.getSource() == this.view.getLblAbsentType()) {
             MoveForm.mouseDragded(e, this.view);
         }
     }

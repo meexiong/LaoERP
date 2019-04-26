@@ -1,12 +1,157 @@
 
 package com.malimar.views;
 
+import com.malimar.controllers.SalaryTypeController;
+import com.xzq.osc.JocHyperlink;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 
 public class FrmSalaryType extends javax.swing.JDialog {
     
     public FrmSalaryType(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        SalaryTypeController stc = new SalaryTypeController(this);
+    }
+
+    public JocHyperlink getBtnSave() {
+        return btnSave;
+    }
+
+    public void setBtnSave(JocHyperlink btnSave) {
+        this.btnSave = btnSave;
+    }
+
+    public JCheckBox getChActive() {
+        return chActive;
+    }
+
+    public void setChActive(JCheckBox chActive) {
+        this.chActive = chActive;
+    }
+
+    public JLabel getLblActive() {
+        return lblActive;
+    }
+
+    public void setLblActive(JLabel lblActive) {
+        this.lblActive = lblActive;
+    }
+
+    public JLabel getLblAmount() {
+        return lblAmount;
+    }
+
+    public void setLblAmount(JLabel lblAmount) {
+        this.lblAmount = lblAmount;
+    }
+
+    public JLabel getLblSalaryTypeID() {
+        return lblSalaryTypeID;
+    }
+
+    public void setLblSalaryTypeID(JLabel lblSalaryTypeID) {
+        this.lblSalaryTypeID = lblSalaryTypeID;
+    }
+
+    public JLabel getLblSalaryTypeInfo() {
+        return lblSalaryTypeInfo;
+    }
+
+    public void setLblSalaryTypeInfo(JLabel lblSalaryTypeInfo) {
+        this.lblSalaryTypeInfo = lblSalaryTypeInfo;
+    }
+
+    public JLabel getLblSalaryType_L1() {
+        return lblSalaryType_L1;
+    }
+
+    public void setLblSalaryType_L1(JLabel lblSalaryType_L1) {
+        this.lblSalaryType_L1 = lblSalaryType_L1;
+    }
+
+    public JLabel getLblSalaryType_L2() {
+        return lblSalaryType_L2;
+    }
+
+    public void setLblSalaryType_L2(JLabel lblSalaryType_L2) {
+        this.lblSalaryType_L2 = lblSalaryType_L2;
+    }
+
+    public JocHyperlink getMenuExit() {
+        return menuExit;
+    }
+
+    public void setMenuExit(JocHyperlink menuExit) {
+        this.menuExit = menuExit;
+    }
+
+    public JocHyperlink getPanelHover() {
+        return panelHover;
+    }
+
+    public void setPanelHover(JocHyperlink panelHover) {
+        this.panelHover = panelHover;
+    }
+
+    public JocHyperlink getPanelSave() {
+        return panelSave;
+    }
+
+    public void setPanelSave(JocHyperlink panelSave) {
+        this.panelSave = panelSave;
+    }
+
+    public JTable getTable() {
+        return table;
+    }
+
+    public void setTable(JTable table) {
+        this.table = table;
+    }
+
+    public JScrollPane getTableScrollPanel() {
+        return tableScrollPanel;
+    }
+
+    public void setTableScrollPanel(JScrollPane tableScrollPanel) {
+        this.tableScrollPanel = tableScrollPanel;
+    }
+
+    public JTextField getTxtAmount() {
+        return txtAmount;
+    }
+
+    public void setTxtAmount(JTextField txtAmount) {
+        this.txtAmount = txtAmount;
+    }
+
+    public JTextField getTxtSalaryTypeID() {
+        return txtSalaryTypeID;
+    }
+
+    public void setTxtSalaryTypeID(JTextField txtSalaryTypeID) {
+        this.txtSalaryTypeID = txtSalaryTypeID;
+    }
+
+    public JTextField getTxtSalaryType_L1() {
+        return txtSalaryType_L1;
+    }
+
+    public void setTxtSalaryType_L1(JTextField txtSalaryType_L1) {
+        this.txtSalaryType_L1 = txtSalaryType_L1;
+    }
+
+    public JTextField getTxtSalaryType_L2() {
+        return txtSalaryType_L2;
+    }
+
+    public void setTxtSalaryType_L2(JTextField txtSalaryType_L2) {
+        this.txtSalaryType_L2 = txtSalaryType_L2;
     }
 
     @SuppressWarnings("unchecked")
@@ -26,14 +171,14 @@ public class FrmSalaryType extends javax.swing.JDialog {
         panelSave = new com.xzq.osc.JocHyperlink();
         panelHover = new com.xzq.osc.JocHyperlink();
         jPanel4 = new javax.swing.JPanel();
-        scrollPanel = new javax.swing.JScrollPane();
+        tableScrollPanel = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         lblSalaryType_L2 = new javax.swing.JLabel();
         txtSalaryType_L2 = new javax.swing.JTextField();
         txtAmount = new javax.swing.JTextField();
         lblActive = new javax.swing.JLabel();
         lblAmount = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        chActive = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -86,8 +231,11 @@ public class FrmSalaryType extends javax.swing.JDialog {
         txtSalaryTypeID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         txtSalaryTypeID.setText("New");
         txtSalaryTypeID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        txtSalaryTypeID.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtSalaryTypeID.setEnabled(false);
+        txtSalaryTypeID.setOpaque(false);
         jPanel2.add(txtSalaryTypeID);
-        txtSalaryTypeID.setBounds(170, 40, 100, 25);
+        txtSalaryTypeID.setBounds(170, 40, 80, 25);
 
         lblSalaryTypeID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblSalaryTypeID.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -106,6 +254,8 @@ public class FrmSalaryType extends javax.swing.JDialog {
         jPanel2.add(lblSalaryType_L1);
         lblSalaryType_L1.setBounds(30, 80, 120, 25);
 
+        btnSave.setActiveColor(new java.awt.Color(255, 255, 255));
+        btnSave.setRolloverColor(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
         btnSave.setUnvisitColor(new java.awt.Color(255, 255, 255));
         btnSave.setVisitedColor(new java.awt.Color(255, 255, 255));
@@ -135,9 +285,16 @@ public class FrmSalaryType extends javax.swing.JDialog {
                 "lblSalaryTypeID", "lblSalaryType_L1", "lblSalaryType_L2", "lblAmount", "lblActive"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -148,7 +305,7 @@ public class FrmSalaryType extends javax.swing.JDialog {
         table.setRowHeight(25);
         table.setSelectionBackground(new java.awt.Color(255, 255, 255));
         table.setSelectionForeground(java.awt.Color.red);
-        scrollPanel.setViewportView(table);
+        tableScrollPanel.setViewportView(table);
         if (table.getColumnModel().getColumnCount() > 0) {
             table.getColumnModel().getColumn(0).setMinWidth(0);
             table.getColumnModel().getColumn(0).setMaxWidth(0);
@@ -158,11 +315,11 @@ public class FrmSalaryType extends javax.swing.JDialog {
             table.getColumnModel().getColumn(2).setMaxWidth(170);
             table.getColumnModel().getColumn(3).setMinWidth(100);
             table.getColumnModel().getColumn(3).setMaxWidth(100);
-            table.getColumnModel().getColumn(4).setMinWidth(50);
-            table.getColumnModel().getColumn(4).setMaxWidth(50);
+            table.getColumnModel().getColumn(4).setMinWidth(55);
+            table.getColumnModel().getColumn(4).setMaxWidth(55);
         }
 
-        jPanel4.add(scrollPanel, java.awt.BorderLayout.CENTER);
+        jPanel4.add(tableScrollPanel, java.awt.BorderLayout.CENTER);
 
         jPanel2.add(jPanel4);
         jPanel4.setBounds(10, 240, 500, 330);
@@ -195,10 +352,10 @@ public class FrmSalaryType extends javax.swing.JDialog {
         jPanel2.add(lblAmount);
         lblAmount.setBounds(30, 160, 120, 25);
 
-        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jPanel2.add(jCheckBox1);
-        jCheckBox1.setBounds(170, 200, 30, 21);
+        chActive.setBackground(new java.awt.Color(255, 255, 255));
+        chActive.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel2.add(chActive);
+        chActive.setBounds(170, 200, 30, 21);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -328,7 +485,7 @@ public class FrmSalaryType extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.xzq.osc.JocHyperlink btnSave;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox chActive;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -342,8 +499,8 @@ public class FrmSalaryType extends javax.swing.JDialog {
     private com.xzq.osc.JocHyperlink menuExit;
     private com.xzq.osc.JocHyperlink panelHover;
     private com.xzq.osc.JocHyperlink panelSave;
-    private javax.swing.JScrollPane scrollPanel;
     private javax.swing.JTable table;
+    private javax.swing.JScrollPane tableScrollPanel;
     private javax.swing.JTextField txtAmount;
     private javax.swing.JTextField txtSalaryTypeID;
     private javax.swing.JTextField txtSalaryType_L1;

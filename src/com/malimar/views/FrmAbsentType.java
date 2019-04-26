@@ -1,12 +1,84 @@
 
 package com.malimar.views;
 
+import com.malimar.controllers.AbsentTypeController;
+import com.xzq.osc.JocHyperlink;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 
 public class FrmAbsentType extends javax.swing.JDialog {
     
     public FrmAbsentType(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        AbsentTypeController atc = new AbsentTypeController(this);
+    }
+
+    public JocHyperlink getBtnDelete() {
+        return btnDelete;
+    }
+
+    public JocHyperlink getBtnSave() {
+        return btnSave;
+    }
+
+    public JLabel getLblAbsentType() {
+        return lblAbsentType;
+    }
+
+    public JLabel getLblAbsentTypeID() {
+        return lblAbsentTypeID;
+    }
+
+    public JLabel getLblAbsentType_L1() {
+        return lblAbsentType_L1;
+    }
+
+    public JLabel getLblAbsentType_L2() {
+        return lblAbsentType_L2;
+    }
+
+    public JocHyperlink getMenuExit() {
+        return menuExit;
+    }
+
+    public JocHyperlink getPanelDelete() {
+        return panelDelete;
+    }
+
+    public JocHyperlink getPanelHover() {
+        return panelHover;
+    }
+
+    public JocHyperlink getPanelHoverDelete() {
+        return panelHoverDelete;
+    }
+
+    public JocHyperlink getPanelSave() {
+        return panelSave;
+    }
+
+    public JTable getTable() {
+        return table;
+    }
+
+    public JScrollPane getTableScrollPanel() {
+        return tableScrollPanel;
+    }
+
+    public JTextField getTxtAbsentTypeID() {
+        return txtAbsentTypeID;
+    }
+
+    public JTextField getTxtAbsentType_L1() {
+        return txtAbsentType_L1;
+    }
+
+    public JTextField getTxtAbsentType_L2() {
+        return txtAbsentType_L2;
     }
 
     @SuppressWarnings("unchecked")
@@ -26,10 +98,13 @@ public class FrmAbsentType extends javax.swing.JDialog {
         panelSave = new com.xzq.osc.JocHyperlink();
         panelHover = new com.xzq.osc.JocHyperlink();
         jPanel4 = new javax.swing.JPanel();
-        scrollPanel = new javax.swing.JScrollPane();
+        tableScrollPanel = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         lblAbsentType_L2 = new javax.swing.JLabel();
         txtAbsentType_L2 = new javax.swing.JTextField();
+        btnDelete = new com.xzq.osc.JocHyperlink();
+        panelDelete = new com.xzq.osc.JocHyperlink();
+        panelHoverDelete = new com.xzq.osc.JocHyperlink();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -82,6 +157,9 @@ public class FrmAbsentType extends javax.swing.JDialog {
         txtAbsentTypeID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         txtAbsentTypeID.setText("New");
         txtAbsentTypeID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        txtAbsentTypeID.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtAbsentTypeID.setEnabled(false);
+        txtAbsentTypeID.setOpaque(false);
         jPanel2.add(txtAbsentTypeID);
         txtAbsentTypeID.setBounds(170, 40, 100, 25);
 
@@ -102,22 +180,24 @@ public class FrmAbsentType extends javax.swing.JDialog {
         jPanel2.add(lblAbsentType_L1);
         lblAbsentType_L1.setBounds(30, 80, 120, 25);
 
+        btnSave.setActiveColor(new java.awt.Color(255, 255, 255));
+        btnSave.setRolloverColor(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
         btnSave.setUnvisitColor(new java.awt.Color(255, 255, 255));
         btnSave.setVisitedColor(new java.awt.Color(255, 255, 255));
         btnSave.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(btnSave);
-        btnSave.setBounds(348, 163, 82, 26);
+        btnSave.setBounds(227, 163, 82, 26);
 
         panelSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Button.png"))); // NOI18N
         panelSave.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(panelSave);
-        panelSave.setBounds(340, 160, 96, 32);
+        panelSave.setBounds(220, 160, 96, 32);
 
         panelHover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/ButtonHover.png"))); // NOI18N
         panelHover.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(panelHover);
-        panelHover.setBounds(340, 160, 96, 32);
+        panelHover.setBounds(220, 160, 96, 32);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new java.awt.BorderLayout());
@@ -128,7 +208,7 @@ public class FrmAbsentType extends javax.swing.JDialog {
                 {null, null, null}
             },
             new String [] {
-                "lblAbsentTypeID", "lblAbsentType_L1", "lblAbsentTypes_L2"
+                "lblAbsentTypeID", "lblAbsentType_L1", "lblAbsentType_L2"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -144,7 +224,7 @@ public class FrmAbsentType extends javax.swing.JDialog {
         table.setRowHeight(25);
         table.setSelectionBackground(new java.awt.Color(255, 255, 255));
         table.setSelectionForeground(java.awt.Color.red);
-        scrollPanel.setViewportView(table);
+        tableScrollPanel.setViewportView(table);
         if (table.getColumnModel().getColumnCount() > 0) {
             table.getColumnModel().getColumn(0).setMinWidth(70);
             table.getColumnModel().getColumn(0).setMaxWidth(70);
@@ -154,7 +234,7 @@ public class FrmAbsentType extends javax.swing.JDialog {
             table.getColumnModel().getColumn(2).setMaxWidth(202);
         }
 
-        jPanel4.add(scrollPanel, java.awt.BorderLayout.CENTER);
+        jPanel4.add(tableScrollPanel, java.awt.BorderLayout.CENTER);
 
         jPanel2.add(jPanel4);
         jPanel4.setBounds(10, 210, 480, 360);
@@ -169,6 +249,25 @@ public class FrmAbsentType extends javax.swing.JDialog {
         txtAbsentType_L2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
         jPanel2.add(txtAbsentType_L2);
         txtAbsentType_L2.setBounds(170, 120, 260, 25);
+
+        btnDelete.setActiveColor(new java.awt.Color(255, 255, 255));
+        btnDelete.setRolloverColor(new java.awt.Color(255, 255, 255));
+        btnDelete.setText("Delete");
+        btnDelete.setUnvisitColor(new java.awt.Color(255, 255, 255));
+        btnDelete.setVisitedColor(new java.awt.Color(255, 255, 255));
+        btnDelete.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel2.add(btnDelete);
+        btnDelete.setBounds(337, 163, 82, 26);
+
+        panelDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Button.png"))); // NOI18N
+        panelDelete.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel2.add(panelDelete);
+        panelDelete.setBounds(330, 160, 96, 32);
+
+        panelHoverDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/ButtonHover.png"))); // NOI18N
+        panelHoverDelete.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel2.add(panelHoverDelete);
+        panelHoverDelete.setBounds(330, 160, 96, 32);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -265,6 +364,7 @@ public class FrmAbsentType extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.xzq.osc.JocHyperlink btnDelete;
     private com.xzq.osc.JocHyperlink btnSave;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -275,10 +375,12 @@ public class FrmAbsentType extends javax.swing.JDialog {
     private javax.swing.JLabel lblAbsentType_L1;
     private javax.swing.JLabel lblAbsentType_L2;
     private com.xzq.osc.JocHyperlink menuExit;
+    private com.xzq.osc.JocHyperlink panelDelete;
     private com.xzq.osc.JocHyperlink panelHover;
+    private com.xzq.osc.JocHyperlink panelHoverDelete;
     private com.xzq.osc.JocHyperlink panelSave;
-    private javax.swing.JScrollPane scrollPanel;
     private javax.swing.JTable table;
+    private javax.swing.JScrollPane tableScrollPanel;
     private javax.swing.JTextField txtAbsentTypeID;
     private javax.swing.JTextField txtAbsentType_L1;
     private javax.swing.JTextField txtAbsentType_L2;

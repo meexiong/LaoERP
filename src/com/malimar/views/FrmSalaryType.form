@@ -149,10 +149,15 @@
                     </MatteColorBorder>
                   </Border>
                 </Property>
+                <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
+                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="opaque" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="170" y="40" width="100" height="25"/>
+                  <AbsoluteConstraints x="170" y="40" width="80" height="25"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -205,6 +210,12 @@
             </Component>
             <Component class="com.xzq.osc.JocHyperlink" name="btnSave">
               <Properties>
+                <Property name="activeColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="rolloverColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Save"/>
                 <Property name="unvisitColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -266,7 +277,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
               <SubComponents>
-                <Container class="javax.swing.JScrollPane" name="scrollPanel">
+                <Container class="javax.swing.JScrollPane" name="tableScrollPanel">
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
@@ -289,7 +300,7 @@
                             <Column editable="false" title="lblSalaryType_L1" type="java.lang.Object"/>
                             <Column editable="false" title="lblSalaryType_L2" type="java.lang.Object"/>
                             <Column editable="false" title="lblAmount" type="java.lang.Object"/>
-                            <Column editable="false" title="lblActive" type="java.lang.Object"/>
+                            <Column editable="false" title="lblActive" type="java.lang.Boolean"/>
                           </Table>
                         </Property>
                         <Property name="autoResizeMode" type="int" value="0"/>
@@ -315,7 +326,7 @@
                               <Editor/>
                               <Renderer/>
                             </Column>
-                            <Column maxWidth="50" minWidth="50" prefWidth="-1" resizable="true">
+                            <Column maxWidth="55" minWidth="55" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>
                               <Renderer/>
@@ -421,7 +432,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+            <Component class="javax.swing.JCheckBox" name="chActive">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>

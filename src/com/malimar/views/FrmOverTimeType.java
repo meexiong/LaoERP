@@ -1,12 +1,92 @@
 
 package com.malimar.views;
 
+import com.malimar.controllers.OvertimeTypeController;
+import com.xzq.osc.JocHyperlink;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 
 public class FrmOverTimeType extends javax.swing.JDialog {
     
     public FrmOverTimeType(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        OvertimeTypeController oc = new OvertimeTypeController(this);
+    }
+
+    public JocHyperlink getBtnDelete() {
+        return btnDelete;
+    }
+
+    public JocHyperlink getBtnSave() {
+        return btnSave;
+    }
+
+    public JLabel getLblOvertimeTypeID() {
+        return lblOvertimeTypeID;
+    }
+
+    public JLabel getLblOvertimeTypeInfo() {
+        return lblOvertimeTypeInfo;
+    }
+
+    public JLabel getLblOvertimeTypeRate() {
+        return lblOvertimeTypeRate;
+    }
+
+    public JLabel getLblOvertimeType_L1() {
+        return lblOvertimeType_L1;
+    }
+
+    public JLabel getLblOvertimeType_L2() {
+        return lblOvertimeType_L2;
+    }
+
+    public JocHyperlink getMenuExit() {
+        return menuExit;
+    }
+
+    public JocHyperlink getPanelDelete() {
+        return panelDelete;
+    }
+
+    public JocHyperlink getPanelHover() {
+        return panelHover;
+    }
+
+    public JocHyperlink getPanelHoverDelete() {
+        return panelHoverDelete;
+    }
+
+    public JocHyperlink getPanelSave() {
+        return panelSave;
+    }
+
+    public JTable getTable() {
+        return table;
+    }
+
+    public JScrollPane getTableScrollPane() {
+        return tableScrollPane;
+    }
+
+    public JTextField getTxtOvertimeTypeID() {
+        return txtOvertimeTypeID;
+    }
+
+    public JTextField getTxtOvertimeTypeRate() {
+        return txtOvertimeTypeRate;
+    }
+
+    public JTextField getTxtOvertimeType_L1() {
+        return txtOvertimeType_L1;
+    }
+
+    public JTextField getTxtOvertimeType_L2() {
+        return txtOvertimeType_L2;
     }
 
     @SuppressWarnings("unchecked")
@@ -28,10 +108,13 @@ public class FrmOverTimeType extends javax.swing.JDialog {
         panelSave = new com.xzq.osc.JocHyperlink();
         panelHover = new com.xzq.osc.JocHyperlink();
         jPanel4 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableScrollPane = new javax.swing.JScrollPane();
+        table = new javax.swing.JTable();
         lblOvertimeTypeRate = new javax.swing.JLabel();
         txtOvertimeTypeRate = new javax.swing.JTextField();
+        btnDelete = new com.xzq.osc.JocHyperlink();
+        panelDelete = new com.xzq.osc.JocHyperlink();
+        panelHoverDelete = new com.xzq.osc.JocHyperlink();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -84,6 +167,9 @@ public class FrmOverTimeType extends javax.swing.JDialog {
         txtOvertimeTypeID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         txtOvertimeTypeID.setText("New");
         txtOvertimeTypeID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        txtOvertimeTypeID.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtOvertimeTypeID.setEnabled(false);
+        txtOvertimeTypeID.setOpaque(false);
         jPanel2.add(txtOvertimeTypeID);
         txtOvertimeTypeID.setBounds(170, 40, 100, 25);
 
@@ -115,28 +201,30 @@ public class FrmOverTimeType extends javax.swing.JDialog {
         jPanel2.add(lblOvertimeType_L2);
         lblOvertimeType_L2.setBounds(30, 120, 120, 25);
 
+        btnSave.setActiveColor(new java.awt.Color(255, 255, 255));
+        btnSave.setRolloverColor(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
         btnSave.setUnvisitColor(new java.awt.Color(255, 255, 255));
         btnSave.setVisitedColor(new java.awt.Color(255, 255, 255));
         btnSave.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(btnSave);
-        btnSave.setBounds(347, 203, 82, 26);
+        btnSave.setBounds(227, 203, 82, 26);
 
         panelSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Button.png"))); // NOI18N
         panelSave.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(panelSave);
-        panelSave.setBounds(340, 200, 96, 32);
+        panelSave.setBounds(220, 200, 96, 32);
 
         panelHover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/ButtonHover.png"))); // NOI18N
         panelHover.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(panelHover);
-        panelHover.setBounds(340, 200, 96, 32);
+        panelHover.setBounds(220, 200, 96, 32);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new java.awt.BorderLayout());
 
-        jTable1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null}
             },
@@ -152,27 +240,27 @@ public class FrmOverTimeType extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        jTable1.setGridColor(new java.awt.Color(204, 204, 204));
-        jTable1.setRowHeight(25);
-        jTable1.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setSelectionForeground(java.awt.Color.red);
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setMinWidth(0);
-            jTable1.getColumnModel().getColumn(0).setMaxWidth(0);
-            jTable1.getColumnModel().getColumn(1).setMinWidth(202);
-            jTable1.getColumnModel().getColumn(1).setMaxWidth(202);
-            jTable1.getColumnModel().getColumn(2).setMinWidth(202);
-            jTable1.getColumnModel().getColumn(2).setMaxWidth(202);
-            jTable1.getColumnModel().getColumn(3).setMinWidth(70);
-            jTable1.getColumnModel().getColumn(3).setMaxWidth(70);
+        table.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        table.setGridColor(new java.awt.Color(204, 204, 204));
+        table.setRowHeight(25);
+        table.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        table.setSelectionForeground(java.awt.Color.red);
+        tableScrollPane.setViewportView(table);
+        if (table.getColumnModel().getColumnCount() > 0) {
+            table.getColumnModel().getColumn(0).setMinWidth(0);
+            table.getColumnModel().getColumn(0).setMaxWidth(0);
+            table.getColumnModel().getColumn(1).setMinWidth(202);
+            table.getColumnModel().getColumn(1).setMaxWidth(202);
+            table.getColumnModel().getColumn(2).setMinWidth(202);
+            table.getColumnModel().getColumn(2).setMaxWidth(202);
+            table.getColumnModel().getColumn(3).setMinWidth(100);
+            table.getColumnModel().getColumn(3).setMaxWidth(100);
         }
 
-        jPanel4.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        jPanel4.add(tableScrollPane, java.awt.BorderLayout.CENTER);
 
         jPanel2.add(jPanel4);
-        jPanel4.setBounds(20, 240, 480, 330);
+        jPanel4.setBounds(7, 240, 510, 340);
 
         lblOvertimeTypeRate.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblOvertimeTypeRate.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -181,9 +269,29 @@ public class FrmOverTimeType extends javax.swing.JDialog {
         lblOvertimeTypeRate.setBounds(30, 160, 120, 25);
 
         txtOvertimeTypeRate.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtOvertimeTypeRate.setText("0");
         txtOvertimeTypeRate.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
         jPanel2.add(txtOvertimeTypeRate);
         txtOvertimeTypeRate.setBounds(170, 160, 260, 25);
+
+        btnDelete.setActiveColor(new java.awt.Color(255, 255, 255));
+        btnDelete.setRolloverColor(new java.awt.Color(255, 255, 255));
+        btnDelete.setText("Delete");
+        btnDelete.setUnvisitColor(new java.awt.Color(255, 255, 255));
+        btnDelete.setVisitedColor(new java.awt.Color(255, 255, 255));
+        btnDelete.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel2.add(btnDelete);
+        btnDelete.setBounds(337, 203, 82, 26);
+
+        panelDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Button.png"))); // NOI18N
+        panelDelete.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel2.add(panelDelete);
+        panelDelete.setBounds(330, 200, 96, 32);
+
+        panelHoverDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/ButtonHover.png"))); // NOI18N
+        panelHoverDelete.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel2.add(panelHoverDelete);
+        panelHoverDelete.setBounds(330, 200, 96, 32);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -256,21 +364,24 @@ public class FrmOverTimeType extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.xzq.osc.JocHyperlink btnDelete;
     private com.xzq.osc.JocHyperlink btnSave;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblOvertimeTypeID;
     private javax.swing.JLabel lblOvertimeTypeInfo;
     private javax.swing.JLabel lblOvertimeTypeRate;
     private javax.swing.JLabel lblOvertimeType_L1;
     private javax.swing.JLabel lblOvertimeType_L2;
     private com.xzq.osc.JocHyperlink menuExit;
+    private com.xzq.osc.JocHyperlink panelDelete;
     private com.xzq.osc.JocHyperlink panelHover;
+    private com.xzq.osc.JocHyperlink panelHoverDelete;
     private com.xzq.osc.JocHyperlink panelSave;
+    private javax.swing.JTable table;
+    private javax.swing.JScrollPane tableScrollPane;
     private javax.swing.JTextField txtOvertimeTypeID;
     private javax.swing.JTextField txtOvertimeTypeRate;
     private javax.swing.JTextField txtOvertimeType_L1;

@@ -228,6 +228,9 @@ public class FrmWorkStatus extends javax.swing.JDialog {
         txtWorkStatusID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         txtWorkStatusID.setText("New");
         txtWorkStatusID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        txtWorkStatusID.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtWorkStatusID.setEnabled(false);
+        txtWorkStatusID.setOpaque(false);
         jPanel2.add(txtWorkStatusID);
         txtWorkStatusID.setBounds(170, 40, 100, 25);
 
@@ -327,6 +330,7 @@ public class FrmWorkStatus extends javax.swing.JDialog {
         lblHour.setBounds(30, 160, 120, 25);
 
         txtHour.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtHour.setText("0");
         txtHour.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
         jPanel2.add(txtHour);
         txtHour.setBounds(170, 160, 100, 25);

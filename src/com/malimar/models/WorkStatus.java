@@ -1,8 +1,10 @@
 package com.malimar.models;
 
 import com.malimar.databases.DatabaseManager;
+import com.malimar.utils.ManageTable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -55,7 +57,7 @@ public class WorkStatus {
             p.setInt(1, g.getMaxID("tbl_Work_Status", "Work_Status_ID"));
             p.setString(2, this.getWorkStatus_L1());
             p.setString(3, this.getWorkStatus_L2());
-            p.setInt(3, this.getHour());
+            p.setInt(4, this.getHour());
             p.executeUpdate();
             p.close();
             c.close();
@@ -65,7 +67,7 @@ public class WorkStatus {
         }
         return false;
     }
-    
+
     public boolean update() {
         try {
             Connection c = DatabaseManager.getConnection();
@@ -84,7 +86,7 @@ public class WorkStatus {
         }
         return false;
     }
-    
+
     public boolean delete() {
         try {
             Connection c = DatabaseManager.getConnection();
@@ -100,8 +102,24 @@ public class WorkStatus {
         }
         return false;
     }
-    
-    public void load(JTable table, DefaultTableModel mdoel){
-        
+
+    public void load(JTable table, DefaultTableModel model) {
+        try {
+            ManageTable.clearTable(table, model);
+            Connection c = DatabaseManager.getConnection();
+            String query = "Select * from Tbl_Work_Status";
+            ResultSet rs = c.createStatement().executeQuery(query);
+            while (rs.next()) {
+                int id = rs.getInt("Work_Status_ID");
+                String w1 = rs.getString("Work_Type_L1");
+                String w2 = rs.getString("Work_Type_L2");
+                int h = rs.getInt("Hour");
+                Object[] obj = new Object[]{id, w1, w2, h};
+                model.addRow(obj);
+            }
+            table.setModel(model);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
