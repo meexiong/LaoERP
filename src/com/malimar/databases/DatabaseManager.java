@@ -14,8 +14,9 @@ public class DatabaseManager {
             InputStream input =null;
             input = new FileInputStream("src/com/malimar/databases/Datasource.properties");
             prop.load(input);
-            String url = "jdbc:sqlserver://"+prop.getProperty("ServerName")+":"+prop.getProperty("Port")+"; DatabaseName="+prop.getProperty("DatabaseName");
+            String url = "jdbc:sqlserver://"+prop.getProperty("ServerName")+"; DatabaseName="+prop.getProperty("DatabaseName");
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            String a = prop.getProperty("UserName");
             Connection c = DriverManager.getConnection(url, prop.getProperty("UserName"), prop.getProperty("Password"));
             return c;
         } catch (Exception e) {

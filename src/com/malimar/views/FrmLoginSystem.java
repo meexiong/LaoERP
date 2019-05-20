@@ -111,40 +111,40 @@ public class FrmLoginSystem extends javax.swing.JFrame {
 
         lblIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/User_50px.png"))); // NOI18N
         jPanel3.add(lblIcon);
-        lblIcon.setBounds(137, 130, 50, 40);
+        lblIcon.setBounds(119, 117, 50, 40);
 
         menuExit.setActiveColor(new java.awt.Color(255, 50, 50));
         menuExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Delete_30px.png"))); // NOI18N
         menuExit.setUnvisitColor(new java.awt.Color(255, 255, 255));
         menuExit.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         jPanel3.add(menuExit);
-        menuExit.setBounds(270, 20, 25, 25);
+        menuExit.setBounds(252, 7, 25, 25);
 
         lblPassword.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         lblPassword.setText("Password");
         jPanel3.add(lblPassword);
-        lblPassword.setBounds(55, 270, 210, 25);
+        lblPassword.setBounds(35, 270, 210, 25);
 
         txtUsername.setText("admin@malimar.com");
         jPanel3.add(txtUsername);
-        txtUsername.setBounds(55, 240, 210, 25);
+        txtUsername.setBounds(35, 240, 210, 25);
 
         btnLaos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Laos_30px.png"))); // NOI18N
         jPanel3.add(btnLaos);
-        btnLaos.setBounds(40, 140, 32, 20);
+        btnLaos.setBounds(20, 120, 32, 20);
 
         btnEnglish.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Great Britain_30px.png"))); // NOI18N
         jPanel3.add(btnEnglish);
-        btnEnglish.setBounds(40, 140, 32, 20);
+        btnEnglish.setBounds(20, 120, 32, 20);
 
         lblUsername.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         lblUsername.setText("User name");
         jPanel3.add(lblUsername);
-        lblUsername.setBounds(55, 210, 210, 25);
+        lblUsername.setBounds(35, 210, 210, 25);
 
         txtPassword.setText("123");
         jPanel3.add(txtPassword);
-        txtPassword.setBounds(55, 300, 210, 25);
+        txtPassword.setBounds(35, 300, 210, 25);
 
         btnDatabaseSetting.setText("Database Setting");
         btnDatabaseSetting.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
@@ -154,7 +154,7 @@ public class FrmLoginSystem extends javax.swing.JFrame {
             }
         });
         jPanel3.add(btnDatabaseSetting);
-        btnDatabaseSetting.setBounds(30, 420, 260, 25);
+        btnDatabaseSetting.setBounds(11, 405, 260, 25);
 
         btnLogin.setText("Login");
         btnLogin.setUnvisitColor(new java.awt.Color(255, 255, 255));
@@ -165,7 +165,7 @@ public class FrmLoginSystem extends javax.swing.JFrame {
             }
         });
         jPanel3.add(btnLogin);
-        btnLogin.setBounds(26, 368, 268, 40);
+        btnLogin.setBounds(8, 354, 268, 40);
 
         lblIncorrect.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblIncorrect.setForeground(java.awt.Color.red);
@@ -175,23 +175,23 @@ public class FrmLoginSystem extends javax.swing.JFrame {
 
         MainPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Login.png"))); // NOI18N
         jPanel3.add(MainPanel);
-        MainPanel.setBounds(0, 0, 318, 475);
+        MainPanel.setBounds(0, 0, 284, 445);
 
         jPanel2.add(jPanel3);
-        jPanel3.setBounds(0, 0, 318, 475);
+        jPanel3.setBounds(0, 0, 290, 450);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 

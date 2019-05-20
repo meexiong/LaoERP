@@ -11,7 +11,7 @@ import java.util.HashMap;
 public class Label {
 
     public static int LN;
-    public static String LangType;
+    //public static String LangType;
     public static String frameName;
     public static String fieldName;
     String labelLao;

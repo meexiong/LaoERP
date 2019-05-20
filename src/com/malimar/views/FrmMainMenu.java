@@ -4,6 +4,7 @@ package com.malimar.views;
 import com.malimar.controllers.MainController;
 import com.malimar.utils.KButton;
 import com.xzq.osc.JocHyperlink;
+import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -12,6 +13,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
     public FrmMainMenu() {
         initComponents();
         MainController mc = new MainController(this);
+
     }
 
     public JLabel getLblMainData() {
@@ -146,57 +148,15 @@ public class FrmMainMenu extends javax.swing.JFrame {
         return menuUnitWorkG;
     }
 
+    public JDesktopPane getDeskTopControll() {
+        return deskTopControll;
+    }
+
     public JLabel getMenuUnitWorkGH() {
         return menuUnitWorkGH;
     }
 
-    public JLabel getGroupMenuPayrollSettingHover() {
-        return groupMenuPayrollSettingHover;
-    }
-
-    public JLabel getGroupMenuTaxSettingHover() {
-        return groupMenuTaxSettingHover;
-    }
-
-    public JLabel getGroupMenuSystemSettingHover() {
-        return groupMenuSystemSettingHover;
-    }
-
-    public JLabel getGroupMenuReportHover() {
-        return groupMenuReportHover;
-    }
-
-    public JLabel getGroupMenuUserSettingHover() {
-        return groupMenuUserSettingHover;
-    }
-
-    public JLabel getGroupMenuOverTimeHover() {
-        return groupMenuOverTimeHover;
-    }
-
-    public JLabel getGroupMenuAbsentHover() {
-        return groupMenuAbsentHover;
-    }
-
-    public JLabel getGroupMenuLoanHover() {
-        return groupMenuLoanHover;
-    }
-
-    public JLabel getGroupMenuUpSalaryHover() {
-        return groupMenuUpSalaryHover;
-    }
-
-    public JLabel getGroupMenuPayrollHover() {
-        return groupMenuPayrollHover;
-    }
-
-    public JLabel getGroupEmployeeHover() {
-        return groupEmployeeHover;
-    }
-
-    public JLabel getLblPayrollSetting() {
-        return lblPayrollSetting;
-    }
+   
 
     public JocHyperlink getMenuMaximum() {
         return menuMaximum;
@@ -206,121 +166,13 @@ public class FrmMainMenu extends javax.swing.JFrame {
         return menuMinimum;
     }
 
-    public JLabel getGroupMenuAbsent() {
-        return groupMenuAbsent;
-    }
-
-    public JLabel getGroupMenuEmployee() {
-        return groupMenuEmployee;
-    }
-
-    public JLabel getGroupMenuLoan() {
-        return groupMenuLoan;
-    }
-
-    public JLabel getGroupMenuOverTime() {
-        return groupMenuOverTime;
-    }
-
-    public JLabel getGroupMenuPayroll() {
-        return groupMenuPayroll;
-    }
-
-    public JLabel getGroupMenuPayrollSetting() {
-        return groupMenuPayrollSetting;
-    }
-
-    public JLabel getGroupMenuReport() {
-        return groupMenuReport;
-    }
-
-    public JLabel getGroupMenuSystemSetting() {
-        return groupMenuSystemSetting;
-    }
-
-    public JLabel getGroupMenuTaxSetting() {
-        return groupMenuTaxSetting;
-    }
-
-    public JLabel getGroupMenuUpSalary() {
-        return groupMenuUpSalary;
-    }
-
-    public JLabel getGroupMenuUserSetting() {
-        return groupMenuUserSetting;
-    }
-
-    public JLabel getLblAbsent() {
-        return lblAbsent;
-    }
-
-    public JLabel getLblEmployee() {
-        return lblEmployee;
-    }
-
-    public JLabel getLblFemale() {
-        return lblFemale;
-    }
-
-    public JLabel getLblLoan() {
-        return lblLoan;
-    }
-
-    public JLabel getLblMOT() {
-        return lblMOT;
-    }
-
-    public JLabel getLblMSBD() {
-        return lblMSBD;
-    }
-
-    public JLabel getLblMale() {
-        return lblMale;
-    }
-
-    public JLabel getLblOvertime() {
-        return lblOvertime;
-    }
-
-    public JLabel getLblPayroll() {
-        return lblPayroll;
-    }
-
-    public JLabel getLblReport() {
-        return lblReport;
-    }
-
-    public JLabel getLblSystemSetting() {
-        return lblSystemSetting;
-    }
-
-    public JLabel getLblTaxSetting() {
-        return lblTaxSetting;
-    }
-
-    public JLabel getLblTotalEmp() {
-        return lblTotalEmp;
-    }
-
-    public JLabel getLblUpSalary() {
-        return lblUpSalary;
-    }
-
-    public JLabel getLblUserSetting() {
-        return lblUserSetting;
-    }
+  
 
     public JLabel getLblUserlogin() {
         return lblUserlogin;
     }
 
-    public JLabel getLblYSBM() {
-        return lblYSBM;
-    }
-
-    public JocHyperlink getMenuAbsent() {
-        return menuAbsent;
-    }
+    
 
     public JocHyperlink getMenuAbsentType() {
         return menuAbsentType;
@@ -354,9 +206,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         return menuEmpStatus;
     }
 
-    public JocHyperlink getMenuEmployee() {
-        return menuEmployee;
-    }
+    
 
     public JocHyperlink getMenuEthnic() {
         return menuEthnic;
@@ -382,9 +232,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         return menuInsurance;
     }
 
-    public JocHyperlink getMenuLoan() {
-        return menuLoan;
-    }
+    
 
     public JocHyperlink getMenuLocation() {
         return menuLocation;
@@ -394,29 +242,19 @@ public class FrmMainMenu extends javax.swing.JFrame {
         return menuNationality;
     }
 
-    public JocHyperlink getMenuOverTime() {
-        return menuOverTime;
-    }
+    
 
     public JocHyperlink getMenuOverTimeType() {
         return menuOverTimeType;
     }
 
-    public JocHyperlink getMenuPayroll() {
-        return menuPayroll;
-    }
-
-    public JocHyperlink getMenuPayrollSetting() {
-        return menuPayrollSetting;
-    }
+    
 
     public JocHyperlink getMenuReligion() {
         return menuReligion;
     }
 
-    public JocHyperlink getMenuReport() {
-        return menuReport;
-    }
+   
 
     public JocHyperlink getMenuSalaryType() {
         return menuSalaryType;
@@ -426,13 +264,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         return menuSetting;
     }
 
-    public JocHyperlink getMenuSystemSetting() {
-        return menuSystemSetting;
-    }
-
-    public JocHyperlink getMenuTaxSetting() {
-        return menuTaxSetting;
-    }
+    
 
     public JocHyperlink getMenuTitle() {
         return menuTitle;
@@ -442,21 +274,12 @@ public class FrmMainMenu extends javax.swing.JFrame {
         return menuUnitWork;
     }
 
-    public JocHyperlink getMenuUpSalary() {
-        return menuUpSalary;
-    }
-
-    public JocHyperlink getMenuUserSetting() {
-        return menuUserSetting;
-    }
-
+    
     public JocHyperlink getMenuYoutube() {
         return menuYoutube;
     }
 
-    public JLabel getPanelMSBD() {
-        return panelMSBD;
-    }
+   
 
     public JPanel getPanelSideMenu() {
         return panelSideMenu;
@@ -466,37 +289,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         return panelTitle;
     }
 
-    public JLabel getPanelYSBM() {
-        return panelYSBM;
-    }
-
-    public JPanel getPnControllDashboard() {
-        return pnControllDashboard;
-    }
-
-    public JPanel getPnControllHR() {
-        return pnControllHR;
-    }
-
-    public JPanel getPnControllSetting() {
-        return pnControllSetting;
-    }
-
-    public JPanel getPnDashboardMain() {
-        return pnDashboardMain;
-    }
-
-    public JLabel getTxtEmpTotal() {
-        return txtEmpTotal;
-    }
-
-    public JLabel getTxtFemale() {
-        return txtFemale;
-    }
-
-    public JLabel getTxtMale() {
-        return txtMale;
-    }
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -567,71 +360,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         menuSalaryTypeGH = new javax.swing.JLabel();
         menuDeductionTypeGH = new javax.swing.JLabel();
         DashboardControll = new javax.swing.JPanel();
-        pnDashboardMain = new javax.swing.JPanel();
-        pnControllDashboard = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        txtEmpTotal = new javax.swing.JLabel();
-        lblTotalEmp = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        txtFemale = new javax.swing.JLabel();
-        lblFemale = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        txtMale = new javax.swing.JLabel();
-        lblMale = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        lblMSBD = new javax.swing.JLabel();
-        panelMSBD = new javax.swing.JLabel();
-        lblYSBM = new javax.swing.JLabel();
-        panelYSBM = new javax.swing.JLabel();
-        lblMOT = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        pnControllHR = new javax.swing.JPanel();
-        menuEmployee = new com.xzq.osc.JocHyperlink();
-        lblEmployee = new javax.swing.JLabel();
-        groupMenuEmployee = new javax.swing.JLabel();
-        groupEmployeeHover = new javax.swing.JLabel();
-        lblPayroll = new javax.swing.JLabel();
-        menuPayroll = new com.xzq.osc.JocHyperlink();
-        groupMenuPayroll = new javax.swing.JLabel();
-        groupMenuPayrollHover = new javax.swing.JLabel();
-        lblUpSalary = new javax.swing.JLabel();
-        menuUpSalary = new com.xzq.osc.JocHyperlink();
-        groupMenuUpSalary = new javax.swing.JLabel();
-        groupMenuUpSalaryHover = new javax.swing.JLabel();
-        lblLoan = new javax.swing.JLabel();
-        menuLoan = new com.xzq.osc.JocHyperlink();
-        groupMenuLoan = new javax.swing.JLabel();
-        groupMenuLoanHover = new javax.swing.JLabel();
-        lblAbsent = new javax.swing.JLabel();
-        menuAbsent = new com.xzq.osc.JocHyperlink();
-        groupMenuAbsent = new javax.swing.JLabel();
-        groupMenuAbsentHover = new javax.swing.JLabel();
-        lblOvertime = new javax.swing.JLabel();
-        menuOverTime = new com.xzq.osc.JocHyperlink();
-        groupMenuOverTime = new javax.swing.JLabel();
-        groupMenuOverTimeHover = new javax.swing.JLabel();
-        lblUserSetting = new javax.swing.JLabel();
-        menuUserSetting = new com.xzq.osc.JocHyperlink();
-        groupMenuUserSetting = new javax.swing.JLabel();
-        groupMenuUserSettingHover = new javax.swing.JLabel();
-        lblReport = new javax.swing.JLabel();
-        menuReport = new com.xzq.osc.JocHyperlink();
-        groupMenuReport = new javax.swing.JLabel();
-        groupMenuReportHover = new javax.swing.JLabel();
-        pnControllSetting = new javax.swing.JPanel();
-        menuSystemSetting = new com.xzq.osc.JocHyperlink();
-        lblSystemSetting = new javax.swing.JLabel();
-        groupMenuSystemSetting = new javax.swing.JLabel();
-        groupMenuSystemSettingHover = new javax.swing.JLabel();
-        lblTaxSetting = new javax.swing.JLabel();
-        menuTaxSetting = new com.xzq.osc.JocHyperlink();
-        groupMenuTaxSetting = new javax.swing.JLabel();
-        groupMenuTaxSettingHover = new javax.swing.JLabel();
-        lblPayrollSetting = new javax.swing.JLabel();
-        menuPayrollSetting = new com.xzq.osc.JocHyperlink();
-        groupMenuPayrollSetting = new javax.swing.JLabel();
-        groupMenuPayrollSettingHover = new javax.swing.JLabel();
+        deskTopControll = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -815,7 +544,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         jPanel1.setBounds(0, 43, 200, 43);
 
         menuCompany.setActiveColor(new java.awt.Color(255, 255, 255));
-        menuCompany.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Company_25px.png"))); // NOI18N
+        menuCompany.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Folder_25px.png"))); // NOI18N
         menuCompany.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuCompany.setText("Company");
         menuCompany.setUnvisitColor(new java.awt.Color(255, 255, 255));
@@ -826,7 +555,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         menuCompany.setBounds(10, 105, 180, 27);
 
         menuLocation.setActiveColor(new java.awt.Color(255, 255, 255));
-        menuLocation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Location_25px.png"))); // NOI18N
+        menuLocation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Folder_25px.png"))); // NOI18N
         menuLocation.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuLocation.setText("Location");
         menuLocation.setUnvisitColor(new java.awt.Color(255, 255, 255));
@@ -837,7 +566,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         menuLocation.setBounds(10, 137, 180, 27);
 
         menuDivision.setActiveColor(new java.awt.Color(255, 255, 255));
-        menuDivision.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Small Business_25px.png"))); // NOI18N
+        menuDivision.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Folder_25px.png"))); // NOI18N
         menuDivision.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuDivision.setText("Division");
         menuDivision.setUnvisitColor(new java.awt.Color(255, 255, 255));
@@ -853,7 +582,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         menuDivision.setBounds(10, 169, 180, 27);
 
         menuDepartment.setActiveColor(new java.awt.Color(255, 255, 255));
-        menuDepartment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Department_25px.png"))); // NOI18N
+        menuDepartment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Folder_25px.png"))); // NOI18N
         menuDepartment.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuDepartment.setText("Department");
         menuDepartment.setUnvisitColor(new java.awt.Color(255, 255, 255));
@@ -864,7 +593,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         menuDepartment.setBounds(10, 201, 180, 27);
 
         menuUnitWork.setActiveColor(new java.awt.Color(255, 255, 255));
-        menuUnitWork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Unit_25px.png"))); // NOI18N
+        menuUnitWork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Folder_25px.png"))); // NOI18N
         menuUnitWork.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuUnitWork.setText("Unit");
         menuUnitWork.setUnvisitColor(new java.awt.Color(255, 255, 255));
@@ -875,7 +604,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         menuUnitWork.setBounds(10, 233, 180, 27);
 
         menuTitle.setActiveColor(new java.awt.Color(255, 255, 255));
-        menuTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Medal Third Place_25px.png"))); // NOI18N
+        menuTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Folder_25px.png"))); // NOI18N
         menuTitle.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuTitle.setText("Title");
         menuTitle.setUnvisitColor(new java.awt.Color(255, 255, 255));
@@ -886,7 +615,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         menuTitle.setBounds(10, 265, 180, 27);
 
         menuNationality.setActiveColor(new java.awt.Color(255, 255, 255));
-        menuNationality.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Destination_25px.png"))); // NOI18N
+        menuNationality.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Folder_25px.png"))); // NOI18N
         menuNationality.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuNationality.setText("Nationality");
         menuNationality.setUnvisitColor(new java.awt.Color(255, 255, 255));
@@ -897,7 +626,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         menuNationality.setBounds(10, 297, 180, 27);
 
         menuEthnic.setActiveColor(new java.awt.Color(255, 255, 255));
-        menuEthnic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Hula Girl_25px.png"))); // NOI18N
+        menuEthnic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Folder_25px.png"))); // NOI18N
         menuEthnic.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuEthnic.setText("Ethnic");
         menuEthnic.setUnvisitColor(new java.awt.Color(255, 255, 255));
@@ -908,7 +637,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         menuEthnic.setBounds(10, 329, 180, 27);
 
         menuReligion.setActiveColor(new java.awt.Color(255, 255, 255));
-        menuReligion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Church_25px.png"))); // NOI18N
+        menuReligion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Folder_25px.png"))); // NOI18N
         menuReligion.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuReligion.setText("Religion");
         menuReligion.setUnvisitColor(new java.awt.Color(255, 255, 255));
@@ -919,7 +648,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         menuReligion.setBounds(10, 361, 180, 27);
 
         menuBank.setActiveColor(new java.awt.Color(255, 255, 255));
-        menuBank.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Bank Building_25px.png"))); // NOI18N
+        menuBank.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Folder_25px.png"))); // NOI18N
         menuBank.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuBank.setText("Bank");
         menuBank.setUnvisitColor(new java.awt.Color(255, 255, 255));
@@ -930,7 +659,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         menuBank.setBounds(10, 393, 180, 27);
 
         menuInsurance.setActiveColor(new java.awt.Color(255, 255, 255));
-        menuInsurance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Car Insurance_25px.png"))); // NOI18N
+        menuInsurance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Folder_25px.png"))); // NOI18N
         menuInsurance.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuInsurance.setText("Insurance");
         menuInsurance.setUnvisitColor(new java.awt.Color(255, 255, 255));
@@ -941,7 +670,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         menuInsurance.setBounds(10, 425, 180, 27);
 
         menuEmpStatus.setActiveColor(new java.awt.Color(255, 255, 255));
-        menuEmpStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Employee_25px.png"))); // NOI18N
+        menuEmpStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Folder_25px.png"))); // NOI18N
         menuEmpStatus.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuEmpStatus.setText("Employee Status");
         menuEmpStatus.setUnvisitColor(new java.awt.Color(255, 255, 255));
@@ -952,7 +681,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         menuEmpStatus.setBounds(10, 457, 180, 27);
 
         menuAbsentType.setActiveColor(new java.awt.Color(255, 255, 255));
-        menuAbsentType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Leave_25px.png"))); // NOI18N
+        menuAbsentType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Folder_25px.png"))); // NOI18N
         menuAbsentType.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuAbsentType.setText("Absent Type");
         menuAbsentType.setUnvisitColor(new java.awt.Color(255, 255, 255));
@@ -963,7 +692,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         menuAbsentType.setBounds(10, 489, 180, 27);
 
         menuOverTimeType.setActiveColor(new java.awt.Color(255, 255, 255));
-        menuOverTimeType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Schedule_25px.png"))); // NOI18N
+        menuOverTimeType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Folder_25px.png"))); // NOI18N
         menuOverTimeType.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuOverTimeType.setText("Overtime Type");
         menuOverTimeType.setUnvisitColor(new java.awt.Color(255, 255, 255));
@@ -974,7 +703,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         menuOverTimeType.setBounds(10, 521, 180, 27);
 
         menuSalaryType.setActiveColor(new java.awt.Color(255, 255, 255));
-        menuSalaryType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Stack of Money_25px.png"))); // NOI18N
+        menuSalaryType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Folder_25px.png"))); // NOI18N
         menuSalaryType.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuSalaryType.setText("Salary Type");
         menuSalaryType.setUnvisitColor(new java.awt.Color(255, 255, 255));
@@ -985,7 +714,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         menuSalaryType.setBounds(10, 553, 180, 27);
 
         menuDeductionType.setActiveColor(new java.awt.Color(255, 255, 255));
-        menuDeductionType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Minus_25px.png"))); // NOI18N
+        menuDeductionType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Folder_25px.png"))); // NOI18N
         menuDeductionType.setRolloverColor(new java.awt.Color(255, 255, 255));
         menuDeductionType.setText("Deduction Type");
         menuDeductionType.setUnvisitColor(new java.awt.Color(255, 255, 255));
@@ -1148,372 +877,22 @@ public class FrmMainMenu extends javax.swing.JFrame {
 
         DashboardControll.setBackground(new java.awt.Color(255, 255, 255));
         DashboardControll.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 2, new java.awt.Color(81, 87, 99)));
-
-        pnDashboardMain.setBackground(new java.awt.Color(255, 255, 255));
-        pnDashboardMain.setLayout(null);
-
-        pnControllDashboard.setBackground(new java.awt.Color(255, 255, 255));
-        pnControllDashboard.setLayout(null);
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Untitled-2.png"))); // NOI18N
-        pnControllDashboard.add(jLabel4);
-        jLabel4.setBounds(560, 210, 380, 380);
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Untitled-1.png"))); // NOI18N
-        pnControllDashboard.add(jLabel3);
-        jLabel3.setBounds(30, 210, 500, 380);
-
-        txtEmpTotal.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
-        txtEmpTotal.setForeground(new java.awt.Color(0, 204, 0));
-        txtEmpTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtEmpTotal.setText("45");
-        pnControllDashboard.add(txtEmpTotal);
-        txtEmpTotal.setBounds(20, 60, 150, 60);
-
-        lblTotalEmp.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
-        lblTotalEmp.setForeground(new java.awt.Color(255, 255, 255));
-        lblTotalEmp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTotalEmp.setText("Employee");
-        pnControllDashboard.add(lblTotalEmp);
-        lblTotalEmp.setBounds(20, 160, 150, 20);
-
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/panel.png"))); // NOI18N
-        pnControllDashboard.add(jLabel2);
-        jLabel2.setBounds(10, 20, 170, 170);
-
-        txtFemale.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
-        txtFemale.setForeground(new java.awt.Color(255, 153, 102));
-        txtFemale.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtFemale.setText("20");
-        pnControllDashboard.add(txtFemale);
-        txtFemale.setBounds(210, 60, 140, 60);
-
-        lblFemale.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
-        lblFemale.setForeground(new java.awt.Color(255, 255, 255));
-        lblFemale.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblFemale.setText("Female");
-        pnControllDashboard.add(lblFemale);
-        lblFemale.setBounds(210, 160, 140, 20);
-
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/panel.png"))); // NOI18N
-        pnControllDashboard.add(jLabel6);
-        jLabel6.setBounds(195, 20, 170, 170);
-
-        txtMale.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
-        txtMale.setForeground(new java.awt.Color(153, 153, 255));
-        txtMale.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtMale.setText("25");
-        pnControllDashboard.add(txtMale);
-        txtMale.setBounds(390, 60, 150, 60);
-
-        lblMale.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
-        lblMale.setForeground(new java.awt.Color(255, 255, 255));
-        lblMale.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblMale.setText("Male");
-        pnControllDashboard.add(lblMale);
-        lblMale.setBounds(390, 160, 150, 20);
-
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/panel.png"))); // NOI18N
-        pnControllDashboard.add(jLabel7);
-        jLabel7.setBounds(380, 20, 170, 170);
-
-        lblMSBD.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
-        lblMSBD.setForeground(new java.awt.Color(255, 255, 255));
-        lblMSBD.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblMSBD.setText("Monthly Salary by Department");
-        pnControllDashboard.add(lblMSBD);
-        lblMSBD.setBounds(20, 605, 520, 22);
-
-        panelMSBD.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        panelMSBD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/panel2.png"))); // NOI18N
-        pnControllDashboard.add(panelMSBD);
-        panelMSBD.setBounds(10, 190, 540, 450);
-
-        lblYSBM.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
-        lblYSBM.setForeground(new java.awt.Color(255, 255, 255));
-        lblYSBM.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblYSBM.setText("Yearly Salary by month");
-        pnControllDashboard.add(lblYSBM);
-        lblYSBM.setBounds(560, 606, 380, 22);
-
-        panelYSBM.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        panelYSBM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/panel3.png"))); // NOI18N
-        pnControllDashboard.add(panelYSBM);
-        panelYSBM.setBounds(550, 190, 400, 450);
-
-        lblMOT.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
-        lblMOT.setForeground(new java.awt.Color(255, 255, 255));
-        lblMOT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblMOT.setText("Monthly OverTime");
-        pnControllDashboard.add(lblMOT);
-        lblMOT.setBounds(560, 160, 380, 22);
-
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/panel4.png"))); // NOI18N
-        pnControllDashboard.add(jLabel10);
-        jLabel10.setBounds(545, 20, 410, 170);
-
-        pnDashboardMain.add(pnControllDashboard);
-        pnControllDashboard.setBounds(0, 0, 990, 660);
-
-        pnControllHR.setBackground(new java.awt.Color(255, 255, 255));
-        pnControllHR.setLayout(null);
-
-        menuEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/employee1.png"))); // NOI18N
-        pnControllHR.add(menuEmployee);
-        menuEmployee.setBounds(55, 65, 150, 130);
-
-        lblEmployee.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
-        lblEmployee.setForeground(new java.awt.Color(255, 255, 255));
-        lblEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblEmployee.setText("Employee");
-        pnControllHR.add(lblEmployee);
-        lblEmployee.setBounds(60, 200, 145, 17);
-
-        groupMenuEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        groupMenuEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menu.png"))); // NOI18N
-        pnControllHR.add(groupMenuEmployee);
-        groupMenuEmployee.setBounds(50, 60, 162, 163);
-
-        groupEmployeeHover.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        groupEmployeeHover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menuHover.png"))); // NOI18N
-        pnControllHR.add(groupEmployeeHover);
-        groupEmployeeHover.setBounds(50, 60, 162, 163);
-
-        lblPayroll.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
-        lblPayroll.setForeground(new java.awt.Color(255, 255, 255));
-        lblPayroll.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPayroll.setText("Payroll");
-        pnControllHR.add(lblPayroll);
-        lblPayroll.setBounds(250, 200, 145, 17);
-
-        menuPayroll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/payroll1.png"))); // NOI18N
-        pnControllHR.add(menuPayroll);
-        menuPayroll.setBounds(245, 65, 150, 130);
-
-        groupMenuPayroll.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        groupMenuPayroll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menu.png"))); // NOI18N
-        pnControllHR.add(groupMenuPayroll);
-        groupMenuPayroll.setBounds(240, 60, 162, 163);
-
-        groupMenuPayrollHover.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        groupMenuPayrollHover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menuHover.png"))); // NOI18N
-        pnControllHR.add(groupMenuPayrollHover);
-        groupMenuPayrollHover.setBounds(240, 60, 162, 163);
-
-        lblUpSalary.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
-        lblUpSalary.setForeground(new java.awt.Color(255, 255, 255));
-        lblUpSalary.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblUpSalary.setText("Up Salary");
-        pnControllHR.add(lblUpSalary);
-        lblUpSalary.setBounds(440, 200, 145, 17);
-
-        menuUpSalary.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/UpSalary.png"))); // NOI18N
-        pnControllHR.add(menuUpSalary);
-        menuUpSalary.setBounds(436, 65, 150, 130);
-
-        groupMenuUpSalary.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        groupMenuUpSalary.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menu.png"))); // NOI18N
-        pnControllHR.add(groupMenuUpSalary);
-        groupMenuUpSalary.setBounds(430, 60, 162, 163);
-
-        groupMenuUpSalaryHover.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        groupMenuUpSalaryHover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menuHover.png"))); // NOI18N
-        pnControllHR.add(groupMenuUpSalaryHover);
-        groupMenuUpSalaryHover.setBounds(430, 60, 162, 163);
-
-        lblLoan.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
-        lblLoan.setForeground(new java.awt.Color(255, 255, 255));
-        lblLoan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLoan.setText("Loan");
-        pnControllHR.add(lblLoan);
-        lblLoan.setBounds(630, 200, 145, 17);
-
-        menuLoan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Loan.png"))); // NOI18N
-        pnControllHR.add(menuLoan);
-        menuLoan.setBounds(626, 65, 150, 130);
-
-        groupMenuLoan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        groupMenuLoan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menu.png"))); // NOI18N
-        pnControllHR.add(groupMenuLoan);
-        groupMenuLoan.setBounds(620, 60, 162, 163);
-
-        groupMenuLoanHover.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        groupMenuLoanHover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menuHover.png"))); // NOI18N
-        pnControllHR.add(groupMenuLoanHover);
-        groupMenuLoanHover.setBounds(620, 60, 162, 163);
-
-        lblAbsent.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
-        lblAbsent.setForeground(new java.awt.Color(255, 255, 255));
-        lblAbsent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAbsent.setText("Absent");
-        pnControllHR.add(lblAbsent);
-        lblAbsent.setBounds(60, 410, 145, 17);
-
-        menuAbsent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Absent.png"))); // NOI18N
-        pnControllHR.add(menuAbsent);
-        menuAbsent.setBounds(55, 275, 150, 130);
-
-        groupMenuAbsent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        groupMenuAbsent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menu.png"))); // NOI18N
-        pnControllHR.add(groupMenuAbsent);
-        groupMenuAbsent.setBounds(50, 270, 162, 163);
-
-        groupMenuAbsentHover.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        groupMenuAbsentHover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menuHover.png"))); // NOI18N
-        pnControllHR.add(groupMenuAbsentHover);
-        groupMenuAbsentHover.setBounds(50, 270, 162, 163);
-
-        lblOvertime.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
-        lblOvertime.setForeground(new java.awt.Color(255, 255, 255));
-        lblOvertime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblOvertime.setText("Overtime");
-        pnControllHR.add(lblOvertime);
-        lblOvertime.setBounds(250, 410, 145, 17);
-
-        menuOverTime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/OverTime.png"))); // NOI18N
-        pnControllHR.add(menuOverTime);
-        menuOverTime.setBounds(245, 275, 150, 130);
-
-        groupMenuOverTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        groupMenuOverTime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menu.png"))); // NOI18N
-        pnControllHR.add(groupMenuOverTime);
-        groupMenuOverTime.setBounds(240, 270, 162, 163);
-
-        groupMenuOverTimeHover.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        groupMenuOverTimeHover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menuHover.png"))); // NOI18N
-        pnControllHR.add(groupMenuOverTimeHover);
-        groupMenuOverTimeHover.setBounds(240, 270, 162, 163);
-
-        lblUserSetting.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
-        lblUserSetting.setForeground(new java.awt.Color(255, 255, 255));
-        lblUserSetting.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblUserSetting.setText("User Setting");
-        pnControllHR.add(lblUserSetting);
-        lblUserSetting.setBounds(440, 410, 145, 17);
-
-        menuUserSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/UserSetting.png"))); // NOI18N
-        pnControllHR.add(menuUserSetting);
-        menuUserSetting.setBounds(436, 275, 150, 130);
-
-        groupMenuUserSetting.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        groupMenuUserSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menu.png"))); // NOI18N
-        pnControllHR.add(groupMenuUserSetting);
-        groupMenuUserSetting.setBounds(430, 270, 162, 163);
-
-        groupMenuUserSettingHover.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        groupMenuUserSettingHover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menuHover.png"))); // NOI18N
-        pnControllHR.add(groupMenuUserSettingHover);
-        groupMenuUserSettingHover.setBounds(430, 270, 162, 163);
-
-        lblReport.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
-        lblReport.setForeground(new java.awt.Color(255, 255, 255));
-        lblReport.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblReport.setText("Report");
-        pnControllHR.add(lblReport);
-        lblReport.setBounds(630, 410, 145, 17);
-
-        menuReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Report.png"))); // NOI18N
-        pnControllHR.add(menuReport);
-        menuReport.setBounds(626, 275, 150, 130);
-
-        groupMenuReport.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        groupMenuReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menu.png"))); // NOI18N
-        pnControllHR.add(groupMenuReport);
-        groupMenuReport.setBounds(620, 270, 162, 163);
-
-        groupMenuReportHover.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        groupMenuReportHover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menuHover.png"))); // NOI18N
-        pnControllHR.add(groupMenuReportHover);
-        groupMenuReportHover.setBounds(620, 270, 162, 163);
-
-        pnDashboardMain.add(pnControllHR);
-        pnControllHR.setBounds(0, 1, 990, 670);
-
-        pnControllSetting.setBackground(new java.awt.Color(255, 255, 255));
-        pnControllSetting.setLayout(null);
-
-        menuSystemSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/SystemSetting.png"))); // NOI18N
-        pnControllSetting.add(menuSystemSetting);
-        menuSystemSetting.setBounds(55, 65, 150, 130);
-
-        lblSystemSetting.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
-        lblSystemSetting.setForeground(new java.awt.Color(255, 255, 255));
-        lblSystemSetting.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSystemSetting.setText("System Setting");
-        pnControllSetting.add(lblSystemSetting);
-        lblSystemSetting.setBounds(60, 200, 145, 17);
-
-        groupMenuSystemSetting.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        groupMenuSystemSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menu.png"))); // NOI18N
-        pnControllSetting.add(groupMenuSystemSetting);
-        groupMenuSystemSetting.setBounds(50, 60, 162, 163);
-
-        groupMenuSystemSettingHover.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        groupMenuSystemSettingHover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menuHover.png"))); // NOI18N
-        pnControllSetting.add(groupMenuSystemSettingHover);
-        groupMenuSystemSettingHover.setBounds(50, 60, 162, 163);
-
-        lblTaxSetting.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
-        lblTaxSetting.setForeground(new java.awt.Color(255, 255, 255));
-        lblTaxSetting.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTaxSetting.setText("Tax Setting");
-        pnControllSetting.add(lblTaxSetting);
-        lblTaxSetting.setBounds(250, 200, 145, 17);
-
-        menuTaxSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/UserSetting.png"))); // NOI18N
-        pnControllSetting.add(menuTaxSetting);
-        menuTaxSetting.setBounds(246, 65, 150, 130);
-
-        groupMenuTaxSetting.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        groupMenuTaxSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menu.png"))); // NOI18N
-        pnControllSetting.add(groupMenuTaxSetting);
-        groupMenuTaxSetting.setBounds(240, 60, 162, 163);
-
-        groupMenuTaxSettingHover.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        groupMenuTaxSettingHover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menuHover.png"))); // NOI18N
-        pnControllSetting.add(groupMenuTaxSettingHover);
-        groupMenuTaxSettingHover.setBounds(240, 60, 162, 163);
-
-        lblPayrollSetting.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
-        lblPayrollSetting.setForeground(new java.awt.Color(255, 255, 255));
-        lblPayrollSetting.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPayrollSetting.setText("Payroll Setting");
-        pnControllSetting.add(lblPayrollSetting);
-        lblPayrollSetting.setBounds(438, 200, 145, 17);
-
-        menuPayrollSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/PaySetting.png"))); // NOI18N
-        pnControllSetting.add(menuPayrollSetting);
-        menuPayrollSetting.setBounds(436, 65, 150, 130);
-
-        groupMenuPayrollSetting.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        groupMenuPayrollSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menu.png"))); // NOI18N
-        pnControllSetting.add(groupMenuPayrollSetting);
-        groupMenuPayrollSetting.setBounds(430, 60, 162, 163);
-
-        groupMenuPayrollSettingHover.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        groupMenuPayrollSettingHover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/menuHover.png"))); // NOI18N
-        pnControllSetting.add(groupMenuPayrollSettingHover);
-        groupMenuPayrollSettingHover.setBounds(430, 60, 162, 163);
-
-        pnDashboardMain.add(pnControllSetting);
-        pnControllSetting.setBounds(0, 0, 990, 670);
-
-        javax.swing.GroupLayout DashboardControllLayout = new javax.swing.GroupLayout(DashboardControll);
-        DashboardControll.setLayout(DashboardControllLayout);
-        DashboardControllLayout.setHorizontalGroup(
-            DashboardControllLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnDashboardMain, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)
+        DashboardControll.setLayout(new java.awt.BorderLayout());
+
+        deskTopControll.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout deskTopControllLayout = new javax.swing.GroupLayout(deskTopControll);
+        deskTopControll.setLayout(deskTopControllLayout);
+        deskTopControllLayout.setHorizontalGroup(
+            deskTopControllLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 990, Short.MAX_VALUE)
         );
-        DashboardControllLayout.setVerticalGroup(
-            DashboardControllLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DashboardControllLayout.createSequentialGroup()
-                .addComponent(pnDashboardMain, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+        deskTopControllLayout.setVerticalGroup(
+            deskTopControllLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 690, Short.MAX_VALUE)
         );
+
+        DashboardControll.add(deskTopControll, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(DashboardControll, java.awt.BorderLayout.CENTER);
 
@@ -1579,57 +958,12 @@ public class FrmMainMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DashboardControll;
-    private javax.swing.JLabel groupEmployeeHover;
-    private javax.swing.JLabel groupMenuAbsent;
-    private javax.swing.JLabel groupMenuAbsentHover;
-    private javax.swing.JLabel groupMenuEmployee;
-    private javax.swing.JLabel groupMenuLoan;
-    private javax.swing.JLabel groupMenuLoanHover;
-    private javax.swing.JLabel groupMenuOverTime;
-    private javax.swing.JLabel groupMenuOverTimeHover;
-    private javax.swing.JLabel groupMenuPayroll;
-    private javax.swing.JLabel groupMenuPayrollHover;
-    private javax.swing.JLabel groupMenuPayrollSetting;
-    private javax.swing.JLabel groupMenuPayrollSettingHover;
-    private javax.swing.JLabel groupMenuReport;
-    private javax.swing.JLabel groupMenuReportHover;
-    private javax.swing.JLabel groupMenuSystemSetting;
-    private javax.swing.JLabel groupMenuSystemSettingHover;
-    private javax.swing.JLabel groupMenuTaxSetting;
-    private javax.swing.JLabel groupMenuTaxSettingHover;
-    private javax.swing.JLabel groupMenuUpSalary;
-    private javax.swing.JLabel groupMenuUpSalaryHover;
-    private javax.swing.JLabel groupMenuUserSetting;
-    private javax.swing.JLabel groupMenuUserSettingHover;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    public static javax.swing.JDesktopPane deskTopControll;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblAbsent;
-    private javax.swing.JLabel lblEmployee;
-    private javax.swing.JLabel lblFemale;
     private javax.swing.JLabel lblLaoERP;
-    private javax.swing.JLabel lblLoan;
-    private javax.swing.JLabel lblMOT;
-    private javax.swing.JLabel lblMSBD;
     private javax.swing.JLabel lblMainData;
-    private javax.swing.JLabel lblMale;
-    private javax.swing.JLabel lblOvertime;
-    private javax.swing.JLabel lblPayroll;
-    private javax.swing.JLabel lblPayrollSetting;
-    private javax.swing.JLabel lblReport;
-    private javax.swing.JLabel lblSystemSetting;
-    private javax.swing.JLabel lblTaxSetting;
-    private javax.swing.JLabel lblTotalEmp;
-    private javax.swing.JLabel lblUpSalary;
-    private javax.swing.JLabel lblUserSetting;
     private javax.swing.JLabel lblUserlogin;
-    private javax.swing.JLabel lblYSBM;
-    private com.xzq.osc.JocHyperlink menuAbsent;
     private com.xzq.osc.JocHyperlink menuAbsentType;
     private javax.swing.JLabel menuAbsentTypeG;
     private javax.swing.JLabel menuAbsentTypeGH;
@@ -1639,7 +973,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
     private com.xzq.osc.JocHyperlink menuCompany;
     private javax.swing.JLabel menuCompanyG;
     private javax.swing.JLabel menuCompanyGH;
-    private com.malimar.utils.KButton menuDashboard;
+    public static com.malimar.utils.KButton menuDashboard;
     private com.xzq.osc.JocHyperlink menuDeductionType;
     private javax.swing.JLabel menuDeductionTypeG;
     private javax.swing.JLabel menuDeductionTypeGH;
@@ -1652,18 +986,16 @@ public class FrmMainMenu extends javax.swing.JFrame {
     private com.xzq.osc.JocHyperlink menuEmpStatus;
     private javax.swing.JLabel menuEmpStatusG;
     private javax.swing.JLabel menuEmpStatusGH;
-    private com.xzq.osc.JocHyperlink menuEmployee;
     private com.xzq.osc.JocHyperlink menuEthnic;
     private javax.swing.JLabel menuEthnicG;
     private javax.swing.JLabel menuEthnicGH;
     private com.xzq.osc.JocHyperlink menuExit;
     private com.xzq.osc.JocHyperlink menuFacebook;
     private com.xzq.osc.JocHyperlink menuGoogle;
-    private com.malimar.utils.KButton menuHR;
+    public static com.malimar.utils.KButton menuHR;
     private com.xzq.osc.JocHyperlink menuInsurance;
     private javax.swing.JLabel menuInsuranceG;
     private javax.swing.JLabel menuInsuranceGH;
-    private com.xzq.osc.JocHyperlink menuLoan;
     private com.xzq.osc.JocHyperlink menuLocation;
     private javax.swing.JLabel menuLocationG;
     private javax.swing.JLabel menuLocationGH;
@@ -1672,41 +1004,24 @@ public class FrmMainMenu extends javax.swing.JFrame {
     private com.xzq.osc.JocHyperlink menuNationality;
     private javax.swing.JLabel menuNationalityG;
     private javax.swing.JLabel menuNationalityGH;
-    private com.xzq.osc.JocHyperlink menuOverTime;
     private com.xzq.osc.JocHyperlink menuOverTimeType;
     private javax.swing.JLabel menuOverTimeTypeG;
     private javax.swing.JLabel menuOverTimeTypeGH;
-    private com.xzq.osc.JocHyperlink menuPayroll;
-    private com.xzq.osc.JocHyperlink menuPayrollSetting;
     private com.xzq.osc.JocHyperlink menuReligion;
     private javax.swing.JLabel menuReligionG;
     private javax.swing.JLabel menuReligionGH;
-    private com.xzq.osc.JocHyperlink menuReport;
     private com.xzq.osc.JocHyperlink menuSalaryType;
     private javax.swing.JLabel menuSalaryTypeG;
     private javax.swing.JLabel menuSalaryTypeGH;
-    private com.malimar.utils.KButton menuSetting;
-    private com.xzq.osc.JocHyperlink menuSystemSetting;
-    private com.xzq.osc.JocHyperlink menuTaxSetting;
+    public static com.malimar.utils.KButton menuSetting;
     private com.xzq.osc.JocHyperlink menuTitle;
     private javax.swing.JLabel menuTitleG;
     private javax.swing.JLabel menuTitleGH;
     private com.xzq.osc.JocHyperlink menuUnitWork;
     private javax.swing.JLabel menuUnitWorkG;
     private javax.swing.JLabel menuUnitWorkGH;
-    private com.xzq.osc.JocHyperlink menuUpSalary;
-    private com.xzq.osc.JocHyperlink menuUserSetting;
     private com.xzq.osc.JocHyperlink menuYoutube;
-    private javax.swing.JLabel panelMSBD;
     private javax.swing.JPanel panelSideMenu;
     private javax.swing.JPanel panelTitle;
-    private javax.swing.JLabel panelYSBM;
-    private javax.swing.JPanel pnControllDashboard;
-    private javax.swing.JPanel pnControllHR;
-    private javax.swing.JPanel pnControllSetting;
-    private javax.swing.JPanel pnDashboardMain;
-    private javax.swing.JLabel txtEmpTotal;
-    private javax.swing.JLabel txtFemale;
-    private javax.swing.JLabel txtMale;
     // End of variables declaration//GEN-END:variables
 }

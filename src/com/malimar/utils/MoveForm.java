@@ -3,6 +3,7 @@ package com.malimar.utils;
 
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 
 public class MoveForm {
 
@@ -15,6 +16,11 @@ public class MoveForm {
         fm.setLocation(x - xx, y - yy);
     }
     public static void mouseDragded(java.awt.event.MouseEvent evt, JDialog fm) {
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        fm.setLocation(x - xx, y - yy);
+    }
+    public static void mouseDragded(java.awt.event.MouseEvent evt, JInternalFrame fm) {
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         fm.setLocation(x - xx, y - yy);

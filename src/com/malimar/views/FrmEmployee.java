@@ -1,37 +1,508 @@
 
 package com.malimar.views;
 
-import javax.swing.plaf.basic.BasicComboBoxUI;
+import com.malimar.controllers.EmployeeController;
+import com.malimar.utils.InternalFrame;
+import com.toedter.calendar.JDateChooser;
+import com.xzq.osc.JocHyperlink;
+import com.xzq.osc.JocTabbedPane;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
-public class FrmEmployee extends javax.swing.JFrame {
+public class FrmEmployee extends javax.swing.JInternalFrame {
 
     public FrmEmployee() {
         initComponents();
-        cmbFindDepartment.setUI(new BasicComboBoxUI());
-        cmbFindLocation.setUI(new BasicComboBoxUI());
-        cmbGender.setUI(new BasicComboBoxUI());
-        cmbNational.setUI(new BasicComboBoxUI());
-        cmbEthnic.setUI(new BasicComboBoxUI());
-        cmbReligion.setUI(new BasicComboBoxUI());
-        cmbManager.setUI(new BasicComboBoxUI());
-        cmbLocation.setUI(new BasicComboBoxUI());
-        cmbDepartment.setUI(new BasicComboBoxUI());
-        cmbBusiness.setUI(new BasicComboBoxUI());
-        cmbTitle.setUI(new BasicComboBoxUI());
-        cmbLevel.setUI(new BasicComboBoxUI());
-        cmbWorkStatus.setUI(new BasicComboBoxUI());
-        cmbInsurance.setUI(new BasicComboBoxUI());
-        cmbSalaryPeriod.setUI(new BasicComboBoxUI());
-        cmbEmpStatus.setUI(new BasicComboBoxUI());
-        cmbBlood.setUI(new BasicComboBoxUI());
-        cmbDistrict1.setUI(new BasicComboBoxUI());
-        cmbProvince1.setUI(new BasicComboBoxUI());
-        cmbDistrict2.setUI(new BasicComboBoxUI());
-        cmbProvince2.setUI(new BasicComboBoxUI());
-        cmbSalaryType.setUI(new BasicComboBoxUI());
-        cmbTaxCustomize.setUI(new BasicComboBoxUI());
+        InternalFrame inter = new InternalFrame(this);
+        EmployeeController ec = new EmployeeController(this);
+        
     }
 
+    public JocTabbedPane getTabPane() {
+        return tabPane;
+    }
+
+    public JocTabbedPane getTabPaneDetails() {
+        return tabPaneDetails;
+    }
+
+    public JLabel getLblDivision() {
+        return lblDivision;
+    }
+
+    public JComboBox<String> getCmbDivision() {
+        return cmbDivision;
+    }
+
+    public JComboBox<String> getCmbFindDepartment() {
+        return cmbFindDepartment;
+    }
+
+    public JComboBox<String> getCmbFindLocation() {
+        return cmbFindLocation;
+    }
+
+    public JLabel getLblEmployeeInfo() {
+        return lblEmployeeInfo;
+    }
+
+    public JocHyperlink getMenuExit() {
+        return menuExit;
+    }
+
+    public JocHyperlink getBtnSave() {
+        return btnSave;
+    }
+
+    public JocHyperlink getBtnSaveCV() {
+        return btnSaveCV;
+    }
+
+    public JCheckBox getChCalculateSalary() {
+        return chCalculateSalary;
+    }
+
+    public JCheckBox getChCar() {
+        return chCar;
+    }
+
+    public JCheckBox getChConsultant() {
+        return chConsultant;
+    }
+
+    public JCheckBox getChFullTime() {
+        return chFullTime;
+    }
+
+    public JCheckBox getChInOffice() {
+        return chInOffice;
+    }
+
+    public JComboBox<String> getCmbBlood() {
+        return cmbBlood;
+    }
+
+    public JComboBox<String> getCmbBusiness() {
+        return cmbBusiness;
+    }
+
+    public JComboBox<String> getCmbDepartment() {
+        return cmbDepartment;
+    }
+
+    public JComboBox<String> getCmbEmpStatus() {
+        return cmbEmpStatus;
+    }
+
+    public JComboBox<String> getCmbEthnic() {
+        return cmbEthnic;
+    }
+
+    public JComboBox<String> getCmbGender() {
+        return cmbGender;
+    }
+
+    public JComboBox<String> getCmbInsurance() {
+        return cmbInsurance;
+    }
+
+    public JComboBox<String> getCmbLevel() {
+        return cmbLevel;
+    }
+
+    public JComboBox<String> getCmbLocation() {
+        return cmbLocation;
+    }
+
+    public JComboBox<String> getCmbManager() {
+        return cmbManager;
+    }
+
+    public JComboBox<String> getCmbNational() {
+        return cmbNational;
+    }
+
+    public JComboBox<String> getCmbReligion() {
+        return cmbReligion;
+    }
+
+    public JComboBox<String> getCmbSalaryPeriod() {
+        return cmbSalaryPeriod;
+    }
+
+    public JComboBox<String> getCmbSalaryType() {
+        return cmbSalaryType;
+    }
+
+    public JComboBox<String> getCmbTitle() {
+        return cmbTitle;
+    }
+
+    public JComboBox<String> getCmbWorkStatus() {
+        return cmbWorkStatus;
+    }
+
+    public JLabel getLblAge() {
+        return lblAge;
+    }
+
+    public JLabel getLblBloodGroup() {
+        return lblBloodGroup;
+    }
+
+    public JLabel getLblBusinessUnit() {
+        return lblBusinessUnit;
+    }
+
+    public JLabel getLblDOB() {
+        return lblDOB;
+    }
+
+    public JLabel getLblDepartment() {
+        return lblDepartment;
+    }
+
+    public JLabel getLblDrivingNo() {
+        return lblDrivingNo;
+    }
+
+    public JLabel getLblEmergencyContact() {
+        return lblEmergencyContact;
+    }
+
+    public JLabel getLblEmpEmail() {
+        return lblEmpEmail;
+    }
+
+    public JLabel getLblEmpID() {
+        return lblEmpID;
+    }
+
+    public JLabel getLblEmpName_L1() {
+        return lblEmpName_L1;
+    }
+
+    public JLabel getLblEmpName_L2() {
+        return lblEmpName_L2;
+    }
+
+    public JLabel getLblEmpNickname() {
+        return lblEmpNickname;
+    }
+
+    public JLabel getLblEmpStatus() {
+        return lblEmpStatus;
+    }
+
+    public JLabel getLblEndDate() {
+        return lblEndDate;
+    }
+
+    public JLabel getLblEthnic() {
+        return lblEthnic;
+    }
+
+    public JLabel getLblFacebook() {
+        return lblFacebook;
+    }
+
+    public JLabel getLblFamilyBook() {
+        return lblFamilyBook;
+    }
+
+    public JLabel getLblFatherAge() {
+        return lblFatherAge;
+    }
+
+    public JLabel getLblFatherName() {
+        return lblFatherName;
+    }
+
+    public JLabel getLblFatherOccupation() {
+        return lblFatherOccupation;
+    }
+
+    public JLabel getLblFatherTelephone() {
+        return lblFatherTelephone;
+    }
+
+    public JLabel getLblFatherWorkPlace() {
+        return lblFatherWorkPlace;
+    }
+
+    public JLabel getLblGender() {
+        return lblGender;
+    }
+
+    public JLabel getLblHight() {
+        return lblHight;
+    }
+
+    public JLabel getLblHubandTelephone() {
+        return lblHubandTelephone;
+    }
+
+    public JLabel getLblHusband_Wife() {
+        return lblHusband_Wife;
+    }
+
+    public JLabel getLblIDCard() {
+        return lblIDCard;
+    }
+
+    public JLabel getLblImage() {
+        return lblImage;
+    }
+
+    public JLabel getLblInsurance() {
+        return lblInsurance;
+    }
+
+    public JLabel getLblLevel() {
+        return lblLevel;
+    }
+
+    public JLabel getLblLocation() {
+        return lblLocation;
+    }
+
+    public JLabel getLblManager() {
+        return lblManager;
+    }
+
+    public JLabel getLblMobilePhone() {
+        return lblMobilePhone;
+    }
+
+    public JLabel getLblMotherAge() {
+        return lblMotherAge;
+    }
+
+    public JLabel getLblMotherName() {
+        return lblMotherName;
+    }
+
+    public JLabel getLblMotherOccupation() {
+        return lblMotherOccupation;
+    }
+
+    public JLabel getLblMotherTelephone() {
+        return lblMotherTelephone;
+    }
+
+    public JLabel getLblMotherWorkPlace() {
+        return lblMotherWorkPlace;
+    }
+
+    public JCheckBox getLblMotocycle() {
+        return lblMotocycle;
+    }
+
+    public JLabel getLblNationality() {
+        return lblNationality;
+    }
+
+    public JLabel getLblOccupation() {
+        return lblOccupation;
+    }
+
+    public JLabel getLblPOB() {
+        return lblPOB;
+    }
+
+    public JLabel getLblPassportNo() {
+        return lblPassportNo;
+    }
+
+    public JLabel getLblReligion() {
+        return lblReligion;
+    }
+
+    public JLabel getLblSalaryPeriod() {
+        return lblSalaryPeriod;
+    }
+
+    public JLabel getLblStartDate() {
+        return lblStartDate;
+    }
+
+    public JLabel getLblTelephone() {
+        return lblTelephone;
+    }
+
+    public JLabel getLblTitle() {
+        return lblTitle;
+    }
+
+    public JLabel getLblWeight() {
+        return lblWeight;
+    }
+
+    public JLabel getLblWorkPlace() {
+        return lblWorkPlace;
+    }
+
+    public JLabel getLblWorkStatus() {
+        return lblWorkStatus;
+    }
+
+    public JocHyperlink getPanelHover() {
+        return panelHover;
+    }
+
+    public JocHyperlink getPanelSave() {
+        return panelSave;
+    }
+
+    public JocHyperlink getPanelSaveCV() {
+        return panelSaveCV;
+    }
+
+    public JocHyperlink getPanelSaveCVHover() {
+        return panelSaveCVHover;
+    }
+
+    public JTextField getTxtAge() {
+        return txtAge;
+    }
+
+    public JDateChooser getTxtDOB() {
+        return txtDOB;
+    }
+
+    public JTextField getTxtDrivingNo() {
+        return txtDrivingNo;
+    }
+
+    public JTextField getTxtEmergencyContact() {
+        return txtEmergencyContact;
+    }
+
+    public JTextField getTxtEmpID() {
+        return txtEmpID;
+    }
+
+    public JTextField getTxtEmpMail() {
+        return txtEmpMail;
+    }
+
+    public JTextField getTxtEmpName_L1() {
+        return txtEmpName_L1;
+    }
+
+    public JTextField getTxtEmpName_L2() {
+        return txtEmpName_L2;
+    }
+
+    public JTextField getTxtEmpNickname() {
+        return txtEmpNickname;
+    }
+
+    public JDateChooser getTxtEndDate() {
+        return txtEndDate;
+    }
+
+    public JTextField getTxtFacebook() {
+        return txtFacebook;
+    }
+
+    public JTextField getTxtFamilybook() {
+        return txtFamilybook;
+    }
+
+    public JTextField getTxtFatherAge() {
+        return txtFatherAge;
+    }
+
+    public JTextField getTxtFatherName() {
+        return txtFatherName;
+    }
+
+    public JTextField getTxtFatherOccupation() {
+        return txtFatherOccupation;
+    }
+
+    public JTextField getTxtFatherTelephone() {
+        return txtFatherTelephone;
+    }
+
+    public JTextField getTxtFatherWorkPlace() {
+        return txtFatherWorkPlace;
+    }
+
+    public JTextField getTxtHight() {
+        return txtHight;
+    }
+
+    public JTextField getTxtHusbandTelephone() {
+        return txtHusbandTelephone;
+    }
+
+    public JTextField getTxtHusband_Wife() {
+        return txtHusband_Wife;
+    }
+
+    public JTextField getTxtID() {
+        return txtID;
+    }
+
+    public JTextField getTxtIDCard() {
+        return txtIDCard;
+    }
+
+    public JTextField getTxtMobilePhone() {
+        return txtMobilePhone;
+    }
+
+    public JTextField getTxtMotherAge() {
+        return txtMotherAge;
+    }
+
+    public JTextField getTxtMotherName() {
+        return txtMotherName;
+    }
+
+    public JTextField getTxtMotherOccupation() {
+        return txtMotherOccupation;
+    }
+
+    public JTextField getTxtMotherTelephone() {
+        return txtMotherTelephone;
+    }
+
+    public JTextField getTxtMotherWorkPlace() {
+        return txtMotherWorkPlace;
+    }
+
+    public JTextField getTxtOccupation() {
+        return txtOccupation;
+    }
+
+    public JTextField getTxtPOD() {
+        return txtPOD;
+    }
+
+    public JTextField getTxtPassportNo() {
+        return txtPassportNo;
+    }
+
+    public JDateChooser getTxtStartDate() {
+        return txtStartDate;
+    }
+
+    public JTextField getTxtTelephone() {
+        return txtTelephone;
+    }
+
+    public JTextField getTxtWeight() {
+        return txtWeight;
+    }
+
+    public JTextField getTxtWorkPlace() {
+        return txtWorkPlace;
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -39,127 +510,142 @@ public class FrmEmployee extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jocTabbedPane1 = new com.xzq.osc.JocTabbedPane();
+        jPanel3 = new javax.swing.JPanel();
+        menuExit = new com.xzq.osc.JocHyperlink();
+        lblEmployeeInfo = new javax.swing.JLabel();
+        tabPane = new com.xzq.osc.JocTabbedPane();
+        jPanel5 = new javax.swing.JPanel();
+        jSeparator7 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
+        lblID = new javax.swing.JLabel();
+        cmbFindLocation = new javax.swing.JComboBox<>();
+        lblID2 = new javax.swing.JLabel();
+        lblID1 = new javax.swing.JLabel();
+        cmbFindDepartment = new javax.swing.JComboBox<>();
+        txtID = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        txtID1 = new javax.swing.JTextField();
-        lblID3 = new javax.swing.JLabel();
-        lblID4 = new javax.swing.JLabel();
-        txtID2 = new javax.swing.JTextField();
-        lblID5 = new javax.swing.JLabel();
-        txtID3 = new javax.swing.JTextField();
-        lblID6 = new javax.swing.JLabel();
-        txtID4 = new javax.swing.JTextField();
-        lblID7 = new javax.swing.JLabel();
-        txtID5 = new javax.swing.JTextField();
-        lblID8 = new javax.swing.JLabel();
+        lblImage = new javax.swing.JLabel();
+        txtEmpID = new javax.swing.JTextField();
+        lblEmpID = new javax.swing.JLabel();
+        lblEmpEmail = new javax.swing.JLabel();
+        txtEmpMail = new javax.swing.JTextField();
+        lblEmpName_L1 = new javax.swing.JLabel();
+        txtEmpName_L1 = new javax.swing.JTextField();
+        lblEmpName_L2 = new javax.swing.JLabel();
+        txtEmpName_L2 = new javax.swing.JTextField();
+        lblEmpNickname = new javax.swing.JLabel();
+        txtEmpNickname = new javax.swing.JTextField();
+        lblDOB = new javax.swing.JLabel();
         cmbGender = new javax.swing.JComboBox<>();
         jSeparator6 = new javax.swing.JSeparator();
-        lblID9 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        lblID10 = new javax.swing.JLabel();
+        lblGender = new javax.swing.JLabel();
+        txtDOB = new com.toedter.calendar.JDateChooser();
+        lblEmpStatus = new javax.swing.JLabel();
         cmbEmpStatus = new javax.swing.JComboBox<>();
         jSeparator8 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
         cmbNational = new javax.swing.JComboBox<>();
-        lblID11 = new javax.swing.JLabel();
-        lblID12 = new javax.swing.JLabel();
+        lblNationality = new javax.swing.JLabel();
+        lblEthnic = new javax.swing.JLabel();
         cmbEthnic = new javax.swing.JComboBox<>();
         jSeparator10 = new javax.swing.JSeparator();
-        lblID13 = new javax.swing.JLabel();
+        lblReligion = new javax.swing.JLabel();
         cmbReligion = new javax.swing.JComboBox<>();
         jSeparator11 = new javax.swing.JSeparator();
-        lblID14 = new javax.swing.JLabel();
+        lblManager = new javax.swing.JLabel();
         cmbManager = new javax.swing.JComboBox<>();
         jSeparator12 = new javax.swing.JSeparator();
-        lblID15 = new javax.swing.JLabel();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
-        lblID16 = new javax.swing.JLabel();
-        jDateChooser3 = new com.toedter.calendar.JDateChooser();
-        lblID17 = new javax.swing.JLabel();
+        lblStartDate = new javax.swing.JLabel();
+        txtStartDate = new com.toedter.calendar.JDateChooser();
+        lblEndDate = new javax.swing.JLabel();
+        txtEndDate = new com.toedter.calendar.JDateChooser();
+        lblLocation = new javax.swing.JLabel();
         cmbLocation = new javax.swing.JComboBox<>();
         jSeparator13 = new javax.swing.JSeparator();
-        lblID18 = new javax.swing.JLabel();
-        lblID19 = new javax.swing.JLabel();
-        lblID20 = new javax.swing.JLabel();
+        lblDepartment = new javax.swing.JLabel();
+        lblBusinessUnit = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
         cmbDepartment = new javax.swing.JComboBox<>();
         jSeparator14 = new javax.swing.JSeparator();
         jSeparator15 = new javax.swing.JSeparator();
         cmbBusiness = new javax.swing.JComboBox<>();
         cmbTitle = new javax.swing.JComboBox<>();
         jSeparator16 = new javax.swing.JSeparator();
-        lblID21 = new javax.swing.JLabel();
+        lblLevel = new javax.swing.JLabel();
         cmbLevel = new javax.swing.JComboBox<>();
         jSeparator17 = new javax.swing.JSeparator();
-        lblID22 = new javax.swing.JLabel();
+        lblWorkStatus = new javax.swing.JLabel();
         cmbWorkStatus = new javax.swing.JComboBox<>();
         jSeparator18 = new javax.swing.JSeparator();
-        lblID23 = new javax.swing.JLabel();
+        lblInsurance = new javax.swing.JLabel();
         cmbInsurance = new javax.swing.JComboBox<>();
         jSeparator19 = new javax.swing.JSeparator();
-        lblID26 = new javax.swing.JLabel();
+        lblSalaryPeriod = new javax.swing.JLabel();
         cmbSalaryPeriod = new javax.swing.JComboBox<>();
         jSeparator20 = new javax.swing.JSeparator();
-        jocTabbedPane2 = new com.xzq.osc.JocTabbedPane();
+        tabPaneDetails = new com.xzq.osc.JocTabbedPane();
         jPanel8 = new javax.swing.JPanel();
-        lblID24 = new javax.swing.JLabel();
-        txtID6 = new javax.swing.JTextField();
-        lblID28 = new javax.swing.JLabel();
-        txtID7 = new javax.swing.JTextField();
-        lblID29 = new javax.swing.JLabel();
-        txtID8 = new javax.swing.JTextField();
-        lblID30 = new javax.swing.JLabel();
-        txtID9 = new javax.swing.JTextField();
-        lblID31 = new javax.swing.JLabel();
+        lblPOB = new javax.swing.JLabel();
+        txtPOD = new javax.swing.JTextField();
+        lblIDCard = new javax.swing.JLabel();
+        txtIDCard = new javax.swing.JTextField();
+        lblFamilyBook = new javax.swing.JLabel();
+        txtFamilybook = new javax.swing.JTextField();
+        lblPassportNo = new javax.swing.JLabel();
+        txtPassportNo = new javax.swing.JTextField();
+        lblBloodGroup = new javax.swing.JLabel();
         jSeparator21 = new javax.swing.JSeparator();
         cmbBlood = new javax.swing.JComboBox<>();
-        lblID32 = new javax.swing.JLabel();
-        txtID10 = new javax.swing.JTextField();
-        txtID11 = new javax.swing.JTextField();
-        lblID33 = new javax.swing.JLabel();
-        lblID34 = new javax.swing.JLabel();
-        txtID12 = new javax.swing.JTextField();
-        Motocycle = new javax.swing.JCheckBox();
-        txtID14 = new javax.swing.JTextField();
-        lblID36 = new javax.swing.JLabel();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        lblID37 = new javax.swing.JLabel();
-        txtID15 = new javax.swing.JTextField();
-        lblID38 = new javax.swing.JLabel();
-        txtID16 = new javax.swing.JTextField();
-        lblID39 = new javax.swing.JLabel();
-        txtID17 = new javax.swing.JTextField();
-        txtID18 = new javax.swing.JTextField();
-        lblID40 = new javax.swing.JLabel();
-        txtID19 = new javax.swing.JTextField();
-        lblID41 = new javax.swing.JLabel();
-        lblID42 = new javax.swing.JLabel();
-        txtID20 = new javax.swing.JTextField();
-        txtID21 = new javax.swing.JTextField();
-        lblID43 = new javax.swing.JLabel();
-        lblID44 = new javax.swing.JLabel();
-        txtID22 = new javax.swing.JTextField();
-        txtID23 = new javax.swing.JTextField();
-        lblID45 = new javax.swing.JLabel();
-        lblID46 = new javax.swing.JLabel();
-        txtID24 = new javax.swing.JTextField();
-        lblID47 = new javax.swing.JLabel();
-        lblID48 = new javax.swing.JLabel();
-        txtID25 = new javax.swing.JTextField();
-        txtID26 = new javax.swing.JTextField();
-        lblID49 = new javax.swing.JLabel();
-        txtID27 = new javax.swing.JTextField();
-        lblID50 = new javax.swing.JLabel();
-        txtID28 = new javax.swing.JTextField();
-        lblID35 = new javax.swing.JLabel();
-        txtID13 = new javax.swing.JTextField();
-        lblID51 = new javax.swing.JLabel();
-        txtID29 = new javax.swing.JTextField();
-        lblID52 = new javax.swing.JLabel();
-        txtID30 = new javax.swing.JTextField();
-        lblID53 = new javax.swing.JLabel();
-        txtID31 = new javax.swing.JTextField();
+        lblHight = new javax.swing.JLabel();
+        txtHight = new javax.swing.JTextField();
+        txtWeight = new javax.swing.JTextField();
+        lblWeight = new javax.swing.JLabel();
+        lblDrivingNo = new javax.swing.JLabel();
+        txtDrivingNo = new javax.swing.JTextField();
+        lblMotocycle = new javax.swing.JCheckBox();
+        txtHusband_Wife = new javax.swing.JTextField();
+        lblHusband_Wife = new javax.swing.JLabel();
+        chCar = new javax.swing.JCheckBox();
+        lblAge = new javax.swing.JLabel();
+        txtAge = new javax.swing.JTextField();
+        lblOccupation = new javax.swing.JLabel();
+        txtOccupation = new javax.swing.JTextField();
+        lblWorkPlace = new javax.swing.JLabel();
+        txtWorkPlace = new javax.swing.JTextField();
+        txtHusbandTelephone = new javax.swing.JTextField();
+        lblHubandTelephone = new javax.swing.JLabel();
+        txtFatherTelephone = new javax.swing.JTextField();
+        lblFatherTelephone = new javax.swing.JLabel();
+        lblFatherWorkPlace = new javax.swing.JLabel();
+        txtFatherWorkPlace = new javax.swing.JTextField();
+        txtFatherOccupation = new javax.swing.JTextField();
+        lblFatherOccupation = new javax.swing.JLabel();
+        lblFatherName = new javax.swing.JLabel();
+        txtFatherName = new javax.swing.JTextField();
+        txtFatherAge = new javax.swing.JTextField();
+        lblFatherAge = new javax.swing.JLabel();
+        lblMotherName = new javax.swing.JLabel();
+        txtMotherTelephone = new javax.swing.JTextField();
+        lblMotherTelephone = new javax.swing.JLabel();
+        lblMotherWorkPlace = new javax.swing.JLabel();
+        txtMotherWorkPlace = new javax.swing.JTextField();
+        txtMotherOccupation = new javax.swing.JTextField();
+        lblMotherOccupation = new javax.swing.JLabel();
+        txtMotherName = new javax.swing.JTextField();
+        lblMotherAge = new javax.swing.JLabel();
+        txtMotherAge = new javax.swing.JTextField();
+        lblFacebook = new javax.swing.JLabel();
+        txtFacebook = new javax.swing.JTextField();
+        lblMobilePhone = new javax.swing.JLabel();
+        txtMobilePhone = new javax.swing.JTextField();
+        lblTelephone = new javax.swing.JLabel();
+        txtTelephone = new javax.swing.JTextField();
+        lblEmergencyContact = new javax.swing.JLabel();
+        txtEmergencyContact = new javax.swing.JTextField();
         btnSaveCV = new com.xzq.osc.JocHyperlink();
         panelSaveCV = new com.xzq.osc.JocHyperlink();
         panelSaveCVHover = new com.xzq.osc.JocHyperlink();
@@ -251,42 +737,141 @@ public class FrmEmployee extends javax.swing.JFrame {
         jPanel17 = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         jPanel19 = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
+        chConsultant = new javax.swing.JCheckBox();
+        chFullTime = new javax.swing.JCheckBox();
+        chCalculateSalary = new javax.swing.JCheckBox();
+        chInOffice = new javax.swing.JCheckBox();
         btnSave = new com.xzq.osc.JocHyperlink();
         panelSave = new com.xzq.osc.JocHyperlink();
         panelHover = new com.xzq.osc.JocHyperlink();
-        jPanel5 = new javax.swing.JPanel();
-        jSeparator7 = new javax.swing.JSeparator();
-        jSeparator5 = new javax.swing.JSeparator();
-        lblID = new javax.swing.JLabel();
-        cmbFindLocation = new javax.swing.JComboBox<>();
-        lblID2 = new javax.swing.JLabel();
-        lblID1 = new javax.swing.JLabel();
-        cmbFindDepartment = new javax.swing.JComboBox<>();
-        txtID = new javax.swing.JTextField();
-        jPanel4 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jPanel3 = new javax.swing.JPanel();
-        menuExit = new com.xzq.osc.JocHyperlink();
-        lblCompanyInfo = new javax.swing.JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setUndecorated(true);
+        lblDivision = new javax.swing.JLabel();
+        cmbDivision = new javax.swing.JComboBox<>();
+        jSeparator28 = new javax.swing.JSeparator();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(81, 87, 99), 2, true));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204), 2));
         jPanel2.setLayout(null);
 
-        jocTabbedPane1.setShowCloseButton(false);
-        jocTabbedPane1.setShowListButton(false);
-        jocTabbedPane1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel3.setBackground(new java.awt.Color(81, 87, 99));
+
+        menuExit.setActiveColor(new java.awt.Color(255, 50, 50));
+        menuExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Delete_30px.png"))); // NOI18N
+        menuExit.setUnvisitColor(new java.awt.Color(255, 255, 255));
+        menuExit.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
+        menuExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuExitActionPerformed(evt);
+            }
+        });
+
+        lblEmployeeInfo.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
+        lblEmployeeInfo.setForeground(new java.awt.Color(255, 255, 255));
+        lblEmployeeInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEmployeeInfo.setText("Employee");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblEmployeeInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 1097, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(menuExit, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblEmployeeInfo)
+                    .addComponent(menuExit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 5, Short.MAX_VALUE))
+        );
+
+        jPanel2.add(jPanel3);
+        jPanel3.setBounds(0, 0, 1135, 30);
+
+        tabPane.setShowCloseButton(false);
+        tabPane.setShowListButton(false);
+        tabPane.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(null);
+        jPanel5.add(jSeparator7);
+        jSeparator7.setBounds(730, 35, 220, 5);
+        jPanel5.add(jSeparator5);
+        jSeparator5.setBounds(410, 35, 220, 5);
+
+        lblID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblID.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblID.setText("Department");
+        jPanel5.add(lblID);
+        lblID.setBounds(300, 10, 100, 23);
+
+        cmbFindLocation.setEditable(true);
+        cmbFindLocation.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        cmbFindLocation.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel5.add(cmbFindLocation);
+        cmbFindLocation.setBounds(730, 10, 220, 25);
+
+        lblID2.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblID2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblID2.setText("Location");
+        jPanel5.add(lblID2);
+        lblID2.setBounds(640, 10, 90, 23);
+
+        lblID1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblID1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblID1.setText("Search");
+        jPanel5.add(lblID1);
+        lblID1.setBounds(10, 10, 80, 23);
+
+        cmbFindDepartment.setEditable(true);
+        cmbFindDepartment.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        cmbFindDepartment.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel5.add(cmbFindDepartment);
+        cmbFindDepartment.setBounds(410, 10, 220, 25);
+
+        txtID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel5.add(txtID);
+        txtID.setBounds(100, 10, 190, 23);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new java.awt.BorderLayout());
+
+        jTable1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "lblEmpID", "lblEmpNbr", "lblEmpName", "lbGender", "lblEmpEmail", "lblEmpDepart", "lblEmpTitle", "lblEmpLoc", "lblEmpWorkStatus"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTable1.setGridColor(new java.awt.Color(204, 204, 204));
+        jTable1.setRowHeight(25);
+        jTable1.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        jTable1.setSelectionForeground(java.awt.Color.red);
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel4.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+
+        jPanel5.add(jPanel4);
+        jPanel4.setBounds(5, 50, 1120, 590);
+
+        tabPane.addTab("List", jPanel5);
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setLayout(null);
@@ -295,355 +880,373 @@ public class FrmEmployee extends javax.swing.JFrame {
         jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel7.setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Picture");
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel7.add(jLabel1, java.awt.BorderLayout.CENTER);
+        lblImage.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblImage.setText("Picture");
+        lblImage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel7.add(lblImage, java.awt.BorderLayout.CENTER);
 
         jPanel6.add(jPanel7);
         jPanel7.setBounds(5, 5, 110, 120);
 
-        txtID1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel6.add(txtID1);
-        txtID1.setBounds(260, 10, 200, 23);
+        txtEmpID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtEmpID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel6.add(txtEmpID);
+        txtEmpID.setBounds(270, 10, 200, 23);
 
-        lblID3.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID3.setText("Emp ID");
-        jPanel6.add(lblID3);
-        lblID3.setBounds(120, 10, 130, 23);
+        lblEmpID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblEmpID.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEmpID.setText("Emp ID");
+        jPanel6.add(lblEmpID);
+        lblEmpID.setBounds(118, 10, 142, 23);
 
-        lblID4.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID4.setText("EmpEmail");
-        jPanel6.add(lblID4);
-        lblID4.setBounds(120, 40, 130, 23);
+        lblEmpEmail.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblEmpEmail.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEmpEmail.setText("EmpEmail");
+        jPanel6.add(lblEmpEmail);
+        lblEmpEmail.setBounds(118, 40, 142, 23);
 
-        txtID2.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel6.add(txtID2);
-        txtID2.setBounds(260, 40, 200, 23);
+        txtEmpMail.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtEmpMail.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel6.add(txtEmpMail);
+        txtEmpMail.setBounds(270, 40, 200, 23);
 
-        lblID5.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID5.setText("Employee Name(Lao)");
-        jPanel6.add(lblID5);
-        lblID5.setBounds(120, 70, 130, 23);
+        lblEmpName_L1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblEmpName_L1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEmpName_L1.setText("Employee Name(Lao)");
+        jPanel6.add(lblEmpName_L1);
+        lblEmpName_L1.setBounds(118, 70, 142, 23);
 
-        txtID3.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel6.add(txtID3);
-        txtID3.setBounds(260, 70, 200, 23);
+        txtEmpName_L1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtEmpName_L1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel6.add(txtEmpName_L1);
+        txtEmpName_L1.setBounds(270, 70, 200, 23);
 
-        lblID6.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID6.setText("Employee Name(EN)");
-        jPanel6.add(lblID6);
-        lblID6.setBounds(120, 100, 130, 23);
+        lblEmpName_L2.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblEmpName_L2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEmpName_L2.setText("Employee Name(EN)");
+        jPanel6.add(lblEmpName_L2);
+        lblEmpName_L2.setBounds(118, 100, 142, 23);
 
-        txtID4.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel6.add(txtID4);
-        txtID4.setBounds(260, 100, 200, 23);
+        txtEmpName_L2.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtEmpName_L2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel6.add(txtEmpName_L2);
+        txtEmpName_L2.setBounds(270, 100, 200, 23);
 
-        lblID7.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID7.setText("Nickname");
-        jPanel6.add(lblID7);
-        lblID7.setBounds(150, 130, 100, 23);
+        lblEmpNickname.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblEmpNickname.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEmpNickname.setText("Nickname");
+        jPanel6.add(lblEmpNickname);
+        lblEmpNickname.setBounds(130, 130, 130, 23);
 
-        txtID5.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID5.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel6.add(txtID5);
-        txtID5.setBounds(260, 130, 200, 23);
+        txtEmpNickname.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtEmpNickname.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel6.add(txtEmpNickname);
+        txtEmpNickname.setBounds(270, 130, 200, 23);
 
-        lblID8.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID8.setText("Date of birth");
-        jPanel6.add(lblID8);
-        lblID8.setBounds(150, 190, 100, 23);
+        lblDOB.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblDOB.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblDOB.setText("Date of birth");
+        jPanel6.add(lblDOB);
+        lblDOB.setBounds(150, 190, 110, 23);
 
         cmbGender.setEditable(true);
         cmbGender.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         cmbGender.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        cmbGender.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel6.add(cmbGender);
-        cmbGender.setBounds(260, 160, 200, 25);
+        cmbGender.setBounds(270, 160, 200, 25);
         jPanel6.add(jSeparator6);
-        jSeparator6.setBounds(260, 185, 200, 5);
+        jSeparator6.setBounds(270, 185, 200, 5);
 
-        lblID9.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID9.setText("Gender");
-        jPanel6.add(lblID9);
-        lblID9.setBounds(150, 160, 100, 23);
+        lblGender.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblGender.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblGender.setText("Gender");
+        jPanel6.add(lblGender);
+        lblGender.setBounds(150, 160, 110, 23);
 
-        jDateChooser1.setDateFormatString("dd/MM/yyy");
-        jDateChooser1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jPanel6.add(jDateChooser1);
-        jDateChooser1.setBounds(260, 190, 200, 23);
+        txtDOB.setDateFormatString("dd/MM/yyy");
+        txtDOB.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel6.add(txtDOB);
+        txtDOB.setBounds(270, 190, 200, 23);
 
-        lblID10.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID10.setText("Status");
-        jPanel6.add(lblID10);
-        lblID10.setBounds(150, 220, 100, 23);
+        lblEmpStatus.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblEmpStatus.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEmpStatus.setText("Status");
+        jPanel6.add(lblEmpStatus);
+        lblEmpStatus.setBounds(150, 220, 110, 23);
 
         cmbEmpStatus.setEditable(true);
         cmbEmpStatus.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         cmbEmpStatus.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        cmbEmpStatus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel6.add(cmbEmpStatus);
-        cmbEmpStatus.setBounds(260, 220, 200, 25);
+        cmbEmpStatus.setBounds(270, 220, 200, 25);
         jPanel6.add(jSeparator8);
-        jSeparator8.setBounds(260, 245, 200, 5);
+        jSeparator8.setBounds(270, 245, 200, 5);
         jPanel6.add(jSeparator9);
-        jSeparator9.setBounds(590, 185, 200, 5);
+        jSeparator9.setBounds(590, 215, 200, 5);
 
         cmbNational.setEditable(true);
         cmbNational.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         cmbNational.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        cmbNational.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel6.add(cmbNational);
-        cmbNational.setBounds(590, 160, 200, 25);
+        cmbNational.setBounds(590, 190, 200, 25);
 
-        lblID11.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID11.setText("Nationality");
-        jPanel6.add(lblID11);
-        lblID11.setBounds(480, 160, 100, 23);
+        lblNationality.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblNationality.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNationality.setText("Nationality");
+        jPanel6.add(lblNationality);
+        lblNationality.setBounds(480, 190, 100, 23);
 
-        lblID12.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID12.setText("Ethnic");
-        jPanel6.add(lblID12);
-        lblID12.setBounds(480, 190, 100, 23);
+        lblEthnic.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblEthnic.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEthnic.setText("Ethnic");
+        jPanel6.add(lblEthnic);
+        lblEthnic.setBounds(480, 220, 100, 23);
 
         cmbEthnic.setEditable(true);
         cmbEthnic.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         cmbEthnic.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        cmbEthnic.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel6.add(cmbEthnic);
-        cmbEthnic.setBounds(590, 190, 200, 25);
+        cmbEthnic.setBounds(590, 220, 200, 25);
         jPanel6.add(jSeparator10);
-        jSeparator10.setBounds(590, 215, 200, 5);
+        jSeparator10.setBounds(590, 245, 200, 5);
 
-        lblID13.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID13.setText("Religion");
-        jPanel6.add(lblID13);
-        lblID13.setBounds(490, 220, 90, 23);
+        lblReligion.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblReligion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblReligion.setText("Religion");
+        jPanel6.add(lblReligion);
+        lblReligion.setBounds(810, 10, 100, 23);
 
         cmbReligion.setEditable(true);
         cmbReligion.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         cmbReligion.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        cmbReligion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel6.add(cmbReligion);
-        cmbReligion.setBounds(590, 220, 200, 25);
+        cmbReligion.setBounds(920, 10, 180, 25);
         jPanel6.add(jSeparator11);
-        jSeparator11.setBounds(590, 245, 200, 5);
+        jSeparator11.setBounds(920, 35, 180, 5);
 
-        lblID14.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID14.setText("Manager");
-        jPanel6.add(lblID14);
-        lblID14.setBounds(810, 70, 100, 23);
+        lblManager.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblManager.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblManager.setText("Manager");
+        jPanel6.add(lblManager);
+        lblManager.setBounds(810, 100, 100, 23);
 
         cmbManager.setEditable(true);
         cmbManager.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         cmbManager.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        cmbManager.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel6.add(cmbManager);
-        cmbManager.setBounds(920, 70, 180, 25);
+        cmbManager.setBounds(920, 100, 180, 25);
         jPanel6.add(jSeparator12);
-        jSeparator12.setBounds(920, 95, 180, 5);
+        jSeparator12.setBounds(920, 125, 180, 5);
 
-        lblID15.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID15.setText("Start Date");
-        jPanel6.add(lblID15);
-        lblID15.setBounds(480, 10, 100, 23);
+        lblStartDate.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblStartDate.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblStartDate.setText("Start Date");
+        jPanel6.add(lblStartDate);
+        lblStartDate.setBounds(480, 10, 100, 23);
 
-        jDateChooser2.setDateFormatString("dd/MM/yyy");
-        jDateChooser2.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jPanel6.add(jDateChooser2);
-        jDateChooser2.setBounds(590, 10, 140, 23);
+        txtStartDate.setDateFormatString("dd/MM/yyy");
+        txtStartDate.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel6.add(txtStartDate);
+        txtStartDate.setBounds(590, 10, 140, 23);
 
-        lblID16.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID16.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID16.setText("End Date");
-        jPanel6.add(lblID16);
-        lblID16.setBounds(480, 40, 100, 23);
+        lblEndDate.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblEndDate.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEndDate.setText("End Date");
+        jPanel6.add(lblEndDate);
+        lblEndDate.setBounds(480, 40, 100, 23);
 
-        jDateChooser3.setDateFormatString("dd/MM/yyy");
-        jDateChooser3.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jPanel6.add(jDateChooser3);
-        jDateChooser3.setBounds(590, 40, 140, 23);
+        txtEndDate.setDateFormatString("dd/MM/yyy");
+        txtEndDate.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel6.add(txtEndDate);
+        txtEndDate.setBounds(590, 40, 140, 23);
 
-        lblID17.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID17.setText("Location");
-        jPanel6.add(lblID17);
-        lblID17.setBounds(480, 70, 100, 23);
+        lblLocation.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblLocation.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblLocation.setText("Location");
+        jPanel6.add(lblLocation);
+        lblLocation.setBounds(480, 100, 100, 23);
 
         cmbLocation.setEditable(true);
         cmbLocation.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         cmbLocation.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        cmbLocation.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel6.add(cmbLocation);
-        cmbLocation.setBounds(590, 70, 200, 25);
+        cmbLocation.setBounds(590, 100, 200, 25);
         jPanel6.add(jSeparator13);
-        jSeparator13.setBounds(590, 95, 200, 5);
+        jSeparator13.setBounds(590, 125, 200, 5);
 
-        lblID18.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID18.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID18.setText("Department");
-        jPanel6.add(lblID18);
-        lblID18.setBounds(480, 100, 100, 23);
+        lblDepartment.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblDepartment.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblDepartment.setText("Department");
+        jPanel6.add(lblDepartment);
+        lblDepartment.setBounds(480, 130, 100, 23);
 
-        lblID19.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID19.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID19.setText("Business Unit");
-        jPanel6.add(lblID19);
-        lblID19.setBounds(480, 130, 100, 23);
+        lblBusinessUnit.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblBusinessUnit.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblBusinessUnit.setText("Business Unit");
+        jPanel6.add(lblBusinessUnit);
+        lblBusinessUnit.setBounds(480, 160, 100, 23);
 
-        lblID20.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID20.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID20.setText("Title");
-        jPanel6.add(lblID20);
-        lblID20.setBounds(810, 10, 100, 23);
+        lblTitle.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblTitle.setText("Title");
+        jPanel6.add(lblTitle);
+        lblTitle.setBounds(810, 40, 100, 23);
 
         cmbDepartment.setEditable(true);
         cmbDepartment.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         cmbDepartment.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        cmbDepartment.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel6.add(cmbDepartment);
-        cmbDepartment.setBounds(590, 100, 200, 25);
+        cmbDepartment.setBounds(590, 130, 200, 25);
         jPanel6.add(jSeparator14);
-        jSeparator14.setBounds(590, 125, 200, 5);
+        jSeparator14.setBounds(590, 155, 200, 5);
         jPanel6.add(jSeparator15);
-        jSeparator15.setBounds(590, 155, 200, 5);
+        jSeparator15.setBounds(590, 185, 200, 5);
 
         cmbBusiness.setEditable(true);
         cmbBusiness.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         cmbBusiness.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        cmbBusiness.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel6.add(cmbBusiness);
-        cmbBusiness.setBounds(590, 130, 200, 25);
+        cmbBusiness.setBounds(590, 160, 200, 25);
 
         cmbTitle.setEditable(true);
         cmbTitle.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         cmbTitle.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        cmbTitle.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel6.add(cmbTitle);
-        cmbTitle.setBounds(920, 10, 180, 25);
+        cmbTitle.setBounds(920, 40, 180, 25);
         jPanel6.add(jSeparator16);
-        jSeparator16.setBounds(920, 35, 180, 5);
+        jSeparator16.setBounds(920, 65, 180, 5);
 
-        lblID21.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID21.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID21.setText("Level");
-        jPanel6.add(lblID21);
-        lblID21.setBounds(810, 40, 100, 23);
+        lblLevel.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblLevel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblLevel.setText("Level");
+        jPanel6.add(lblLevel);
+        lblLevel.setBounds(810, 70, 100, 23);
 
         cmbLevel.setEditable(true);
         cmbLevel.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        cmbLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+        cmbLevel.setSelectedIndex(-1);
         cmbLevel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        cmbLevel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel6.add(cmbLevel);
-        cmbLevel.setBounds(920, 40, 180, 25);
+        cmbLevel.setBounds(920, 70, 180, 25);
         jPanel6.add(jSeparator17);
-        jSeparator17.setBounds(920, 65, 180, 5);
+        jSeparator17.setBounds(920, 95, 180, 5);
 
-        lblID22.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID22.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID22.setText("Work Status");
-        jPanel6.add(lblID22);
-        lblID22.setBounds(810, 160, 100, 23);
+        lblWorkStatus.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblWorkStatus.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblWorkStatus.setText("Work Status");
+        jPanel6.add(lblWorkStatus);
+        lblWorkStatus.setBounds(810, 190, 100, 23);
 
         cmbWorkStatus.setEditable(true);
         cmbWorkStatus.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         cmbWorkStatus.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        cmbWorkStatus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel6.add(cmbWorkStatus);
-        cmbWorkStatus.setBounds(920, 160, 180, 25);
+        cmbWorkStatus.setBounds(920, 190, 180, 25);
         jPanel6.add(jSeparator18);
-        jSeparator18.setBounds(920, 185, 180, 5);
+        jSeparator18.setBounds(920, 215, 180, 5);
 
-        lblID23.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID23.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID23.setText("Insurance");
-        jPanel6.add(lblID23);
-        lblID23.setBounds(810, 100, 100, 23);
+        lblInsurance.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblInsurance.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblInsurance.setText("Insurance");
+        jPanel6.add(lblInsurance);
+        lblInsurance.setBounds(810, 130, 100, 23);
 
         cmbInsurance.setEditable(true);
         cmbInsurance.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         cmbInsurance.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        cmbInsurance.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel6.add(cmbInsurance);
-        cmbInsurance.setBounds(920, 100, 180, 25);
+        cmbInsurance.setBounds(920, 130, 180, 25);
         jPanel6.add(jSeparator19);
-        jSeparator19.setBounds(920, 155, 180, 5);
+        jSeparator19.setBounds(920, 185, 180, 5);
 
-        lblID26.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID26.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID26.setText("Salary Period");
-        jPanel6.add(lblID26);
-        lblID26.setBounds(810, 130, 100, 23);
+        lblSalaryPeriod.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblSalaryPeriod.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblSalaryPeriod.setText("Salary Period");
+        jPanel6.add(lblSalaryPeriod);
+        lblSalaryPeriod.setBounds(810, 160, 100, 23);
 
         cmbSalaryPeriod.setEditable(true);
         cmbSalaryPeriod.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        cmbSalaryPeriod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2" }));
+        cmbSalaryPeriod.setSelectedIndex(-1);
         cmbSalaryPeriod.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        cmbSalaryPeriod.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel6.add(cmbSalaryPeriod);
-        cmbSalaryPeriod.setBounds(920, 130, 180, 25);
+        cmbSalaryPeriod.setBounds(920, 160, 180, 25);
         jPanel6.add(jSeparator20);
-        jSeparator20.setBounds(920, 120, 180, 5);
+        jSeparator20.setBounds(920, 155, 180, 5);
 
-        jocTabbedPane2.setShowCloseButton(false);
-        jocTabbedPane2.setShowListButton(false);
-        jocTabbedPane2.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        tabPaneDetails.setShowCloseButton(false);
+        tabPaneDetails.setShowListButton(false);
+        tabPaneDetails.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setLayout(null);
 
-        lblID24.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID24.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID24.setText("Place of birth");
-        jPanel8.add(lblID24);
-        lblID24.setBounds(10, 100, 100, 23);
+        lblPOB.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblPOB.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblPOB.setText("Place of birth");
+        jPanel8.add(lblPOB);
+        lblPOB.setBounds(10, 100, 100, 23);
 
-        txtID6.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID6.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID6);
-        txtID6.setBounds(120, 100, 370, 23);
+        txtPOD.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtPOD.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtPOD);
+        txtPOD.setBounds(120, 100, 370, 23);
 
-        lblID28.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID28.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID28.setText("ID Card");
-        jPanel8.add(lblID28);
-        lblID28.setBounds(10, 130, 100, 23);
+        lblIDCard.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblIDCard.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblIDCard.setText("ID Card");
+        jPanel8.add(lblIDCard);
+        lblIDCard.setBounds(10, 130, 100, 23);
 
-        txtID7.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID7.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID7);
-        txtID7.setBounds(120, 130, 370, 23);
+        txtIDCard.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtIDCard.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtIDCard);
+        txtIDCard.setBounds(120, 130, 370, 23);
 
-        lblID29.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID29.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID29.setText("Family-Book");
-        jPanel8.add(lblID29);
-        lblID29.setBounds(10, 160, 100, 23);
+        lblFamilyBook.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblFamilyBook.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblFamilyBook.setText("Family-Book");
+        jPanel8.add(lblFamilyBook);
+        lblFamilyBook.setBounds(10, 160, 100, 23);
 
-        txtID8.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID8.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID8);
-        txtID8.setBounds(120, 160, 370, 23);
+        txtFamilybook.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtFamilybook.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtFamilybook);
+        txtFamilybook.setBounds(120, 160, 370, 23);
 
-        lblID30.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID30.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID30.setText("Passport No.");
-        jPanel8.add(lblID30);
-        lblID30.setBounds(10, 190, 100, 23);
+        lblPassportNo.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblPassportNo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblPassportNo.setText("Passport No.");
+        jPanel8.add(lblPassportNo);
+        lblPassportNo.setBounds(10, 190, 100, 23);
 
-        txtID9.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID9.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID9);
-        txtID9.setBounds(120, 190, 370, 23);
+        txtPassportNo.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtPassportNo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtPassportNo);
+        txtPassportNo.setBounds(120, 190, 370, 23);
 
-        lblID31.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID31.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID31.setText("Blood Group");
-        jPanel8.add(lblID31);
-        lblID31.setBounds(10, 220, 100, 23);
+        lblBloodGroup.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblBloodGroup.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblBloodGroup.setText("Blood Group");
+        jPanel8.add(lblBloodGroup);
+        lblBloodGroup.setBounds(10, 220, 100, 23);
         jPanel8.add(jSeparator21);
         jSeparator21.setBounds(120, 245, 60, 5);
 
@@ -651,263 +1254,268 @@ public class FrmEmployee extends javax.swing.JFrame {
         cmbBlood.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         cmbBlood.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "AB", "O" }));
         cmbBlood.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        cmbBlood.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel8.add(cmbBlood);
         cmbBlood.setBounds(120, 220, 60, 25);
 
-        lblID32.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID32.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID32.setText("Hight");
-        jPanel8.add(lblID32);
-        lblID32.setBounds(190, 220, 50, 23);
+        lblHight.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblHight.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblHight.setText("Hight");
+        jPanel8.add(lblHight);
+        lblHight.setBounds(190, 220, 50, 23);
 
-        txtID10.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID10.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID10);
-        txtID10.setBounds(250, 220, 60, 23);
+        txtHight.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtHight.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtHight);
+        txtHight.setBounds(250, 220, 60, 23);
 
-        txtID11.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID11.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID11);
-        txtID11.setBounds(410, 220, 80, 23);
+        txtWeight.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtWeight.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtWeight);
+        txtWeight.setBounds(410, 220, 80, 23);
 
-        lblID33.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID33.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID33.setText("Weight");
-        jPanel8.add(lblID33);
-        lblID33.setBounds(350, 220, 50, 23);
+        lblWeight.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblWeight.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblWeight.setText("Weight");
+        jPanel8.add(lblWeight);
+        lblWeight.setBounds(350, 220, 50, 23);
 
-        lblID34.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID34.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID34.setText("Driving No.");
-        jPanel8.add(lblID34);
-        lblID34.setBounds(10, 250, 100, 23);
+        lblDrivingNo.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblDrivingNo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblDrivingNo.setText("Driving No.");
+        jPanel8.add(lblDrivingNo);
+        lblDrivingNo.setBounds(10, 250, 100, 23);
 
-        txtID12.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID12.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID12);
-        txtID12.setBounds(120, 250, 190, 23);
+        txtDrivingNo.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtDrivingNo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtDrivingNo);
+        txtDrivingNo.setBounds(120, 250, 190, 23);
 
-        Motocycle.setBackground(new java.awt.Color(255, 255, 255));
-        Motocycle.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        Motocycle.setText("Motocycle");
-        jPanel8.add(Motocycle);
-        Motocycle.setBounds(400, 250, 90, 23);
+        lblMotocycle.setBackground(new java.awt.Color(255, 255, 255));
+        lblMotocycle.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblMotocycle.setText("Motocycle");
+        lblMotocycle.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel8.add(lblMotocycle);
+        lblMotocycle.setBounds(400, 250, 90, 23);
 
-        txtID14.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID14.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID14);
-        txtID14.setBounds(120, 280, 260, 23);
+        txtHusband_Wife.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtHusband_Wife.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtHusband_Wife);
+        txtHusband_Wife.setBounds(120, 280, 260, 23);
 
-        lblID36.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID36.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID36.setText("Husband / Wife");
-        jPanel8.add(lblID36);
-        lblID36.setBounds(10, 280, 100, 23);
+        lblHusband_Wife.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblHusband_Wife.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblHusband_Wife.setText("Husband / Wife");
+        jPanel8.add(lblHusband_Wife);
+        lblHusband_Wife.setBounds(10, 280, 100, 23);
 
-        jCheckBox3.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox3.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jCheckBox3.setText("Car");
-        jPanel8.add(jCheckBox3);
-        jCheckBox3.setBounds(320, 250, 70, 23);
+        chCar.setBackground(new java.awt.Color(255, 255, 255));
+        chCar.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        chCar.setText("Car");
+        chCar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel8.add(chCar);
+        chCar.setBounds(320, 250, 70, 23);
 
-        lblID37.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID37.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID37.setText("age");
-        jPanel8.add(lblID37);
-        lblID37.setBounds(380, 280, 40, 23);
+        lblAge.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblAge.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblAge.setText("age");
+        jPanel8.add(lblAge);
+        lblAge.setBounds(380, 280, 40, 23);
 
-        txtID15.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID15.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID15);
-        txtID15.setBounds(430, 280, 60, 23);
+        txtAge.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtAge.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtAge);
+        txtAge.setBounds(430, 280, 60, 23);
 
-        lblID38.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID38.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID38.setText("Occupation");
-        jPanel8.add(lblID38);
-        lblID38.setBounds(10, 310, 100, 23);
+        lblOccupation.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblOccupation.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblOccupation.setText("Occupation");
+        jPanel8.add(lblOccupation);
+        lblOccupation.setBounds(10, 310, 100, 23);
 
-        txtID16.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID16.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID16);
-        txtID16.setBounds(120, 310, 370, 23);
+        txtOccupation.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtOccupation.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtOccupation);
+        txtOccupation.setBounds(120, 310, 370, 23);
 
-        lblID39.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID39.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID39.setText("Work Locatoin");
-        jPanel8.add(lblID39);
-        lblID39.setBounds(540, 10, 120, 23);
+        lblWorkPlace.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblWorkPlace.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblWorkPlace.setText("Work Place");
+        jPanel8.add(lblWorkPlace);
+        lblWorkPlace.setBounds(540, 10, 120, 23);
 
-        txtID17.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID17.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID17);
-        txtID17.setBounds(670, 10, 370, 23);
+        txtWorkPlace.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtWorkPlace.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtWorkPlace);
+        txtWorkPlace.setBounds(670, 10, 370, 23);
 
-        txtID18.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID18.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID18);
-        txtID18.setBounds(670, 40, 370, 23);
+        txtHusbandTelephone.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtHusbandTelephone.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtHusbandTelephone);
+        txtHusbandTelephone.setBounds(670, 40, 370, 23);
 
-        lblID40.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID40.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID40.setText("Telephone");
-        jPanel8.add(lblID40);
-        lblID40.setBounds(540, 40, 120, 23);
+        lblHubandTelephone.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblHubandTelephone.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblHubandTelephone.setText("Telephone");
+        jPanel8.add(lblHubandTelephone);
+        lblHubandTelephone.setBounds(540, 40, 120, 23);
 
-        txtID19.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID19.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID19);
-        txtID19.setBounds(670, 160, 370, 23);
+        txtFatherTelephone.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtFatherTelephone.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtFatherTelephone);
+        txtFatherTelephone.setBounds(670, 160, 370, 23);
 
-        lblID41.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID41.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID41.setText("Telephone");
-        jPanel8.add(lblID41);
-        lblID41.setBounds(540, 160, 120, 23);
+        lblFatherTelephone.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblFatherTelephone.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblFatherTelephone.setText("Telephone");
+        jPanel8.add(lblFatherTelephone);
+        lblFatherTelephone.setBounds(540, 160, 120, 23);
 
-        lblID42.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID42.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID42.setText("Work Locatoin");
-        jPanel8.add(lblID42);
-        lblID42.setBounds(540, 130, 120, 23);
+        lblFatherWorkPlace.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblFatherWorkPlace.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblFatherWorkPlace.setText("Work Place");
+        jPanel8.add(lblFatherWorkPlace);
+        lblFatherWorkPlace.setBounds(540, 130, 120, 23);
 
-        txtID20.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID20.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID20);
-        txtID20.setBounds(670, 130, 370, 23);
+        txtFatherWorkPlace.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtFatherWorkPlace.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtFatherWorkPlace);
+        txtFatherWorkPlace.setBounds(670, 130, 370, 23);
 
-        txtID21.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID21.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID21);
-        txtID21.setBounds(670, 100, 370, 23);
+        txtFatherOccupation.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtFatherOccupation.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtFatherOccupation);
+        txtFatherOccupation.setBounds(670, 100, 370, 23);
 
-        lblID43.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID43.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID43.setText("Occupation");
-        jPanel8.add(lblID43);
-        lblID43.setBounds(540, 100, 120, 23);
+        lblFatherOccupation.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblFatherOccupation.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblFatherOccupation.setText("Occupation");
+        jPanel8.add(lblFatherOccupation);
+        lblFatherOccupation.setBounds(540, 100, 120, 23);
 
-        lblID44.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID44.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID44.setText("Father Name");
-        jPanel8.add(lblID44);
-        lblID44.setBounds(540, 70, 120, 23);
+        lblFatherName.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblFatherName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblFatherName.setText("Father Name");
+        jPanel8.add(lblFatherName);
+        lblFatherName.setBounds(540, 70, 120, 23);
 
-        txtID22.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID22.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID22);
-        txtID22.setBounds(670, 70, 260, 23);
+        txtFatherName.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtFatherName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtFatherName);
+        txtFatherName.setBounds(670, 70, 260, 23);
 
-        txtID23.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID23.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID23);
-        txtID23.setBounds(980, 70, 60, 23);
+        txtFatherAge.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtFatherAge.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtFatherAge);
+        txtFatherAge.setBounds(980, 70, 60, 23);
 
-        lblID45.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID45.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID45.setText("age");
-        jPanel8.add(lblID45);
-        lblID45.setBounds(930, 70, 40, 23);
+        lblFatherAge.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblFatherAge.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblFatherAge.setText("age");
+        jPanel8.add(lblFatherAge);
+        lblFatherAge.setBounds(930, 70, 40, 23);
 
-        lblID46.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID46.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID46.setText("Mother Name");
-        jPanel8.add(lblID46);
-        lblID46.setBounds(540, 190, 120, 23);
+        lblMotherName.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblMotherName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblMotherName.setText("Mother Name");
+        jPanel8.add(lblMotherName);
+        lblMotherName.setBounds(540, 190, 120, 23);
 
-        txtID24.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID24.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID24);
-        txtID24.setBounds(670, 280, 370, 23);
+        txtMotherTelephone.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtMotherTelephone.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtMotherTelephone);
+        txtMotherTelephone.setBounds(670, 280, 370, 23);
 
-        lblID47.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID47.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID47.setText("Telephone");
-        jPanel8.add(lblID47);
-        lblID47.setBounds(540, 280, 120, 23);
+        lblMotherTelephone.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblMotherTelephone.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblMotherTelephone.setText("Telephone");
+        jPanel8.add(lblMotherTelephone);
+        lblMotherTelephone.setBounds(540, 280, 120, 23);
 
-        lblID48.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID48.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID48.setText("Work Locatoin");
-        jPanel8.add(lblID48);
-        lblID48.setBounds(540, 250, 120, 23);
+        lblMotherWorkPlace.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblMotherWorkPlace.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblMotherWorkPlace.setText("Work Place");
+        jPanel8.add(lblMotherWorkPlace);
+        lblMotherWorkPlace.setBounds(540, 250, 120, 23);
 
-        txtID25.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID25.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID25);
-        txtID25.setBounds(670, 250, 370, 23);
+        txtMotherWorkPlace.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtMotherWorkPlace.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtMotherWorkPlace);
+        txtMotherWorkPlace.setBounds(670, 250, 370, 23);
 
-        txtID26.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID26.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID26);
-        txtID26.setBounds(670, 220, 370, 23);
+        txtMotherOccupation.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtMotherOccupation.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtMotherOccupation);
+        txtMotherOccupation.setBounds(670, 220, 370, 23);
 
-        lblID49.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID49.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID49.setText("Occupation");
-        jPanel8.add(lblID49);
-        lblID49.setBounds(540, 220, 120, 23);
+        lblMotherOccupation.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblMotherOccupation.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblMotherOccupation.setText("Occupation");
+        jPanel8.add(lblMotherOccupation);
+        lblMotherOccupation.setBounds(540, 220, 120, 23);
 
-        txtID27.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID27.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID27);
-        txtID27.setBounds(670, 190, 260, 23);
+        txtMotherName.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtMotherName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtMotherName);
+        txtMotherName.setBounds(670, 190, 260, 23);
 
-        lblID50.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID50.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID50.setText("age");
-        jPanel8.add(lblID50);
-        lblID50.setBounds(930, 190, 40, 23);
+        lblMotherAge.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblMotherAge.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblMotherAge.setText("age");
+        jPanel8.add(lblMotherAge);
+        lblMotherAge.setBounds(930, 190, 40, 23);
 
-        txtID28.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID28.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID28);
-        txtID28.setBounds(980, 190, 60, 23);
+        txtMotherAge.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtMotherAge.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtMotherAge);
+        txtMotherAge.setBounds(980, 190, 60, 23);
 
-        lblID35.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID35.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID35.setText("FaceBook");
-        jPanel8.add(lblID35);
-        lblID35.setBounds(10, 10, 100, 23);
+        lblFacebook.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblFacebook.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblFacebook.setText("FaceBook");
+        jPanel8.add(lblFacebook);
+        lblFacebook.setBounds(10, 10, 100, 23);
 
-        txtID13.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID13.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID13);
-        txtID13.setBounds(120, 10, 370, 23);
+        txtFacebook.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtFacebook.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtFacebook);
+        txtFacebook.setBounds(120, 10, 370, 23);
 
-        lblID51.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID51.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID51.setText("Mobile Phone");
-        jPanel8.add(lblID51);
-        lblID51.setBounds(10, 40, 100, 23);
+        lblMobilePhone.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblMobilePhone.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblMobilePhone.setText("Mobile Phone");
+        jPanel8.add(lblMobilePhone);
+        lblMobilePhone.setBounds(10, 40, 100, 23);
 
-        txtID29.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID29.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID29);
-        txtID29.setBounds(120, 40, 370, 23);
+        txtMobilePhone.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtMobilePhone.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtMobilePhone);
+        txtMobilePhone.setBounds(120, 40, 370, 23);
 
-        lblID52.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID52.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID52.setText("Telephone");
-        jPanel8.add(lblID52);
-        lblID52.setBounds(10, 70, 100, 23);
+        lblTelephone.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblTelephone.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblTelephone.setText("Telephone");
+        jPanel8.add(lblTelephone);
+        lblTelephone.setBounds(10, 70, 100, 23);
 
-        txtID30.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID30.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID30);
-        txtID30.setBounds(120, 70, 370, 23);
+        txtTelephone.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtTelephone.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtTelephone);
+        txtTelephone.setBounds(120, 70, 370, 23);
 
-        lblID53.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID53.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID53.setText("Emergency Contact");
-        jPanel8.add(lblID53);
-        lblID53.setBounds(540, 310, 120, 23);
+        lblEmergencyContact.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblEmergencyContact.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEmergencyContact.setText("Emergency Contact");
+        jPanel8.add(lblEmergencyContact);
+        lblEmergencyContact.setBounds(540, 310, 120, 23);
 
-        txtID31.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID31.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel8.add(txtID31);
-        txtID31.setBounds(670, 310, 290, 23);
+        txtEmergencyContact.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtEmergencyContact.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel8.add(txtEmergencyContact);
+        txtEmergencyContact.setBounds(670, 310, 290, 23);
 
+        btnSaveCV.setActiveColor(new java.awt.Color(255, 255, 255));
+        btnSaveCV.setRolloverColor(new java.awt.Color(255, 255, 255));
         btnSaveCV.setText("Save");
         btnSaveCV.setUnvisitColor(new java.awt.Color(255, 255, 255));
         btnSaveCV.setVisitedColor(new java.awt.Color(255, 255, 255));
@@ -925,7 +1533,7 @@ public class FrmEmployee extends javax.swing.JFrame {
         jPanel8.add(panelSaveCVHover);
         panelSaveCVHover.setBounds(1000, 310, 96, 32);
 
-        jocTabbedPane2.addTab("Curriculum vitae", jPanel8);
+        tabPaneDetails.addTab("Curriculum vitae", jPanel8);
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setLayout(null);
@@ -1099,7 +1707,7 @@ public class FrmEmployee extends javax.swing.JFrame {
         jPanel9.add(panelSaveAddressHover);
         panelSaveAddressHover.setBounds(1000, 310, 96, 32);
 
-        jocTabbedPane2.addTab("Address", jPanel9);
+        tabPaneDetails.addTab("Address", jPanel9);
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setLayout(null);
@@ -1202,24 +1810,6 @@ public class FrmEmployee extends javax.swing.JFrame {
         tableSalary.setSelectionBackground(new java.awt.Color(255, 255, 255));
         tableSalary.setSelectionForeground(java.awt.Color.red);
         scrollPaneSalary.setViewportView(tableSalary);
-        if (tableSalary.getColumnModel().getColumnCount() > 0) {
-            tableSalary.getColumnModel().getColumn(0).setMinWidth(0);
-            tableSalary.getColumnModel().getColumn(0).setMaxWidth(0);
-            tableSalary.getColumnModel().getColumn(1).setMinWidth(170);
-            tableSalary.getColumnModel().getColumn(1).setMaxWidth(170);
-            tableSalary.getColumnModel().getColumn(2).setMinWidth(130);
-            tableSalary.getColumnModel().getColumn(2).setMaxWidth(130);
-            tableSalary.getColumnModel().getColumn(3).setMinWidth(70);
-            tableSalary.getColumnModel().getColumn(3).setMaxWidth(70);
-            tableSalary.getColumnModel().getColumn(4).setMinWidth(70);
-            tableSalary.getColumnModel().getColumn(4).setMaxWidth(70);
-            tableSalary.getColumnModel().getColumn(5).setMinWidth(100);
-            tableSalary.getColumnModel().getColumn(5).setMaxWidth(100);
-            tableSalary.getColumnModel().getColumn(6).setMinWidth(130);
-            tableSalary.getColumnModel().getColumn(6).setMaxWidth(130);
-            tableSalary.getColumnModel().getColumn(7).setMinWidth(70);
-            tableSalary.getColumnModel().getColumn(7).setMaxWidth(70);
-        }
 
         jPanel22.add(scrollPaneSalary, java.awt.BorderLayout.CENTER);
 
@@ -1366,7 +1956,7 @@ public class FrmEmployee extends javax.swing.JFrame {
         jPanel10.add(panelSaveSalaryHover);
         panelSaveSalaryHover.setBounds(150, 280, 96, 32);
 
-        jocTabbedPane2.addTab("Salary", jPanel10);
+        tabPaneDetails.addTab("Salary", jPanel10);
 
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
         jPanel11.setLayout(null);
@@ -1455,27 +2045,13 @@ public class FrmEmployee extends javax.swing.JFrame {
         tableTax.setSelectionBackground(new java.awt.Color(255, 255, 255));
         tableTax.setSelectionForeground(java.awt.Color.red);
         scrollPanelTax.setViewportView(tableTax);
-        if (tableTax.getColumnModel().getColumnCount() > 0) {
-            tableTax.getColumnModel().getColumn(0).setMinWidth(120);
-            tableTax.getColumnModel().getColumn(0).setMaxWidth(120);
-            tableTax.getColumnModel().getColumn(1).setMinWidth(65);
-            tableTax.getColumnModel().getColumn(1).setMaxWidth(65);
-            tableTax.getColumnModel().getColumn(2).setMinWidth(150);
-            tableTax.getColumnModel().getColumn(2).setMaxWidth(150);
-            tableTax.getColumnModel().getColumn(3).setMinWidth(150);
-            tableTax.getColumnModel().getColumn(3).setMaxWidth(150);
-            tableTax.getColumnModel().getColumn(4).setMinWidth(130);
-            tableTax.getColumnModel().getColumn(4).setMaxWidth(130);
-            tableTax.getColumnModel().getColumn(5).setMinWidth(120);
-            tableTax.getColumnModel().getColumn(5).setMaxWidth(120);
-        }
 
         jPanel26.add(scrollPanelTax, java.awt.BorderLayout.CENTER);
 
         jPanel11.add(jPanel26);
         jPanel26.setBounds(350, 10, 745, 330);
 
-        jocTabbedPane2.addTab("Tax", jPanel11);
+        tabPaneDetails.addTab("Tax", jPanel11);
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1490,7 +2066,7 @@ public class FrmEmployee extends javax.swing.JFrame {
             .addGap(0, 349, Short.MAX_VALUE)
         );
 
-        jocTabbedPane2.addTab("Education", jPanel12);
+        tabPaneDetails.addTab("Education", jPanel12);
 
         jPanel13.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1505,7 +2081,7 @@ public class FrmEmployee extends javax.swing.JFrame {
             .addGap(0, 349, Short.MAX_VALUE)
         );
 
-        jocTabbedPane2.addTab("Note", jPanel13);
+        tabPaneDetails.addTab("Note", jPanel13);
 
         jPanel14.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1520,7 +2096,7 @@ public class FrmEmployee extends javax.swing.JFrame {
             .addGap(0, 349, Short.MAX_VALUE)
         );
 
-        jocTabbedPane2.addTab("Equipment", jPanel14);
+        tabPaneDetails.addTab("Equipment", jPanel14);
 
         jPanel15.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1535,7 +2111,7 @@ public class FrmEmployee extends javax.swing.JFrame {
             .addGap(0, 349, Short.MAX_VALUE)
         );
 
-        jocTabbedPane2.addTab("Experience", jPanel15);
+        tabPaneDetails.addTab("Experience", jPanel15);
 
         jPanel16.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1550,7 +2126,7 @@ public class FrmEmployee extends javax.swing.JFrame {
             .addGap(0, 349, Short.MAX_VALUE)
         );
 
-        jocTabbedPane2.addTab("Absent", jPanel16);
+        tabPaneDetails.addTab("Absent", jPanel16);
 
         jPanel17.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1565,7 +2141,7 @@ public class FrmEmployee extends javax.swing.JFrame {
             .addGap(0, 349, Short.MAX_VALUE)
         );
 
-        jocTabbedPane2.addTab("Bank", jPanel17);
+        tabPaneDetails.addTab("Bank", jPanel17);
 
         jPanel18.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1580,7 +2156,7 @@ public class FrmEmployee extends javax.swing.JFrame {
             .addGap(0, 349, Short.MAX_VALUE)
         );
 
-        jocTabbedPane2.addTab("Manag Location", jPanel18);
+        tabPaneDetails.addTab("Manage Location", jPanel18);
 
         jPanel19.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1595,261 +2171,122 @@ public class FrmEmployee extends javax.swing.JFrame {
             .addGap(0, 349, Short.MAX_VALUE)
         );
 
-        jocTabbedPane2.addTab("Document", jPanel19);
+        tabPaneDetails.addTab("Document", jPanel19);
 
-        jPanel6.add(jocTabbedPane2);
-        jocTabbedPane2.setBounds(10, 250, 1110, 385);
+        jPanel6.add(tabPaneDetails);
+        tabPaneDetails.setBounds(10, 250, 1110, 385);
 
-        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jCheckBox1.setText("Consultant");
-        jPanel6.add(jCheckBox1);
-        jCheckBox1.setBounds(10, 220, 120, 23);
+        chConsultant.setBackground(new java.awt.Color(255, 255, 255));
+        chConsultant.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        chConsultant.setText("Consultant");
+        chConsultant.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel6.add(chConsultant);
+        chConsultant.setBounds(10, 220, 120, 23);
 
-        jCheckBox2.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox2.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jCheckBox2.setText("Full Time");
-        jPanel6.add(jCheckBox2);
-        jCheckBox2.setBounds(10, 130, 120, 23);
+        chFullTime.setBackground(new java.awt.Color(255, 255, 255));
+        chFullTime.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        chFullTime.setText("Full Time");
+        chFullTime.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel6.add(chFullTime);
+        chFullTime.setBounds(10, 130, 120, 23);
 
-        jCheckBox4.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox4.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jCheckBox4.setText("Calculate Salary");
-        jPanel6.add(jCheckBox4);
-        jCheckBox4.setBounds(10, 160, 120, 23);
+        chCalculateSalary.setBackground(new java.awt.Color(255, 255, 255));
+        chCalculateSalary.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        chCalculateSalary.setText("Calculate Salary");
+        chCalculateSalary.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel6.add(chCalculateSalary);
+        chCalculateSalary.setBounds(10, 160, 120, 23);
 
-        jCheckBox5.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox5.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jCheckBox5.setText("In Office");
-        jPanel6.add(jCheckBox5);
-        jCheckBox5.setBounds(10, 190, 120, 23);
+        chInOffice.setBackground(new java.awt.Color(255, 255, 255));
+        chInOffice.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        chInOffice.setText("In Office");
+        chInOffice.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel6.add(chInOffice);
+        chInOffice.setBounds(10, 190, 120, 23);
 
+        btnSave.setActiveColor(new java.awt.Color(255, 255, 255));
+        btnSave.setRolloverColor(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
         btnSave.setUnvisitColor(new java.awt.Color(255, 255, 255));
         btnSave.setVisitedColor(new java.awt.Color(255, 255, 255));
         btnSave.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel6.add(btnSave);
-        btnSave.setBounds(1008, 213, 82, 26);
+        btnSave.setBounds(1007, 233, 82, 26);
 
         panelSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Button.png"))); // NOI18N
         panelSave.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel6.add(panelSave);
-        panelSave.setBounds(1000, 210, 96, 32);
+        panelSave.setBounds(1000, 230, 96, 32);
 
         panelHover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/ButtonHover.png"))); // NOI18N
         panelHover.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel6.add(panelHover);
-        panelHover.setBounds(1000, 210, 96, 32);
+        panelHover.setBounds(1000, 230, 96, 32);
 
-        jocTabbedPane1.addTab("New Employee", jPanel6);
+        lblDivision.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblDivision.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblDivision.setText("Division");
+        jPanel6.add(lblDivision);
+        lblDivision.setBounds(480, 70, 100, 23);
 
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.setLayout(null);
-        jPanel5.add(jSeparator7);
-        jSeparator7.setBounds(730, 35, 220, 5);
-        jPanel5.add(jSeparator5);
-        jSeparator5.setBounds(410, 35, 220, 5);
+        cmbDivision.setEditable(true);
+        cmbDivision.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        cmbDivision.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        cmbDivision.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel6.add(cmbDivision);
+        cmbDivision.setBounds(590, 70, 200, 25);
+        jPanel6.add(jSeparator28);
+        jSeparator28.setBounds(590, 95, 200, 5);
 
-        lblID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID.setText("Department");
-        jPanel5.add(lblID);
-        lblID.setBounds(300, 10, 100, 23);
+        tabPane.addTab("Details", jPanel6);
 
-        cmbFindLocation.setEditable(true);
-        cmbFindLocation.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        cmbFindLocation.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel5.add(cmbFindLocation);
-        cmbFindLocation.setBounds(730, 10, 220, 25);
-
-        lblID2.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID2.setText("Location");
-        jPanel5.add(lblID2);
-        lblID2.setBounds(640, 10, 90, 23);
-
-        lblID1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID1.setText("Search");
-        jPanel5.add(lblID1);
-        lblID1.setBounds(10, 10, 80, 23);
-
-        cmbFindDepartment.setEditable(true);
-        cmbFindDepartment.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        cmbFindDepartment.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel5.add(cmbFindDepartment);
-        cmbFindDepartment.setBounds(410, 10, 220, 25);
-
-        txtID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel5.add(txtID);
-        txtID.setBounds(100, 10, 190, 23);
-
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setLayout(new java.awt.BorderLayout());
-
-        jTable1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "lblEmpID", "lblEmpNbr", "lblEmpName", "lbGender", "lblEmpEmail", "lblEmpDepart", "lblEmpTitle", "lblEmpLoc", "lblEmpWorkStatus"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        jTable1.setGridColor(new java.awt.Color(204, 204, 204));
-        jTable1.setRowHeight(25);
-        jTable1.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setSelectionForeground(java.awt.Color.red);
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setMinWidth(0);
-            jTable1.getColumnModel().getColumn(0).setMaxWidth(0);
-            jTable1.getColumnModel().getColumn(1).setMinWidth(100);
-            jTable1.getColumnModel().getColumn(1).setMaxWidth(100);
-            jTable1.getColumnModel().getColumn(2).setMinWidth(200);
-            jTable1.getColumnModel().getColumn(2).setMaxWidth(200);
-            jTable1.getColumnModel().getColumn(3).setMinWidth(70);
-            jTable1.getColumnModel().getColumn(3).setMaxWidth(70);
-            jTable1.getColumnModel().getColumn(4).setMinWidth(200);
-            jTable1.getColumnModel().getColumn(4).setMaxWidth(200);
-            jTable1.getColumnModel().getColumn(5).setMinWidth(170);
-            jTable1.getColumnModel().getColumn(5).setMaxWidth(170);
-            jTable1.getColumnModel().getColumn(6).setMinWidth(170);
-            jTable1.getColumnModel().getColumn(6).setMaxWidth(170);
-            jTable1.getColumnModel().getColumn(7).setMinWidth(170);
-            jTable1.getColumnModel().getColumn(7).setMaxWidth(170);
-            jTable1.getColumnModel().getColumn(8).setMinWidth(170);
-            jTable1.getColumnModel().getColumn(8).setMaxWidth(170);
-        }
-
-        jPanel4.add(jScrollPane1, java.awt.BorderLayout.CENTER);
-
-        jPanel5.add(jPanel4);
-        jPanel4.setBounds(5, 50, 1120, 590);
-
-        jocTabbedPane1.addTab("Employees", jPanel5);
-
-        jPanel2.add(jocTabbedPane1);
-        jocTabbedPane1.setBounds(0, 30, 1135, 680);
-
-        jPanel3.setBackground(new java.awt.Color(81, 87, 99));
-
-        menuExit.setActiveColor(new java.awt.Color(255, 50, 50));
-        menuExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Delete_30px.png"))); // NOI18N
-        menuExit.setUnvisitColor(new java.awt.Color(255, 255, 255));
-        menuExit.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
-        menuExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuExitActionPerformed(evt);
-            }
-        });
-
-        lblCompanyInfo.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
-        lblCompanyInfo.setForeground(new java.awt.Color(255, 255, 255));
-        lblCompanyInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCompanyInfo.setText("Employee");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblCompanyInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 1097, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(menuExit, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblCompanyInfo)
-                    .addComponent(menuExit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 5, Short.MAX_VALUE))
-        );
-
-        jPanel2.add(jPanel3);
-        jPanel3.setBounds(0, 0, 1135, 30);
+        jPanel2.add(tabPane);
+        tabPane.setBounds(0, 30, 1135, 680);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1135, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExitActionPerformed
-         this.dispose();
+        this.dispose();
     }//GEN-LAST:event_menuExitActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmEmployee().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox Motocycle;
     private com.xzq.osc.JocHyperlink btnSave;
     private com.xzq.osc.JocHyperlink btnSaveAddress;
     private com.xzq.osc.JocHyperlink btnSaveCV;
     private com.xzq.osc.JocHyperlink btnSaveSalary;
     private com.xzq.osc.JocHyperlink btnSaveSalary1;
+    private javax.swing.JCheckBox chCalculateSalary;
+    private javax.swing.JCheckBox chCar;
+    private javax.swing.JCheckBox chConsultant;
+    private javax.swing.JCheckBox chFullTime;
+    private javax.swing.JCheckBox chInOffice;
     private javax.swing.JComboBox<String> cmbBlood;
     private javax.swing.JComboBox<String> cmbBusiness;
     private javax.swing.JComboBox<String> cmbDepartment;
     private javax.swing.JComboBox<String> cmbDistrict1;
     private javax.swing.JComboBox<String> cmbDistrict2;
+    private javax.swing.JComboBox<String> cmbDivision;
     private javax.swing.JComboBox<String> cmbEmpStatus;
     private javax.swing.JComboBox<String> cmbEthnic;
     private javax.swing.JComboBox<String> cmbFindDepartment;
@@ -1868,19 +2305,10 @@ public class FrmEmployee extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbTaxCustomize;
     private javax.swing.JComboBox<String> cmbTitle;
     private javax.swing.JComboBox<String> cmbWorkStatus;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
     private javax.swing.JCheckBox jCheckBox6;
     private javax.swing.JCheckBox jCheckBox7;
     private javax.swing.JCheckBox jCheckBox8;
     private javax.swing.JCheckBox jCheckBox9;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
-    private com.toedter.calendar.JDateChooser jDateChooser3;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -1926,80 +2354,60 @@ public class FrmEmployee extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator25;
     private javax.swing.JSeparator jSeparator26;
     private javax.swing.JSeparator jSeparator27;
+    private javax.swing.JSeparator jSeparator28;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTable jTable1;
-    private com.xzq.osc.JocTabbedPane jocTabbedPane1;
-    private com.xzq.osc.JocTabbedPane jocTabbedPane2;
     private javax.swing.JLabel lblAddress1;
     private javax.swing.JLabel lblAddress1_L1;
     private javax.swing.JLabel lblAddress1_L2;
     private javax.swing.JLabel lblAddress2;
     private javax.swing.JLabel lblAddress2_L1;
     private javax.swing.JLabel lblAddress2_L2;
-    private javax.swing.JLabel lblCompanyInfo;
+    private javax.swing.JLabel lblAge;
+    private javax.swing.JLabel lblBloodGroup;
+    private javax.swing.JLabel lblBusinessUnit;
+    private javax.swing.JLabel lblDOB;
+    private javax.swing.JLabel lblDepartment;
     private javax.swing.JLabel lblDistrict1;
     private javax.swing.JLabel lblDistrict2;
+    private javax.swing.JLabel lblDivision;
+    private javax.swing.JLabel lblDrivingNo;
+    private javax.swing.JLabel lblEmergencyContact;
+    private javax.swing.JLabel lblEmpEmail;
+    private javax.swing.JLabel lblEmpID;
+    private javax.swing.JLabel lblEmpName_L1;
+    private javax.swing.JLabel lblEmpName_L2;
+    private javax.swing.JLabel lblEmpNickname;
+    private javax.swing.JLabel lblEmpStatus;
+    private javax.swing.JLabel lblEmployeeInfo;
+    private javax.swing.JLabel lblEndDate;
+    private javax.swing.JLabel lblEthnic;
+    private javax.swing.JLabel lblFacebook;
+    private javax.swing.JLabel lblFamilyBook;
+    private javax.swing.JLabel lblFatherAge;
+    private javax.swing.JLabel lblFatherName;
+    private javax.swing.JLabel lblFatherOccupation;
+    private javax.swing.JLabel lblFatherTelephone;
+    private javax.swing.JLabel lblFatherWorkPlace;
+    private javax.swing.JLabel lblGender;
+    private javax.swing.JLabel lblHight;
+    private javax.swing.JLabel lblHubandTelephone;
+    private javax.swing.JLabel lblHusband_Wife;
     private javax.swing.JLabel lblID;
     private javax.swing.JLabel lblID1;
-    private javax.swing.JLabel lblID10;
-    private javax.swing.JLabel lblID11;
-    private javax.swing.JLabel lblID12;
-    private javax.swing.JLabel lblID13;
-    private javax.swing.JLabel lblID14;
-    private javax.swing.JLabel lblID15;
-    private javax.swing.JLabel lblID16;
-    private javax.swing.JLabel lblID17;
-    private javax.swing.JLabel lblID18;
-    private javax.swing.JLabel lblID19;
     private javax.swing.JLabel lblID2;
-    private javax.swing.JLabel lblID20;
-    private javax.swing.JLabel lblID21;
-    private javax.swing.JLabel lblID22;
-    private javax.swing.JLabel lblID23;
-    private javax.swing.JLabel lblID24;
     private javax.swing.JLabel lblID25;
-    private javax.swing.JLabel lblID26;
     private javax.swing.JLabel lblID27;
-    private javax.swing.JLabel lblID28;
-    private javax.swing.JLabel lblID29;
-    private javax.swing.JLabel lblID3;
-    private javax.swing.JLabel lblID30;
-    private javax.swing.JLabel lblID31;
-    private javax.swing.JLabel lblID32;
-    private javax.swing.JLabel lblID33;
-    private javax.swing.JLabel lblID34;
-    private javax.swing.JLabel lblID35;
-    private javax.swing.JLabel lblID36;
-    private javax.swing.JLabel lblID37;
-    private javax.swing.JLabel lblID38;
-    private javax.swing.JLabel lblID39;
-    private javax.swing.JLabel lblID4;
-    private javax.swing.JLabel lblID40;
-    private javax.swing.JLabel lblID41;
-    private javax.swing.JLabel lblID42;
-    private javax.swing.JLabel lblID43;
-    private javax.swing.JLabel lblID44;
-    private javax.swing.JLabel lblID45;
-    private javax.swing.JLabel lblID46;
-    private javax.swing.JLabel lblID47;
-    private javax.swing.JLabel lblID48;
-    private javax.swing.JLabel lblID49;
-    private javax.swing.JLabel lblID5;
-    private javax.swing.JLabel lblID50;
-    private javax.swing.JLabel lblID51;
-    private javax.swing.JLabel lblID52;
-    private javax.swing.JLabel lblID53;
     private javax.swing.JLabel lblID54;
     private javax.swing.JLabel lblID55;
     private javax.swing.JLabel lblID56;
     private javax.swing.JLabel lblID57;
     private javax.swing.JLabel lblID58;
     private javax.swing.JLabel lblID59;
-    private javax.swing.JLabel lblID6;
     private javax.swing.JLabel lblID60;
     private javax.swing.JLabel lblID61;
     private javax.swing.JLabel lblID62;
@@ -2008,11 +2416,33 @@ public class FrmEmployee extends javax.swing.JFrame {
     private javax.swing.JLabel lblID65;
     private javax.swing.JLabel lblID66;
     private javax.swing.JLabel lblID67;
-    private javax.swing.JLabel lblID7;
-    private javax.swing.JLabel lblID8;
-    private javax.swing.JLabel lblID9;
+    private javax.swing.JLabel lblIDCard;
+    private javax.swing.JLabel lblImage;
+    private javax.swing.JLabel lblInsurance;
+    private javax.swing.JLabel lblLevel;
+    private javax.swing.JLabel lblLocation;
+    private javax.swing.JLabel lblManager;
+    private javax.swing.JLabel lblMobilePhone;
+    private javax.swing.JLabel lblMotherAge;
+    private javax.swing.JLabel lblMotherName;
+    private javax.swing.JLabel lblMotherOccupation;
+    private javax.swing.JLabel lblMotherTelephone;
+    private javax.swing.JLabel lblMotherWorkPlace;
+    private javax.swing.JCheckBox lblMotocycle;
+    private javax.swing.JLabel lblNationality;
+    private javax.swing.JLabel lblOccupation;
+    private javax.swing.JLabel lblPOB;
+    private javax.swing.JLabel lblPassportNo;
     private javax.swing.JLabel lblProvince1;
     private javax.swing.JLabel lblProvince2;
+    private javax.swing.JLabel lblReligion;
+    private javax.swing.JLabel lblSalaryPeriod;
+    private javax.swing.JLabel lblStartDate;
+    private javax.swing.JLabel lblTelephone;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblWeight;
+    private javax.swing.JLabel lblWorkPlace;
+    private javax.swing.JLabel lblWorkStatus;
     private com.xzq.osc.JocHyperlink menuExit;
     private com.xzq.osc.JocHyperlink panelHover;
     private com.xzq.osc.JocHyperlink panelSave;
@@ -2026,38 +2456,35 @@ public class FrmEmployee extends javax.swing.JFrame {
     private com.xzq.osc.JocHyperlink panelSaveSalaryHover1;
     private javax.swing.JScrollPane scrollPaneSalary;
     private javax.swing.JScrollPane scrollPanelTax;
+    private com.xzq.osc.JocTabbedPane tabPane;
+    private com.xzq.osc.JocTabbedPane tabPaneDetails;
     private javax.swing.JTable tableSalary;
     private javax.swing.JTable tableTax;
     private javax.swing.JTextField txtAddress1_L1;
     private javax.swing.JTextField txtAddress1_L2;
     private javax.swing.JTextField txtAddress2_L1;
     private javax.swing.JTextField txtAddress2_L2;
+    private javax.swing.JTextField txtAge;
+    private com.toedter.calendar.JDateChooser txtDOB;
+    private javax.swing.JTextField txtDrivingNo;
+    private javax.swing.JTextField txtEmergencyContact;
+    private javax.swing.JTextField txtEmpID;
+    private javax.swing.JTextField txtEmpMail;
+    private javax.swing.JTextField txtEmpName_L1;
+    private javax.swing.JTextField txtEmpName_L2;
+    private javax.swing.JTextField txtEmpNickname;
+    private com.toedter.calendar.JDateChooser txtEndDate;
+    private javax.swing.JTextField txtFacebook;
+    private javax.swing.JTextField txtFamilybook;
+    private javax.swing.JTextField txtFatherAge;
+    private javax.swing.JTextField txtFatherName;
+    private javax.swing.JTextField txtFatherOccupation;
+    private javax.swing.JTextField txtFatherTelephone;
+    private javax.swing.JTextField txtFatherWorkPlace;
+    private javax.swing.JTextField txtHight;
+    private javax.swing.JTextField txtHusbandTelephone;
+    private javax.swing.JTextField txtHusband_Wife;
     private javax.swing.JTextField txtID;
-    private javax.swing.JTextField txtID1;
-    private javax.swing.JTextField txtID10;
-    private javax.swing.JTextField txtID11;
-    private javax.swing.JTextField txtID12;
-    private javax.swing.JTextField txtID13;
-    private javax.swing.JTextField txtID14;
-    private javax.swing.JTextField txtID15;
-    private javax.swing.JTextField txtID16;
-    private javax.swing.JTextField txtID17;
-    private javax.swing.JTextField txtID18;
-    private javax.swing.JTextField txtID19;
-    private javax.swing.JTextField txtID2;
-    private javax.swing.JTextField txtID20;
-    private javax.swing.JTextField txtID21;
-    private javax.swing.JTextField txtID22;
-    private javax.swing.JTextField txtID23;
-    private javax.swing.JTextField txtID24;
-    private javax.swing.JTextField txtID25;
-    private javax.swing.JTextField txtID26;
-    private javax.swing.JTextField txtID27;
-    private javax.swing.JTextField txtID28;
-    private javax.swing.JTextField txtID29;
-    private javax.swing.JTextField txtID3;
-    private javax.swing.JTextField txtID30;
-    private javax.swing.JTextField txtID31;
     private javax.swing.JTextField txtID32;
     private javax.swing.JTextField txtID33;
     private javax.swing.JTextField txtID35;
@@ -2065,15 +2492,23 @@ public class FrmEmployee extends javax.swing.JFrame {
     private javax.swing.JTextField txtID37;
     private javax.swing.JTextField txtID38;
     private javax.swing.JTextField txtID39;
-    private javax.swing.JTextField txtID4;
     private javax.swing.JTextField txtID40;
     private javax.swing.JTextField txtID41;
     private javax.swing.JTextField txtID42;
     private javax.swing.JTextField txtID43;
-    private javax.swing.JTextField txtID5;
-    private javax.swing.JTextField txtID6;
-    private javax.swing.JTextField txtID7;
-    private javax.swing.JTextField txtID8;
-    private javax.swing.JTextField txtID9;
+    private javax.swing.JTextField txtIDCard;
+    private javax.swing.JTextField txtMobilePhone;
+    private javax.swing.JTextField txtMotherAge;
+    private javax.swing.JTextField txtMotherName;
+    private javax.swing.JTextField txtMotherOccupation;
+    private javax.swing.JTextField txtMotherTelephone;
+    private javax.swing.JTextField txtMotherWorkPlace;
+    private javax.swing.JTextField txtOccupation;
+    private javax.swing.JTextField txtPOD;
+    private javax.swing.JTextField txtPassportNo;
+    private com.toedter.calendar.JDateChooser txtStartDate;
+    private javax.swing.JTextField txtTelephone;
+    private javax.swing.JTextField txtWeight;
+    private javax.swing.JTextField txtWorkPlace;
     // End of variables declaration//GEN-END:variables
 }
