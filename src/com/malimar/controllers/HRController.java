@@ -1,4 +1,3 @@
-
 package com.malimar.controllers;
 
 import com.malimar.models.Label;
@@ -8,25 +7,30 @@ import com.malimar.utils.ControlDeskTop;
 import com.malimar.views.FrmEmployee;
 import com.malimar.views.FrmHR;
 import com.malimar.views.FrmMainMenu;
+import com.malimar.views.FrmPayRoll;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-public class HRController implements ActionListener, MouseListener, MouseMotionListener{
+public class HRController implements ActionListener, MouseListener, MouseMotionListener {
+
     private final FrmHR view;
     String frm;
-    public HRController(FrmHR view){
+
+    public HRController(FrmHR view) {
         this.view = view;
         frm = this.view.getClass().getSimpleName();
         this.changeLabel();
         this.setAction();
     }
-    private void setAction(){
+
+    private void setAction() {
         this.view.getMenuEmployee().addActionListener((ActionListener) this);
         this.view.getMenuEmployee().addMouseListener((MouseListener) this);
         this.view.getMenuEmployee().addMouseMotionListener((MouseMotionListener) this);
+         this.view.getMenuPayroll().addActionListener((ActionListener) this);
         this.view.getMenuPayroll().addMouseListener((MouseListener) this);
         this.view.getMenuPayroll().addMouseMotionListener((MouseMotionListener) this);
         this.view.getMenuUpSalary().addMouseListener((MouseListener) this);
@@ -42,22 +46,28 @@ public class HRController implements ActionListener, MouseListener, MouseMotionL
         this.view.getMenuReport().addMouseListener((MouseListener) this);
         this.view.getMenuReport().addMouseMotionListener((MouseMotionListener) this);
     }
-    private void changeLabel(){
-        this.view.getLblEmployee().setText(hmapLang.get("menuEmployee".concat(frm).toUpperCase()) [LN]);
-        this.view.getLblPayroll().setText(hmapLang.get("menuPayroll".concat(frm).toUpperCase()) [LN]);
-        this.view.getLblUpSalary().setText(hmapLang.get("menuUpSalary".concat(frm).toUpperCase()) [LN]);
-        this.view.getLblLoan().setText(hmapLang.get("menuLoan".concat(frm).toUpperCase()) [LN]);
-        this.view.getLblAbsent().setText(hmapLang.get("menuAbsent".concat(frm).toUpperCase()) [LN]);
-        this.view.getLblOvertime().setText(hmapLang.get("menuOverTime".concat(frm).toUpperCase()) [LN]);
-        this.view.getLblUserSetting().setText(hmapLang.get("menuUserSetting".concat(frm).toUpperCase()) [LN]);
-        this.view.getLblReport().setText(hmapLang.get("menuReport".concat(frm).toUpperCase()) [LN]);
+
+    private void changeLabel() {
+        this.view.getLblEmployee().setText(hmapLang.get("menuEmployee".concat(frm).toUpperCase())[LN]);
+        this.view.getLblPayroll().setText(hmapLang.get("menuPayroll".concat(frm).toUpperCase())[LN]);
+        this.view.getLblUpSalary().setText(hmapLang.get("menuUpSalary".concat(frm).toUpperCase())[LN]);
+        this.view.getLblLoan().setText(hmapLang.get("menuLoan".concat(frm).toUpperCase())[LN]);
+        this.view.getLblAbsent().setText(hmapLang.get("menuAbsent".concat(frm).toUpperCase())[LN]);
+        this.view.getLblOvertime().setText(hmapLang.get("menuOverTime".concat(frm).toUpperCase())[LN]);
+        this.view.getLblUserSetting().setText(hmapLang.get("menuUserSetting".concat(frm).toUpperCase())[LN]);
+        this.view.getLblReport().setText(hmapLang.get("menuReport".concat(frm).toUpperCase())[LN]);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-         if(e.getSource() == this.view.getMenuEmployee()){
-             ControlDeskTop.closeChilds(FrmMainMenu.deskTopControll);
+        if (e.getSource() == this.view.getMenuEmployee()) {
+            ControlDeskTop.closeChilds(FrmMainMenu.deskTopControll);
             FrmEmployee f = new FrmEmployee();
+            FrmMainMenu.deskTopControll.add(f);
+            f.setVisible(true);
+        } else if (e.getSource() == this.view.getMenuPayroll()) {
+            ControlDeskTop.closeChilds(FrmMainMenu.deskTopControll);
+            FrmPayRoll f = new FrmPayRoll();
             FrmMainMenu.deskTopControll.add(f);
             f.setVisible(true);
         }
@@ -65,28 +75,28 @@ public class HRController implements ActionListener, MouseListener, MouseMotionL
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(e.getSource() == this.view.getLblEmployee()){
+        if (e.getSource() == this.view.getLblEmployee()) {
             Label.WindowChangeLabel("menuEmployee", frm, e);
-        }else if(e.getSource() == this.view.getLblPayroll()){
+        } else if (e.getSource() == this.view.getLblPayroll()) {
             Label.WindowChangeLabel("menuPayroll", frm, e);
-        }else if(e.getSource() == this.view.getLblUpSalary()){
+        } else if (e.getSource() == this.view.getLblUpSalary()) {
             Label.WindowChangeLabel("menuUpSalary", frm, e);
-        }else if(e.getSource() == this.view.getLblLoan()){
+        } else if (e.getSource() == this.view.getLblLoan()) {
             Label.WindowChangeLabel("menuLoan", frm, e);
-        }else if(e.getSource() == this.view.getLblAbsent()){
+        } else if (e.getSource() == this.view.getLblAbsent()) {
             Label.WindowChangeLabel("menuAbsent", frm, e);
-        }else if(e.getSource() == this.view.getLblOvertime()){
+        } else if (e.getSource() == this.view.getLblOvertime()) {
             Label.WindowChangeLabel("menuOverTime", frm, e);
-        }else if(e.getSource() == this.view.getLblUserSetting()){
+        } else if (e.getSource() == this.view.getLblUserSetting()) {
             Label.WindowChangeLabel("menuUserSetting", frm, e);
-        }else if(e.getSource() == this.view.getLblReport()){
+        } else if (e.getSource() == this.view.getLblReport()) {
             Label.WindowChangeLabel("menuReport", frm, e);
         }
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        
+
     }
 
     @Override
@@ -119,7 +129,7 @@ public class HRController implements ActionListener, MouseListener, MouseMotionL
         } else if (e.getSource() == this.view.getMenuOverTime()) {
             this.view.getGroupMenuOverTimeHover().setVisible(false);
             this.view.getGroupMenuOverTime().setVisible(true);
-        }else if (e.getSource() == this.view.getMenuUserSetting()) {
+        } else if (e.getSource() == this.view.getMenuUserSetting()) {
             this.view.getGroupMenuUserSettingHover().setVisible(false);
             this.view.getGroupMenuUserSetting().setVisible(true);
         } else if (e.getSource() == this.view.getMenuReport()) {
@@ -159,7 +169,7 @@ public class HRController implements ActionListener, MouseListener, MouseMotionL
         } else if (e.getSource() == this.view.getMenuReport()) {
             this.view.getGroupMenuReportHover().setVisible(true);
             this.view.getGroupMenuReport().setVisible(false);
-        } 
+        }
     }
-    
+
 }

@@ -1,8 +1,7 @@
 package com.malimar.models;
 
-import com.malimar.databases.DatabaseManager;
+import static com.malimar.utils.Valiables.c;
 import com.malimar.views.FrmChangeLabel;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -38,13 +37,11 @@ public class Label {
     public static String getLabelLang() {
         try {
             String sql;
-            Connection c = DatabaseManager.getConnection();
             sql = "EXEC pd_ChangeLabelLang";
             ResultSet rs = c.createStatement().executeQuery(sql);
             while (rs.next()) {
                 hmapLang.put(rs.getString(1), new String[]{rs.getString(2), rs.getString(3)});
             }
-            c.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -67,7 +64,6 @@ public class Label {
 
     public void saveLabel() {
         try {
-            Connection c = DatabaseManager.getConnection();
             String sql = "update Tbl_Sys_Lang_Label set Sys_L1 = ?, Sys_L2 = ? where Sys_LL_FieldName = (?) and frm = (?)";
             PreparedStatement p = c.prepareStatement(sql);
             String a = this.getLabelLao();
@@ -77,7 +73,6 @@ public class Label {
             p.setString(4, frameName);
             p.executeUpdate();
             p.close();
-            c.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -85,7 +80,6 @@ public class Label {
 
     public void load() {
         try {
-            Connection c = DatabaseManager.getConnection();
             String sql = "Select * from Tbl_Sys_Lang_Label where Sys_LL_FieldName = '" + fieldName + "' and frm = N'" + frameName + "'";
             ResultSet rs = c.createStatement().executeQuery(sql);
             if (rs.next()) {

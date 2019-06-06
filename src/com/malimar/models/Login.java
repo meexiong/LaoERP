@@ -1,9 +1,8 @@
 
 package com.malimar.models;
 
-import com.malimar.databases.DatabaseManager;
 import com.malimar.utils.Valiables;
-import java.sql.Connection;
+import static com.malimar.utils.Valiables.c;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -29,14 +28,10 @@ public class Login {
     
     public boolean getNewUser(){
         try {
-            Connection c = DatabaseManager.getConnection();
             String query = "Select userLogin from tbl_User where UserLogin=N'"+this.getUsername()+"' and type_default = 0";
             ResultSet rs = c.createStatement().executeQuery(query);
             if(rs.next()){
-                c.close();
                return true;
-            }else{
-                c.close();
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -46,7 +41,6 @@ public class Login {
     
     public String getUserPassword(){
         try {
-            Connection c = DatabaseManager.getConnection();
             String query = "Select u.userid, u.UserLogin, e.F_name_L1, u.User_pwd, u.Userlogin_Status, u.Type_Default, u.Type_Login \n" +
             "from tbl_User u inner join Tbl_Employee e on u.EMP_ID = e.Emp_ID\n" +
             "where u.UserLogin = '"+this.getUsername()+"'";

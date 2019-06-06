@@ -1,9 +1,8 @@
 package com.malimar.models;
 
-import com.malimar.databases.DatabaseManager;
 import com.malimar.utils.ManageTable;
+import static com.malimar.utils.Valiables.c;
 import static com.malimar.utils.Valiables.langType;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -71,14 +70,12 @@ public class Department {
     public HashMap<String, Object[]> getLocationInfo() {
         try {
             HashMap<String, Object[]> map = new HashMap<>();
-            Connection c = DatabaseManager.getConnection();
             String query = "Select * from Tbl_Location";
             ResultSet rs = c.createStatement().executeQuery(query);
             while (rs.next()) {
                 map.put(rs.getString("Loc_name_" + langType + ""), new Object[]{rs.getInt("Loc_ID"), rs.getString("Loc_name_L1"), rs.getString("Loc_name_L2")});
             }
             rs.close();
-            c.close();
             return map;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -88,7 +85,6 @@ public class Department {
 
     public boolean insert() {
         try {
-            Connection c = DatabaseManager.getConnection();
             GenerateID g = new GenerateID();
             String insert = "Insert into tbl_Depart(Dept_ID, Loc_ID, Dept_Name_L1, Dept_Name_L2, DSortOrder) values(?,?,?,?,?)";
             PreparedStatement p = c.prepareStatement(insert);
@@ -99,7 +95,6 @@ public class Department {
             p.setInt(5, this.getSortBy());
             p.executeUpdate();
             p.close();
-            c.close();
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -109,7 +104,6 @@ public class Department {
 
     public boolean update() {
         try {
-            Connection c = DatabaseManager.getConnection();
             String update = "update tbl_Depart set Loc_ID=?, Dept_Name_L1=?, Dept_Name_L2=?, DSortOrder=? where Dept_ID=?";
             PreparedStatement p = c.prepareStatement(update);
             p.setInt(1, this.getLocationID());
@@ -119,7 +113,6 @@ public class Department {
             p.setInt(5, this.getDepartmentID());
             p.executeUpdate();
             p.close();
-            c.close();
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -129,13 +122,11 @@ public class Department {
     
     public boolean delete() {
         try {
-            Connection c = DatabaseManager.getConnection();
             String delete = "delete tbl_Depart where Dept_ID=?";
             PreparedStatement p = c.prepareStatement(delete);
             p.setInt(1, this.getDepartmentID());
             p.executeUpdate();
             p.close();
-            c.close();
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -146,7 +137,6 @@ public class Department {
     public void load(JTable table, DefaultTableModel model) {
         try {
             ManageTable.clearTable(table, model);
-            Connection c = DatabaseManager.getConnection();
             String query = "SELECT dbo.Tbl_Depart.Dept_ID, dbo.Tbl_Depart.DSortOrder, \n" +
             "dbo.Tbl_Location.Loc_name_"+langType+" as locname, dbo.Tbl_Depart.Dept_Name_L1, \n" +
             "dbo.Tbl_Depart.Dept_Name_L2\n" +

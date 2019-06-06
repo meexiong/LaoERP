@@ -1,9 +1,8 @@
 package com.malimar.models;
 
-import com.malimar.databases.DatabaseManager;
+import static com.malimar.utils.Valiables.c;
 import java.io.File;
 import java.io.FileInputStream;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -94,7 +93,6 @@ public class Company {
 
     public boolean insert() {
         try {
-            Connection c = DatabaseManager.getConnection();
             GenerateID g = new GenerateID();
             String insert = "Insert into tbl_Company(CPID, CP_L1, CP_L2, mobile, fax, Address_L1, Address_L2, logo) values(?,?,?,?,?,?,?,?)";
             PreparedStatement p = c.prepareStatement(insert);
@@ -115,7 +113,6 @@ public class Company {
             }
             p.executeUpdate();
             p.close();
-            c.close();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -125,7 +122,6 @@ public class Company {
 
     public boolean update() {
         try {
-            Connection c = DatabaseManager.getConnection();
             String update = "update tbl_Company set CP_L1=?, CP_L2=?, mobile=?, fax=?, Address_L1=?, Address_L2=? where CPID=?";
             PreparedStatement p = c.prepareStatement(update);
             p.setString(1, this.getCompayName_L1());
@@ -149,7 +145,6 @@ public class Company {
                 }
             }
             p.close();
-            c.close();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -159,14 +154,12 @@ public class Company {
 
     public boolean delete() {
         try {
-            Connection c = DatabaseManager.getConnection();
             String update = "delete tbl_Company where CPID=?";
             PreparedStatement p = c.prepareStatement(update);
             p.setInt(1, this.getCompayID());
             p.executeUpdate();
             p.executeUpdate();
             p.close();
-            c.close();
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -176,7 +169,6 @@ public class Company {
 
     public void setCompanyInfo() {
         try {
-            Connection c = DatabaseManager.getConnection();
             String query = "Select * from tbl_Company";
             ResultSet rs = c.createStatement().executeQuery(query);
             if (rs.next()) {

@@ -6,10 +6,15 @@ import com.malimar.utils.InternalFrame;
 import com.toedter.calendar.JDateChooser;
 import com.xzq.osc.JocHyperlink;
 import com.xzq.osc.JocTabbedPane;
+import java.awt.Color;
+import java.awt.Component;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.TableCellRenderer;
 
 public class FrmEmployee extends javax.swing.JInternalFrame {
 
@@ -18,6 +23,170 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
         InternalFrame inter = new InternalFrame(this);
         EmployeeController ec = new EmployeeController(this);
         
+    }
+
+    public JTextField getTxtTotalTax() {
+        return txtTotalTax;
+    }
+
+    public JTextField getTxtInsuranceNbr() {
+        return txtInsuranceNbr;
+    }
+
+    public JTextField getTxtInsurEmpID() {
+        return txtInsurEmpID;
+    }
+
+    public JTextField getTxtInsurMaxSalary() {
+        return txtInsurMaxSalary;
+    }
+
+    public JTextField getTxtTotalInsurance() {
+        return txtTotalInsurance;
+    }
+
+    public JTextField getTxtNetSalary() {
+        return txtNetSalary;
+    }
+
+    public JocHyperlink getBtnDeleteTax() {
+        return btnDeleteTax;
+    }
+
+    public JocHyperlink getPanelDeleteTax() {
+        return panelDeleteTax;
+    }
+
+    public JocHyperlink getPanelDeleteTaxHover() {
+        return panelDeleteTaxHover;
+    }
+
+    public JocHyperlink getBtnSaveTax() {
+        return btnSaveTax;
+    }
+
+    public JCheckBox getChStandardTax() {
+        return chStandardTax;
+    }
+
+    public JComboBox<String> getCmbTaxCustomize() {
+        return cmbTaxCustomize;
+    }
+
+    public JocHyperlink getPanelSaveTax() {
+        return panelSaveTax;
+    }
+
+    public JLabel getLblTaxCustomize() {
+        return lblTaxCustomize;
+    }
+
+    public JLabel getLblTaxStandard() {
+        return lblTaxStandard;
+    }
+
+    public JLabel getLblKip() {
+        return lblKip;
+    }
+
+    public JLabel getLblExcludeTax() {
+        return lblExcludeTax;
+    }
+
+    public JLabel getLblNetSalary() {
+        return lblNetSalary;
+    }
+
+    public JLabel getLblOvertimePerDay() {
+        return lblOvertimePerDay;
+    }
+
+    public JLabel getLblOvertimePerHous() {
+        return lblOvertimePerHous;
+    }
+
+    public JLabel getLblSalaryAmount() {
+        return lblSalaryAmount;
+    }
+
+    public JLabel getLblSalaryDeduction() {
+        return lblSalaryDeduction;
+    }
+
+    public JLabel getLblSalaryInsurance() {
+        return lblSalaryInsurance;
+    }
+
+    public JLabel getLblSalaryOvertime() {
+        return lblSalaryOvertime;
+    }
+
+    public JLabel getLblSalaryPerDay() {
+        return lblSalaryPerDay;
+    }
+
+    public JLabel getLblSalaryPerHours() {
+        return lblSalaryPerHours;
+    }
+
+    public JLabel getLblSalaryTax() {
+        return lblSalaryTax;
+    }
+
+    public JLabel getLblSalaryType() {
+        return lblSalaryType;
+    }
+
+    public JLabel getLblTaxSalary() {
+        return lblTaxSalary;
+    }
+
+    public JLabel getLblTotalSalary() {
+        return lblTotalSalary;
+    }
+
+    public JLabel getLblInsuranceMaxSalary() {
+        return lblInsuranceMaxSalary;
+    }
+
+    public JLabel getLblInsuranceNbr() {
+        return lblInsuranceNbr;
+    }
+
+    public JLabel getLblInsuranceType() {
+        return lblInsuranceType;
+    }
+
+    public JocHyperlink getPanelSaveTaxHover() {
+        return panelSaveTaxHover;
+    }
+
+    public JTextField getTxtEmpID() {
+        return txtEmpID;
+    }
+
+    public JLabel getLblFindbyDept() {
+        return lblFindbyDept;
+    }
+
+    public JLabel getLblFindbyLoc() {
+        return lblFindbyLoc;
+    }
+
+    public JLabel getLblSearchEmp() {
+        return lblSearchEmp;
+    }
+
+    public JTable getTableEmpList() {
+        return tableEmpList;
+    }
+
+    public JScrollPane getTableEmpListScrollPane() {
+        return tableEmpListScrollPane;
+    }
+
+    public JTextField getTxtSearchEmp() {
+        return txtSearchEmp;
     }
 
     public JocTabbedPane getTabPane() {
@@ -257,7 +426,7 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
     }
 
     public JLabel getLblInsurance() {
-        return lblInsurance;
+        return lblInsuranceType;
     }
 
     public JLabel getLblLevel() {
@@ -380,8 +549,8 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
         return txtEmergencyContact;
     }
 
-    public JTextField getTxtEmpID() {
-        return txtEmpID;
+    public JTextField getTxtEmpNbr() {
+        return txtEmpNbr;
     }
 
     public JTextField getTxtEmpMail() {
@@ -444,8 +613,8 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
         return txtHusband_Wife;
     }
 
-    public JTextField getTxtID() {
-        return txtID;
+    public JTextField getTxtSearch() {
+        return txtSearchEmp;
     }
 
     public JTextField getTxtIDCard() {
@@ -504,6 +673,122 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
         return txtWorkPlace;
     }
 
+    public JCheckBox getChSalaryInsurance() {
+        return chSalaryInsurance;
+    }
+
+    public JCheckBox getChSalaryOvertime() {
+        return chSalaryOvertime;
+    }
+
+    public JCheckBox getChSalaryTax() {
+        return chSalaryTax;
+    }
+
+    public JTable getTableSalary() {
+        return tableSalary;
+    }
+
+    public JTextField getTxtExcludeTax() {
+        return txtExcludeTax;
+    }
+
+    public JTextField getTxtIncludeTax() {
+        return txtIncludeTax;
+    }
+
+    public JTextField getTxtOvertimeRateDay() {
+        return txtOvertimeRateDay;
+    }
+
+    public JTextField getTxtOvertimeRateHour() {
+        return txtOvertimeRateHour;
+    }
+
+    public JTextField getTxtOvertimeTotal() {
+        return txtOvertimeTotal;
+    }
+
+    public JTextField getTxtSalaryAmount() {
+        return txtSalaryAmount;
+    }
+
+    public JTextField getTxtSalaryDeduction() {
+        return txtSalaryDeduction;
+    }
+
+    public JocHyperlink getBtnDeleteInsurance() {
+        return btnDeleteInsurance;
+    }
+
+    public JocHyperlink getBtnSaveInsurance() {
+        return btnSaveInsurance;
+    }
+
+    public JocHyperlink getPanelDeleteInsur() {
+        return panelDeleteInsur;
+    }
+
+    public JocHyperlink getPanelDeleteInsurHover() {
+        return panelDeleteInsurHover;
+    }
+
+    public JocHyperlink getPanelSaveInsur() {
+        return panelSaveInsur;
+    }
+
+    public JocHyperlink getPanelSaveInsurHover() {
+        return panelSaveInsurHover;
+    }
+
+    public JTable getTableInsurance() {
+        return tableInsurance;
+    }
+
+    public JScrollPane getTableInsuranceScrollPane() {
+        return tableInsuranceScrollPane;
+    }
+
+    public JTextField getTxtSalaryRateDay() {
+        return txtSalaryRateDay;
+    }
+
+    public JTextField getTxtSalaryRateHour() {
+        return txtSalaryRateHour;
+    }
+
+    public JTextField getTxtSalaryTotal() {
+        return txtSalaryTotal;
+    }
+
+    public JScrollPane getScrollPanelTax() {
+        return scrollPanelTax;
+    }
+
+    public JTable getTableTax() {
+        return tableTax;
+    }
+
+    public JTextField getTxtEmpSalaryID() {
+        return txtEmpSalaryID;
+    }
+
+    public JScrollPane getScrollPaneSalary() {
+        return scrollPaneSalary;
+    }
+
+    public JocHyperlink getBtnSaveSalary() {
+        return btnSaveSalary;
+    }
+
+    public JocHyperlink getPanelSaveSalary() {
+        return panelSaveSalary;
+    }
+
+    public JocHyperlink getPanelSaveSalaryHover() {
+        return panelSaveSalaryHover;
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -517,19 +802,19 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
         jPanel5 = new javax.swing.JPanel();
         jSeparator7 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
-        lblID = new javax.swing.JLabel();
+        lblFindbyDept = new javax.swing.JLabel();
         cmbFindLocation = new javax.swing.JComboBox<>();
-        lblID2 = new javax.swing.JLabel();
-        lblID1 = new javax.swing.JLabel();
+        lblFindbyLoc = new javax.swing.JLabel();
+        lblSearchEmp = new javax.swing.JLabel();
         cmbFindDepartment = new javax.swing.JComboBox<>();
-        txtID = new javax.swing.JTextField();
+        txtSearchEmp = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableEmpListScrollPane = new javax.swing.JScrollPane();
+        tableEmpList = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         lblImage = new javax.swing.JLabel();
-        txtEmpID = new javax.swing.JTextField();
+        txtEmpNbr = new javax.swing.JTextField();
         lblEmpID = new javax.swing.JLabel();
         lblEmpEmail = new javax.swing.JLabel();
         txtEmpMail = new javax.swing.JTextField();
@@ -581,12 +866,9 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
         lblWorkStatus = new javax.swing.JLabel();
         cmbWorkStatus = new javax.swing.JComboBox<>();
         jSeparator18 = new javax.swing.JSeparator();
-        lblInsurance = new javax.swing.JLabel();
-        cmbInsurance = new javax.swing.JComboBox<>();
         jSeparator19 = new javax.swing.JSeparator();
         lblSalaryPeriod = new javax.swing.JLabel();
         cmbSalaryPeriod = new javax.swing.JComboBox<>();
-        jSeparator20 = new javax.swing.JSeparator();
         tabPaneDetails = new com.xzq.osc.JocTabbedPane();
         jPanel8 = new javax.swing.JPanel();
         lblPOB = new javax.swing.JLabel();
@@ -678,57 +960,101 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
         panelSaveAddress = new com.xzq.osc.JocHyperlink();
         panelSaveAddressHover = new com.xzq.osc.JocHyperlink();
         jPanel10 = new javax.swing.JPanel();
-        lblID25 = new javax.swing.JLabel();
+        lblSalaryType = new javax.swing.JLabel();
         cmbSalaryType = new javax.swing.JComboBox<>();
         jSeparator26 = new javax.swing.JSeparator();
         lblID27 = new javax.swing.JLabel();
-        txtID32 = new javax.swing.JTextField();
-        lblID54 = new javax.swing.JLabel();
-        txtID33 = new javax.swing.JTextField();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jCheckBox7 = new javax.swing.JCheckBox();
-        lblID56 = new javax.swing.JLabel();
-        txtID35 = new javax.swing.JTextField();
-        jCheckBox8 = new javax.swing.JCheckBox();
+        txtSalaryAmount = new javax.swing.JTextField();
+        lblSalaryDeduction = new javax.swing.JLabel();
+        txtSalaryDeduction = new javax.swing.JTextField();
+        chSalaryInsurance = new javax.swing.JCheckBox();
+        chSalaryTax = new javax.swing.JCheckBox();
+        chSalaryOvertime = new javax.swing.JCheckBox();
         jPanel22 = new javax.swing.JPanel();
         scrollPaneSalary = new javax.swing.JScrollPane();
         tableSalary = new javax.swing.JTable();
-        lblID55 = new javax.swing.JLabel();
-        lblID57 = new javax.swing.JLabel();
+        lblSalaryAmount = new javax.swing.JLabel();
+        lblKip = new javax.swing.JLabel();
         jPanel23 = new javax.swing.JPanel();
-        txtID36 = new javax.swing.JTextField();
-        lblID58 = new javax.swing.JLabel();
-        lblID59 = new javax.swing.JLabel();
-        txtID37 = new javax.swing.JTextField();
-        lblID60 = new javax.swing.JLabel();
-        txtID38 = new javax.swing.JTextField();
-        lblID61 = new javax.swing.JLabel();
-        txtID39 = new javax.swing.JTextField();
-        lblID62 = new javax.swing.JLabel();
-        txtID40 = new javax.swing.JTextField();
-        lblID63 = new javax.swing.JLabel();
-        txtID41 = new javax.swing.JTextField();
-        lblID64 = new javax.swing.JLabel();
-        txtID42 = new javax.swing.JTextField();
-        lblID65 = new javax.swing.JLabel();
-        txtID43 = new javax.swing.JTextField();
+        txtSalaryTotal = new javax.swing.JTextField();
+        lblTotalSalary = new javax.swing.JLabel();
+        lblTaxSalary = new javax.swing.JLabel();
+        txtIncludeTax = new javax.swing.JTextField();
+        lblExcludeTax = new javax.swing.JLabel();
+        txtExcludeTax = new javax.swing.JTextField();
+        lblSalaryPerDay = new javax.swing.JLabel();
+        txtSalaryRateDay = new javax.swing.JTextField();
+        lblSalaryPerHours = new javax.swing.JLabel();
+        txtSalaryRateHour = new javax.swing.JTextField();
+        lblSalaryOvertime = new javax.swing.JLabel();
+        txtOvertimeTotal = new javax.swing.JTextField();
+        lblOvertimePerDay = new javax.swing.JLabel();
+        txtOvertimeRateDay = new javax.swing.JTextField();
+        lblOvertimePerHous = new javax.swing.JLabel();
+        txtOvertimeRateHour = new javax.swing.JTextField();
         jPanel24 = new javax.swing.JPanel();
+        lblSalaryInsurance = new javax.swing.JLabel();
+        txtTotalInsurance = new javax.swing.JTextField();
+        lblSalaryTax = new javax.swing.JLabel();
+        txtTotalTax = new javax.swing.JTextField();
+        lblNetSalary = new javax.swing.JLabel();
+        txtNetSalary = new javax.swing.JTextField();
         btnSaveSalary = new com.xzq.osc.JocHyperlink();
         panelSaveSalary = new com.xzq.osc.JocHyperlink();
         panelSaveSalaryHover = new com.xzq.osc.JocHyperlink();
+        txtEmpSalaryID = new javax.swing.JTextField();
+        jPanel27 = new javax.swing.JPanel();
+        lblInsuranceType = new javax.swing.JLabel();
+        cmbInsurance = new javax.swing.JComboBox<>();
+        jSeparator20 = new javax.swing.JSeparator();
+        txtInsurEmpID = new javax.swing.JTextField();
+        lblInsuranceNbr = new javax.swing.JLabel();
+        txtInsuranceNbr = new javax.swing.JTextField();
+        btnSaveInsurance = new com.xzq.osc.JocHyperlink();
+        panelSaveInsur = new com.xzq.osc.JocHyperlink();
+        panelSaveInsurHover = new com.xzq.osc.JocHyperlink();
+        btnDeleteInsurance = new com.xzq.osc.JocHyperlink();
+        panelDeleteInsur = new com.xzq.osc.JocHyperlink();
+        panelDeleteInsurHover = new com.xzq.osc.JocHyperlink();
+        jPanel28 = new javax.swing.JPanel();
+        tableInsuranceScrollPane = new javax.swing.JScrollPane();
+        tableInsurance = new javax.swing.JTable();
+        lblInsuranceMaxSalary = new javax.swing.JLabel();
+        txtInsurMaxSalary = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
-        jCheckBox9 = new javax.swing.JCheckBox();
-        lblID66 = new javax.swing.JLabel();
-        lblID67 = new javax.swing.JLabel();
+        chStandardTax = new javax.swing.JCheckBox();
+        lblTaxStandard = new javax.swing.JLabel();
+        lblTaxCustomize = new javax.swing.JLabel();
         cmbTaxCustomize = new javax.swing.JComboBox<>();
         jSeparator27 = new javax.swing.JSeparator();
-        jPanel25 = new javax.swing.JPanel();
-        btnSaveSalary1 = new com.xzq.osc.JocHyperlink();
-        panelSaveSalary1 = new com.xzq.osc.JocHyperlink();
-        panelSaveSalaryHover1 = new com.xzq.osc.JocHyperlink();
+        btnSaveTax = new com.xzq.osc.JocHyperlink();
+        panelSaveTax = new com.xzq.osc.JocHyperlink();
+        panelSaveTaxHover = new com.xzq.osc.JocHyperlink();
         jPanel26 = new javax.swing.JPanel();
         scrollPanelTax = new javax.swing.JScrollPane();
-        tableTax = new javax.swing.JTable();
+        tableTax = new javax.swing.JTable()
+        {
+            @Override
+            public Component prepareRenderer (TableCellRenderer renderer, int rowIndex, int columnIndex){
+                Component component = super.prepareRenderer(renderer, rowIndex, columnIndex);
+                if(getModel().getValueAt(rowIndex,1) !=null){
+                    Object value = getModel().getValueAt(rowIndex,1);
+                    if(value.equals(1)) {
+                        component.setBackground(Color.decode("#82E0AA"));
+                        component.setForeground(Color.BLACK);
+                    }else {
+                        component.setBackground(Color.WHITE);
+                        component.setForeground(Color.BLACK);
+                    }
+
+                }
+                return component;
+            }
+        }
+        ;
+        btnDeleteTax = new com.xzq.osc.JocHyperlink();
+        panelDeleteTax = new com.xzq.osc.JocHyperlink();
+        panelDeleteTaxHover = new com.xzq.osc.JocHyperlink();
         jPanel12 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
@@ -747,6 +1073,7 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
         lblDivision = new javax.swing.JLabel();
         cmbDivision = new javax.swing.JComboBox<>();
         jSeparator28 = new javax.swing.JSeparator();
+        txtEmpID = new javax.swing.JTextField();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -800,55 +1127,55 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setLayout(null);
         jPanel5.add(jSeparator7);
-        jSeparator7.setBounds(730, 35, 220, 5);
+        jSeparator7.setBounds(830, 35, 220, 5);
         jPanel5.add(jSeparator5);
-        jSeparator5.setBounds(410, 35, 220, 5);
+        jSeparator5.setBounds(450, 35, 220, 5);
 
-        lblID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID.setText("Department");
-        jPanel5.add(lblID);
-        lblID.setBounds(300, 10, 100, 23);
+        lblFindbyDept.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblFindbyDept.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblFindbyDept.setText("Department");
+        jPanel5.add(lblFindbyDept);
+        lblFindbyDept.setBounds(300, 10, 140, 23);
 
         cmbFindLocation.setEditable(true);
         cmbFindLocation.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         cmbFindLocation.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jPanel5.add(cmbFindLocation);
-        cmbFindLocation.setBounds(730, 10, 220, 25);
+        cmbFindLocation.setBounds(830, 10, 220, 25);
 
-        lblID2.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID2.setText("Location");
-        jPanel5.add(lblID2);
-        lblID2.setBounds(640, 10, 90, 23);
+        lblFindbyLoc.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblFindbyLoc.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblFindbyLoc.setText("Location");
+        jPanel5.add(lblFindbyLoc);
+        lblFindbyLoc.setBounds(690, 10, 130, 23);
 
-        lblID1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID1.setText("Search");
-        jPanel5.add(lblID1);
-        lblID1.setBounds(10, 10, 80, 23);
+        lblSearchEmp.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblSearchEmp.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblSearchEmp.setText("Search");
+        jPanel5.add(lblSearchEmp);
+        lblSearchEmp.setBounds(10, 10, 80, 23);
 
         cmbFindDepartment.setEditable(true);
         cmbFindDepartment.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         cmbFindDepartment.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jPanel5.add(cmbFindDepartment);
-        cmbFindDepartment.setBounds(410, 10, 220, 25);
+        cmbFindDepartment.setBounds(450, 10, 220, 25);
 
-        txtID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel5.add(txtID);
-        txtID.setBounds(100, 10, 190, 23);
+        txtSearchEmp.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtSearchEmp.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel5.add(txtSearchEmp);
+        txtSearchEmp.setBounds(100, 10, 190, 23);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new java.awt.BorderLayout());
 
-        jTable1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableEmpList.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        tableEmpList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "lblEmpID", "lblEmpNbr", "lblEmpName", "lbGender", "lblEmpEmail", "lblEmpDepart", "lblEmpTitle", "lblEmpLoc", "lblEmpWorkStatus"
+                "lblEmpID", "lblEmpNbr", "lblEmpName", "lblGender", "lblEmpEmail", "lblTitle", "lblDepartment", "lblLocation", "lblWorkStatus"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -859,14 +1186,35 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        jTable1.setGridColor(new java.awt.Color(204, 204, 204));
-        jTable1.setRowHeight(25);
-        jTable1.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setSelectionForeground(java.awt.Color.red);
-        jScrollPane1.setViewportView(jTable1);
+        tableEmpList.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tableEmpList.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tableEmpList.setGridColor(new java.awt.Color(204, 204, 204));
+        tableEmpList.setRowHeight(25);
+        tableEmpList.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tableEmpList.setSelectionForeground(java.awt.Color.red);
+        tableEmpListScrollPane.setViewportView(tableEmpList);
+        if (tableEmpList.getColumnModel().getColumnCount() > 0) {
+            tableEmpList.getColumnModel().getColumn(0).setMinWidth(0);
+            tableEmpList.getColumnModel().getColumn(0).setMaxWidth(0);
+            tableEmpList.getColumnModel().getColumn(1).setMinWidth(70);
+            tableEmpList.getColumnModel().getColumn(1).setMaxWidth(70);
+            tableEmpList.getColumnModel().getColumn(2).setMinWidth(200);
+            tableEmpList.getColumnModel().getColumn(2).setMaxWidth(200);
+            tableEmpList.getColumnModel().getColumn(3).setMinWidth(60);
+            tableEmpList.getColumnModel().getColumn(3).setMaxWidth(60);
+            tableEmpList.getColumnModel().getColumn(4).setMinWidth(200);
+            tableEmpList.getColumnModel().getColumn(4).setMaxWidth(200);
+            tableEmpList.getColumnModel().getColumn(5).setMinWidth(180);
+            tableEmpList.getColumnModel().getColumn(5).setMaxWidth(180);
+            tableEmpList.getColumnModel().getColumn(6).setMinWidth(150);
+            tableEmpList.getColumnModel().getColumn(6).setMaxWidth(150);
+            tableEmpList.getColumnModel().getColumn(7).setMinWidth(150);
+            tableEmpList.getColumnModel().getColumn(7).setMaxWidth(150);
+            tableEmpList.getColumnModel().getColumn(8).setMinWidth(150);
+            tableEmpList.getColumnModel().getColumn(8).setMaxWidth(150);
+        }
 
-        jPanel4.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        jPanel4.add(tableEmpListScrollPane, java.awt.BorderLayout.CENTER);
 
         jPanel5.add(jPanel4);
         jPanel4.setBounds(5, 50, 1120, 590);
@@ -889,16 +1237,16 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
         jPanel6.add(jPanel7);
         jPanel7.setBounds(5, 5, 110, 120);
 
-        txtEmpID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtEmpID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel6.add(txtEmpID);
-        txtEmpID.setBounds(270, 10, 200, 23);
+        txtEmpNbr.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtEmpNbr.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel6.add(txtEmpNbr);
+        txtEmpNbr.setBounds(270, 10, 200, 23);
 
         lblEmpID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblEmpID.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblEmpID.setText("Emp ID");
+        lblEmpID.setText("Emp Nbr");
         jPanel6.add(lblEmpID);
-        lblEmpID.setBounds(118, 10, 142, 23);
+        lblEmpID.setBounds(160, 10, 100, 23);
 
         lblEmpEmail.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblEmpEmail.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -1158,19 +1506,6 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
         cmbWorkStatus.setBounds(920, 190, 180, 25);
         jPanel6.add(jSeparator18);
         jSeparator18.setBounds(920, 215, 180, 5);
-
-        lblInsurance.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblInsurance.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblInsurance.setText("Insurance");
-        jPanel6.add(lblInsurance);
-        lblInsurance.setBounds(810, 130, 100, 23);
-
-        cmbInsurance.setEditable(true);
-        cmbInsurance.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        cmbInsurance.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        cmbInsurance.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel6.add(cmbInsurance);
-        cmbInsurance.setBounds(920, 130, 180, 25);
         jPanel6.add(jSeparator19);
         jSeparator19.setBounds(920, 185, 180, 5);
 
@@ -1188,8 +1523,6 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
         cmbSalaryPeriod.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel6.add(cmbSalaryPeriod);
         cmbSalaryPeriod.setBounds(920, 160, 180, 25);
-        jPanel6.add(jSeparator20);
-        jSeparator20.setBounds(920, 155, 180, 5);
 
         tabPaneDetails.setShowCloseButton(false);
         tabPaneDetails.setShowListButton(false);
@@ -1712,19 +2045,19 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setLayout(null);
 
-        lblID25.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID25.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID25.setText("Salary Type");
-        jPanel10.add(lblID25);
-        lblID25.setBounds(10, 10, 100, 23);
+        lblSalaryType.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblSalaryType.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblSalaryType.setText("Salary Type");
+        jPanel10.add(lblSalaryType);
+        lblSalaryType.setBounds(10, 10, 100, 23);
 
         cmbSalaryType.setEditable(true);
         cmbSalaryType.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         cmbSalaryType.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jPanel10.add(cmbSalaryType);
-        cmbSalaryType.setBounds(120, 10, 200, 25);
+        cmbSalaryType.setBounds(120, 10, 170, 25);
         jPanel10.add(jSeparator26);
-        jSeparator26.setBounds(120, 35, 200, 5);
+        jSeparator26.setBounds(120, 35, 170, 5);
 
         lblID27.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblID27.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -1732,53 +2065,44 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
         jPanel10.add(lblID27);
         lblID27.setBounds(190, 73, 40, 23);
 
-        txtID32.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID32.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel10.add(txtID32);
-        txtID32.setBounds(120, 43, 160, 23);
+        txtSalaryAmount.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtSalaryAmount.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel10.add(txtSalaryAmount);
+        txtSalaryAmount.setBounds(120, 43, 130, 23);
 
-        lblID54.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID54.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID54.setText("Deduction");
-        jPanel10.add(lblID54);
-        lblID54.setBounds(10, 73, 100, 23);
+        lblSalaryDeduction.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblSalaryDeduction.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblSalaryDeduction.setText("Deduction");
+        jPanel10.add(lblSalaryDeduction);
+        lblSalaryDeduction.setBounds(10, 73, 100, 23);
 
-        txtID33.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID33.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel10.add(txtID33);
-        txtID33.setBounds(120, 73, 60, 23);
+        txtSalaryDeduction.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtSalaryDeduction.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel10.add(txtSalaryDeduction);
+        txtSalaryDeduction.setBounds(120, 73, 60, 23);
 
-        jCheckBox6.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox6.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jCheckBox6.setText("Insurance");
-        jPanel10.add(jCheckBox6);
-        jCheckBox6.setBounds(120, 170, 120, 23);
+        chSalaryInsurance.setBackground(new java.awt.Color(255, 255, 255));
+        chSalaryInsurance.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        chSalaryInsurance.setText("Insurance");
+        jPanel10.add(chSalaryInsurance);
+        chSalaryInsurance.setBounds(120, 170, 120, 23);
 
-        jCheckBox7.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox7.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jCheckBox7.setText("Tax");
-        jPanel10.add(jCheckBox7);
-        jCheckBox7.setBounds(120, 110, 120, 23);
+        chSalaryTax.setBackground(new java.awt.Color(255, 255, 255));
+        chSalaryTax.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        chSalaryTax.setText("Tax");
+        jPanel10.add(chSalaryTax);
+        chSalaryTax.setBounds(120, 110, 120, 23);
 
-        lblID56.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID56.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID56.setText("Health ID");
-        jPanel10.add(lblID56);
-        lblID56.setBounds(10, 200, 100, 23);
-
-        txtID35.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID35.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel10.add(txtID35);
-        txtID35.setBounds(120, 200, 200, 23);
-
-        jCheckBox8.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox8.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jCheckBox8.setText("Overtime");
-        jPanel10.add(jCheckBox8);
-        jCheckBox8.setBounds(120, 140, 120, 23);
+        chSalaryOvertime.setBackground(new java.awt.Color(255, 255, 255));
+        chSalaryOvertime.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        chSalaryOvertime.setText("Overtime");
+        jPanel10.add(chSalaryOvertime);
+        chSalaryOvertime.setBounds(120, 140, 120, 23);
 
         jPanel22.setBackground(new java.awt.Color(255, 255, 255));
         jPanel22.setLayout(new java.awt.BorderLayout());
+
+        scrollPaneSalary.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         tableSalary.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         tableSalary.setModel(new javax.swing.table.DefaultTableModel(
@@ -1786,7 +2110,7 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "lblID", "lblSalarType", "lblAmont", "lblTax", "lblOvertime", "lblDeduction", "lblDedAmount", "lblInsurance"
+                "lblID", "lblSalaryType", "lblSalaryAmount", "lblSalaryTax", "lblSalaryOT", "lblSalaryDeduction", "lblSalaryDedAmount", "lblInsurance"
             }
         ) {
             Class[] types = new Class [] {
@@ -1810,115 +2134,133 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
         tableSalary.setSelectionBackground(new java.awt.Color(255, 255, 255));
         tableSalary.setSelectionForeground(java.awt.Color.red);
         scrollPaneSalary.setViewportView(tableSalary);
+        if (tableSalary.getColumnModel().getColumnCount() > 0) {
+            tableSalary.getColumnModel().getColumn(0).setMinWidth(0);
+            tableSalary.getColumnModel().getColumn(0).setMaxWidth(0);
+            tableSalary.getColumnModel().getColumn(1).setMinWidth(200);
+            tableSalary.getColumnModel().getColumn(1).setMaxWidth(200);
+            tableSalary.getColumnModel().getColumn(2).setMinWidth(150);
+            tableSalary.getColumnModel().getColumn(2).setMaxWidth(150);
+            tableSalary.getColumnModel().getColumn(3).setMinWidth(65);
+            tableSalary.getColumnModel().getColumn(3).setMaxWidth(65);
+            tableSalary.getColumnModel().getColumn(4).setMinWidth(70);
+            tableSalary.getColumnModel().getColumn(4).setMaxWidth(70);
+            tableSalary.getColumnModel().getColumn(5).setMinWidth(70);
+            tableSalary.getColumnModel().getColumn(5).setMaxWidth(70);
+            tableSalary.getColumnModel().getColumn(6).setMinWidth(150);
+            tableSalary.getColumnModel().getColumn(6).setMaxWidth(150);
+            tableSalary.getColumnModel().getColumn(7).setMinWidth(82);
+            tableSalary.getColumnModel().getColumn(7).setMaxWidth(82);
+        }
 
         jPanel22.add(scrollPaneSalary, java.awt.BorderLayout.CENTER);
 
         jPanel10.add(jPanel22);
-        jPanel22.setBounds(350, 5, 750, 190);
+        jPanel22.setBounds(310, 5, 790, 190);
 
-        lblID55.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID55.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID55.setText("Amount");
-        jPanel10.add(lblID55);
-        lblID55.setBounds(10, 43, 100, 23);
+        lblSalaryAmount.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblSalaryAmount.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblSalaryAmount.setText("Amount");
+        jPanel10.add(lblSalaryAmount);
+        lblSalaryAmount.setBounds(10, 43, 100, 23);
 
-        lblID57.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID57.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblID57.setText("LAK");
-        jPanel10.add(lblID57);
-        lblID57.setBounds(290, 43, 50, 23);
+        lblKip.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblKip.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblKip.setText("LAK");
+        jPanel10.add(lblKip);
+        lblKip.setBounds(260, 40, 40, 23);
 
         jPanel23.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel23.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(81, 87, 99), new java.awt.Color(81, 87, 99), new java.awt.Color(0, 142, 196), new java.awt.Color(0, 142, 196)));
+        jPanel23.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 0, 0, 0, new java.awt.Color(81, 87, 99)));
         jPanel23.setLayout(null);
 
-        txtID36.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID36.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel23.add(txtID36);
-        txtID36.setBounds(110, 10, 130, 23);
+        txtSalaryTotal.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtSalaryTotal.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel23.add(txtSalaryTotal);
+        txtSalaryTotal.setBounds(100, 10, 100, 23);
 
-        lblID58.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID58.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID58.setText("Salary");
-        jPanel23.add(lblID58);
-        lblID58.setBounds(10, 10, 90, 23);
+        lblTotalSalary.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblTotalSalary.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblTotalSalary.setText("Salary");
+        jPanel23.add(lblTotalSalary);
+        lblTotalSalary.setBounds(10, 10, 80, 23);
 
-        lblID59.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID59.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID59.setText("Include Tax");
-        jPanel23.add(lblID59);
-        lblID59.setBounds(250, 10, 90, 23);
+        lblTaxSalary.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblTaxSalary.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblTaxSalary.setText("Tax Salary");
+        jPanel23.add(lblTaxSalary);
+        lblTaxSalary.setBounds(10, 50, 80, 23);
 
-        txtID37.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID37.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel23.add(txtID37);
-        txtID37.setBounds(350, 10, 130, 23);
+        txtIncludeTax.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtIncludeTax.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel23.add(txtIncludeTax);
+        txtIncludeTax.setBounds(100, 50, 100, 23);
 
-        lblID60.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID60.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID60.setText("Exclude Tax");
-        jPanel23.add(lblID60);
-        lblID60.setBounds(490, 10, 90, 23);
+        lblExcludeTax.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblExcludeTax.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblExcludeTax.setText("Exclude Tax");
+        jPanel23.add(lblExcludeTax);
+        lblExcludeTax.setBounds(210, 50, 80, 23);
 
-        txtID38.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID38.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel23.add(txtID38);
-        txtID38.setBounds(590, 10, 130, 23);
+        txtExcludeTax.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtExcludeTax.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel23.add(txtExcludeTax);
+        txtExcludeTax.setBounds(300, 50, 90, 23);
 
-        lblID61.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID61.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID61.setText("Rate/day");
-        jPanel23.add(lblID61);
-        lblID61.setBounds(10, 43, 90, 23);
+        lblSalaryPerDay.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblSalaryPerDay.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblSalaryPerDay.setText("Salary/Day");
+        jPanel23.add(lblSalaryPerDay);
+        lblSalaryPerDay.setBounds(400, 50, 80, 23);
 
-        txtID39.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID39.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel23.add(txtID39);
-        txtID39.setBounds(110, 43, 130, 23);
+        txtSalaryRateDay.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtSalaryRateDay.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel23.add(txtSalaryRateDay);
+        txtSalaryRateDay.setBounds(488, 50, 90, 23);
 
-        lblID62.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID62.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID62.setText("Rate/hour");
-        jPanel23.add(lblID62);
-        lblID62.setBounds(250, 43, 90, 23);
+        lblSalaryPerHours.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblSalaryPerHours.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblSalaryPerHours.setText("Rate/hour");
+        jPanel23.add(lblSalaryPerHours);
+        lblSalaryPerHours.setBounds(583, 50, 90, 23);
 
-        txtID40.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID40.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel23.add(txtID40);
-        txtID40.setBounds(350, 43, 130, 23);
+        txtSalaryRateHour.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtSalaryRateHour.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel23.add(txtSalaryRateHour);
+        txtSalaryRateHour.setBounds(680, 50, 110, 23);
 
-        lblID63.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID63.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID63.setText("Overtime");
-        jPanel23.add(lblID63);
-        lblID63.setBounds(10, 100, 90, 23);
+        lblSalaryOvertime.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblSalaryOvertime.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblSalaryOvertime.setText("Overtime");
+        jPanel23.add(lblSalaryOvertime);
+        lblSalaryOvertime.setBounds(10, 100, 90, 23);
 
-        txtID41.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID41.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel23.add(txtID41);
-        txtID41.setBounds(110, 100, 130, 23);
+        txtOvertimeTotal.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtOvertimeTotal.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel23.add(txtOvertimeTotal);
+        txtOvertimeTotal.setBounds(110, 100, 100, 23);
 
-        lblID64.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID64.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID64.setText("Rate/day");
-        jPanel23.add(lblID64);
-        lblID64.setBounds(250, 100, 90, 23);
+        lblOvertimePerDay.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblOvertimePerDay.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblOvertimePerDay.setText("Rate/day");
+        jPanel23.add(lblOvertimePerDay);
+        lblOvertimePerDay.setBounds(220, 100, 80, 23);
 
-        txtID42.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID42.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel23.add(txtID42);
-        txtID42.setBounds(350, 100, 130, 23);
+        txtOvertimeRateDay.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtOvertimeRateDay.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel23.add(txtOvertimeRateDay);
+        txtOvertimeRateDay.setBounds(310, 100, 90, 23);
 
-        lblID65.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID65.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID65.setText("Rate/hour");
-        jPanel23.add(lblID65);
-        lblID65.setBounds(490, 100, 90, 23);
+        lblOvertimePerHous.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblOvertimePerHous.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblOvertimePerHous.setText("Rate/hour");
+        jPanel23.add(lblOvertimePerHous);
+        lblOvertimePerHous.setBounds(410, 100, 80, 23);
 
-        txtID43.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtID43.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel23.add(txtID43);
-        txtID43.setBounds(590, 100, 130, 23);
+        txtOvertimeRateHour.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtOvertimeRateHour.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel23.add(txtOvertimeRateHour);
+        txtOvertimeRateHour.setBounds(500, 100, 100, 23);
 
         jPanel24.setBackground(new java.awt.Color(81, 87, 99));
 
@@ -1926,19 +2268,55 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
         jPanel24.setLayout(jPanel24Layout);
         jPanel24Layout.setHorizontalGroup(
             jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 730, Short.MAX_VALUE)
+            .addGap(0, 790, Short.MAX_VALUE)
         );
         jPanel24Layout.setVerticalGroup(
             jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
+            .addGap(0, 3, Short.MAX_VALUE)
         );
 
         jPanel23.add(jPanel24);
-        jPanel24.setBounds(10, 80, 730, 10);
+        jPanel24.setBounds(0, 80, 790, 3);
+
+        lblSalaryInsurance.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblSalaryInsurance.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblSalaryInsurance.setText("Insurance");
+        jPanel23.add(lblSalaryInsurance);
+        lblSalaryInsurance.setBounds(210, 10, 80, 23);
+
+        txtTotalInsurance.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtTotalInsurance.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel23.add(txtTotalInsurance);
+        txtTotalInsurance.setBounds(300, 10, 90, 23);
+
+        lblSalaryTax.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblSalaryTax.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblSalaryTax.setText("Tax");
+        jPanel23.add(lblSalaryTax);
+        lblSalaryTax.setBounds(400, 10, 80, 23);
+
+        txtTotalTax.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtTotalTax.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel23.add(txtTotalTax);
+        txtTotalTax.setBounds(488, 10, 90, 23);
+
+        lblNetSalary.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblNetSalary.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNetSalary.setText("Net Salary");
+        jPanel23.add(lblNetSalary);
+        lblNetSalary.setBounds(583, 10, 90, 23);
+
+        txtNetSalary.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtNetSalary.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel23.add(txtNetSalary);
+        txtNetSalary.setBounds(680, 10, 110, 23);
 
         jPanel10.add(jPanel23);
-        jPanel23.setBounds(350, 200, 750, 140);
+        jPanel23.setBounds(310, 200, 790, 140);
 
+        btnSaveSalary.setActiveColor(new java.awt.Color(255, 255, 255));
+        btnSaveSalary.setBackground(new java.awt.Color(255, 255, 255));
+        btnSaveSalary.setRolloverColor(new java.awt.Color(255, 255, 255));
         btnSaveSalary.setText("Save");
         btnSaveSalary.setUnvisitColor(new java.awt.Color(255, 255, 255));
         btnSaveSalary.setVisitedColor(new java.awt.Color(255, 255, 255));
@@ -1956,27 +2334,166 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
         jPanel10.add(panelSaveSalaryHover);
         panelSaveSalaryHover.setBounds(150, 280, 96, 32);
 
+        txtEmpSalaryID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtEmpSalaryID.setText("New");
+        txtEmpSalaryID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel10.add(txtEmpSalaryID);
+        txtEmpSalaryID.setBounds(10, 290, 60, 23);
+
         tabPaneDetails.addTab("Salary", jPanel10);
+
+        jPanel27.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel27.setLayout(null);
+
+        lblInsuranceType.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblInsuranceType.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblInsuranceType.setText("Insurance Type");
+        jPanel27.add(lblInsuranceType);
+        lblInsuranceType.setBounds(10, 37, 100, 23);
+
+        cmbInsurance.setEditable(true);
+        cmbInsurance.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        cmbInsurance.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        cmbInsurance.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel27.add(cmbInsurance);
+        cmbInsurance.setBounds(120, 37, 200, 25);
+        jPanel27.add(jSeparator20);
+        jSeparator20.setBounds(120, 62, 200, 2);
+
+        txtInsurEmpID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtInsurEmpID.setText("New");
+        txtInsurEmpID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel27.add(txtInsurEmpID);
+        txtInsurEmpID.setBounds(20, 310, 60, 23);
+
+        lblInsuranceNbr.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblInsuranceNbr.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblInsuranceNbr.setText("Insurance ID");
+        jPanel27.add(lblInsuranceNbr);
+        lblInsuranceNbr.setBounds(10, 80, 100, 23);
+
+        txtInsuranceNbr.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtInsuranceNbr.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel27.add(txtInsuranceNbr);
+        txtInsuranceNbr.setBounds(120, 80, 200, 23);
+
+        btnSaveInsurance.setActiveColor(new java.awt.Color(255, 255, 255));
+        btnSaveInsurance.setRolloverColor(new java.awt.Color(255, 255, 255));
+        btnSaveInsurance.setText("Save");
+        btnSaveInsurance.setUnvisitColor(new java.awt.Color(255, 255, 255));
+        btnSaveInsurance.setVisitedColor(new java.awt.Color(255, 255, 255));
+        btnSaveInsurance.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel27.add(btnSaveInsurance);
+        btnSaveInsurance.setBounds(127, 173, 82, 26);
+
+        panelSaveInsur.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Button.png"))); // NOI18N
+        panelSaveInsur.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel27.add(panelSaveInsur);
+        panelSaveInsur.setBounds(120, 170, 96, 32);
+
+        panelSaveInsurHover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/ButtonHover.png"))); // NOI18N
+        panelSaveInsurHover.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel27.add(panelSaveInsurHover);
+        panelSaveInsurHover.setBounds(120, 170, 96, 32);
+
+        btnDeleteInsurance.setActiveColor(new java.awt.Color(255, 255, 255));
+        btnDeleteInsurance.setRolloverColor(new java.awt.Color(255, 255, 255));
+        btnDeleteInsurance.setText("Delete");
+        btnDeleteInsurance.setUnvisitColor(new java.awt.Color(255, 255, 255));
+        btnDeleteInsurance.setVisitedColor(new java.awt.Color(255, 255, 255));
+        btnDeleteInsurance.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel27.add(btnDeleteInsurance);
+        btnDeleteInsurance.setBounds(237, 173, 82, 26);
+
+        panelDeleteInsur.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Button.png"))); // NOI18N
+        panelDeleteInsur.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel27.add(panelDeleteInsur);
+        panelDeleteInsur.setBounds(230, 170, 96, 32);
+
+        panelDeleteInsurHover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/ButtonHover.png"))); // NOI18N
+        panelDeleteInsurHover.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel27.add(panelDeleteInsurHover);
+        panelDeleteInsurHover.setBounds(230, 170, 96, 32);
+
+        jPanel28.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel28.setLayout(new java.awt.BorderLayout());
+
+        tableInsuranceScrollPane.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 2, 0, 0, new java.awt.Color(81, 87, 99)));
+
+        tableInsurance.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        tableInsurance.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "lblID", "lblRowNbr", "lblInsuranceType", "lblInsuranceNbr", "lblInsuranceMaxSalary"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableInsurance.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tableInsurance.setGridColor(new java.awt.Color(204, 204, 204));
+        tableInsurance.setRowHeight(25);
+        tableInsurance.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tableInsurance.setSelectionForeground(java.awt.Color.red);
+        tableInsuranceScrollPane.setViewportView(tableInsurance);
+        if (tableInsurance.getColumnModel().getColumnCount() > 0) {
+            tableInsurance.getColumnModel().getColumn(0).setMinWidth(0);
+            tableInsurance.getColumnModel().getColumn(0).setMaxWidth(0);
+            tableInsurance.getColumnModel().getColumn(1).setMinWidth(100);
+            tableInsurance.getColumnModel().getColumn(1).setMaxWidth(100);
+            tableInsurance.getColumnModel().getColumn(2).setMinWidth(287);
+            tableInsurance.getColumnModel().getColumn(2).setMaxWidth(287);
+            tableInsurance.getColumnModel().getColumn(3).setMinWidth(200);
+            tableInsurance.getColumnModel().getColumn(3).setMaxWidth(200);
+            tableInsurance.getColumnModel().getColumn(4).setMinWidth(150);
+            tableInsurance.getColumnModel().getColumn(4).setMaxWidth(150);
+        }
+
+        jPanel28.add(tableInsuranceScrollPane, java.awt.BorderLayout.CENTER);
+
+        jPanel27.add(jPanel28);
+        jPanel28.setBounds(350, 10, 740, 330);
+
+        lblInsuranceMaxSalary.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblInsuranceMaxSalary.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblInsuranceMaxSalary.setText("Max Salary");
+        jPanel27.add(lblInsuranceMaxSalary);
+        lblInsuranceMaxSalary.setBounds(10, 120, 100, 23);
+
+        txtInsurMaxSalary.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtInsurMaxSalary.setText("0");
+        txtInsurMaxSalary.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel27.add(txtInsurMaxSalary);
+        txtInsurMaxSalary.setBounds(120, 120, 200, 23);
+
+        tabPaneDetails.addTab("Insurance", jPanel27);
 
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
         jPanel11.setLayout(null);
 
-        jCheckBox9.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox9.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jPanel11.add(jCheckBox9);
-        jCheckBox9.setBounds(119, 10, 21, 23);
+        chStandardTax.setBackground(new java.awt.Color(255, 255, 255));
+        chStandardTax.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel11.add(chStandardTax);
+        chStandardTax.setBounds(119, 10, 21, 23);
 
-        lblID66.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID66.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID66.setText("Standard");
-        jPanel11.add(lblID66);
-        lblID66.setBounds(10, 10, 100, 23);
+        lblTaxStandard.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblTaxStandard.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblTaxStandard.setText("Standard");
+        jPanel11.add(lblTaxStandard);
+        lblTaxStandard.setBounds(10, 10, 100, 23);
 
-        lblID67.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblID67.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblID67.setText("Customize Tax");
-        jPanel11.add(lblID67);
-        lblID67.setBounds(10, 40, 100, 23);
+        lblTaxCustomize.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        lblTaxCustomize.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblTaxCustomize.setText("Customize Tax");
+        jPanel11.add(lblTaxCustomize);
+        lblTaxCustomize.setBounds(10, 40, 100, 23);
 
         cmbTaxCustomize.setEditable(true);
         cmbTaxCustomize.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
@@ -1986,53 +2503,42 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
         jPanel11.add(jSeparator27);
         jSeparator27.setBounds(120, 65, 200, 5);
 
-        jPanel25.setBackground(new java.awt.Color(81, 87, 99));
+        btnSaveTax.setActiveColor(new java.awt.Color(255, 255, 255));
+        btnSaveTax.setRolloverColor(new java.awt.Color(255, 255, 255));
+        btnSaveTax.setText("Save");
+        btnSaveTax.setUnvisitColor(new java.awt.Color(255, 255, 255));
+        btnSaveTax.setVisitedColor(new java.awt.Color(255, 255, 255));
+        btnSaveTax.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel11.add(btnSaveTax);
+        btnSaveTax.setBounds(127, 83, 82, 26);
 
-        javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
-        jPanel25.setLayout(jPanel25Layout);
-        jPanel25Layout.setHorizontalGroup(
-            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 330, Short.MAX_VALUE)
-        );
-        jPanel25Layout.setVerticalGroup(
-            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
+        panelSaveTax.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Button.png"))); // NOI18N
+        panelSaveTax.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel11.add(panelSaveTax);
+        panelSaveTax.setBounds(120, 80, 96, 32);
 
-        jPanel11.add(jPanel25);
-        jPanel25.setBounds(10, 130, 330, 10);
-
-        btnSaveSalary1.setText("Save");
-        btnSaveSalary1.setUnvisitColor(new java.awt.Color(255, 255, 255));
-        btnSaveSalary1.setVisitedColor(new java.awt.Color(255, 255, 255));
-        btnSaveSalary1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jPanel11.add(btnSaveSalary1);
-        btnSaveSalary1.setBounds(227, 83, 82, 26);
-
-        panelSaveSalary1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Button.png"))); // NOI18N
-        panelSaveSalary1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jPanel11.add(panelSaveSalary1);
-        panelSaveSalary1.setBounds(220, 80, 96, 32);
-
-        panelSaveSalaryHover1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/ButtonHover.png"))); // NOI18N
-        panelSaveSalaryHover1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jPanel11.add(panelSaveSalaryHover1);
-        panelSaveSalaryHover1.setBounds(220, 80, 96, 32);
+        panelSaveTaxHover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/ButtonHover.png"))); // NOI18N
+        panelSaveTaxHover.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel11.add(panelSaveTaxHover);
+        panelSaveTaxHover.setBounds(120, 80, 96, 32);
 
         jPanel26.setBackground(new java.awt.Color(255, 255, 255));
         jPanel26.setLayout(new java.awt.BorderLayout());
 
+        scrollPanelTax.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+
+        tableTax.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         tableTax.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         tableTax.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "lblTaxRate", "lblRate", "lblMin", "lblMax", "lblExempttaxes", "lblTaxpayable"
+                "lblEmpTaxID", "lblTaxID", "lblTaxPercentage", "lblTaxPercentage", "lblTaxMin", "lblTaxMax", "lblTaxDeduction", "lblPaidTax"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -2045,11 +2551,48 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
         tableTax.setSelectionBackground(new java.awt.Color(255, 255, 255));
         tableTax.setSelectionForeground(java.awt.Color.red);
         scrollPanelTax.setViewportView(tableTax);
+        if (tableTax.getColumnModel().getColumnCount() > 0) {
+            tableTax.getColumnModel().getColumn(0).setMinWidth(0);
+            tableTax.getColumnModel().getColumn(0).setMaxWidth(0);
+            tableTax.getColumnModel().getColumn(1).setMinWidth(0);
+            tableTax.getColumnModel().getColumn(1).setMaxWidth(0);
+            tableTax.getColumnModel().getColumn(2).setMinWidth(170);
+            tableTax.getColumnModel().getColumn(2).setMaxWidth(170);
+            tableTax.getColumnModel().getColumn(3).setMinWidth(0);
+            tableTax.getColumnModel().getColumn(3).setMaxWidth(0);
+            tableTax.getColumnModel().getColumn(4).setMinWidth(150);
+            tableTax.getColumnModel().getColumn(4).setMaxWidth(150);
+            tableTax.getColumnModel().getColumn(5).setMinWidth(150);
+            tableTax.getColumnModel().getColumn(5).setMaxWidth(150);
+            tableTax.getColumnModel().getColumn(6).setMinWidth(120);
+            tableTax.getColumnModel().getColumn(6).setMaxWidth(120);
+            tableTax.getColumnModel().getColumn(7).setMinWidth(153);
+            tableTax.getColumnModel().getColumn(7).setMaxWidth(153);
+        }
 
         jPanel26.add(scrollPanelTax, java.awt.BorderLayout.CENTER);
 
         jPanel11.add(jPanel26);
-        jPanel26.setBounds(350, 10, 745, 330);
+        jPanel26.setBounds(350, 10, 745, 340);
+
+        btnDeleteTax.setActiveColor(new java.awt.Color(255, 255, 255));
+        btnDeleteTax.setRolloverColor(new java.awt.Color(255, 255, 255));
+        btnDeleteTax.setText("Delete");
+        btnDeleteTax.setUnvisitColor(new java.awt.Color(255, 255, 255));
+        btnDeleteTax.setVisitedColor(new java.awt.Color(255, 255, 255));
+        btnDeleteTax.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel11.add(btnDeleteTax);
+        btnDeleteTax.setBounds(232, 83, 82, 26);
+
+        panelDeleteTax.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Button.png"))); // NOI18N
+        panelDeleteTax.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel11.add(panelDeleteTax);
+        panelDeleteTax.setBounds(225, 80, 96, 32);
+
+        panelDeleteTaxHover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/ButtonHover.png"))); // NOI18N
+        panelDeleteTaxHover.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        jPanel11.add(panelDeleteTaxHover);
+        panelDeleteTaxHover.setBounds(225, 80, 96, 32);
 
         tabPaneDetails.addTab("Tax", jPanel11);
 
@@ -2238,6 +2781,12 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
         jPanel6.add(jSeparator28);
         jSeparator28.setBounds(590, 95, 200, 5);
 
+        txtEmpID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtEmpID.setText("New");
+        txtEmpID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        jPanel6.add(txtEmpID);
+        txtEmpID.setBounds(830, 220, 50, 23);
+
         tabPane.addTab("Details", jPanel6);
 
         jPanel2.add(tabPane);
@@ -2271,16 +2820,23 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.xzq.osc.JocHyperlink btnDeleteInsurance;
+    private com.xzq.osc.JocHyperlink btnDeleteTax;
     private com.xzq.osc.JocHyperlink btnSave;
     private com.xzq.osc.JocHyperlink btnSaveAddress;
     private com.xzq.osc.JocHyperlink btnSaveCV;
+    private com.xzq.osc.JocHyperlink btnSaveInsurance;
     private com.xzq.osc.JocHyperlink btnSaveSalary;
-    private com.xzq.osc.JocHyperlink btnSaveSalary1;
+    private com.xzq.osc.JocHyperlink btnSaveTax;
     private javax.swing.JCheckBox chCalculateSalary;
     private javax.swing.JCheckBox chCar;
     private javax.swing.JCheckBox chConsultant;
     private javax.swing.JCheckBox chFullTime;
     private javax.swing.JCheckBox chInOffice;
+    private javax.swing.JCheckBox chSalaryInsurance;
+    private javax.swing.JCheckBox chSalaryOvertime;
+    private javax.swing.JCheckBox chSalaryTax;
+    private javax.swing.JCheckBox chStandardTax;
     private javax.swing.JComboBox<String> cmbBlood;
     private javax.swing.JComboBox<String> cmbBusiness;
     private javax.swing.JComboBox<String> cmbDepartment;
@@ -2305,10 +2861,6 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cmbTaxCustomize;
     private javax.swing.JComboBox<String> cmbTitle;
     private javax.swing.JComboBox<String> cmbWorkStatus;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JCheckBox jCheckBox8;
-    private javax.swing.JCheckBox jCheckBox9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -2326,8 +2878,9 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
-    private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel26;
+    private javax.swing.JPanel jPanel27;
+    private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -2335,7 +2888,6 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
@@ -2360,7 +2912,6 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblAddress1;
     private javax.swing.JLabel lblAddress1_L1;
     private javax.swing.JLabel lblAddress1_L2;
@@ -2386,6 +2937,7 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblEmployeeInfo;
     private javax.swing.JLabel lblEndDate;
     private javax.swing.JLabel lblEthnic;
+    private javax.swing.JLabel lblExcludeTax;
     private javax.swing.JLabel lblFacebook;
     private javax.swing.JLabel lblFamilyBook;
     private javax.swing.JLabel lblFatherAge;
@@ -2393,32 +2945,19 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblFatherOccupation;
     private javax.swing.JLabel lblFatherTelephone;
     private javax.swing.JLabel lblFatherWorkPlace;
+    private javax.swing.JLabel lblFindbyDept;
+    private javax.swing.JLabel lblFindbyLoc;
     private javax.swing.JLabel lblGender;
     private javax.swing.JLabel lblHight;
     private javax.swing.JLabel lblHubandTelephone;
     private javax.swing.JLabel lblHusband_Wife;
-    private javax.swing.JLabel lblID;
-    private javax.swing.JLabel lblID1;
-    private javax.swing.JLabel lblID2;
-    private javax.swing.JLabel lblID25;
     private javax.swing.JLabel lblID27;
-    private javax.swing.JLabel lblID54;
-    private javax.swing.JLabel lblID55;
-    private javax.swing.JLabel lblID56;
-    private javax.swing.JLabel lblID57;
-    private javax.swing.JLabel lblID58;
-    private javax.swing.JLabel lblID59;
-    private javax.swing.JLabel lblID60;
-    private javax.swing.JLabel lblID61;
-    private javax.swing.JLabel lblID62;
-    private javax.swing.JLabel lblID63;
-    private javax.swing.JLabel lblID64;
-    private javax.swing.JLabel lblID65;
-    private javax.swing.JLabel lblID66;
-    private javax.swing.JLabel lblID67;
     private javax.swing.JLabel lblIDCard;
     private javax.swing.JLabel lblImage;
-    private javax.swing.JLabel lblInsurance;
+    private javax.swing.JLabel lblInsuranceMaxSalary;
+    private javax.swing.JLabel lblInsuranceNbr;
+    private javax.swing.JLabel lblInsuranceType;
+    private javax.swing.JLabel lblKip;
     private javax.swing.JLabel lblLevel;
     private javax.swing.JLabel lblLocation;
     private javax.swing.JLabel lblManager;
@@ -2430,34 +2969,60 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblMotherWorkPlace;
     private javax.swing.JCheckBox lblMotocycle;
     private javax.swing.JLabel lblNationality;
+    private javax.swing.JLabel lblNetSalary;
     private javax.swing.JLabel lblOccupation;
+    private javax.swing.JLabel lblOvertimePerDay;
+    private javax.swing.JLabel lblOvertimePerHous;
     private javax.swing.JLabel lblPOB;
     private javax.swing.JLabel lblPassportNo;
     private javax.swing.JLabel lblProvince1;
     private javax.swing.JLabel lblProvince2;
     private javax.swing.JLabel lblReligion;
+    private javax.swing.JLabel lblSalaryAmount;
+    private javax.swing.JLabel lblSalaryDeduction;
+    private javax.swing.JLabel lblSalaryInsurance;
+    private javax.swing.JLabel lblSalaryOvertime;
+    private javax.swing.JLabel lblSalaryPerDay;
+    private javax.swing.JLabel lblSalaryPerHours;
     private javax.swing.JLabel lblSalaryPeriod;
+    private javax.swing.JLabel lblSalaryTax;
+    private javax.swing.JLabel lblSalaryType;
+    private javax.swing.JLabel lblSearchEmp;
     private javax.swing.JLabel lblStartDate;
+    private javax.swing.JLabel lblTaxCustomize;
+    private javax.swing.JLabel lblTaxSalary;
+    private javax.swing.JLabel lblTaxStandard;
     private javax.swing.JLabel lblTelephone;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblTotalSalary;
     private javax.swing.JLabel lblWeight;
     private javax.swing.JLabel lblWorkPlace;
     private javax.swing.JLabel lblWorkStatus;
     private com.xzq.osc.JocHyperlink menuExit;
+    private com.xzq.osc.JocHyperlink panelDeleteInsur;
+    private com.xzq.osc.JocHyperlink panelDeleteInsurHover;
+    private com.xzq.osc.JocHyperlink panelDeleteTax;
+    private com.xzq.osc.JocHyperlink panelDeleteTaxHover;
     private com.xzq.osc.JocHyperlink panelHover;
     private com.xzq.osc.JocHyperlink panelSave;
     private com.xzq.osc.JocHyperlink panelSaveAddress;
     private com.xzq.osc.JocHyperlink panelSaveAddressHover;
     private com.xzq.osc.JocHyperlink panelSaveCV;
     private com.xzq.osc.JocHyperlink panelSaveCVHover;
+    private com.xzq.osc.JocHyperlink panelSaveInsur;
+    private com.xzq.osc.JocHyperlink panelSaveInsurHover;
     private com.xzq.osc.JocHyperlink panelSaveSalary;
-    private com.xzq.osc.JocHyperlink panelSaveSalary1;
     private com.xzq.osc.JocHyperlink panelSaveSalaryHover;
-    private com.xzq.osc.JocHyperlink panelSaveSalaryHover1;
+    private com.xzq.osc.JocHyperlink panelSaveTax;
+    private com.xzq.osc.JocHyperlink panelSaveTaxHover;
     private javax.swing.JScrollPane scrollPaneSalary;
     private javax.swing.JScrollPane scrollPanelTax;
     private com.xzq.osc.JocTabbedPane tabPane;
     private com.xzq.osc.JocTabbedPane tabPaneDetails;
+    private javax.swing.JTable tableEmpList;
+    private javax.swing.JScrollPane tableEmpListScrollPane;
+    private javax.swing.JTable tableInsurance;
+    private javax.swing.JScrollPane tableInsuranceScrollPane;
     private javax.swing.JTable tableSalary;
     private javax.swing.JTable tableTax;
     private javax.swing.JTextField txtAddress1_L1;
@@ -2472,8 +3037,11 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtEmpMail;
     private javax.swing.JTextField txtEmpName_L1;
     private javax.swing.JTextField txtEmpName_L2;
+    private javax.swing.JTextField txtEmpNbr;
     private javax.swing.JTextField txtEmpNickname;
+    private javax.swing.JTextField txtEmpSalaryID;
     private com.toedter.calendar.JDateChooser txtEndDate;
+    private javax.swing.JTextField txtExcludeTax;
     private javax.swing.JTextField txtFacebook;
     private javax.swing.JTextField txtFamilybook;
     private javax.swing.JTextField txtFatherAge;
@@ -2484,30 +3052,34 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtHight;
     private javax.swing.JTextField txtHusbandTelephone;
     private javax.swing.JTextField txtHusband_Wife;
-    private javax.swing.JTextField txtID;
-    private javax.swing.JTextField txtID32;
-    private javax.swing.JTextField txtID33;
-    private javax.swing.JTextField txtID35;
-    private javax.swing.JTextField txtID36;
-    private javax.swing.JTextField txtID37;
-    private javax.swing.JTextField txtID38;
-    private javax.swing.JTextField txtID39;
-    private javax.swing.JTextField txtID40;
-    private javax.swing.JTextField txtID41;
-    private javax.swing.JTextField txtID42;
-    private javax.swing.JTextField txtID43;
     private javax.swing.JTextField txtIDCard;
+    private javax.swing.JTextField txtIncludeTax;
+    private javax.swing.JTextField txtInsurEmpID;
+    private javax.swing.JTextField txtInsurMaxSalary;
+    private javax.swing.JTextField txtInsuranceNbr;
     private javax.swing.JTextField txtMobilePhone;
     private javax.swing.JTextField txtMotherAge;
     private javax.swing.JTextField txtMotherName;
     private javax.swing.JTextField txtMotherOccupation;
     private javax.swing.JTextField txtMotherTelephone;
     private javax.swing.JTextField txtMotherWorkPlace;
+    private javax.swing.JTextField txtNetSalary;
     private javax.swing.JTextField txtOccupation;
+    private javax.swing.JTextField txtOvertimeRateDay;
+    private javax.swing.JTextField txtOvertimeRateHour;
+    private javax.swing.JTextField txtOvertimeTotal;
     private javax.swing.JTextField txtPOD;
     private javax.swing.JTextField txtPassportNo;
+    private javax.swing.JTextField txtSalaryAmount;
+    private javax.swing.JTextField txtSalaryDeduction;
+    private javax.swing.JTextField txtSalaryRateDay;
+    private javax.swing.JTextField txtSalaryRateHour;
+    private javax.swing.JTextField txtSalaryTotal;
+    private javax.swing.JTextField txtSearchEmp;
     private com.toedter.calendar.JDateChooser txtStartDate;
     private javax.swing.JTextField txtTelephone;
+    private javax.swing.JTextField txtTotalInsurance;
+    private javax.swing.JTextField txtTotalTax;
     private javax.swing.JTextField txtWeight;
     private javax.swing.JTextField txtWorkPlace;
     // End of variables declaration//GEN-END:variables

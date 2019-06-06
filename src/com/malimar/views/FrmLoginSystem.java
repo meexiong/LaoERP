@@ -107,7 +107,7 @@ public class FrmLoginSystem extends javax.swing.JFrame {
         lblWelcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblWelcome.setText("WELCOME HOME");
         jPanel3.add(lblWelcome);
-        lblWelcome.setBounds(40, 50, 250, 30);
+        lblWelcome.setBounds(20, 50, 250, 30);
 
         lblIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/User_50px.png"))); // NOI18N
         jPanel3.add(lblIcon);

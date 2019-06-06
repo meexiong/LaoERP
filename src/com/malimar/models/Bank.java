@@ -2,6 +2,7 @@ package com.malimar.models;
 
 import com.malimar.databases.DatabaseManager;
 import com.malimar.utils.ManageTable;
+import static com.malimar.utils.Valiables.c;
 import static com.malimar.utils.Valiables.langType;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -71,7 +72,6 @@ public class Bank {
     public HashMap<String, Object[]> getDistrictInfo() {
         try {
             HashMap<String, Object[]> map = new HashMap<>();
-            Connection c = DatabaseManager.getConnection();
             String query = "Select * from tbl_District";
             ResultSet rs = c.createStatement().executeQuery(query);
             while (rs.next()) {
@@ -88,7 +88,6 @@ public class Bank {
 
     public boolean insert() {
         try {
-            Connection c = DatabaseManager.getConnection();
             GenerateID g = new GenerateID();
             String insert = "Insert into tbl_Banking(Bank_ID, Bank_Name_L1, Bank_Name_L2, Bank_Info, Dist_ID)values(?,?,?,?,?)";
             PreparedStatement p = c.prepareStatement(insert);
@@ -109,7 +108,6 @@ public class Bank {
 
     public boolean update() {
         try {
-            Connection c = DatabaseManager.getConnection();
             String update = "Update tbl_Banking set Bank_Name_L1=?, Bank_Name_L2=?, Bank_info=?, Dist_ID=? where Bank_ID=?";
             PreparedStatement p = c.prepareStatement(update);
             p.setString(1, this.getBankName_L1());
@@ -129,7 +127,6 @@ public class Bank {
 
     public boolean delete() {
         try {
-            Connection c = DatabaseManager.getConnection();
             String delete = "Delete tbl_Banking where Bank_ID=?";
             PreparedStatement p = c.prepareStatement(delete);
             p.setInt(1, this.getBankID());
@@ -145,7 +142,6 @@ public class Bank {
 
     public void load(JTable table, DefaultTableModel model) {
         try {
-            Connection c = DatabaseManager.getConnection();
             ManageTable.clearTable(table, model);
             String query = "SELECT dbo.Tbl_Banking.Bank_ID, dbo.Tbl_Banking.Bank_Name_L1, \n"
                     + "dbo.Tbl_Banking.Bank_Name_L2, dbo.Tbl_Banking.Bank_info, \n"
