@@ -3,6 +3,7 @@ package com.malimar.controllers;
 import com.malimar.models.PayRoll;
 import com.malimar.models.SalaryCalc;
 import com.malimar.utils.ManageTable;
+import com.malimar.views.FrmNewAbsent;
 import com.malimar.views.FrmPayRoll;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,6 +25,7 @@ public class PayRolController implements ActionListener, MouseListener, MouseMot
     HashMap<String, Object[]> mapTable = null;
     DefaultTableModel tableModel = new DefaultTableModel();
     DefaultTableModel tableDeptModel = new DefaultTableModel();
+
     public PayRolController(FrmPayRoll view) {
         this.view = view;
         PayRoll pr = new PayRoll();
@@ -38,11 +40,13 @@ public class PayRolController implements ActionListener, MouseListener, MouseMot
         ManageTable.setTableHeader(this.view.getTableDept(), this.view.getTableDeptScrollPane());
         tableDeptModel = (DefaultTableModel) this.view.getTableDept().getModel();
         this.model.loadDepartment(this.view.getTableDept(), tableDeptModel);
+        this.view.getTxtStartDate().setText(SalaryCalc.getPayrollStartDate()+" - "+SalaryCalc.getPayrollEndDate());
     }
 
     private void setEvent() {
         this.view.getBtnLoad().addActionListener(this);
         this.view.getTableDept().addMouseListener(this);
+        this.view.getTable().addMouseListener(this);
     }
 
     private void setTableValues() {
@@ -55,15 +59,14 @@ public class PayRolController implements ActionListener, MouseListener, MouseMot
             String empNbr = mapTable.get(s)[1].toString();
             String empName = mapTable.get(s)[2].toString();
             String empDept = mapTable.get(s)[4].toString();
-//            Boolean empFullTime = (Boolean) mapTable.get(s)[4];
             String empWorkStatus = mapTable.get(s)[6].toString();
             double grossSalar = SalaryCalc.getSalary(empID, "G");
             double taxSalar = SalaryCalc.getSalary(empID, "T");
             double excludeTax = SalaryCalc.getSalary(empID, "X");
-            double abSalary = (SalaryCalc.getSalary(empID, "G") / (SalaryCalc.getAbsentDayInMonth() * SalaryCalc.getDayWorkHours() * 60)) * SalaryCalc.getABMinutes(empID, "2019-05-22", "2019-06-21");
+            double abSalary = (SalaryCalc.getSalary(empID, "G") / (SalaryCalc.getAbsentDayInMonth() * SalaryCalc.getDayWorkHours() * 60)) * SalaryCalc.getABMinutes(empID, SalaryCalc.convertDate(SalaryCalc.getPayrollStartDate()), SalaryCalc.convertDate(SalaryCalc.getPayrollEndDate()));
             double insur = SalaryCalc.getInsurance(empID, SalaryCalc.getSalary(empID, "G") - abSalary);
-            double ot = SalaryCalc.getOverTime(empID, "2019-05-22", "2019-06-21");
-            Object[] obj = new Object[]{empNbr, empName,"", empDept, df.format(grossSalar), df.format(taxSalar), df.format(excludeTax), df.format(abSalary), df.format(ot), 0, df.format(insur), 0};
+            double ot = SalaryCalc.getOverTime(empID, SalaryCalc.convertDate(SalaryCalc.getPayrollStartDate()), SalaryCalc.convertDate(SalaryCalc.getPayrollEndDate()));
+            Object[] obj = new Object[]{empID, empNbr, empName, "", empDept, df.format(grossSalar), df.format(taxSalar), df.format(excludeTax), df.format(abSalary), df.format(ot), 0, df.format(insur), 0};
             tableModel.addRow(obj);
         });
         this.view.getTable().setModel(tableModel);
@@ -78,11 +81,24 @@ public class PayRolController implements ActionListener, MouseListener, MouseMot
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(e.getSource() == this.view.getTableDept()){
+        if (e.getSource() == this.view.getTableDept()) {
             int row = this.view.getTableDept().getSelectedRow();
             int id = Integer.parseInt(this.view.getTableDept().getValueAt(row, 1).toString());
             this.model.setDepartmentID(id);
             this.setTableValues();
+        } else if (e.getSource() == this.view.getTable()) {
+            if (e.getClickCount() == 2) {
+                int row = this.view.getTable().getSelectedRow();
+                int col = this.view.getTable().getSelectedColumn();
+                if (col == 8) {
+                    int emid = Integer.parseInt(this.view.getTable().getValueAt(row,0).toString());
+                    String emnbr = this.view.getTable().getValueAt(row, 1).toString();
+                    String emName = this.view.getTable().getValueAt(row, 2).toString();
+                    FrmNewAbsent ab = new FrmNewAbsent(null, true, emid, emnbr , emName);
+                    ab.setVisible(true);
+                    this.setTableValues();
+                }
+            }
         }
     }
 

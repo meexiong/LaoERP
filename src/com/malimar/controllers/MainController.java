@@ -41,6 +41,7 @@ public class MainController implements ActionListener, MouseListener, MouseMotio
 
     public MainController(FrmMainMenu view) {
         this.view = view;
+        this.view.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frm = this.view.getClass().getSimpleName();
         this.startMain();
         this.changeLabel();

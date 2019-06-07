@@ -4,6 +4,9 @@ import static com.malimar.utils.Valiables.c;
 import static com.malimar.utils.Valiables.langType;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 public class SalaryCalc {
@@ -254,13 +257,20 @@ public class SalaryCalc {
     public static double getABMinutes(int emid, String bom, String eom) {
         try {
             float totalMinute = 0;
-//            Connection c = DatabaseManager.getConnection();
-            String query = "Select * from tbl_Absent where AbsentDate between '" + bom + "' and '" + eom + "'\n"
-                    + "and HRApprove=1 and empID=" + emid + "";
+//            String query = "Select * from tbl_Absent where AbsentDate between '" + bom + "' and '" + eom + "'\n"
+//                    + "and HRApprove=1 and empID=" + emid + "";
+            String query = "SELECT dbo.tbl_Absent.AbsentID, dbo.tbl_Absent.EmpID, dbo.tbl_Absent.CAbsentID, \n"
+                    + "dbo.tbl_Absent.Hrs, dbo.tbl_Absent.Minte, dbo.tbl_Absent.AbsentDate, \n"
+                    + "dbo.tbl_Absent.CreateDate, dbo.tbl_Absent.CreateBy, dbo.tbl_Absent.MgrApprove, \n"
+                    + "dbo.tbl_Absent.HRApprove, dbo.tbl_Absent.RID, dbo.tbl_Absent_category.Display\n"
+                    + "FROM dbo.tbl_Absent INNER JOIN\n"
+                    + "dbo.tbl_Absent_category ON dbo.tbl_Absent.CAbsentID = dbo.tbl_Absent_category.CAbsentID\n"
+                    + "WHERE (dbo.tbl_Absent.AbsentDate BETWEEN '" + bom + "' AND '" + eom + "') AND \n"
+                    + "(dbo.tbl_Absent.HRApprove = 1) AND (dbo.tbl_Absent.EmpID = " + emid + ") AND (dbo.tbl_Absent_category.Display = 0)";
             ResultSet rs = c.createStatement().executeQuery(query);
             while (rs.next()) {
-                int hour = rs.getInt("Hours");
-                int minute = rs.getInt("Minute");
+                int hour = rs.getInt("Hrs");
+                int minute = rs.getInt("Minte");
                 totalMinute = ((hour * 60) + minute) + totalMinute;
             }
             return totalMinute;
@@ -271,7 +281,6 @@ public class SalaryCalc {
 
     public static int getAbsentDayInMonth() {
         try {
-//            Connection c = DatabaseManager.getConnection();
             String query = "Select System_values from Tbl_System_Setting where Tbl_System_ID=7";
             ResultSet rs = c.createStatement().executeQuery(query);
             if (rs.next()) {
@@ -311,4 +320,63 @@ public class SalaryCalc {
         }
         return 0;
     }
+
+    public static String getPayrollStartDate() {
+        try {
+            String query = "Select System_values from Tbl_System_Setting where Tbl_System_ID=3";
+            ResultSet rs = c.createStatement().executeQuery(query);
+            if (rs.next()) {
+                String day = rs.getString(1);
+                Calendar calen = Calendar.getInstance();
+                calen.setTime(new Date());
+                calen.add(Calendar.DAY_OF_MONTH, -15);
+                Date enddate = calen.getTime();
+                Calendar calen1 = Calendar.getInstance();
+                calen1.setTime(enddate);
+                calen1.add(Calendar.MONTH, -1);
+                Date startdate = calen1.getTime();
+                String bom = new SimpleDateFormat("MM").format(startdate);
+                String year = new SimpleDateFormat("yyyy").format(startdate);
+                String x = day + "/" + bom + "/" + year;
+                return x;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static String getPayrollEndDate() {
+        try {
+            String query = "Select System_values from Tbl_System_Setting where Tbl_System_ID=4";
+            ResultSet rs = c.createStatement().executeQuery(query);
+            if (rs.next()) {
+                String day = rs.getString(1);
+
+                Calendar calen = Calendar.getInstance();
+                calen.setTime(new Date());
+                calen.add(Calendar.DAY_OF_MONTH, -15);
+                Date enddate = calen.getTime();
+                String eom = new SimpleDateFormat("MM").format(enddate);
+                String year = new SimpleDateFormat("yyyy").format(enddate);
+                String x = day + "/" + eom + "/" + year;
+                return x;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static String convertDate(String date) {
+        try {
+            java.util.Date stdate = new SimpleDateFormat("dd/MM/yyyy").parse(date);
+            String x = new SimpleDateFormat("yyyy-MM-dd").format(stdate);
+            return x;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

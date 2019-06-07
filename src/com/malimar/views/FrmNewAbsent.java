@@ -1,6 +1,7 @@
 
 package com.malimar.views;
 
+import com.malimar.controllers.NewAbsentController;
 import com.toedter.calendar.JDateChooser;
 import com.xzq.osc.JocHyperlink;
 import javax.swing.JCheckBox;
@@ -12,9 +13,10 @@ import javax.swing.JTextField;
 
 public class FrmNewAbsent extends javax.swing.JDialog {
     
-    public FrmNewAbsent(java.awt.Frame parent, boolean modal) {
+    public FrmNewAbsent(java.awt.Frame parent, boolean modal, int emid, String emNbr, String emName) {
         super(parent, modal);
         initComponents();
+        NewAbsentController ac = new NewAbsentController(this, emid, emNbr, emName);
     }
 
     public JocHyperlink getBtnDelete() {
@@ -63,10 +65,6 @@ public class FrmNewAbsent extends javax.swing.JDialog {
 
     public JLabel getLblAbsentDate() {
         return lblAbsentDate;
-    }
-
-    public JLabel getLblAbsentID() {
-        return lblAbsentID;
     }
 
     public JLabel getLblDeductionFrom() {
@@ -139,7 +137,6 @@ public class FrmNewAbsent extends javax.swing.JDialog {
         menuExit = new com.xzq.osc.JocHyperlink();
         lblNewAbsentInfo = new javax.swing.JLabel();
         txtAbsentID = new javax.swing.JTextField();
-        lblAbsentID = new javax.swing.JLabel();
         lblEmployee = new javax.swing.JLabel();
         btnSave = new com.xzq.osc.JocHyperlink();
         panelSave = new com.xzq.osc.JocHyperlink();
@@ -223,19 +220,13 @@ public class FrmNewAbsent extends javax.swing.JDialog {
         txtAbsentID.setEnabled(false);
         txtAbsentID.setOpaque(false);
         jPanel2.add(txtAbsentID);
-        txtAbsentID.setBounds(80, 50, 80, 25);
-
-        lblAbsentID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblAbsentID.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblAbsentID.setText("ID");
-        jPanel2.add(lblAbsentID);
-        lblAbsentID.setBounds(30, 50, 40, 25);
+        txtAbsentID.setBounds(30, 210, 80, 25);
 
         lblEmployee.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblEmployee.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblEmployee.setText("Employee");
         jPanel2.add(lblEmployee);
-        lblEmployee.setBounds(170, 50, 100, 25);
+        lblEmployee.setBounds(30, 50, 100, 25);
 
         btnSave.setActiveColor(new java.awt.Color(255, 255, 255));
         btnSave.setRolloverColor(new java.awt.Color(255, 255, 255));
@@ -366,7 +357,7 @@ public class FrmNewAbsent extends javax.swing.JDialog {
         txtEmployee.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         txtEmployee.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
         jPanel2.add(txtEmployee);
-        txtEmployee.setBounds(290, 50, 260, 25);
+        txtEmployee.setBounds(150, 50, 400, 25);
 
         chMgrApprove.setBackground(new java.awt.Color(255, 255, 255));
         chMgrApprove.setFont(new java.awt.Font("Saysettha Lao", 0, 12)); // NOI18N
@@ -715,7 +706,7 @@ public class FrmNewAbsent extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                FrmNewAbsent dialog = new FrmNewAbsent(new javax.swing.JFrame(), true);
+                FrmNewAbsent dialog = new FrmNewAbsent(new javax.swing.JFrame(), true, 0, null, null);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -741,7 +732,6 @@ public class FrmNewAbsent extends javax.swing.JDialog {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JLabel lblAbsentDate;
-    private javax.swing.JLabel lblAbsentID;
     private javax.swing.JLabel lblDeductionFrom;
     private javax.swing.JLabel lblEmployee;
     private javax.swing.JLabel lblHRApprove;

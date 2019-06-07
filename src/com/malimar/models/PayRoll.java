@@ -15,7 +15,7 @@ public class PayRoll {
     String departmentName;
     Date startDate;
     Date endDate;
-
+    
     public int getDepartmentID() {
         return departmentID;
     }
