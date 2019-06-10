@@ -41,4 +41,28 @@ public class MessageBox {
             JOptionPane.showMessageDialog(null, "<html><p><font color=\"#000\"size=\"3\" face=\"Saysettha OT\">" + "Connect failed" + "</font></p></html>", "MESSAGE", JOptionPane.ERROR_MESSAGE);
         }
     }
+    
+    public static void msgOTDate() {
+        if (langType.equals(EnumStatus.L1.name())) {
+            JOptionPane.showMessageDialog(null, "<html><p><font color=\"#000\"size=\"3\" face=\"Saysettha OT\">" + "ວັນທີ່ຕ້ອງຢູ່ໃນວົງຈ່າຍເງິນເດືອນ" + "</font></p></html>", "ແຈ້ງເຕືອນ", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "<html><p><font color=\"#000\"size=\"3\" face=\"Saysettha OT\">" + "Date must be in payroll range" + "</font></p></html>", "MESSAGE", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public static void msgOTAmountZero() {
+        if (langType.equals(EnumStatus.L1.name())) {
+            JOptionPane.showMessageDialog(null, "<html><p><font color=\"#000\"size=\"3\" face=\"Saysettha OT\">" + "ຊົ່ວ ຫຼື ນາທີເປັນສູນບໍ່ໄດ້" + "</font></p></html>", "ແຈ້ງເຕືອນ", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "<html><p><font color=\"#000\"size=\"3\" face=\"Saysettha OT\">" + "Hours or minute can not be zero." + "</font></p></html>", "MESSAGE", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public static void msgOTRate() {
+        if (langType.equals(EnumStatus.L1.name())) {
+            JOptionPane.showMessageDialog(null, "<html><p><font color=\"#000\"size=\"3\" face=\"Saysettha OT\">" + "ວັນທີ່ ແລະ ຕົວຄູນນີ້ມີແລ້ວ." + "</font></p></html>", "ແຈ້ງເຕືອນ", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "<html><p><font color=\"#000\"size=\"3\" face=\"Saysettha OT\">" + "OT rate alreadly exist." + "</font></p></html>", "MESSAGE", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 }

@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
+import javax.swing.plaf.basic.BasicComboBoxUI;
 import javax.swing.table.DefaultTableModel;
 
 public class NewAbsentController implements ActionListener, MouseListener, MouseMotionListener {
@@ -35,6 +36,8 @@ public class NewAbsentController implements ActionListener, MouseListener, Mouse
     }
 
     private void setInitial() {
+        this.view.getCmbReason().setUI(new BasicComboBoxUI());
+        this.view.getCmbDeductionFrom().setUI(new BasicComboBoxUI());
         tableModel = (DefaultTableModel) this.view.getTable().getModel();
         ManageTable.setTableHeader(this.view.getTable(), this.view.getTableScrollPanel());
         this.setAbDeduction();

@@ -4,6 +4,7 @@ import com.malimar.models.PayRoll;
 import com.malimar.models.SalaryCalc;
 import com.malimar.utils.ManageTable;
 import com.malimar.views.FrmNewAbsent;
+import com.malimar.views.FrmOvertime;
 import com.malimar.views.FrmPayRoll;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,12 +36,13 @@ public class PayRolController implements ActionListener, MouseListener, MouseMot
     }
 
     private void setInitial() {
+
         ManageTable.setTableHeader(this.view.getTable(), this.view.getTableScrollPane());
         tableModel = (DefaultTableModel) this.view.getTable().getModel();
         ManageTable.setTableHeader(this.view.getTableDept(), this.view.getTableDeptScrollPane());
         tableDeptModel = (DefaultTableModel) this.view.getTableDept().getModel();
         this.model.loadDepartment(this.view.getTableDept(), tableDeptModel);
-        this.view.getTxtStartDate().setText(SalaryCalc.getPayrollStartDate()+" - "+SalaryCalc.getPayrollEndDate());
+        this.view.getTxtStartDate().setText(SalaryCalc.getPayrollStartDate() + " - " + SalaryCalc.getPayrollEndDate());
     }
 
     private void setEvent() {
@@ -90,12 +92,16 @@ public class PayRolController implements ActionListener, MouseListener, MouseMot
             if (e.getClickCount() == 2) {
                 int row = this.view.getTable().getSelectedRow();
                 int col = this.view.getTable().getSelectedColumn();
+                int emid = Integer.parseInt(this.view.getTable().getValueAt(row, 0).toString());
+                String emnbr = this.view.getTable().getValueAt(row, 1).toString();
+                String emName = this.view.getTable().getValueAt(row, 2).toString();
                 if (col == 8) {
-                    int emid = Integer.parseInt(this.view.getTable().getValueAt(row,0).toString());
-                    String emnbr = this.view.getTable().getValueAt(row, 1).toString();
-                    String emName = this.view.getTable().getValueAt(row, 2).toString();
-                    FrmNewAbsent ab = new FrmNewAbsent(null, true, emid, emnbr , emName);
+                    FrmNewAbsent ab = new FrmNewAbsent(null, true, emid, emnbr, emName);
                     ab.setVisible(true);
+                    this.setTableValues();
+                } else if (col == 9) {
+                    FrmOvertime ot = new FrmOvertime(null, true, emid, emnbr, emName);
+                    ot.setVisible(true);
                     this.setTableValues();
                 }
             }
