@@ -1,7 +1,7 @@
 package com.malimar.models;
 
-import static com.malimar.utils.Valiables.c;
-import static com.malimar.utils.Valiables.langType;
+import static com.malimar.utils.Variable.c;
+import static com.malimar.utils.Variable.langType;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -84,24 +84,23 @@ public class SalaryCalc {
     public static double fuctionTax(double Salary, double percents, double min, double max, double exams) {
         double totals = 0;
         try {
-            double sum = Salary;
+            //double sum = Salary;
             totals = 0;
-            if (sum > -exams) {
-                if (sum > min && sum < max) {
-                    totals = ((sum - min) * percents) / 100;
+//            if (Salary > -exams) {
+            if (Salary > min && Salary < max) {
+                totals = ((Salary - min) * percents) / 100;
+            } else {
+                if (min == 0) {
+                    totals = ((max + exams) * percents) / 100;
                 } else {
-                    if (min == 0) {
-                        totals = ((max + exams) * percents) / 100;
+                    if (Salary < min) {
+                        totals = 0;
                     } else {
-                        if (sum < min) {
-                            totals = 0;
-                        } else {
-                            totals = ((max - min) * percents) / 100;
-                        }
+                        totals = ((max - min) * percents) / 100;
                     }
                 }
             }
-
+//            }
         } catch (Exception e) {
         }
         return totals;
@@ -377,6 +376,51 @@ public class SalaryCalc {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static String convertDToYM(String date) {
+        try {
+            java.util.Date stdate = new SimpleDateFormat("dd/MM/yyyy").parse(date);
+            String x = new SimpleDateFormat("yyyy-MM").format(stdate);
+            return x;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static double getAddOrSubtract(int emID, int tax) {
+        try {
+            double amount = 0;
+            String query = "Select * from tbl_AddorSubtract where (ASDate between '" + SalaryCalc.convertDate(SalaryCalc.getPayrollStartDate()) + "' and '" + SalaryCalc.convertDate(SalaryCalc.getPayrollEndDate()) + "') and (empID=" + emID + ") and Tax=" + tax + "";
+            ResultSet rs = c.createStatement().executeQuery(query);
+            while (rs.next()) {
+                amount = rs.getDouble(3) + amount;
+            }
+            return amount;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    static double totalTax;
+
+    public static double getPayTax(int emid, double salary) {
+        try {
+            totalTax = 0;
+            getTax(emid).keySet().forEach((s) -> {
+                double netTax = 0;
+                double pct = Double.parseDouble(getTax(emid).get(s)[3].toString());
+                double min = Double.parseDouble(getTax(emid).get(s)[4].toString());
+                double max = Double.parseDouble(getTax(emid).get(s)[5].toString());
+                double deduction = Double.parseDouble(getTax(emid).get(s)[6].toString());
+                double sum = salary + deduction;
+                totalTax += SalaryCalc.fuctionTax(sum, pct, min, max, deduction);
+            });
+            return totalTax;
+        } catch (Exception e) {
+        }
+        return 0;
     }
 
 }

@@ -1,6 +1,6 @@
 package com.malimar.models;
 
-import static com.malimar.utils.Valiables.c;
+import static com.malimar.utils.Variable.c;
 import java.io.File;
 import java.io.FileInputStream;
 import java.sql.PreparedStatement;

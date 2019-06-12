@@ -3,9 +3,9 @@ package com.malimar.models;
 import com.malimar.databases.DatabaseManager;
 import com.malimar.utils.GetMaxID;
 import com.malimar.utils.ManageTable;
-import com.malimar.utils.Valiables;
-import static com.malimar.utils.Valiables.c;
-import static com.malimar.utils.Valiables.langType;
+import com.malimar.utils.Variable;
+import static com.malimar.utils.Variable.c;
+import static com.malimar.utils.Variable.langType;
 import java.io.File;
 import java.io.FileInputStream;
 import java.sql.Connection;
@@ -834,7 +834,7 @@ public class Employee {
             String query = "Select * from tbl_Gender";
             ResultSet rs = c.createStatement().executeQuery(query);
             while (rs.next()) {
-                map.put(rs.getString("Gen_Desc_" + Valiables.langType + ""), new Object[]{rs.getInt("Gen_ID"), rs.getString("Gen_Desc_L1"), rs.getString("Gen_Desc_L2")});
+                map.put(rs.getString("Gen_Desc_" + Variable.langType + ""), new Object[]{rs.getInt("Gen_ID"), rs.getString("Gen_Desc_L1"), rs.getString("Gen_Desc_L2")});
             }
             rs.close();
             return map;
@@ -850,7 +850,7 @@ public class Employee {
             String query = "Select * from tbl_EmpStatus";
             ResultSet rs = c.createStatement().executeQuery(query);
             while (rs.next()) {
-                map.put(rs.getString("Emp_Status_" + Valiables.langType + ""), new Object[]{rs.getInt("EMPSTID"), rs.getString("Emp_Status_L1"), rs.getString("Emp_Status_L2")});
+                map.put(rs.getString("Emp_Status_" + Variable.langType + ""), new Object[]{rs.getInt("EMPSTID"), rs.getString("Emp_Status_L1"), rs.getString("Emp_Status_L2")});
             }
             rs.close();
             return map;
@@ -866,7 +866,7 @@ public class Employee {
             String query = "Select * from Tbl_Division";
             ResultSet rs = c.createStatement().executeQuery(query);
             while (rs.next()) {
-                map.put(rs.getString("Division_" + Valiables.langType + ""), new Object[]{rs.getInt("DID"), rs.getString("Division_L1"), rs.getString("Division_L2")});
+                map.put(rs.getString("Division_" + Variable.langType + ""), new Object[]{rs.getInt("DID"), rs.getString("Division_L1"), rs.getString("Division_L2")});
             }
             rs.close();
             return map;
@@ -882,7 +882,7 @@ public class Employee {
             String query = "Select * from Tbl_Location where DID=" + this.getEmpDivisionID() + "";
             ResultSet rs = c.createStatement().executeQuery(query);
             while (rs.next()) {
-                map.put(rs.getString("Loc_name_" + Valiables.langType + ""), new Object[]{rs.getInt("Loc_ID"), rs.getString("Loc_name_L1"), rs.getString("Loc_name_L2")});
+                map.put(rs.getString("Loc_name_" + Variable.langType + ""), new Object[]{rs.getInt("Loc_ID"), rs.getString("Loc_name_L1"), rs.getString("Loc_name_L2")});
             }
             rs.close();
             return map;
@@ -898,7 +898,7 @@ public class Employee {
             String query = "Select * from Tbl_Depart where Loc_ID=" + this.getEmpLocationID() + "";
             ResultSet rs = c.createStatement().executeQuery(query);
             while (rs.next()) {
-                map.put(rs.getString("Dept_Name_" + Valiables.langType + ""), new Object[]{rs.getInt("Dept_ID"), rs.getString("Dept_Name_L1"), rs.getString("Dept_Name_L2")});
+                map.put(rs.getString("Dept_Name_" + Variable.langType + ""), new Object[]{rs.getInt("Dept_ID"), rs.getString("Dept_Name_L1"), rs.getString("Dept_Name_L2")});
             }
             rs.close();
             return map;
@@ -914,7 +914,7 @@ public class Employee {
             String query = "Select * from tbl_WorkUnit order by UnitSortID";
             ResultSet rs = c.createStatement().executeQuery(query);
             while (rs.next()) {
-                map.put(rs.getString("UnitName_" + Valiables.langType + ""), new Object[]{rs.getInt("UnitID"), rs.getString("UnitName_L1"), rs.getString("UnitName_L2")});
+                map.put(rs.getString("UnitName_" + Variable.langType + ""), new Object[]{rs.getInt("UnitID"), rs.getString("UnitName_L1"), rs.getString("UnitName_L2")});
             }
             rs.close();
             return map;
@@ -930,7 +930,7 @@ public class Employee {
             String query = "Select * from tbl_Nationality";
             ResultSet rs = c.createStatement().executeQuery(query);
             while (rs.next()) {
-                map.put(rs.getString("Nation_" + Valiables.langType + ""), new Object[]{rs.getInt("NationID"), rs.getString("Nation_L1"), rs.getString("Nation_L2")});
+                map.put(rs.getString("Nation_" + Variable.langType + ""), new Object[]{rs.getInt("NationID"), rs.getString("Nation_L1"), rs.getString("Nation_L2")});
             }
             rs.close();
             return map;
@@ -946,7 +946,7 @@ public class Employee {
             String query = "Select * from tbl_Ethnic";
             ResultSet rs = c.createStatement().executeQuery(query);
             while (rs.next()) {
-                map.put(rs.getString("Ethnic_" + Valiables.langType + ""), new Object[]{rs.getInt("EthnicID"), rs.getString("Ethnic_L1"), rs.getString("Ethnic_L2")});
+                map.put(rs.getString("Ethnic_" + Variable.langType + ""), new Object[]{rs.getInt("EthnicID"), rs.getString("Ethnic_L1"), rs.getString("Ethnic_L2")});
             }
             rs.close();
             return map;
@@ -962,7 +962,7 @@ public class Employee {
             String query = "Select * from tbl_Region";
             ResultSet rs = c.createStatement().executeQuery(query);
             while (rs.next()) {
-                map.put(rs.getString("Region_" + Valiables.langType + ""), new Object[]{rs.getInt("RegionID"), rs.getString("Region_L1"), rs.getString("Region_L2")});
+                map.put(rs.getString("Region_" + Variable.langType + ""), new Object[]{rs.getInt("RegionID"), rs.getString("Region_L1"), rs.getString("Region_L2")});
             }
             rs.close();
             return map;
@@ -978,7 +978,7 @@ public class Employee {
             String query = "Select * from Tbl_Title";
             ResultSet rs = c.createStatement().executeQuery(query);
             while (rs.next()) {
-                map.put(rs.getString("Title_name_" + Valiables.langType + ""), new Object[]{rs.getInt("Title_ID"), rs.getString("Title_name_L1"), rs.getString("Title_name_L2")});
+                map.put(rs.getString("Title_name_" + Variable.langType + ""), new Object[]{rs.getInt("Title_ID"), rs.getString("Title_name_L1"), rs.getString("Title_name_L2")});
             }
             rs.close();
             return map;
@@ -994,7 +994,7 @@ public class Employee {
             String query = "Select * from Tbl_Employee where Loc_ID=" + this.getEmpLocationID() + "";
             ResultSet rs = c.createStatement().executeQuery(query);
             while (rs.next()) {
-                map.put(rs.getString("F_name_" + Valiables.langType + ""), new Object[]{rs.getInt("Emp_ID"), rs.getString("EMP_Nbr"), rs.getString("User_Email"), rs.getString("F_name_L1"), rs.getString("F_name_L2")});
+                map.put(rs.getString("F_name_" + Variable.langType + ""), new Object[]{rs.getInt("Emp_ID"), rs.getString("EMP_Nbr"), rs.getString("User_Email"), rs.getString("F_name_L1"), rs.getString("F_name_L2")});
             }
             rs.close();
             return map;
@@ -1010,7 +1010,7 @@ public class Employee {
             String query = "Select * from Tbl_Work_Status";
             ResultSet rs = c.createStatement().executeQuery(query);
             while (rs.next()) {
-                map.put(rs.getString("Work_Type_" + Valiables.langType + ""), new Object[]{rs.getInt("Work_Status_ID"), rs.getString("Work_Type_L1"), rs.getString("Work_Type_L2")});
+                map.put(rs.getString("Work_Type_" + Variable.langType + ""), new Object[]{rs.getInt("Work_Status_ID"), rs.getString("Work_Type_L1"), rs.getString("Work_Type_L2")});
             }
             rs.close();
             return map;
@@ -1026,7 +1026,7 @@ public class Employee {
             String query = "Select * from Tbl_SalaryType";
             ResultSet rs = c.createStatement().executeQuery(query);
             while (rs.next()) {
-                map.put(rs.getString("SalT_Name_" + Valiables.langType + ""), new Object[]{rs.getInt("SalT_ID"), rs.getString("SalT_Name_L1"), rs.getString("SalT_Name_L2")});
+                map.put(rs.getString("SalT_Name_" + Variable.langType + ""), new Object[]{rs.getInt("SalT_ID"), rs.getString("SalT_Name_L1"), rs.getString("SalT_Name_L2")});
             }
             rs.close();
             return map;

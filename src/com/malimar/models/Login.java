@@ -1,8 +1,8 @@
 
 package com.malimar.models;
 
-import com.malimar.utils.Valiables;
-import static com.malimar.utils.Valiables.c;
+import com.malimar.utils.Variable;
+import static com.malimar.utils.Variable.c;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -46,8 +46,8 @@ public class Login {
             "where u.UserLogin = '"+this.getUsername()+"'";
             ResultSet rs = c.createStatement().executeQuery(query);
             if(rs.next()){
-                Valiables.userLoginID = rs.getInt("userid");
-                Valiables.emailLogin = this.getUsername();
+                Variable.userLoginID = rs.getInt("userid");
+                Variable.emailLogin = this.getUsername();
                 return rs.getString("User_pwd");
             }
         } catch (SQLException e) {

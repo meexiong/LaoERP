@@ -1,6 +1,6 @@
 package com.malimar.models;
 
-import static com.malimar.utils.Valiables.c;
+import static com.malimar.utils.Variable.c;
 import com.malimar.views.FrmChangeLabel;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

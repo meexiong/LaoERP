@@ -4,8 +4,8 @@ import com.malimar.models.Label;
 import com.malimar.models.Login;
 import com.malimar.utils.EnumStatus;
 import com.malimar.utils.MoveForm;
-import com.malimar.utils.Valiables;
-import static com.malimar.utils.Valiables.langType;
+import com.malimar.utils.Variable;
+import static com.malimar.utils.Variable.langType;
 import com.malimar.views.FrmChangePassword;
 import com.malimar.views.FrmDatabaseSetting;
 import com.malimar.views.FrmLoginSystem;
@@ -41,7 +41,7 @@ public class LoginController implements ActionListener, MouseListener, MouseMoti
         this.view.getLblPassword().setText("ລະຫັດຜ່ານ");
         this.view.getBtnLogin().setText("ເຂົ້າໃຊ້ລະບົບ");
         this.view.getBtnDatabaseSetting().setText("ຕັ້ງຄ່າຖານຂໍ້ມູນ");
-        Valiables.langType = EnumStatus.L1.name();
+        Variable.langType = EnumStatus.L1.name();
         this.view.getTxtUsername().requestFocus();
     }
 
@@ -64,7 +64,7 @@ public class LoginController implements ActionListener, MouseListener, MouseMoti
         } else {
             if (this.verifyPassword() == true) {
                 this.view.dispose();
-                if(Valiables.langType.equals(EnumStatus.L1.name())){
+                if(Variable.langType.equals(EnumStatus.L1.name())){
                     Label.LN = 0;
                 }else{
                     Label.LN = 1;
@@ -85,7 +85,7 @@ public class LoginController implements ActionListener, MouseListener, MouseMoti
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.view.getBtnLaos()) {
-            Valiables.langType = EnumStatus.L1.name();
+            Variable.langType = EnumStatus.L1.name();
             this.view.getBtnLaos().setVisible(false);
             this.view.getBtnEnglish().setVisible(true);
             this.view.getLblWelcome().setText("ຍິນດີເຂົ້າສູ່ລະບົບ");
@@ -95,7 +95,7 @@ public class LoginController implements ActionListener, MouseListener, MouseMoti
             this.view.getBtnDatabaseSetting().setText("ຕັ້ງຄ່າຖານຂໍ້ມູນ");
             this.view.getTxtUsername().requestFocus();
         } else if (e.getSource() == this.view.getBtnEnglish()) {
-            Valiables.langType = EnumStatus.L2.name();
+            Variable.langType = EnumStatus.L2.name();
             this.view.getBtnLaos().setVisible(true);
             this.view.getBtnEnglish().setVisible(false);
             this.view.getLblWelcome().setText("Welcome to LaoERP");

@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import static com.malimar.utils.Valiables.langType;
+import static com.malimar.utils.Variable.langType;
 import java.util.HashMap;
 
 public class Title {

@@ -14,7 +14,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,44,0,0,5,86"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,44,0,0,6,115"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
@@ -34,7 +34,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jPanel2" alignment="0" pref="1350" max="32767" attributes="0"/>
+              <Component id="jPanel2" alignment="0" pref="1635" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -66,13 +66,20 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="310" y="80" width="1030" height="690"/>
+                  <AbsoluteConstraints x="310" y="80" width="1310" height="690"/>
                 </Constraint>
               </Constraints>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
               <SubComponents>
                 <Container class="javax.swing.JScrollPane" name="tableScrollPane">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                        <EmptyBorder bottom="0" left="0" right="0" top="0"/>
+                      </Border>
+                    </Property>
+                  </Properties>
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
@@ -90,36 +97,30 @@
                           <Font name="Saysettha OT" size="12" style="0"/>
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="13" rowCount="1">
+                          <Table columnCount="17" rowCount="1">
+                            <Column editable="false" title="lblPRID" type="java.lang.Object"/>
+                            <Column editable="false" title="lblStatus" type="java.lang.Boolean"/>
                             <Column editable="false" title="lblEmpID" type="java.lang.Object"/>
                             <Column editable="false" title="lblEmpNbr" type="java.lang.Object"/>
                             <Column editable="false" title="lblEmpName" type="java.lang.Object"/>
-                            <Column editable="false" title="lblGender" type="java.lang.Object"/>
-                            <Column editable="false" title="lblEmpDept" type="java.lang.Object"/>
                             <Column editable="false" title="lblGrossSalary" type="java.lang.Object"/>
                             <Column editable="false" title="lblTaxSalary" type="java.lang.Object"/>
                             <Column editable="false" title="lblExcludeTax" type="java.lang.Object"/>
                             <Column editable="false" title="lblAbsent" type="java.lang.Object"/>
-                            <Column editable="false" title="lblOvertime" type="java.lang.Object"/>
-                            <Column editable="false" title="lblAddDdeduction" type="java.lang.Object"/>
                             <Column editable="false" title="lblInsurance" type="java.lang.Object"/>
+                            <Column editable="false" title="lblTax + or -" type="java.lang.Object"/>
+                            <Column editable="false" title="lblOvertime" type="java.lang.Object"/>
+                            <Column editable="false" title="lblTaxNetSalary" type="java.lang.Object"/>
                             <Column editable="false" title="lblPayTax" type="java.lang.Object"/>
+                            <Column editable="false" title="lblNonTax + or -" type="java.lang.Object"/>
+                            <Column editable="false" title="lblNetSalary" type="java.lang.Object"/>
+                            <Column editable="false" title="lblProcess" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="autoResizeMode" type="int" value="0"/>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                           <TableColumnModel selectionModel="0">
                             <Column maxWidth="0" minWidth="0" prefWidth="-1" resizable="true">
-                              <Title/>
-                              <Editor/>
-                              <Renderer/>
-                            </Column>
-                            <Column maxWidth="50" minWidth="50" prefWidth="-1" resizable="true">
-                              <Title/>
-                              <Editor/>
-                              <Renderer/>
-                            </Column>
-                            <Column maxWidth="175" minWidth="175" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>
                               <Renderer/>
@@ -134,6 +135,26 @@
                               <Editor/>
                               <Renderer/>
                             </Column>
+                            <Column maxWidth="60" minWidth="60" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="175" minWidth="175" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="90" minWidth="90" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="90" minWidth="90" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
                             <Column maxWidth="90" minWidth="90" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>
@@ -149,27 +170,37 @@
                               <Editor/>
                               <Renderer/>
                             </Column>
-                            <Column maxWidth="80" minWidth="80" prefWidth="-1" resizable="true">
+                            <Column maxWidth="90" minWidth="90" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>
                               <Renderer/>
                             </Column>
-                            <Column maxWidth="80" minWidth="80" prefWidth="-1" resizable="true">
+                            <Column maxWidth="90" minWidth="90" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>
                               <Renderer/>
                             </Column>
-                            <Column maxWidth="80" minWidth="80" prefWidth="-1" resizable="true">
+                            <Column maxWidth="90" minWidth="90" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>
                               <Renderer/>
                             </Column>
-                            <Column maxWidth="80" minWidth="80" prefWidth="-1" resizable="true">
+                            <Column maxWidth="90" minWidth="90" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>
                               <Renderer/>
                             </Column>
-                            <Column maxWidth="80" minWidth="80" prefWidth="-1" resizable="true">
+                            <Column maxWidth="90" minWidth="90" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="90" minWidth="90" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="0" minWidth="0" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>
                               <Renderer/>
@@ -187,6 +218,9 @@
                           <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                         </Property>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTable(){&#xa;    @Override&#xa;    public Component prepareRenderer (TableCellRenderer renderer, int rowIndex, int columnIndex){&#xa;        Component component = super.prepareRenderer(renderer, rowIndex, columnIndex);&#xa;        if(getModel().getValueAt(rowIndex,4) !=null){&#xa;            Object value = getModel().getValueAt(rowIndex,4);&#xa;            if(value.equals(&quot;Total&quot;)) {&#xa;                table.setRowSelectionAllowed(false);&#xa;                component.setBackground(Color.decode(&quot;#82E0AA&quot;));&#xa;                component.setForeground(Color.BLACK);&#xa;            }else {&#xa;                component.setBackground(Color.WHITE);&#xa;                component.setForeground(Color.BLACK);&#xa;            }&#xa;        }&#xa;        Color color = null;&#xa;        if(columnIndex == 4){&#xa;            Object v = getModel().getValueAt(rowIndex,16);&#xa;            if(v.equals(1)){&#xa;                color = Color.BLUE;&#xa;            }else{&#xa;                Object value = getModel().getValueAt(rowIndex,4);&#xa;                if(value.equals(&quot;Total&quot;)) {&#xa;                    color = Color.BLACK;&#xa;                }else{&#xa;                    color = Color.red;&#xa;                }&#xa;            }&#xa;        }&#xa;        component.setForeground(color);&#xa;        return component;&#xa;    }&#xa;}"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -200,7 +234,7 @@
                 <Property name="rolloverColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Process"/>
+                <Property name="text" type="java.lang.String" value="Load"/>
                 <Property name="unvisitColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
@@ -262,6 +296,13 @@
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
               <SubComponents>
                 <Container class="javax.swing.JScrollPane" name="tableDeptScrollPane">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                        <EmptyBorder bottom="0" left="0" right="0" top="0"/>
+                      </Border>
+                    </Property>
+                  </Properties>
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
@@ -280,7 +321,7 @@
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="3" rowCount="1">
-                            <Column editable="false" title="lblSelect" type="java.lang.Boolean"/>
+                            <Column editable="false" title="lblRow#" type="java.lang.Object"/>
                             <Column editable="false" title="lblDeptID" type="java.lang.Object"/>
                             <Column editable="false" title="lblDepartmentName" type="java.lang.Object"/>
                           </Table>
@@ -288,7 +329,7 @@
                         <Property name="autoResizeMode" type="int" value="0"/>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                           <TableColumnModel selectionModel="0">
-                            <Column maxWidth="60" minWidth="60" prefWidth="-1" resizable="true">
+                            <Column maxWidth="65" minWidth="65" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>
                               <Renderer/>
@@ -298,7 +339,7 @@
                               <Editor/>
                               <Renderer/>
                             </Column>
-                            <Column maxWidth="220" minWidth="220" prefWidth="-1" resizable="true">
+                            <Column maxWidth="205" minWidth="205" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>
                               <Renderer/>
@@ -349,6 +390,61 @@
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="110" y="45" width="180" height="25"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="com.xzq.osc.JocHyperlink" name="btnProcess">
+              <Properties>
+                <Property name="activeColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="rolloverColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Process"/>
+                <Property name="unvisitColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="visitedColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Saysettha OT" size="12" style="0"/>
+                </Property>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="418" y="44" width="80" height="-1"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="com.xzq.osc.JocHyperlink" name="panelProcess">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/malimar/images/Button.png"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Saysettha OT" size="12" style="0"/>
+                </Property>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="410" y="40" width="-1" height="-1"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="com.xzq.osc.JocHyperlink" name="panelProcessHover">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/malimar/images/ButtonHover.png"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Saysettha OT" size="12" style="0"/>
+                </Property>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="410" y="40" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>

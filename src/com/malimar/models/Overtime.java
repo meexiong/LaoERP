@@ -2,8 +2,8 @@ package com.malimar.models;
 
 import com.malimar.utils.GetMaxID;
 import com.malimar.utils.ManageTable;
-import static com.malimar.utils.Valiables.c;
-import static com.malimar.utils.Valiables.userLoginID;
+import static com.malimar.utils.Variable.c;
+import static com.malimar.utils.Variable.userLoginID;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

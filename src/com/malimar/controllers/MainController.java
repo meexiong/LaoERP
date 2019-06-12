@@ -5,7 +5,7 @@ import static com.malimar.models.Label.LN;
 import static com.malimar.models.Label.hmapLang;
 import com.malimar.utils.ControlDeskTop;
 import com.malimar.utils.MoveForm;
-import com.malimar.utils.Valiables;
+import com.malimar.utils.Variable;
 import com.malimar.views.FrmAbsentType;
 import com.malimar.views.FrmBank;
 import com.malimar.views.FrmCompany;
@@ -51,7 +51,7 @@ public class MainController implements ActionListener, MouseListener, MouseMotio
     }
 
     private void startMain() {
-        this.view.getLblUserlogin().setText(Valiables.emailLogin);
+        this.view.getLblUserlogin().setText(Variable.emailLogin);
         this.view.getMenuDashboard().addActionListener((ActionListener) this);
         this.view.getMenuHR().addActionListener((ActionListener) this);
         this.view.getMenuSetting().addActionListener((ActionListener) this);

@@ -9,7 +9,7 @@ import com.malimar.utils.HorizontalAlignmentHeaderRenderer;
 import com.malimar.utils.ManageTable;
 import com.malimar.utils.MessageBox;
 import com.malimar.utils.ResizeImage;
-import com.malimar.utils.Valiables;
+import com.malimar.utils.Variable;
 import com.malimar.views.FrmDashboard;
 import com.malimar.views.FrmEmployee;
 import com.malimar.views.FrmHR;
@@ -600,7 +600,7 @@ public class EmployeeController implements ActionListener, MouseListener, MouseM
             Object[] obj = new Object[]{map.get(s)[0].toString(), map.get(s)[1].toString(), map.get(s)[2].toString(), map.get(s)[3].toString(), df.format(map.get(s)[4]), df.format(map.get(s)[5]), df.format(map.get(s)[6]), df.format(SalaryCalc.fuctionTax(sum, pct, min, max, deduction))};
             tableTaxModel.addRow(obj);
         });
-        if (Valiables.langType.equals("L1")) {
+        if (Variable.langType.equals("L1")) {
             Object[] obj = new Object[]{null, 1, null, null, "ເງິນເດືອນທີ່ໄລາອາກອນ", String.format("%,.0f", SalaryCalc.getSalary(this.model.getEmpID(), "T") - SalaryCalc.getInsurance(this.model.getEmpID(), SalaryCalc.getSalary(this.model.getEmpID(), "I"))), "ລວມຈ່າຍອາກອນ", df.format(totalTax)};
             tableTaxModel.addRow(obj);
         } else {

@@ -2,10 +2,10 @@ package com.malimar.models;
 
 import com.malimar.utils.GetMaxID;
 import com.malimar.utils.ManageTable;
-import com.malimar.utils.Valiables;
-import static com.malimar.utils.Valiables.c;
-import static com.malimar.utils.Valiables.langType;
-import static com.malimar.utils.Valiables.userLoginID;
+import com.malimar.utils.Variable;
+import static com.malimar.utils.Variable.c;
+import static com.malimar.utils.Variable.langType;
+import static com.malimar.utils.Variable.userLoginID;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -142,7 +142,7 @@ public class Absent {
             String query = "Select * from tbl_AbsentReason";
             ResultSet rs = c.createStatement().executeQuery(query);
             while (rs.next()) {
-                map.put(rs.getString("RDesc_" + Valiables.langType + ""), new Object[]{rs.getInt("RID"), rs.getString("RDesc_L1"), rs.getString("RDesc_L2")});
+                map.put(rs.getString("RDesc_" + Variable.langType + ""), new Object[]{rs.getInt("RID"), rs.getString("RDesc_L1"), rs.getString("RDesc_L2")});
             }
             rs.close();
             return map;
@@ -156,7 +156,7 @@ public class Absent {
     public HashMap<String, Object[]> getAbDeduction() {
         try {
             HashMap<String, Object[]> map = new HashMap<>();
-//            String query = "SELECT dbo.Tbl_Employee_Leave.ELID, dbo.tbl_Absent_category.CAbsentID, (dbo.tbl_Absent_category.Amount_Hours*60) +   as mnt, dbo.tbl_Absent_category.Display, dbo.tbl_Absent_category.Absent_" + Valiables.langType + " as cate ,dbo.Tbl_Employee_Leave.Amount_Hour\n"
+//            String query = "SELECT dbo.Tbl_Employee_Leave.ELID, dbo.tbl_Absent_category.CAbsentID, (dbo.tbl_Absent_category.Amount_Hours*60) +   as mnt, dbo.tbl_Absent_category.Display, dbo.tbl_Absent_category.Absent_" + Variable.langType + " as cate ,dbo.Tbl_Employee_Leave.Amount_Hour\n"
 //                    + "FROM dbo.Tbl_Employee_Leave INNER JOIN\n"
 //                    + "dbo.tbl_Absent_category ON dbo.Tbl_Employee_Leave.CAbsentID = dbo.tbl_Absent_category.CAbsentID\n"
 //                    + "WHERE (dbo.Tbl_Employee_Leave.emp_id = " + this.getEmpID() + ")";

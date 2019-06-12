@@ -1,8 +1,8 @@
 package com.malimar.models;
 
 import com.malimar.utils.ManageTable;
-import static com.malimar.utils.Valiables.c;
-import static com.malimar.utils.Valiables.langType;
+import static com.malimar.utils.Variable.c;
+import static com.malimar.utils.Variable.langType;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
