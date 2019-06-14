@@ -3,6 +3,7 @@ package com.malimar.controllers;
 import com.malimar.models.Absent;
 import com.malimar.utils.ManageTable;
 import com.malimar.utils.MessageBox;
+import com.malimar.utils.MoveForm;
 import com.malimar.views.FrmNewAbsent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -82,6 +83,8 @@ public class NewAbsentController implements ActionListener, MouseListener, Mouse
         this.view.getBtnDelete().addMouseListener(this);
         this.view.getBtnDelete().addMouseMotionListener(this);
         this.view.getTable().addMouseListener(this);
+        this.view.getLblNewAbsentInfo().addMouseListener(this);
+        this.view.getLblNewAbsentInfo().addMouseMotionListener(this);
     }
 
     private void clear() {
@@ -157,7 +160,9 @@ public class NewAbsentController implements ActionListener, MouseListener, Mouse
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        if (e.getSource() == this.view.getLblNewAbsentInfo()) {
+            MoveForm.mousePressed(e);
+        }
     }
 
     @Override
@@ -183,7 +188,9 @@ public class NewAbsentController implements ActionListener, MouseListener, Mouse
 
     @Override
     public void mouseDragged(MouseEvent e) {
-
+        if (e.getSource() == this.view.getLblNewAbsentInfo()) {
+            MoveForm.mouseDragded(e, this.view);
+        }
     }
 
     @Override

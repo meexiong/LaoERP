@@ -8,9 +8,12 @@ import com.malimar.utils.HorizontalAlignmentHeaderRenderer;
 import com.malimar.utils.ManageTable;
 import com.malimar.utils.Variable;
 import com.malimar.views.FrmAddDeduction;
+import com.malimar.views.FrmEmpHourly;
 import com.malimar.views.FrmNewAbsent;
 import com.malimar.views.FrmOvertime;
 import com.malimar.views.FrmPayRoll;
+import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -34,6 +37,8 @@ public class PayRolController implements ActionListener, MouseListener, MouseMot
     HashMap<String, Object[]> mapTable = null;
     DefaultTableModel tableModel = new DefaultTableModel();
     DefaultTableModel tableDeptModel = new DefaultTableModel();
+    int workType;
+    int payrollStatus;
 
     public PayRolController(FrmPayRoll view) {
         this.view = view;
@@ -44,8 +49,29 @@ public class PayRolController implements ActionListener, MouseListener, MouseMot
         Variable.ymG = SalaryCalc.convertDToYM(SalaryCalc.getPayrollEndDate());
         this.setInitial();
         this.setEvent();
+        this.view.getRadViewAll().setSelected(true);
+        this.view.getRadTotal().setSelected(true);
+        workType = 3;
+        payrollStatus = 3;
         this.model.insertPayrollAll();
-        this.model.loadPayroll(this.view.getTable(), tableModel, 0);
+        this.model.loadPayroll(this.view.getTable(), tableModel, 0, payrollStatus, workType);
+        this.setPayrollStatusInfo();
+        this.countEmpWorkType();
+    }
+
+    private void countEmpWorkType() {
+        this.model.getPayrollWorkTypeInfo();
+        this.view.getRadFullTime().setText("FullTime(" + this.model.getCountFull() + ")");
+        this.view.getRadPartTime().setText("PartTime(" + this.model.getCountPart() + ")");
+        int empAll = this.model.getCountFull() + this.model.getCountPart();
+        this.view.getRadViewAll().setText("All(" + empAll + ")");
+    }
+
+    private void setPayrollStatusInfo() {
+        this.model.getPayrollStatusInfo();
+        this.view.getRadCompleted().setText("Completed(" + String.valueOf(this.model.getCountProcess()) + ")");
+        this.view.getRadPending().setText("Pending(" + String.valueOf(this.model.getCountNotProcess()) + ")");
+        this.view.getRadTotal().setText("All(" + String.valueOf(this.model.getCountNotProcess() + this.model.getCountProcess()) + ")");
     }
 
     private void setInitial() {
@@ -91,47 +117,64 @@ public class PayRolController implements ActionListener, MouseListener, MouseMot
     }
 
     private void setEvent() {
-        this.view.getBtnLoad().addActionListener(this);
-        this.view.getBtnLoad().addMouseListener(this);
-        this.view.getBtnLoad().addMouseMotionListener(this);
         this.view.getTableDept().addMouseListener(this);
         this.view.getTable().addMouseListener(this);
-    }
-
-    private void setTableValues() {
-        ManageTable.clearTable(this.view.getTable(), tableModel);
-        DecimalFormat df = new DecimalFormat("#,##0");
-        mapTable = this.model.loadEmpDetails();
-        Map<String, Object[]> treeMap = new TreeMap<>(mapTable);
-        treeMap.keySet().forEach((s) -> {
-            int empID = Integer.parseInt(mapTable.get(s)[0].toString());
-            String empNbr = mapTable.get(s)[1].toString();
-            String empName = mapTable.get(s)[2].toString();
-            String empDept = mapTable.get(s)[4].toString();
-            String empWorkStatus = mapTable.get(s)[6].toString();
-            double grossSalar = SalaryCalc.getSalary(empID, "G");
-            double taxSalar = SalaryCalc.getSalary(empID, "T");
-            double excludeTax = SalaryCalc.getSalary(empID, "X");
-            double abSalary = (SalaryCalc.getSalary(empID, "G") / (SalaryCalc.getAbsentDayInMonth() * SalaryCalc.getDayWorkHours() * 60)) * SalaryCalc.getABMinutes(empID, SalaryCalc.convertDate(SalaryCalc.getPayrollStartDate()), SalaryCalc.convertDate(SalaryCalc.getPayrollEndDate()));
-            double insur = SalaryCalc.getInsurance(empID, SalaryCalc.getSalary(empID, "G") - abSalary);
-            double ot = SalaryCalc.getOverTime(empID, SalaryCalc.convertDate(SalaryCalc.getPayrollStartDate()), SalaryCalc.convertDate(SalaryCalc.getPayrollEndDate()));
-            double asTax = SalaryCalc.getAddOrSubtract(empID, 1);
-            double asNoTax = SalaryCalc.getAddOrSubtract(empID, 0);
-            double totalSalary = taxSalar - abSalary - insur + asTax + ot;
-            double payTax = SalaryCalc.getPayTax(empID, totalSalary);
-            double netSalary = totalSalary - payTax + asNoTax + excludeTax;
-            Object[] obj = new Object[]{empID, empNbr, empName, "", df.format(grossSalar), df.format(taxSalar), df.format(excludeTax), df.format(abSalary), df.format(insur), df.format(asTax), df.format(ot), df.format(payTax), df.format(asNoTax), df.format(netSalary)};
-            tableModel.addRow(obj);
-        });
-        this.view.getTable().setModel(tableModel);
+        this.view.getBtnProcess().addActionListener(this);
+        this.view.getBtnProcess().addMouseListener(this);
+        this.view.getBtnProcess().addMouseMotionListener(this);
+        this.view.getRadTotal().addActionListener(this);
+        this.view.getRadPending().addActionListener(this);
+        this.view.getRadCompleted().addActionListener(this);
+        this.view.getRadFullTime().addActionListener(this);
+        this.view.getRadPartTime().addActionListener(this);
+        this.view.getRadViewAll().addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == this.view.getBtnLoad()) {
-//            this.model.insertPayrollAll();
-//            this.model.loadPayroll(this.view.getTable(), tableModel);
+        Cursor cur = new Cursor(Cursor.WAIT_CURSOR);
+        this.view.setCursor(cur);
+        if (e.getSource() == this.view.getBtnProcess()) {
+            int rowCnt = this.view.getTable().getRowCount() - 1;
+            for (int i = 0; i <= rowCnt; i++) {
+                Boolean check = (Boolean) this.view.getTable().getValueAt(i, 1);
+                if (check == true) {
+                    this.model.setPayrollID(Integer.parseInt(this.view.getTable().getValueAt(i, 0).toString()));
+                    this.model.setEmpID(Integer.parseInt(this.view.getTable().getValueAt(i, 2).toString()));
+                    this.model.setPayrollStatus(Integer.parseInt(this.view.getTable().getValueAt(i, 16).toString()));
+                    this.model.setEmpFullTime(Integer.parseInt(this.view.getTable().getValueAt(i, 17).toString()));
+                    this.model.updatePayrollSelected();
+                }
+            }
+            if (this.model.getDepartmentID() == 0) {
+                this.model.loadPayroll(this.view.getTable(), tableModel, 0, payrollStatus, workType);
+            } else {
+                this.model.loadPayroll(this.view.getTable(), tableModel, this.model.getDepartmentID(), payrollStatus, workType);
+            }
+            this.setPayrollStatusInfo();
+        } else if (e.getSource() == this.view.getRadTotal()) {
+            this.model.loadPayroll(this.view.getTable(), tableModel, 0, payrollStatus, workType);
+            this.setPayrollStatusInfo();
+        } else if (e.getSource() == this.view.getRadPending()) {
+            payrollStatus = 0;
+            this.model.loadPayroll(this.view.getTable(), tableModel, 0, payrollStatus, workType);
+            this.setPayrollStatusInfo();
+        } else if (e.getSource() == this.view.getRadCompleted()) {
+            payrollStatus = 1;
+            this.model.loadPayroll(this.view.getTable(), tableModel, 0, payrollStatus, workType);
+            this.setPayrollStatusInfo();
+        } else if (e.getSource() == this.view.getRadViewAll()) {
+            workType = 3;
+            this.model.loadPayroll(this.view.getTable(), tableModel, 0, payrollStatus, workType);
+        } else if (e.getSource() == this.view.getRadFullTime()) {
+            workType = 1;
+            this.model.loadPayroll(this.view.getTable(), tableModel, 0, payrollStatus, workType);
+        } else if (e.getSource() == this.view.getRadPartTime()) {
+            workType = 0;
+            this.model.loadPayroll(this.view.getTable(), tableModel, 0, payrollStatus, workType);
         }
+        Cursor cur1 = new Cursor(Cursor.DEFAULT_CURSOR);
+        this.view.setCursor(cur1);
     }
 
     @Override
@@ -140,7 +183,8 @@ public class PayRolController implements ActionListener, MouseListener, MouseMot
             int row = this.view.getTableDept().getSelectedRow();
             int id = Integer.parseInt(this.view.getTableDept().getValueAt(row, 1).toString());
             this.model.setDepartmentID(id);
-            this.model.loadPayroll(this.view.getTable(), tableModel, this.model.getDepartmentID());
+            this.model.loadPayroll(this.view.getTable(), tableModel, this.model.getDepartmentID(), payrollStatus, workType);
+            this.setPayrollStatusInfo();
         } else if (e.getSource() == this.view.getTable()) {
             int row = this.view.getTable().getSelectedRow();
             int col = this.view.getTable().getSelectedColumn();
@@ -160,22 +204,30 @@ public class PayRolController implements ActionListener, MouseListener, MouseMot
                 int emid = Integer.parseInt(this.view.getTable().getValueAt(row, 2).toString());
                 String emnbr = this.view.getTable().getValueAt(row, 3).toString();
                 String emName = this.view.getTable().getValueAt(row, 4).toString();
+                int full = Integer.parseInt(this.view.getTable().getValueAt(row, 17).toString());
                 switch (col) {
+                    case 5:
+                        if (full == 0) {
+                            FrmEmpHourly emhrs = new FrmEmpHourly(null, true, emid, emnbr, emName);
+                            emhrs.setVisible(true);
+                            this.model.loadPayroll(this.view.getTable(), tableModel, this.model.getDepartmentID(), payrollStatus, workType);
+                        }
+                        break;
                     case 8:
                         FrmNewAbsent ab = new FrmNewAbsent(null, true, emid, emnbr, emName);
                         ab.setVisible(true);
-                        this.model.loadPayroll(this.view.getTable(), tableModel, this.model.getDepartmentID());
+                        this.model.loadPayroll(this.view.getTable(), tableModel, this.model.getDepartmentID(), payrollStatus, workType);
                         break;
                     case 11:
                         FrmOvertime ot = new FrmOvertime(null, true, emid, emnbr, emName);
                         ot.setVisible(true);
-                        this.model.loadPayroll(this.view.getTable(), tableModel, this.model.getDepartmentID());
+                        this.model.loadPayroll(this.view.getTable(), tableModel, this.model.getDepartmentID(), payrollStatus, workType);
                         break;
                     case 10:
                     case 14:
                         FrmAddDeduction add = new FrmAddDeduction(null, true, emid, emnbr, emName);
                         add.setVisible(true);
-                        this.model.loadPayroll(this.view.getTable(), tableModel, this.model.getDepartmentID());
+                        this.model.loadPayroll(this.view.getTable(), tableModel, this.model.getDepartmentID(), payrollStatus, workType);
                         break;
                     default:
                         break;
@@ -201,10 +253,11 @@ public class PayRolController implements ActionListener, MouseListener, MouseMot
 
     @Override
     public void mouseExited(MouseEvent e) {
-        if (e.getSource() == this.view.getBtnLoad()) {
-            this.view.getPanelLoadHover().setVisible(false);
-            this.view.getPanelLoad().setVisible(true);
+        if (e.getSource() == this.view.getBtnProcess()) {
+            this.view.getPanelProcessHover().setVisible(false);
+            this.view.getPanelProcess().setVisible(true);
         }
+
     }
 
     @Override
@@ -214,9 +267,9 @@ public class PayRolController implements ActionListener, MouseListener, MouseMot
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        if (e.getSource() == this.view.getBtnLoad()) {
-            this.view.getPanelLoadHover().setVisible(true);
-            this.view.getPanelLoad().setVisible(false);
+        if (e.getSource() == this.view.getBtnProcess()) {
+            this.view.getPanelProcessHover().setVisible(true);
+            this.view.getPanelProcess().setVisible(false);
         }
     }
 

@@ -8,6 +8,7 @@ import com.malimar.views.FrmEmployee;
 import com.malimar.views.FrmHR;
 import com.malimar.views.FrmMainMenu;
 import com.malimar.views.FrmPayRoll;
+import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -30,7 +31,7 @@ public class HRController implements ActionListener, MouseListener, MouseMotionL
         this.view.getMenuEmployee().addActionListener((ActionListener) this);
         this.view.getMenuEmployee().addMouseListener((MouseListener) this);
         this.view.getMenuEmployee().addMouseMotionListener((MouseMotionListener) this);
-         this.view.getMenuPayroll().addActionListener((ActionListener) this);
+        this.view.getMenuPayroll().addActionListener((ActionListener) this);
         this.view.getMenuPayroll().addMouseListener((MouseListener) this);
         this.view.getMenuPayroll().addMouseMotionListener((MouseMotionListener) this);
         this.view.getMenuUpSalary().addMouseListener((MouseListener) this);
@@ -66,10 +67,13 @@ public class HRController implements ActionListener, MouseListener, MouseMotionL
             FrmMainMenu.deskTopControll.add(f);
             f.setVisible(true);
         } else if (e.getSource() == this.view.getMenuPayroll()) {
+            Cursor cur = new Cursor(Cursor.WAIT_CURSOR);
+            this.view.setCursor(cur);
             ControlDeskTop.closeChilds(FrmMainMenu.deskTopControll);
             FrmPayRoll f = new FrmPayRoll();
             FrmMainMenu.deskTopControll.add(f);
             f.setVisible(true);
+            // this.view.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
         }
     }
 

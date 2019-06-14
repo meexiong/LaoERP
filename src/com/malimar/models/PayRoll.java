@@ -9,7 +9,6 @@ import static com.malimar.utils.Variable.userLoginID;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,6 +22,78 @@ public class PayRoll {
     String departmentName;
     Date startDate;
     Date endDate;
+    int payrollID;
+    int empID;
+    int payrollStatus;
+    int countNotProcess;
+    int countProcess;
+    int countFull;
+    int countPart;
+    int empFullTime;
+
+    public int getEmpFullTime() {
+        return empFullTime;
+    }
+
+    public void setEmpFullTime(int empFullTime) {
+        this.empFullTime = empFullTime;
+    }
+
+    public int getCountFull() {
+        return countFull;
+    }
+
+    public void setCountFull(int countFull) {
+        this.countFull = countFull;
+    }
+
+    public int getCountPart() {
+        return countPart;
+    }
+
+    public void setCountPart(int countPart) {
+        this.countPart = countPart;
+    }
+
+    public int getCountNotProcess() {
+        return countNotProcess;
+    }
+
+    public void setCountNotProcess(int countNotProcess) {
+        this.countNotProcess = countNotProcess;
+    }
+
+    public int getCountProcess() {
+        return countProcess;
+    }
+
+    public void setCountProcess(int countProcess) {
+        this.countProcess = countProcess;
+    }
+
+    public int getPayrollStatus() {
+        return payrollStatus;
+    }
+
+    public void setPayrollStatus(int payrollStatus) {
+        this.payrollStatus = payrollStatus;
+    }
+
+    public int getEmpID() {
+        return empID;
+    }
+
+    public void setEmpID(int empID) {
+        this.empID = empID;
+    }
+
+    public int getPayrollID() {
+        return payrollID;
+    }
+
+    public void setPayrollID(int payrollID) {
+        this.payrollID = payrollID;
+    }
 
     public int getDepartmentID() {
         return departmentID;
@@ -187,7 +258,7 @@ public class PayRoll {
         }
     }
 
-    public void loadPayroll(JTable table, DefaultTableModel model, int deptID) {
+    public void loadPayroll(JTable table, DefaultTableModel model, int deptID, int pst, int workType) {
         try {
             double g = 0;
             double tx = 0;
@@ -199,32 +270,49 @@ public class PayRoll {
             double ptx = 0;
             double nast = 0;
             double nets = 0;
-            double taxNets=0;
+            double taxNets = 0;
+            int cntPrc = 0;
+            int cntNotPrc = 0;
+            int cntFull = 0;
+            int cntPart = 0;
             ManageTable.clearTable(table, model);
             DecimalFormat df = new DecimalFormat("#,##0");
             String query;
+            String wh;
+
             if (deptID == 0) {
-                query = "SELECT PRID, PRStatus, EmpID, EmpNbr, EmpName_" + langType + " as empName, GrossSalary, TaxSalary, ExcludedTax,\n"
-                        + "Absent, Insurance, TaxAddSubtract, Overtime, NonTaxAddSubtract, PayTax, NetSalary, StartDate, EndDate\n"
-                        + "FROM dbo.tbl_Payroll\n"
-                        + "WHERE (StartDate = '" + Variable.bomG + "') AND (EndDate ='" + Variable.eomG + "')";
+                if (pst == 3) {
+                    wh = "WHERE (StartDate = '" + Variable.bomG + "') AND (EndDate ='" + Variable.eomG + "')";
+                } else {
+                    wh = "WHERE (StartDate = '" + Variable.bomG + "') AND (EndDate ='" + Variable.eomG + "') and PRStatus=" + pst + "";
+                }
+                if (workType != 3) {
+                    wh = wh + " and EmpFullTime=" + workType + "";
+                }
             } else {
-                query = "SELECT PRID, PRStatus, EmpID, EmpNbr, EmpName_" + langType + " as empName, GrossSalary, TaxSalary, ExcludedTax,\n"
-                        + "Absent, Insurance, TaxAddSubtract, Overtime, NonTaxAddSubtract, PayTax, NetSalary, StartDate, EndDate\n"
-                        + "FROM dbo.tbl_Payroll\n"
-                        + "WHERE (StartDate = '" + Variable.bomG + "') AND (EndDate ='" + Variable.eomG + "') and DeptID=" + deptID + "";
+                wh = "WHERE (StartDate = '" + Variable.bomG + "') AND (EndDate ='" + Variable.eomG + "') and DeptID=" + deptID;
+                if (pst != 3) {
+                    wh = wh + " and PRStatus=" + pst + "";
+                }
+                if (workType != 3) {
+                    wh = wh + " and EmpFullTime=" + workType + "";
+                }
             }
+            query = "SELECT PRID, PRStatus, EmpID, EmpNbr, EmpName_" + langType + " as empName, GrossSalary, TaxSalary, ExcludedTax,\n"
+                    + "Absent, Insurance, TaxAddSubtract, Overtime, NonTaxAddSubtract, PayTax, NetSalary, StartDate, EndDate, EmpFullTime \n"
+                    + "FROM dbo.tbl_Payroll " + wh;
             ResultSet rs = c.createStatement().executeQuery(query);
             while (rs.next()) {
+                Boolean fulltime = rs.getBoolean("EmpFullTime");
                 int id = rs.getInt("PRID");
                 Boolean st = rs.getBoolean("PRStatus");
                 int eid = rs.getInt("EmpID");
                 String enbr = rs.getString("EmpNbr");
                 String eName = rs.getString("empName");
                 Object[] obj = null;
-                double grossSalar;
-                double taxSalar;
-                double excludeTax;
+                double grossSalar = 0;
+                double taxSalar = 0;
+                double excludeTax = 0;
                 double abSalary;
                 double insur;
                 double asTax;
@@ -234,11 +322,22 @@ public class PayRoll {
                 double asNoTax;
                 double netSalary;
                 if (st == false) {
-                    grossSalar = SalaryCalc.getSalary(eid, "G");
+                    cntNotPrc = cntNotPrc + 1;
+                    if (fulltime == false) {
+                        grossSalar = SalaryCalc.getHourlyAmount(eid);
+                        if (SalaryCalc.getSalary(eid, "T") == 0) {
+                            taxSalar = 0;
+                        } else {
+                            taxSalar = grossSalar;
+                        }
+                        excludeTax = 0;
+                    } else {
+                        grossSalar = SalaryCalc.getSalary(eid, "G");
+                        taxSalar = SalaryCalc.getSalary(eid, "T");
+                        excludeTax = SalaryCalc.getSalary(eid, "X");
+                    }
                     g = grossSalar + g;
-                    taxSalar = SalaryCalc.getSalary(eid, "T");
                     tx = taxSalar + tx;
-                    excludeTax = SalaryCalc.getSalary(eid, "X");
                     etx = excludeTax + etx;
                     abSalary = (grossSalar / (SalaryCalc.getAbsentDayInMonth() * SalaryCalc.getDayWorkHours() * 60)) * SalaryCalc.getABMinutes(eid, Variable.bomG, Variable.eomG);
                     abs = abSalary + abs;
@@ -255,8 +354,9 @@ public class PayRoll {
                     nast = asNoTax + nast;
                     netSalary = totalSalary - payTax + asNoTax + excludeTax;
                     nets = netSalary + nets;
-                     taxNets= totalSalary + taxNets;
+                    taxNets = totalSalary + taxNets;
                 } else {
+                    cntPrc = cntPrc + 1;
                     grossSalar = rs.getDouble("GrossSalary");
                     g = grossSalar + g;
                     taxSalar = rs.getDouble("TaxSalary");
@@ -272,23 +372,122 @@ public class PayRoll {
                     ot = rs.getDouble("Overtime");
                     ov = ot + ov;
                     payTax = rs.getDouble("PayTax");
-                    ptx = ot + ptx;
+                    ptx = payTax + ptx;
                     asNoTax = rs.getDouble("NonTaxAddSubtract");
                     nast = asNoTax + nast;
-                    asNoTax = rs.getDouble("NetSalary");
-                    nets = asNoTax + nets;
+                    netSalary = rs.getDouble("NetSalary");
+                    nets = netSalary + nets;
                     totalSalary = taxSalar - abSalary - insur + asTax + ot;
-                    netSalary = totalSalary - payTax + asNoTax + excludeTax;
-                    taxNets= totalSalary + taxNets;
+//                    netSalary = totalSalary - payTax + asNoTax + excludeTax;
+                    taxNets = totalSalary + taxNets;
                 }
-                obj = new Object[]{id, false, eid, enbr, eName, df.format(grossSalar), df.format(taxSalar), df.format(excludeTax), df.format(abSalary), df.format(insur), df.format(asTax), df.format(ot), df.format(totalSalary), df.format(payTax), df.format(asNoTax), df.format(netSalary), rs.getInt("PRStatus")};
+                obj = new Object[]{id, false, eid, enbr, eName, df.format(grossSalar), df.format(taxSalar), df.format(excludeTax), df.format(abSalary), df.format(insur), df.format(asTax), df.format(ot), df.format(totalSalary), df.format(payTax), df.format(asNoTax), df.format(netSalary), rs.getInt("PRStatus"), rs.getInt("EmpFullTime")};
                 model.addRow(obj);
             }
-            Object[] obj = new Object[]{0, false, 0, null, "Total", df.format(g), df.format(tx), df.format(etx), df.format(abs), df.format(ins), df.format(ast), df.format(ov), df.format(taxNets), df.format(ptx), df.format(nast), df.format(nets), 0};
+            int cnt = cntPrc + cntNotPrc;
+            Object[] obj = new Object[]{0, false, 0, null, "Total(" + cntPrc + "+" + cntNotPrc + "=" + cnt + ")", df.format(g), df.format(tx), df.format(etx), df.format(abs), df.format(ins), df.format(ast), df.format(ov), df.format(taxNets), df.format(ptx), df.format(nast), df.format(nets), 0, 0};
             model.addRow(obj);
             table.setModel(model);
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void updatePayrollSelected() {
+        try {
+            double grossSalar = 0;
+            double taxSalar = 0;
+            double excludeTax = 0;
+            double abSalary = 0;
+            double insur = 0;
+            double ot = 0;
+            double asTax = 0;
+            double asNoTax = 0;
+            double totalSalary = 0;
+            double payTax = 0;
+            double netSalary = 0;
+            if (this.getEmpFullTime() == 0) {
+                grossSalar = SalaryCalc.getHourlyAmount(this.getEmpID());
+                if (SalaryCalc.getSalary(this.getEmpID(), "T") == 0) {
+                    taxSalar = 0;
+                } else {
+                    taxSalar = grossSalar;
+                }
+                if (SalaryCalc.getSalary(this.getEmpID(), "X") == 0) {
+                    excludeTax = 0;
+                } else {
+                    excludeTax = grossSalar;
+                }
+                abSalary = (grossSalar / (SalaryCalc.getAbsentDayInMonth() * SalaryCalc.getDayWorkHours() * 60)) * SalaryCalc.getABMinutes(this.getEmpID(), Variable.bomG, Variable.eomG);
+                insur = SalaryCalc.getInsurance(this.getEmpID(), grossSalar - abSalary);
+                ot = SalaryCalc.getOverTime(this.getEmpID(), Variable.bomG, Variable.eomG);
+                asTax = SalaryCalc.getAddOrSubtract(this.getEmpID(), 1);
+                asNoTax = SalaryCalc.getAddOrSubtract(this.getEmpID(), 0);
+                totalSalary = taxSalar - abSalary - insur + asTax + ot;
+                payTax = SalaryCalc.getPayTax(this.getEmpID(), totalSalary);
+            } else {
+                grossSalar = SalaryCalc.getSalary(this.getEmpID(), "G");
+                taxSalar = SalaryCalc.getSalary(this.getEmpID(), "T");
+                abSalary = (grossSalar / (SalaryCalc.getAbsentDayInMonth() * SalaryCalc.getDayWorkHours() * 60)) * SalaryCalc.getABMinutes(this.getEmpID(), Variable.bomG, Variable.eomG);
+                insur = SalaryCalc.getInsurance(this.getEmpID(), grossSalar - abSalary);
+                ot = SalaryCalc.getOverTime(this.getEmpID(), Variable.bomG, Variable.eomG);
+                asTax = SalaryCalc.getAddOrSubtract(this.getEmpID(), 1);
+                asNoTax = SalaryCalc.getAddOrSubtract(this.getEmpID(), 0);
+                totalSalary = taxSalar - abSalary - insur + asTax + ot;
+                payTax = SalaryCalc.getPayTax(this.getEmpID(), totalSalary);
+            }
+            netSalary = totalSalary - payTax + asNoTax + excludeTax;
+            String insert = "Update tbl_Payroll set PRStatus=?, GrossSalary=?, TaxSalary=?,"
+                    + "ExcludedTax=?, Absent=?, Insurance=?, TaxAddSubtract=?, Overtime=?, PayTax=?, NonTaxAddSubtract=?, NetSalary=?, PRBy=? where PRID=?";
+            PreparedStatement p = c.prepareStatement(insert);
+            if (this.getPayrollStatus() == 1) {
+                p.setBoolean(1, false);
+            } else {
+                p.setBoolean(1, true);
+            }
+            p.setDouble(2, grossSalar);
+            p.setDouble(3, taxSalar);
+            p.setDouble(4, excludeTax);
+            p.setDouble(5, abSalary);
+            p.setDouble(6, insur);
+            p.setDouble(7, asTax);
+            p.setDouble(8, ot);
+            p.setDouble(9, payTax);
+            p.setDouble(10, asNoTax);
+            p.setDouble(11, netSalary);
+            p.setInt(12, userLoginID);
+            p.setInt(13, this.getPayrollID());
+            p.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void getPayrollStatusInfo() {
+        try {
+            String query = "Select count(pr.PRStatus) as cntPrc,\n"
+                    + "(Select count(p.PRStatus) from tbl_Payroll p where p.PRStatus=0 and p.StartDate='" + Variable.bomG + "') as cntNotPrc \n"
+                    + "from tbl_Payroll pr where pr.PRStatus=1 and pr.StartDate='" + Variable.bomG + "'";
+            ResultSet rs = c.createStatement().executeQuery(query);
+            if (rs.next()) {
+                this.setCountProcess(rs.getInt(1));
+                this.setCountNotProcess(rs.getInt(2));
+            }
+        } catch (SQLException e) {
+        }
+    }
+
+    public void getPayrollWorkTypeInfo() {
+        try {
+            String query = "Select count(pr.EmpFullTime) as cntFull,\n"
+                    + "(Select count(p.EmpFullTime) from tbl_Payroll p where p.EmpFullTime=0 and p.StartDate='" + Variable.bomG + "') as cntPart \n"
+                    + "from tbl_Payroll pr where pr.EmpFullTime=1 and pr.StartDate='" + Variable.bomG + "'";
+            ResultSet rs = c.createStatement().executeQuery(query);
+            if (rs.next()) {
+                this.setCountFull(rs.getInt(1));
+                this.setCountPart(rs.getInt(2));
+            }
+        } catch (SQLException e) {
         }
     }
 }

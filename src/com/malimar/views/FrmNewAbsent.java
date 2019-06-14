@@ -71,9 +71,6 @@ public class FrmNewAbsent extends javax.swing.JDialog {
         return lblDeductionFrom;
     }
 
-    public JLabel getLblEmployee() {
-        return lblEmployee;
-    }
 
     public JLabel getLblHours() {
         return lblHours;
@@ -136,8 +133,8 @@ public class FrmNewAbsent extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         menuExit = new com.xzq.osc.JocHyperlink();
         lblNewAbsentInfo = new javax.swing.JLabel();
+        txtEmployee = new javax.swing.JTextField();
         txtAbsentID = new javax.swing.JTextField();
-        lblEmployee = new javax.swing.JLabel();
         btnSave = new com.xzq.osc.JocHyperlink();
         panelSave = new com.xzq.osc.JocHyperlink();
         panelHover = new com.xzq.osc.JocHyperlink();
@@ -156,7 +153,6 @@ public class FrmNewAbsent extends javax.swing.JDialog {
         lblReason = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
         cmbReason = new javax.swing.JComboBox<>();
-        txtEmployee = new javax.swing.JTextField();
         chMgrApprove = new javax.swing.JCheckBox();
         lblMgrApprove = new javax.swing.JLabel();
         lblHRApprove = new javax.swing.JLabel();
@@ -175,6 +171,7 @@ public class FrmNewAbsent extends javax.swing.JDialog {
         jPanel2.setLayout(null);
 
         jPanel3.setBackground(new java.awt.Color(81, 87, 99));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         menuExit.setActiveColor(new java.awt.Color(255, 50, 50));
         menuExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Delete_30px.png"))); // NOI18N
@@ -185,30 +182,23 @@ public class FrmNewAbsent extends javax.swing.JDialog {
                 menuExitActionPerformed(evt);
             }
         });
+        jPanel3.add(menuExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(635, 0, 25, 25));
 
         lblNewAbsentInfo.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         lblNewAbsentInfo.setForeground(new java.awt.Color(255, 255, 255));
-        lblNewAbsentInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNewAbsentInfo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblNewAbsentInfo.setText("New Absent");
+        jPanel3.add(lblNewAbsentInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 1, 630, -1));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(2, 2, 2)
-                .addComponent(lblNewAbsentInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(menuExit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblNewAbsentInfo)
-                    .addComponent(menuExit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 5, Short.MAX_VALUE))
-        );
+        txtEmployee.setBackground(new java.awt.Color(81, 87, 99));
+        txtEmployee.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
+        txtEmployee.setForeground(new java.awt.Color(255, 255, 255));
+        txtEmployee.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtEmployee.setBorder(null);
+        txtEmployee.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        txtEmployee.setEnabled(false);
+        txtEmployee.setOpaque(false);
+        jPanel3.add(txtEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 2, 400, 25));
 
         jPanel2.add(jPanel3);
         jPanel3.setBounds(0, 0, 660, 30);
@@ -221,12 +211,6 @@ public class FrmNewAbsent extends javax.swing.JDialog {
         txtAbsentID.setOpaque(false);
         jPanel2.add(txtAbsentID);
         txtAbsentID.setBounds(30, 210, 80, 25);
-
-        lblEmployee.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblEmployee.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblEmployee.setText("Employee");
-        jPanel2.add(lblEmployee);
-        lblEmployee.setBounds(30, 50, 100, 25);
 
         btnSave.setActiveColor(new java.awt.Color(255, 255, 255));
         btnSave.setRolloverColor(new java.awt.Color(255, 255, 255));
@@ -353,11 +337,6 @@ public class FrmNewAbsent extends javax.swing.JDialog {
         cmbReason.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jPanel2.add(cmbReason);
         cmbReason.setBounds(430, 130, 200, 25);
-
-        txtEmployee.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtEmployee.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel2.add(txtEmployee);
-        txtEmployee.setBounds(150, 50, 400, 25);
 
         chMgrApprove.setBackground(new java.awt.Color(255, 255, 255));
         chMgrApprove.setFont(new java.awt.Font("Saysettha Lao", 0, 12)); // NOI18N
@@ -733,7 +712,6 @@ public class FrmNewAbsent extends javax.swing.JDialog {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JLabel lblAbsentDate;
     private javax.swing.JLabel lblDeductionFrom;
-    private javax.swing.JLabel lblEmployee;
     private javax.swing.JLabel lblHRApprove;
     private javax.swing.JLabel lblHours;
     private javax.swing.JLabel lblMgrApprove;

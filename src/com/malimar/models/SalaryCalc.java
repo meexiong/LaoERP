@@ -1,5 +1,6 @@
 package com.malimar.models;
 
+import com.malimar.utils.Variable;
 import static com.malimar.utils.Variable.c;
 import static com.malimar.utils.Variable.langType;
 import java.sql.ResultSet;
@@ -328,7 +329,7 @@ public class SalaryCalc {
                 String day = rs.getString(1);
                 Calendar calen = Calendar.getInstance();
                 calen.setTime(new Date());
-                calen.add(Calendar.DAY_OF_MONTH, -15);
+                calen.add(Calendar.DAY_OF_MONTH, -10);
                 Date enddate = calen.getTime();
                 Calendar calen1 = Calendar.getInstance();
                 calen1.setTime(enddate);
@@ -354,7 +355,7 @@ public class SalaryCalc {
 
                 Calendar calen = Calendar.getInstance();
                 calen.setTime(new Date());
-                calen.add(Calendar.DAY_OF_MONTH, -15);
+                calen.add(Calendar.DAY_OF_MONTH, -10);
                 Date enddate = calen.getTime();
                 String eom = new SimpleDateFormat("MM").format(enddate);
                 String year = new SimpleDateFormat("yyyy").format(enddate);
@@ -419,6 +420,19 @@ public class SalaryCalc {
             });
             return totalTax;
         } catch (Exception e) {
+        }
+        return 0;
+    }
+
+    public static double getHourlyAmount(int emid) {
+        try {
+            String query = "Select sum(Total) as hrsAmount from tbl_EmpHourly where empID=" + emid + " and (HrsDate between '" + Variable.bomG + "' and '" + Variable.eomG + "') and HR=1";
+            ResultSet rs = c.createStatement().executeQuery(query);
+            if(rs.next()){
+                return rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return 0;
     }
