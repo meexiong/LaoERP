@@ -61,6 +61,7 @@ public class OvertimeController implements ActionListener, MouseListener, MouseM
         ManageTable.setTableHeader(this.view.getTable(), this.view.getTableScrollPanel());
         this.setOvertimeMultipler();
         Date today = new Date();
+        this.view.getTxtOvertimeID().setVisible(false);
         this.view.getTxtOvertimeDate().setDate(today);
         this.view.getTxtSalary().setText(String.format("%,.0f", SalaryCalc.getSalary(this.model.getEmpID(), "O")));
         this.view.getTxtTotalDays().setText(String.valueOf(SalaryCalc.getOTday()));

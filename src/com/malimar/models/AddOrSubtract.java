@@ -21,6 +21,15 @@ public class AddOrSubtract {
     String asNote;
     boolean tax;
     int empID;
+    int column;
+
+    public int getColumn() {
+        return column;
+    }
+
+    public void setColumn(int column) {
+        this.column = column;
+    }
 
     public int getEmpID() {
         return empID;
@@ -132,7 +141,13 @@ public class AddOrSubtract {
             SimpleDateFormat sf = new SimpleDateFormat("dd-MM-yyyy");
             DecimalFormat df = new DecimalFormat("#,##0");
             ManageTable.clearTable(table, model);
-            String query = "Select * from tbl_AddOrSubtract where (ASDate Between '" + SalaryCalc.convertDate(SalaryCalc.getPayrollStartDate()) + "' and '" + SalaryCalc.convertDate(SalaryCalc.getPayrollEndDate()) + "') and empID=" + this.getEmpID() + "";
+            String t;
+            if (this.getColumn() == 10) {
+                t = "1";
+            } else {
+                t = "0";
+            }
+            String query = "Select * from tbl_AddOrSubtract where (Tax=" + t + ") and (ASDate Between '" + SalaryCalc.convertDate(SalaryCalc.getPayrollStartDate()) + "' and '" + SalaryCalc.convertDate(SalaryCalc.getPayrollEndDate()) + "') and empID=" + this.getEmpID() + "";
             ResultSet rs = c.createStatement().executeQuery(query);
             while (rs.next()) {
                 int asid = rs.getInt(1);

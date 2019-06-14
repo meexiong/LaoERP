@@ -12,4 +12,5 @@ public class Variable {
     public static String bomG;
     public static String eomG;
     public static String ymG;
+    public static int reQuery=0;
 }

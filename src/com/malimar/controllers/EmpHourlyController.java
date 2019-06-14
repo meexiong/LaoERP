@@ -1,6 +1,8 @@
 package com.malimar.controllers;
 
 import com.malimar.models.EmpHourly;
+import static com.malimar.models.Label.LN;
+import static com.malimar.models.Label.hmapLang;
 import com.malimar.models.SalaryCalc;
 import com.malimar.utils.ManageTable;
 import com.malimar.utils.MessageBox;
@@ -22,14 +24,16 @@ public class EmpHourlyController implements ActionListener, MouseListener, Mouse
     private final FrmEmpHourly view;
     private final EmpHourly model;
     DefaultTableModel tableModel = new DefaultTableModel();
-
+    String frm;
     public EmpHourlyController(FrmEmpHourly view, int emid, String emNbr, String emName) {
         this.view = view;
         EmpHourly eh = new EmpHourly();
         this.model = eh;
         this.model.setEmpID(emid);
+        this.frm = this.view.getClass().getSimpleName();
         this.setEvent();
         this.setInitial();
+        this.language();
         this.view.getTxtEmployee().setText(String.valueOf(emNbr) + " " + emName);
     }
 
@@ -56,6 +60,21 @@ public class EmpHourlyController implements ActionListener, MouseListener, Mouse
         double hrsm = SalaryCalc.getSalary(this.model.getEmpID(), "O") / SalaryCalc.getDayHour(this.model.getEmpID());
         this.view.getTxtHourlyAmount().setText(String.format("%,.0f", hrsm));
         this.view.getTxtDate().setDate(new Date());
+        this.view.getTxtHourlyID().setVisible(false);
+    }
+    
+    private void language(){
+        this.view.getLblHourlyInfo().setText(hmapLang.get("lblHourlyInfo".concat(frm).toUpperCase())[LN]);
+        this.view.getLblDate().setText(hmapLang.get("lblDate".concat(frm).toUpperCase())[LN]);
+        this.view.getLblHrsAmount().setText(hmapLang.get("lblHrsAmount".concat(frm).toUpperCase())[LN]);
+        this.view.getLblHours().setText(hmapLang.get("lblHours".concat(frm).toUpperCase())[LN]);
+        this.view.getLblMinute().setText(hmapLang.get("lblMinute".concat(frm).toUpperCase())[LN]);
+        this.view.getLblTotal().setText(hmapLang.get("lblTotal".concat(frm).toUpperCase())[LN]);
+        this.view.getLblMgr().setText(hmapLang.get("lblMgr".concat(frm).toUpperCase())[LN]);
+        this.view.getLblHR().setText(hmapLang.get("lblHR".concat(frm).toUpperCase())[LN]);
+        this.view.getBtnSave().setText(hmapLang.get("btnSave".concat(frm).toUpperCase())[LN]);
+        this.view.getBtnDelete().setText(hmapLang.get("btnDelete".concat(frm).toUpperCase())[LN]);
+        ManageTable.changeTableHeaderLabel(this.view.getTable(), frm);
     }
 
     private void clear() {

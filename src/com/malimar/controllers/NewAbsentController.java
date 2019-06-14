@@ -1,9 +1,12 @@
 package com.malimar.controllers;
 
 import com.malimar.models.Absent;
+import static com.malimar.models.Label.LN;
+import static com.malimar.models.Label.hmapLang;
 import com.malimar.utils.ManageTable;
 import com.malimar.utils.MessageBox;
 import com.malimar.utils.MoveForm;
+import com.malimar.utils.Variable;
 import com.malimar.views.FrmNewAbsent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,6 +15,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
@@ -25,15 +29,17 @@ public class NewAbsentController implements ActionListener, MouseListener, Mouse
     DefaultTableModel tableModel = new DefaultTableModel();
     HashMap<String, Object[]> mapAbDeduction = null;
     HashMap<String, Object[]> mapAbReason = null;
-
+    String frm;
     public NewAbsentController(FrmNewAbsent view, int emID, String emNbr, String emName) {
         this.view = view;
         Absent ab = new Absent();
         this.model = ab;
         this.model.setEmpID(emID);
+        this.frm = this.view.getClass().getSimpleName();
         this.view.getTxtEmployee().setText(String.valueOf(emNbr) + " " + emName);
         this.setInitial();
         this.setEvent();
+        this.language();
     }
 
     private void setInitial() {
@@ -46,6 +52,7 @@ public class NewAbsentController implements ActionListener, MouseListener, Mouse
         this.model.load(this.view.getTable(), tableModel);
         this.clear();
         this.view.getTxtAbsentID().setVisible(false);
+        this.view.getTxtAbsentDate().setDate(new Date());
     }
 
     private void setAbDeduction() {
@@ -54,7 +61,7 @@ public class NewAbsentController implements ActionListener, MouseListener, Mouse
             Map<String, Object[]> SortMap = new TreeMap<>(mapAbDeduction);
             this.view.getCmbDeductionFrom().removeAllItems();
             SortMap.keySet().forEach((s) -> {
-                
+
                 this.view.getCmbDeductionFrom().addItem(s);
             });
             this.view.getCmbDeductionFrom().setSelectedIndex(-1);
@@ -86,6 +93,20 @@ public class NewAbsentController implements ActionListener, MouseListener, Mouse
         this.view.getLblNewAbsentInfo().addMouseListener(this);
         this.view.getLblNewAbsentInfo().addMouseMotionListener(this);
     }
+    
+    private void language(){
+        this.view.getLblNewAbsentInfo().setText(hmapLang.get("lblNewAbsentInfo".concat(frm).toUpperCase())[LN]);
+        this.view.getLblAbsentDate().setText(hmapLang.get("lblAbsentDate".concat(frm).toUpperCase())[LN]);
+        this.view.getLblDeductionFrom().setText(hmapLang.get("lblDeductionFrom".concat(frm).toUpperCase())[LN]);
+        this.view.getLblHours().setText(hmapLang.get("lblHours".concat(frm).toUpperCase())[LN]);
+        this.view.getLblMinute().setText(hmapLang.get("lblMinute".concat(frm).toUpperCase())[LN]);
+        this.view.getLblReason().setText(hmapLang.get("lblReason".concat(frm).toUpperCase())[LN]);
+        this.view.getLblMgr().setText(hmapLang.get("lblMgr".concat(frm).toUpperCase())[LN]);
+        this.view.getLblHRApprove().setText(hmapLang.get("lblHR".concat(frm).toUpperCase())[LN]);
+        this.view.getBtnSave().setText(hmapLang.get("btnSave".concat(frm).toUpperCase())[LN]);
+        this.view.getBtnDelete().setText(hmapLang.get("btnDelete".concat(frm).toUpperCase())[LN]);
+        ManageTable.changeTableHeaderLabel(this.view.getTable(), frm);
+    }
 
     private void clear() {
         this.view.getTxtAbsentID().setText("New");
@@ -93,8 +114,8 @@ public class NewAbsentController implements ActionListener, MouseListener, Mouse
         this.view.getTxtHours().setText("0");
         this.view.getTxtMinute().setText("0");
         this.view.getCmbReason().setSelectedIndex(-1);
-        this.view.getChHRApprove().setSelected(true);
-        this.view.getChMgrApprove().setSelected(true);
+        this.view.getChHRApprove().setSelected(false);
+        this.view.getChMgrApprove().setSelected(false);
     }
 
     @Override
@@ -106,7 +127,7 @@ public class NewAbsentController implements ActionListener, MouseListener, Mouse
             this.model.setMinute(Integer.parseInt(this.view.getTxtMinute().getText()));
             this.model.setAbsentDate(this.view.getTxtAbsentDate().getDate());
             this.model.setMgrApprove(this.view.getChMgrApprove().isSelected());
-            this.model.setHrApprove(this.view.getChMgrApprove().isSelected());
+            this.model.setHrApprove(this.view.getChHRApprove().isSelected());
             String reason = this.view.getCmbReason().getSelectedItem().toString();
             this.model.setReasonID(Integer.parseInt(mapAbReason.get(reason)[0].toString()));
             if (this.view.getTxtAbsentID().getText().equals("New")) {
@@ -115,6 +136,7 @@ public class NewAbsentController implements ActionListener, MouseListener, Mouse
                 } else {
                     this.model.load(this.view.getTable(), tableModel);
                     this.clear();
+                    Variable.reQuery=1;
                 }
             } else {
                 this.model.setAbsentID(Integer.parseInt(this.view.getTxtAbsentID().getText()));
@@ -123,6 +145,7 @@ public class NewAbsentController implements ActionListener, MouseListener, Mouse
                 } else {
                     this.model.load(this.view.getTable(), tableModel);
                     this.clear();
+                    Variable.reQuery=1;
                 }
             }
             this.model.load(this.view.getTable(), tableModel);
@@ -134,6 +157,7 @@ public class NewAbsentController implements ActionListener, MouseListener, Mouse
             } else {
                 this.model.load(this.view.getTable(), tableModel);
                 this.clear();
+                Variable.reQuery=1;
             }
         }
     }
@@ -152,6 +176,8 @@ public class NewAbsentController implements ActionListener, MouseListener, Mouse
                 String x = this.model.getDedMapKey(mapAbDeduction, cate);
                 this.view.getCmbDeductionFrom().setSelectedItem(x);
                 this.view.getCmbReason().setSelectedItem(this.view.getTable().getValueAt(rowSelc, 5).toString());
+                this.view.getChMgrApprove().setSelected((Boolean) this.view.getTable().getValueAt(rowSelc, 6));
+                this.view.getChHRApprove().setSelected((Boolean) this.view.getTable().getValueAt(rowSelc, 7));
             } catch (ParseException ex) {
                 ex.printStackTrace();
             }

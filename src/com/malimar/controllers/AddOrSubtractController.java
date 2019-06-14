@@ -24,11 +24,12 @@ public class AddOrSubtractController implements ActionListener, MouseListener, M
     private final FrmAddDeduction view;
     private final AddOrSubtract model;
     DefaultTableModel tableModel = new DefaultTableModel();
-    
-    public AddOrSubtractController(FrmAddDeduction view, int emid, String emNbr, String emName) {
+    int column;
+    public AddOrSubtractController(FrmAddDeduction view, int emid, String emNbr, String emName, int col) {
         this.view = view;
         AddOrSubtract aos = new AddOrSubtract();
         this.model = aos;
+        this.column=col;
         this.setEvent();
         this.setInitial();
         this.model.setEmpID(emid);
@@ -46,12 +47,21 @@ public class AddOrSubtractController implements ActionListener, MouseListener, M
         this.view.getTable().addMouseListener(this);
         this.view.getLblAddOrSubtract().addMouseListener(this);
         this.view.getLblAddOrSubtract().addMouseMotionListener(this);
+        this.view.getTxtAmount().addKeyListener(this);
     }
     
     private void setInitial() {
+        this.view.getTxtASID().setVisible(false);
+        this.view.getChTax().setEnabled(false);
         tableModel = (DefaultTableModel) this.view.getTable().getModel();
         ManageTable.setTableHeader(this.view.getTable(), this.view.getTableScrollPanel());
         this.view.getTxtAddDate().setDate(new Date());
+        if(column==10){
+            this.view.getChTax().setSelected(true);
+        }else{
+            this.view.getChTax().setSelected(false);
+        }
+        this.model.setColumn(column);
     }
     
     private void clear() {
@@ -186,7 +196,10 @@ public class AddOrSubtractController implements ActionListener, MouseListener, M
     
     @Override
     public void keyReleased(KeyEvent e) {
-        
+        if(e.getSource() == this.view.getTxtAmount()){
+            double amount = Double.parseDouble(this.view.getTxtAmount().getText().replace(",", ""));
+            this.view.getTxtAmount().setText(String.format("%,.0f", amount));
+        }
     }
     
 }

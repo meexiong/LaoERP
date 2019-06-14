@@ -4,10 +4,8 @@ package com.malimar.views;
 import com.malimar.controllers.OvertimeController;
 import com.toedter.calendar.JDateChooser;
 import com.xzq.osc.JocHyperlink;
-import java.text.NumberFormat;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
-import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -71,10 +69,6 @@ public class FrmOvertime extends javax.swing.JDialog {
 
     public JLabel getLblAmount() {
         return lblAmount;
-    }
-
-    public JLabel getLblEmployee() {
-        return lblEmployee;
     }
 
     public JLabel getLblHRApprove() {
@@ -163,6 +157,7 @@ public class FrmOvertime extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         menuExit = new com.xzq.osc.JocHyperlink();
         lblOvertimeInfo = new javax.swing.JLabel();
+        txtEmployee = new javax.swing.JTextField();
         txtOvertimeID = new javax.swing.JTextField();
         btnSave = new com.xzq.osc.JocHyperlink();
         panelSave = new com.xzq.osc.JocHyperlink();
@@ -179,7 +174,6 @@ public class FrmOvertime extends javax.swing.JDialog {
         txtMinute = new javax.swing.JTextField();
         txtOvertimeDate = new com.toedter.calendar.JDateChooser();
         lblOvertimeDate = new javax.swing.JLabel();
-        txtEmployee = new javax.swing.JTextField();
         chMgrApprove = new javax.swing.JCheckBox();
         lblMgrApprove = new javax.swing.JLabel();
         lblHRApprove = new javax.swing.JLabel();
@@ -189,7 +183,6 @@ public class FrmOvertime extends javax.swing.JDialog {
         panelDeleteHover = new com.xzq.osc.JocHyperlink();
         lblAmount = new javax.swing.JLabel();
         txtAmount = new javax.swing.JTextField();
-        lblEmployee = new javax.swing.JLabel();
         txtSalary = new javax.swing.JTextField();
         lblOTHours = new javax.swing.JLabel();
         txtOTPerHours = new javax.swing.JTextField();
@@ -222,9 +215,18 @@ public class FrmOvertime extends javax.swing.JDialog {
 
         lblOvertimeInfo.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         lblOvertimeInfo.setForeground(new java.awt.Color(255, 255, 255));
-        lblOvertimeInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblOvertimeInfo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblOvertimeInfo.setText("Overtime");
         jPanel3.add(lblOvertimeInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 1, 550, -1));
+
+        txtEmployee.setBackground(new java.awt.Color(81, 87, 99));
+        txtEmployee.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
+        txtEmployee.setForeground(new java.awt.Color(255, 255, 255));
+        txtEmployee.setBorder(null);
+        txtEmployee.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        txtEmployee.setEnabled(false);
+        txtEmployee.setOpaque(false);
+        jPanel3.add(txtEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 280, 25));
 
         jPanel2.add(jPanel3);
         jPanel3.setBounds(0, 0, 610, 26);
@@ -357,18 +359,13 @@ public class FrmOvertime extends javax.swing.JDialog {
         txtOvertimeDate.setDateFormatString("dd-MM-yyyy");
         txtOvertimeDate.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(txtOvertimeDate);
-        txtOvertimeDate.setBounds(20, 150, 120, 25);
+        txtOvertimeDate.setBounds(20, 150, 110, 25);
 
         lblOvertimeDate.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblOvertimeDate.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblOvertimeDate.setText("Date");
         jPanel2.add(lblOvertimeDate);
-        lblOvertimeDate.setBounds(20, 120, 100, 22);
-
-        txtEmployee.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtEmployee.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel2.add(txtEmployee);
-        txtEmployee.setBounds(30, 80, 240, 25);
+        lblOvertimeDate.setBounds(20, 120, 110, 22);
 
         chMgrApprove.setBackground(new java.awt.Color(255, 255, 255));
         chMgrApprove.setFont(new java.awt.Font("Saysettha Lao", 0, 12)); // NOI18N
@@ -421,53 +418,59 @@ public class FrmOvertime extends javax.swing.JDialog {
         txtAmount.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtAmount.setText("0");
         txtAmount.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        txtAmount.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtAmount.setEnabled(false);
+        txtAmount.setOpaque(false);
         jPanel2.add(txtAmount);
         txtAmount.setBounds(320, 150, 120, 25);
-
-        lblEmployee.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblEmployee.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblEmployee.setText("Employee Name");
-        jPanel2.add(lblEmployee);
-        lblEmployee.setBounds(30, 50, 240, 25);
 
         txtSalary.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         txtSalary.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtSalary.setText("0");
         txtSalary.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        txtSalary.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtSalary.setEnabled(false);
+        txtSalary.setOpaque(false);
         jPanel2.add(txtSalary);
-        txtSalary.setBounds(280, 80, 120, 25);
+        txtSalary.setBounds(20, 70, 120, 25);
 
         lblOTHours.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblOTHours.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblOTHours.setText("OT/Hours");
         jPanel2.add(lblOTHours);
-        lblOTHours.setBounds(460, 50, 90, 25);
+        lblOTHours.setBounds(200, 40, 90, 25);
 
         txtOTPerHours.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         txtOTPerHours.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtOTPerHours.setText("0");
         txtOTPerHours.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        txtOTPerHours.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtOTPerHours.setEnabled(false);
+        txtOTPerHours.setOpaque(false);
         jPanel2.add(txtOTPerHours);
-        txtOTPerHours.setBounds(460, 80, 90, 25);
+        txtOTPerHours.setBounds(200, 70, 90, 25);
 
         lblDays.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblDays.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblDays.setText("Days");
         jPanel2.add(lblDays);
-        lblDays.setBounds(410, 50, 40, 25);
+        lblDays.setBounds(150, 40, 40, 25);
 
         txtTotalDays.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         txtTotalDays.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtTotalDays.setText("0");
         txtTotalDays.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        txtTotalDays.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtTotalDays.setEnabled(false);
+        txtTotalDays.setOpaque(false);
         jPanel2.add(txtTotalDays);
-        txtTotalDays.setBounds(410, 80, 40, 25);
+        txtTotalDays.setBounds(150, 70, 40, 25);
 
         lblSalary.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblSalary.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblSalary.setText("Salary");
         jPanel2.add(lblSalary);
-        lblSalary.setBounds(280, 50, 120, 25);
+        lblSalary.setBounds(20, 40, 120, 25);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1056,7 +1059,6 @@ public class FrmOvertime extends javax.swing.JDialog {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JLabel lblAmount;
     private javax.swing.JLabel lblDays;
-    private javax.swing.JLabel lblEmployee;
     private javax.swing.JLabel lblHRApprove;
     private javax.swing.JLabel lblHours;
     private javax.swing.JLabel lblMgrApprove;

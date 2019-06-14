@@ -213,22 +213,24 @@ public class Absent {
 
     public boolean update() {
         try {
-            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-            String insert = "Update tbl_Absent set EmpID=?, CAbsentID=?, Hrs=?, Minte=?, AbsentDate=?, CreateBy=?, MgrApprove=?, HRApprove=?, RID=? where AbsentID=?";
-            PreparedStatement p = c.prepareStatement(insert);
-            p.setInt(1, this.getEmpID());
-            p.setInt(2, this.getDedID());
-            p.setInt(3, this.getHours());
-            p.setInt(4, this.getMinute());
-            p.setString(5, df.format(this.getAbsentDate()));
-            p.setInt(6, userLoginID);
-            p.setBoolean(7, this.isMgrApprove());
-            p.setBoolean(8, this.isHrApprove());
-            p.setInt(9, this.getReasonID());
-            p.setInt(10, this.getAbsentID());
-            p.executeUpdate();
-            p.close();
-            return true;
+            if (SalaryCalc.getPayrollStatus(this.getEmpID()) == 0) {
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                String insert = "Update tbl_Absent set EmpID=?, CAbsentID=?, Hrs=?, Minte=?, AbsentDate=?, CreateBy=?, MgrApprove=?, HRApprove=?, RID=? where AbsentID=?";
+                PreparedStatement p = c.prepareStatement(insert);
+                p.setInt(1, this.getEmpID());
+                p.setInt(2, this.getDedID());
+                p.setInt(3, this.getHours());
+                p.setInt(4, this.getMinute());
+                p.setString(5, df.format(this.getAbsentDate()));
+                p.setInt(6, userLoginID);
+                p.setBoolean(7, this.isMgrApprove());
+                p.setBoolean(8, this.isHrApprove());
+                p.setInt(9, this.getReasonID());
+                p.setInt(10, this.getAbsentID());
+                p.executeUpdate();
+                p.close();
+                return true;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -237,12 +239,14 @@ public class Absent {
 
     public boolean delete() {
         try {
-            String insert = "Delete tbl_Absent where AbsentID=?";
-            PreparedStatement p = c.prepareStatement(insert);
-            p.setInt(1, this.getAbsentID());
-            p.executeUpdate();
-            p.close();
-            return true;
+            if (SalaryCalc.getPayrollStatus(this.getEmpID()) == 0) {
+                String insert = "Delete tbl_Absent where AbsentID=?";
+                PreparedStatement p = c.prepareStatement(insert);
+                p.setInt(1, this.getAbsentID());
+                p.executeUpdate();
+                p.close();
+                return true;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -253,7 +257,7 @@ public class Absent {
         try {
             ManageTable.clearTable(table, model);
             String query = "SELECT  dbo.tbl_Absent.AbsentID, format(dbo.tbl_Absent.AbsentDate,'dd-MM-yyyy') as abDate, \n"
-                    + "dbo.tbl_Absent.Hrs, dbo.tbl_Absent.Minte, dbo.tbl_Absent_category.Absent_" + langType + " as ded, dbo.tbl_AbsentReason.RDesc_L1\n"
+                    + "dbo.tbl_Absent.Hrs, dbo.tbl_Absent.Minte, dbo.tbl_Absent_category.Absent_" + langType + " as ded, dbo.tbl_AbsentReason.RDesc_L1, MgrApprove, HRApprove\n"
                     + "FROM dbo.tbl_Absent INNER JOIN\n"
                     + "dbo.tbl_Absent_category ON dbo.tbl_Absent.CAbsentID = dbo.tbl_Absent_category.CAbsentID INNER JOIN\n"
                     + "dbo.tbl_AbsentReason ON dbo.tbl_Absent.RID = dbo.tbl_AbsentReason.RID\n"
@@ -266,7 +270,9 @@ public class Absent {
                 int mite = rs.getInt(4);
                 String ded = rs.getString(5);
                 String res = rs.getString(6);
-                Object[] obj = new Object[]{id, abDate, hrs, mite, ded, res};
+                Boolean mr = rs.getBoolean(7);
+                Boolean hr = rs.getBoolean(8);
+                Object[] obj = new Object[]{id, abDate, hrs, mite, ded, res, mr, hr};
                 model.addRow(obj);
             }
             table.setModel(model);
@@ -293,16 +299,6 @@ public class Absent {
 
     public int getLeaveHour(int cateID) {
         try {
-//            String query = "SELECT dbo.tbl_Absent_category.CAbsentID, dbo.tbl_Absent_category.Absent_L1,  \n"
-//                    + "dbo.Tbl_Employee_Leave.Amount_Hour,dbo.Tbl_Employee_Leave.UseHours,dbo.Tbl_Employee_Leave.UseMinute,\n"
-//                    + "Sum(dbo.tbl_Absent.Hrs*60) +dbo.tbl_Absent.Minte  as totalABMinute\n"
-//                    + "FROM dbo.tbl_Absent INNER JOIN\n"
-//                    + "dbo.tbl_Absent_category ON dbo.tbl_Absent.CAbsentID = dbo.tbl_Absent_category.CAbsentID INNER JOIN\n"
-//                    + "dbo.Tbl_Employee_Leave ON dbo.tbl_Absent.EmpID = dbo.Tbl_Employee_Leave.emp_id \n"
-//                    + "AND dbo.tbl_Absent_category.CAbsentID = dbo.Tbl_Employee_Leave.CAbsentID\n"
-//                    + "WHERE (dbo.tbl_Absent.EmpID = " + this.getEmpID() + ") and (dbo.tbl_Absent.AbsentDate between '" + SalaryCalc.convertDate(SalaryCalc.getPayrollStartDate()) + "' and '" + SalaryCalc.convertDate(SalaryCalc.getPayrollEndDate()) + "') and dbo.tbl_Absent_category.CAbsentID=" + cateID + "\n"
-//                    + "group by dbo.tbl_Absent_category.CAbsentID ,tbl_Absent.Minte,dbo.tbl_Absent_category.Absent_L1,\n"
-//                    + "dbo.Tbl_Employee_Leave.UseMinute,dbo.Tbl_Employee_Leave.Amount_Hour,dbo.Tbl_Employee_Leave.UseHours";
             String query = "SELECT dbo.Tbl_Employee_Leave.CAbsentID,\n"
                     + "dbo.Tbl_Employee_Leave.Amount_Hour, dbo.Tbl_Employee_Leave.UseHours, \n"
                     + "dbo.Tbl_Employee_Leave.UseMinute\n"
@@ -324,7 +320,7 @@ public class Absent {
         try {
             for (Entry<String, Object[]> entry : map.entrySet()) {
                 if (entry.getValue()[1].equals(values)) {
-                    System.out.println(entry.getKey());
+//                    System.out.println(entry.getKey());
                     return entry.getKey();
                 }
             }
@@ -333,4 +329,5 @@ public class Absent {
         }
         return null;
     }
+
 }

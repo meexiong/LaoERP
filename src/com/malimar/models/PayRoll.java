@@ -30,6 +30,24 @@ public class PayRoll {
     int countFull;
     int countPart;
     int empFullTime;
+    int absentCnt;
+    int overtimeCnt;
+
+    public int getOvertimeCnt() {
+        return overtimeCnt;
+    }
+
+    public void setOvertimeCnt(int overtimeCnt) {
+        this.overtimeCnt = overtimeCnt;
+    }
+    
+    public int getAbsentCnt() {
+        return absentCnt;
+    }
+
+    public void setAbsentCnt(int absentCnt) {
+        this.absentCnt = absentCnt;
+    }
 
     public int getEmpFullTime() {
         return empFullTime;
@@ -194,7 +212,7 @@ public class PayRoll {
                         + "ExcludedTax, Absent, Insurance, TaxAddSubtract, Overtime, PayTax, NonTaxAddSubtract, NetSalary, YearMonth, EmpEmail, Gender_L1, Gender_L2, TitleID,"
                         + "TitleName_L1, TitleName_L2, DivisionID, DiviName_L1, DiviName_L2, DiviSortBy, LocID, LocName_L1, LocName_L2, LocSortBy, DeptID, DeptName_L1,"
                         + "DeptName_L2, DeptSortBy, UnitID, UnitName_L1, UnitName_L2, UnitSortBy, WorkStatusID, WorkStatusDesc_L1, WorkStatusDesc_L2, PayrollPeriod, EmpFullTime,"
-                        + "EmpPayroll, EmpInOffice, EmpConsultant, BankNbr, BankAcc_L1, BankAcc_L2, PRBy) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        + "EmpPayroll, EmpInOffice, EmpConsultant, BankNbr, BankAcc_L1, BankAcc_L2, PRBy, AbsentCnt, OTCnt) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
                 PreparedStatement p = c.prepareStatement(insert);
                 p.setInt(1, gm.getIntID2("tbl_Payroll", "PRID"));
                 p.setString(2, df.format(new Date()));
@@ -251,6 +269,8 @@ public class PayRoll {
                 p.setString(53, rs.getString("BankAccount_Lao"));
                 p.setString(54, rs.getString("BankAccount_Eng"));
                 p.setInt(55, userLoginID);
+                p.setInt(56, SalaryCalc.getABNoteApprove(emid, Variable.bomG, Variable.eomG));
+                p.setInt(57, SalaryCalc.getOvertimeNotApprove(emid, Variable.bomG, Variable.eomG));
                 p.executeUpdate();
             }
         } catch (SQLException e) {
@@ -258,7 +278,7 @@ public class PayRoll {
         }
     }
 
-    public void loadPayroll(JTable table, DefaultTableModel model, int deptID, int pst, int workType) {
+    public void loadPayroll(JTable table, DefaultTableModel model, int deptID, int pst, int workType, int abCount, int otCount) {
         try {
             double g = 0;
             double tx = 0;
@@ -273,8 +293,8 @@ public class PayRoll {
             double taxNets = 0;
             int cntPrc = 0;
             int cntNotPrc = 0;
-            int cntFull = 0;
-            int cntPart = 0;
+            int abCntTotal = 0;
+            int otCntTotal = 0;
             ManageTable.clearTable(table, model);
             DecimalFormat df = new DecimalFormat("#,##0");
             String query;
@@ -298,8 +318,14 @@ public class PayRoll {
                     wh = wh + " and EmpFullTime=" + workType + "";
                 }
             }
+            if (abCount == 1) {
+                wh = wh + " and AbsentCnt = 1";
+            }
+            if (otCount == 1) {
+                wh = wh + " and OTCnt = 1";
+            }
             query = "SELECT PRID, PRStatus, EmpID, EmpNbr, EmpName_" + langType + " as empName, GrossSalary, TaxSalary, ExcludedTax,\n"
-                    + "Absent, Insurance, TaxAddSubtract, Overtime, NonTaxAddSubtract, PayTax, NetSalary, StartDate, EndDate, EmpFullTime \n"
+                    + "Absent, Insurance, TaxAddSubtract, Overtime, NonTaxAddSubtract, PayTax, NetSalary, StartDate, EndDate, EmpFullTime,AbsentCnt, OTCnt \n"
                     + "FROM dbo.tbl_Payroll " + wh;
             ResultSet rs = c.createStatement().executeQuery(query);
             while (rs.next()) {
@@ -321,6 +347,8 @@ public class PayRoll {
                 double payTax;
                 double asNoTax;
                 double netSalary;
+                int abCnt = 0;
+                int otCnt = 0;
                 if (st == false) {
                     cntNotPrc = cntNotPrc + 1;
                     if (fulltime == false) {
@@ -355,6 +383,10 @@ public class PayRoll {
                     netSalary = totalSalary - payTax + asNoTax + excludeTax;
                     nets = netSalary + nets;
                     taxNets = totalSalary + taxNets;
+                    abCnt = rs.getInt("AbsentCnt");
+                    abCntTotal = abCntTotal + abCnt;
+                    otCnt = rs.getInt("OTCnt");
+                    otCntTotal = otCntTotal+ otCnt;
                 } else {
                     cntPrc = cntPrc + 1;
                     grossSalar = rs.getDouble("GrossSalary");
@@ -380,12 +412,21 @@ public class PayRoll {
                     totalSalary = taxSalar - abSalary - insur + asTax + ot;
 //                    netSalary = totalSalary - payTax + asNoTax + excludeTax;
                     taxNets = totalSalary + taxNets;
+
                 }
-                obj = new Object[]{id, false, eid, enbr, eName, df.format(grossSalar), df.format(taxSalar), df.format(excludeTax), df.format(abSalary), df.format(insur), df.format(asTax), df.format(ot), df.format(totalSalary), df.format(payTax), df.format(asNoTax), df.format(netSalary), rs.getInt("PRStatus"), rs.getInt("EmpFullTime")};
+                obj = new Object[]{id, false, eid, enbr, eName, df.format(grossSalar), df.format(taxSalar), df.format(excludeTax), df.format(abSalary), df.format(insur), df.format(asTax), df.format(ot), df.format(totalSalary), df.format(payTax), df.format(asNoTax), df.format(netSalary), rs.getInt("PRStatus"), rs.getInt("EmpFullTime"), abCnt, otCnt};
                 model.addRow(obj);
             }
             int cnt = cntPrc + cntNotPrc;
-            Object[] obj = new Object[]{0, false, 0, null, "Total(" + cntPrc + "+" + cntNotPrc + "=" + cnt + ")", df.format(g), df.format(tx), df.format(etx), df.format(abs), df.format(ins), df.format(ast), df.format(ov), df.format(taxNets), df.format(ptx), df.format(nast), df.format(nets), 0, 0};
+            String label;
+            if (langType.equals("L1")) {
+                label = "ລວມທັງໝົດ";
+            } else {
+                label = "Total";
+            }
+            this.setAbsentCnt(abCntTotal);
+            this.setOvertimeCnt(otCntTotal);
+            Object[] obj = new Object[]{0, false, 0, null, "" + label + "(" + cntPrc + "+" + cntNotPrc + "=" + cnt + ")", df.format(g), df.format(tx), df.format(etx), df.format(abs), df.format(ins), df.format(ast), df.format(ov), df.format(taxNets), df.format(ptx), df.format(nast), df.format(nets), 0, 0, abCntTotal, otCntTotal};
             model.addRow(obj);
             table.setModel(model);
         } catch (SQLException e) {
@@ -488,6 +529,29 @@ public class PayRoll {
                 this.setCountPart(rs.getInt(2));
             }
         } catch (SQLException e) {
+        }
+    }
+    
+    public void updateABCount(int type) {
+        try {
+            String insert = "Update tbl_Payroll set AbSentCnt=? where PRID=?";
+            PreparedStatement p = c.prepareStatement(insert);
+            p.setInt(1, type);
+            p.setInt(2, this.getPayrollID());
+            p.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void updateOTCount(int type) {
+        try {
+            String insert = "Update tbl_Payroll set OTCnt=? where PRID=?";
+            PreparedStatement p = c.prepareStatement(insert);
+            p.setInt(1, type);
+            p.setInt(2, this.getPayrollID());
+            p.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }

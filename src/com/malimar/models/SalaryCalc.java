@@ -279,6 +279,21 @@ public class SalaryCalc {
         return 0;
     }
 
+    public static int getABNoteApprove(int emid, String bom, String eom) {
+        try {
+            String query = "SELECT dbo.tbl_Absent.AbsentID \n"
+                    + "FROM dbo.tbl_Absent \n"
+                    + "WHERE (dbo.tbl_Absent.AbsentDate BETWEEN '" + bom + "' AND '" + eom + "') AND \n"
+                    + "(dbo.tbl_Absent.HRApprove = 0) AND (dbo.tbl_Absent.EmpID = " + emid + " )";
+            ResultSet rs = c.createStatement().executeQuery(query);
+            if (rs.next()) {
+                return 1;
+            }
+        } catch (SQLException e) {
+        }
+        return 0;
+    }
+
     public static int getAbsentDayInMonth() {
         try {
             String query = "Select System_values from Tbl_System_Setting where Tbl_System_ID=7";
@@ -428,7 +443,7 @@ public class SalaryCalc {
         try {
             String query = "Select sum(Total) as hrsAmount from tbl_EmpHourly where empID=" + emid + " and (HrsDate between '" + Variable.bomG + "' and '" + Variable.eomG + "') and HR=1";
             ResultSet rs = c.createStatement().executeQuery(query);
-            if(rs.next()){
+            if (rs.next()) {
                 return rs.getInt(1);
             }
         } catch (SQLException e) {
@@ -437,4 +452,30 @@ public class SalaryCalc {
         return 0;
     }
 
+    public static int getOvertimeNotApprove(int emid, String bom, String eom) {
+        try {
+            String query = "SELECT dbo.tbl_Overtime.OvertimeID \n"
+                    + "FROM dbo.tbl_Overtime \n"
+                    + "WHERE (dbo.tbl_Overtime.WorkDate BETWEEN '" + bom + "' AND '" + eom + "') AND \n"
+                    + "(dbo.tbl_Overtime.HRApprove = 0) AND (dbo.tbl_Overtime.EmpID = " + emid + " )";
+            ResultSet rs = c.createStatement().executeQuery(query);
+            if (rs.next()) {
+                return 1;
+            }
+        } catch (SQLException e) {
+        }
+        return 0;
+    }
+
+    public static int getPayrollStatus(int emid) {
+        try {
+            String query = "Select PRStatus from tbl_Payroll where EmpID=" + emid + " and StartDate='" + Variable.bomG + "' and EndDate='" + Variable.eomG + "'";
+            ResultSet rs = c.createStatement().executeQuery(query);
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException e) {
+        }
+        return 0;
+    }
 }

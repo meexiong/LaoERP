@@ -43,10 +43,6 @@ public class FrmEmpHourly extends javax.swing.JDialog {
         return lblDate;
     }
 
-    public JLabel getLblEmployee() {
-        return lblEmployee;
-    }
-
     public JLabel getLblHR() {
         return lblHR;
     }
@@ -138,8 +134,8 @@ public class FrmEmpHourly extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         menuExit = new com.xzq.osc.JocHyperlink();
         lblHourlyInfo = new javax.swing.JLabel();
+        txtEmployee = new javax.swing.JTextField();
         txtHourlyID = new javax.swing.JTextField();
-        lblEmployee = new javax.swing.JLabel();
         btnSave = new com.xzq.osc.JocHyperlink();
         panelSave = new com.xzq.osc.JocHyperlink();
         panelHover = new com.xzq.osc.JocHyperlink();
@@ -152,7 +148,6 @@ public class FrmEmpHourly extends javax.swing.JDialog {
         txtMinute = new javax.swing.JTextField();
         txtDate = new com.toedter.calendar.JDateChooser();
         lblDate = new javax.swing.JLabel();
-        txtEmployee = new javax.swing.JTextField();
         chMgrApprove = new javax.swing.JCheckBox();
         lblMgr = new javax.swing.JLabel();
         lblHR = new javax.swing.JLabel();
@@ -175,6 +170,7 @@ public class FrmEmpHourly extends javax.swing.JDialog {
         jPanel2.setLayout(null);
 
         jPanel3.setBackground(new java.awt.Color(81, 87, 99));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         menuExit.setActiveColor(new java.awt.Color(255, 50, 50));
         menuExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Delete_30px.png"))); // NOI18N
@@ -185,33 +181,26 @@ public class FrmEmpHourly extends javax.swing.JDialog {
                 menuExitActionPerformed(evt);
             }
         });
+        jPanel3.add(menuExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(635, 0, 25, 25));
 
         lblHourlyInfo.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         lblHourlyInfo.setForeground(new java.awt.Color(255, 255, 255));
-        lblHourlyInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHourlyInfo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblHourlyInfo.setText("Hourly");
+        jPanel3.add(lblHourlyInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 629, -1));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(2, 2, 2)
-                .addComponent(lblHourlyInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(menuExit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblHourlyInfo)
-                    .addComponent(menuExit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 5, Short.MAX_VALUE))
-        );
+        txtEmployee.setBackground(new java.awt.Color(81, 87, 99));
+        txtEmployee.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        txtEmployee.setForeground(new java.awt.Color(255, 255, 255));
+        txtEmployee.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtEmployee.setBorder(null);
+        txtEmployee.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        txtEmployee.setEnabled(false);
+        txtEmployee.setOpaque(false);
+        jPanel3.add(txtEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 370, 25));
 
         jPanel2.add(jPanel3);
-        jPanel3.setBounds(0, 0, 660, 30);
+        jPanel3.setBounds(0, 0, 660, 26);
 
         txtHourlyID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         txtHourlyID.setText("New");
@@ -220,13 +209,7 @@ public class FrmEmpHourly extends javax.swing.JDialog {
         txtHourlyID.setEnabled(false);
         txtHourlyID.setOpaque(false);
         jPanel2.add(txtHourlyID);
-        txtHourlyID.setBounds(550, 60, 80, 25);
-
-        lblEmployee.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblEmployee.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblEmployee.setText("Employee");
-        jPanel2.add(lblEmployee);
-        lblEmployee.setBounds(30, 40, 400, 25);
+        txtHourlyID.setBounds(20, 120, 80, 25);
 
         btnSave.setActiveColor(new java.awt.Color(255, 255, 255));
         btnSave.setRolloverColor(new java.awt.Color(255, 255, 255));
@@ -235,17 +218,17 @@ public class FrmEmpHourly extends javax.swing.JDialog {
         btnSave.setVisitedColor(new java.awt.Color(255, 255, 255));
         btnSave.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(btnSave);
-        btnSave.setBounds(417, 193, 83, 26);
+        btnSave.setBounds(417, 133, 83, 26);
 
         panelSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Button.png"))); // NOI18N
         panelSave.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(panelSave);
-        panelSave.setBounds(410, 190, 96, 32);
+        panelSave.setBounds(410, 130, 96, 32);
 
         panelHover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/ButtonHover.png"))); // NOI18N
         panelHover.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(panelHover);
-        panelHover.setBounds(410, 190, 96, 32);
+        panelHover.setBounds(410, 130, 96, 32);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new java.awt.BorderLayout());
@@ -302,71 +285,66 @@ public class FrmEmpHourly extends javax.swing.JDialog {
         jPanel4.add(tableScrollPanel, java.awt.BorderLayout.CENTER);
 
         jPanel2.add(jPanel4);
-        jPanel4.setBounds(10, 240, 640, 380);
+        jPanel4.setBounds(10, 180, 640, 350);
 
         txtHours.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         txtHours.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtHours.setText("0");
         txtHours.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
         jPanel2.add(txtHours);
-        txtHours.setBounds(270, 140, 40, 25);
+        txtHours.setBounds(260, 80, 40, 25);
 
         lblHours.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblHours.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblHours.setText("Hours");
         jPanel2.add(lblHours);
-        lblHours.setBounds(270, 110, 40, 25);
+        lblHours.setBounds(260, 50, 40, 25);
 
         lblMinute.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblMinute.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblMinute.setText("Minute");
         jPanel2.add(lblMinute);
-        lblMinute.setBounds(320, 110, 40, 25);
+        lblMinute.setBounds(310, 50, 40, 25);
 
         txtMinute.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         txtMinute.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtMinute.setText("0");
         txtMinute.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
         jPanel2.add(txtMinute);
-        txtMinute.setBounds(320, 140, 40, 25);
+        txtMinute.setBounds(310, 80, 40, 25);
 
         txtDate.setDateFormatString("dd-MM-yyyy");
         txtDate.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(txtDate);
-        txtDate.setBounds(30, 140, 120, 25);
+        txtDate.setBounds(20, 80, 120, 25);
 
         lblDate.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblDate.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblDate.setText("Date");
         jPanel2.add(lblDate);
-        lblDate.setBounds(30, 110, 120, 22);
-
-        txtEmployee.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtEmployee.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel2.add(txtEmployee);
-        txtEmployee.setBounds(30, 70, 440, 25);
+        lblDate.setBounds(20, 50, 120, 22);
 
         chMgrApprove.setBackground(new java.awt.Color(255, 255, 255));
         chMgrApprove.setFont(new java.awt.Font("Saysettha Lao", 0, 12)); // NOI18N
         jPanel2.add(chMgrApprove);
-        chMgrApprove.setBounds(510, 140, 20, 25);
+        chMgrApprove.setBounds(500, 80, 20, 25);
 
         lblMgr.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblMgr.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblMgr.setText("Manager");
         jPanel2.add(lblMgr);
-        lblMgr.setBounds(490, 110, 60, 25);
+        lblMgr.setBounds(480, 50, 60, 25);
 
         lblHR.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblHR.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHR.setText("HR");
         jPanel2.add(lblHR);
-        lblHR.setBounds(560, 110, 80, 25);
+        lblHR.setBounds(550, 50, 80, 25);
 
         chHRApprove.setBackground(new java.awt.Color(255, 255, 255));
         chHRApprove.setFont(new java.awt.Font("Saysettha Lao", 0, 12)); // NOI18N
         jPanel2.add(chHRApprove);
-        chHRApprove.setBounds(590, 140, 20, 25);
+        chHRApprove.setBounds(580, 80, 20, 25);
 
         btnDelete.setActiveColor(new java.awt.Color(255, 255, 255));
         btnDelete.setRolloverColor(new java.awt.Color(255, 255, 255));
@@ -375,43 +353,49 @@ public class FrmEmpHourly extends javax.swing.JDialog {
         btnDelete.setVisitedColor(new java.awt.Color(255, 255, 255));
         btnDelete.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(btnDelete);
-        btnDelete.setBounds(527, 193, 83, 26);
+        btnDelete.setBounds(527, 133, 83, 26);
 
         panelDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Button.png"))); // NOI18N
         panelDelete.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(panelDelete);
-        panelDelete.setBounds(520, 190, 96, 32);
+        panelDelete.setBounds(520, 130, 96, 32);
 
         panelDeleteHover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/ButtonHover.png"))); // NOI18N
         panelDeleteHover.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(panelDeleteHover);
-        panelDeleteHover.setBounds(520, 190, 96, 32);
+        panelDeleteHover.setBounds(520, 130, 96, 32);
 
         lblHrsAmount.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblHrsAmount.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblHrsAmount.setText("Hourly amount");
         jPanel2.add(lblHrsAmount);
-        lblHrsAmount.setBounds(160, 110, 100, 25);
+        lblHrsAmount.setBounds(150, 50, 100, 25);
 
         txtHourlyAmount.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         txtHourlyAmount.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtHourlyAmount.setText("0");
         txtHourlyAmount.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        txtHourlyAmount.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtHourlyAmount.setEnabled(false);
+        txtHourlyAmount.setOpaque(false);
         jPanel2.add(txtHourlyAmount);
-        txtHourlyAmount.setBounds(160, 140, 100, 25);
+        txtHourlyAmount.setBounds(150, 80, 100, 25);
 
         txtTotal.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         txtTotal.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtTotal.setText("0");
         txtTotal.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
+        txtTotal.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtTotal.setEnabled(false);
+        txtTotal.setOpaque(false);
         jPanel2.add(txtTotal);
-        txtTotal.setBounds(370, 140, 100, 25);
+        txtTotal.setBounds(360, 80, 100, 25);
 
         lblTotal.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblTotal.setText("Total");
         jPanel2.add(lblTotal);
-        lblTotal.setBounds(370, 110, 100, 25);
+        lblTotal.setBounds(360, 50, 100, 25);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -421,7 +405,7 @@ public class FrmEmpHourly extends javax.swing.JDialog {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -1509,7 +1493,6 @@ public class FrmEmpHourly extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel lblDate;
-    private javax.swing.JLabel lblEmployee;
     private javax.swing.JLabel lblHR;
     private javax.swing.JLabel lblHourlyInfo;
     private javax.swing.JLabel lblHours;

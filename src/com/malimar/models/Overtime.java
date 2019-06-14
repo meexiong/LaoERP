@@ -161,23 +161,26 @@ public class Overtime {
 
     public boolean update() {
         try {
-            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-            String insert = "Update tbl_Overtime set EmpID=?, CategoryOTID=?, Hours=?, Minute=?, OTAmount=?, WorkDate=?, CreateDate=?, CreateBy=?, MgrApprove=?, HRApprove=? where OvertimeID=?";
-            PreparedStatement p = c.prepareStatement(insert);
-            p.setInt(1, this.getEmpID());
-            p.setInt(2, this.getRateID());
-            p.setInt(3, this.getHour());
-            p.setInt(4, this.getMinute());
-            p.setDouble(5, this.getAmount());
-            p.setString(6, df.format(this.getOvertimeDate()));
-            p.setString(7, df.format(new Date()));
-            p.setInt(8, userLoginID);
-            p.setBoolean(9, this.isMgrApprove());
-            p.setBoolean(10, this.isHrApprove());
-            p.setInt(11, this.getOvertimeID());
-            p.executeUpdate();
-            p.close();
-            return true;
+            if (SalaryCalc.getPayrollStatus(this.getEmpID()) == 0) {
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                String update = "Update tbl_Overtime set EmpID=?, CategoryOTID=?, Hours=?, Minute=?, OTAmount=?, WorkDate=?, CreateDate=?, CreateBy=?, MgrApprove=?, HRApprove=? where OvertimeID=?";
+                PreparedStatement p = c.prepareStatement(update);
+                p.setInt(1, this.getEmpID());
+                p.setInt(2, this.getRateID());
+                p.setInt(3, this.getHour());
+                p.setInt(4, this.getMinute());
+                p.setDouble(5, this.getAmount());
+                p.setString(6, df.format(this.getOvertimeDate()));
+                p.setString(7, df.format(new Date()));
+                p.setInt(8, userLoginID);
+                p.setBoolean(9, this.isMgrApprove());
+                p.setBoolean(10, this.isHrApprove());
+                p.setInt(11, this.getOvertimeID());
+                p.executeUpdate();
+                p.close();
+                return true;
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -217,12 +220,14 @@ public class Overtime {
 
     public boolean delete() {
         try {
-            String delete = "Delete tbl_Overtime where OvertimeID=?";
-            PreparedStatement p = c.prepareStatement(delete);
-            p.setInt(1, this.getOvertimeID());
-            p.executeUpdate();
-            p.close();
-            return true;
+            if (SalaryCalc.getPayrollStatus(this.getEmpID()) == 0) {
+                String delete = "Delete tbl_Overtime where OvertimeID=?";
+                PreparedStatement p = c.prepareStatement(delete);
+                p.setInt(1, this.getOvertimeID());
+                p.executeUpdate();
+                p.close();
+                return true;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

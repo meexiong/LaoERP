@@ -13,10 +13,10 @@ import javax.swing.JTextField;
 
 public class FrmAddDeduction extends javax.swing.JDialog {
     
-    public FrmAddDeduction(java.awt.Frame parent, boolean modal, int emid, String emNbr, String emName) {
+    public FrmAddDeduction(java.awt.Frame parent, boolean modal, int emid, String emNbr, String emName, int col) {
         super(parent, modal);
         initComponents();
-        AddOrSubtractController ac = new AddOrSubtractController(this, emid, emNbr, emName);
+        AddOrSubtractController ac = new AddOrSubtractController(this, emid, emNbr, emName, col);
     }
 
     public JocHyperlink getBtnDelete() {
@@ -45,10 +45,6 @@ public class FrmAddDeduction extends javax.swing.JDialog {
 
     public JLabel getLblBeforeTax() {
         return lblBeforeTax;
-    }
-
-    public JLabel getLblEmployee() {
-        return lblEmployee;
     }
 
     public JLabel getLblNote() {
@@ -114,6 +110,7 @@ public class FrmAddDeduction extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         menuExit = new com.xzq.osc.JocHyperlink();
         lblAddOrSubtract = new javax.swing.JLabel();
+        txtEmployee = new javax.swing.JTextField();
         txtASID = new javax.swing.JTextField();
         btnSave = new com.xzq.osc.JocHyperlink();
         panelSave = new com.xzq.osc.JocHyperlink();
@@ -123,13 +120,11 @@ public class FrmAddDeduction extends javax.swing.JDialog {
         table = new javax.swing.JTable();
         txtAddDate = new com.toedter.calendar.JDateChooser();
         lblAddDate = new javax.swing.JLabel();
-        txtEmployee = new javax.swing.JTextField();
         btnDelete = new com.xzq.osc.JocHyperlink();
         panelDelete = new com.xzq.osc.JocHyperlink();
         panelDeleteHover = new com.xzq.osc.JocHyperlink();
         lblAmount = new javax.swing.JLabel();
         txtAmount = new javax.swing.JTextField();
-        lblEmployee = new javax.swing.JLabel();
         lblNote = new javax.swing.JLabel();
         txtNote = new javax.swing.JTextField();
         lblBeforeTax = new javax.swing.JLabel();
@@ -160,9 +155,18 @@ public class FrmAddDeduction extends javax.swing.JDialog {
 
         lblAddOrSubtract.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         lblAddOrSubtract.setForeground(new java.awt.Color(255, 255, 255));
-        lblAddOrSubtract.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAddOrSubtract.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblAddOrSubtract.setText("Add or Subtract");
         jPanel3.add(lblAddOrSubtract, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 1, 540, -1));
+
+        txtEmployee.setBackground(new java.awt.Color(81, 87, 99));
+        txtEmployee.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
+        txtEmployee.setForeground(new java.awt.Color(255, 255, 255));
+        txtEmployee.setBorder(null);
+        txtEmployee.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        txtEmployee.setEnabled(false);
+        txtEmployee.setOpaque(false);
+        jPanel3.add(txtEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 240, 25));
 
         jPanel2.add(jPanel3);
         jPanel3.setBounds(0, 0, 575, 26);
@@ -174,7 +178,7 @@ public class FrmAddDeduction extends javax.swing.JDialog {
         txtASID.setEnabled(false);
         txtASID.setOpaque(false);
         jPanel2.add(txtASID);
-        txtASID.setBounds(30, 190, 30, 25);
+        txtASID.setBounds(20, 120, 30, 25);
 
         btnSave.setActiveColor(new java.awt.Color(255, 255, 255));
         btnSave.setRolloverColor(new java.awt.Color(255, 255, 255));
@@ -183,17 +187,17 @@ public class FrmAddDeduction extends javax.swing.JDialog {
         btnSave.setVisitedColor(new java.awt.Color(255, 255, 255));
         btnSave.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(btnSave);
-        btnSave.setBounds(337, 193, 83, 26);
+        btnSave.setBounds(347, 133, 83, 26);
 
         panelSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Button.png"))); // NOI18N
         panelSave.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(panelSave);
-        panelSave.setBounds(330, 190, 96, 32);
+        panelSave.setBounds(340, 130, 96, 32);
 
         panelHover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/ButtonHover.png"))); // NOI18N
         panelHover.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(panelHover);
-        panelHover.setBounds(330, 190, 96, 32);
+        panelHover.setBounds(340, 130, 96, 32);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new java.awt.BorderLayout());
@@ -244,23 +248,18 @@ public class FrmAddDeduction extends javax.swing.JDialog {
         jPanel4.add(tableScrollPanel, java.awt.BorderLayout.CENTER);
 
         jPanel2.add(jPanel4);
-        jPanel4.setBounds(10, 240, 555, 270);
+        jPanel4.setBounds(10, 180, 555, 330);
 
         txtAddDate.setDateFormatString("dd-MM-yyyy");
         txtAddDate.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(txtAddDate);
-        txtAddDate.setBounds(280, 80, 120, 25);
+        txtAddDate.setBounds(20, 70, 120, 25);
 
         lblAddDate.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblAddDate.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblAddDate.setText("Date");
         jPanel2.add(lblAddDate);
-        lblAddDate.setBounds(280, 50, 120, 22);
-
-        txtEmployee.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        txtEmployee.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
-        jPanel2.add(txtEmployee);
-        txtEmployee.setBounds(30, 80, 240, 25);
+        lblAddDate.setBounds(20, 40, 120, 22);
 
         btnDelete.setActiveColor(new java.awt.Color(255, 255, 255));
         btnDelete.setRolloverColor(new java.awt.Color(255, 255, 255));
@@ -269,60 +268,54 @@ public class FrmAddDeduction extends javax.swing.JDialog {
         btnDelete.setVisitedColor(new java.awt.Color(255, 255, 255));
         btnDelete.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(btnDelete);
-        btnDelete.setBounds(447, 193, 83, 26);
+        btnDelete.setBounds(457, 133, 83, 26);
 
         panelDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Button.png"))); // NOI18N
         panelDelete.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(panelDelete);
-        panelDelete.setBounds(440, 190, 96, 32);
+        panelDelete.setBounds(450, 130, 96, 32);
 
         panelDeleteHover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/ButtonHover.png"))); // NOI18N
         panelDeleteHover.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jPanel2.add(panelDeleteHover);
-        panelDeleteHover.setBounds(440, 190, 96, 32);
+        panelDeleteHover.setBounds(450, 130, 96, 32);
 
         lblAmount.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblAmount.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblAmount.setText("Amount");
         jPanel2.add(lblAmount);
-        lblAmount.setBounds(410, 50, 120, 25);
+        lblAmount.setBounds(150, 40, 120, 25);
 
         txtAmount.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         txtAmount.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtAmount.setText("0");
         txtAmount.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
         jPanel2.add(txtAmount);
-        txtAmount.setBounds(410, 80, 120, 25);
-
-        lblEmployee.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        lblEmployee.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblEmployee.setText("Employee Name");
-        jPanel2.add(lblEmployee);
-        lblEmployee.setBounds(30, 50, 240, 25);
+        txtAmount.setBounds(150, 70, 120, 25);
 
         lblNote.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblNote.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblNote.setText("Note");
         jPanel2.add(lblNote);
-        lblNote.setBounds(30, 120, 380, 22);
+        lblNote.setBounds(290, 40, 210, 22);
 
         txtNote.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         txtNote.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(160, 160, 160)));
         jPanel2.add(txtNote);
-        txtNote.setBounds(30, 147, 380, 25);
+        txtNote.setBounds(290, 70, 210, 25);
 
         lblBeforeTax.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         lblBeforeTax.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblBeforeTax.setText("Tax");
         lblBeforeTax.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel2.add(lblBeforeTax);
-        lblBeforeTax.setBounds(430, 120, 50, 22);
+        lblBeforeTax.setBounds(510, 40, 50, 22);
 
         chTax.setBackground(new java.awt.Color(255, 255, 255));
         chTax.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         chTax.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel2.add(chTax);
-        chTax.setBounds(430, 150, 50, 21);
+        chTax.setBounds(510, 70, 50, 21);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1398,7 +1391,7 @@ public class FrmAddDeduction extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                FrmAddDeduction dialog = new FrmAddDeduction(new javax.swing.JFrame(), true, 0, null, null);
+                FrmAddDeduction dialog = new FrmAddDeduction(new javax.swing.JFrame(), true, 0, null, null,0);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -1422,7 +1415,6 @@ public class FrmAddDeduction extends javax.swing.JDialog {
     private javax.swing.JLabel lblAddOrSubtract;
     private javax.swing.JLabel lblAmount;
     private javax.swing.JLabel lblBeforeTax;
-    private javax.swing.JLabel lblEmployee;
     private javax.swing.JLabel lblNote;
     private com.xzq.osc.JocHyperlink menuExit;
     private com.xzq.osc.JocHyperlink panelDelete;
