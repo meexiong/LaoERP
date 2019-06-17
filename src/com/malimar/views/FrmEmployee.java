@@ -205,7 +205,7 @@ public class FrmEmployee extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(5, 5, 5)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1172, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5))
         );
         jPanel1Layout.setVerticalGroup(

@@ -16,6 +16,8 @@ import com.malimar.views.FrmEmployeeDetails;
 import com.malimar.views.FrmNewAbsent;
 import com.malimar.views.FrmOvertime;
 import com.malimar.views.FrmPayRoll;
+import com.malimar.views.FrmViewTax;
+import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,9 +27,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.HashMap;
+import javax.swing.BorderFactory;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 
 public class PayRolController implements ActionListener, MouseListener, MouseMotionListener, KeyListener {
@@ -155,6 +161,12 @@ public class PayRolController implements ActionListener, MouseListener, MouseMot
         this.view.getRadAbsentCnt().addActionListener(this);
         this.view.getRadOTCnt().addActionListener(this);
     }
+    private TableCellEditor getCellEditor(){
+        JTextField f = new JTextField();
+        f.setBorder(BorderFactory.createLineBorder(Color.GREEN));
+        return new DefaultCellEditor(f);
+        
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -256,6 +268,8 @@ public class PayRolController implements ActionListener, MouseListener, MouseMot
                         this.view.getTable().setValueAt(true, row, 1);
                     }
                 }
+            }else if(col==12 || col == 15){
+                this.view.getTable().repaint();
             }
             if (e.getClickCount() == 2 && row < a) {
                 int pid = Integer.parseInt(this.view.getTable().getValueAt(row, 0).toString());
@@ -268,6 +282,9 @@ public class PayRolController implements ActionListener, MouseListener, MouseMot
                     case 3:
                         FrmEmployeeDetails ed = new FrmEmployeeDetails(null, true, emid);
                         ed.setVisible(true);
+                        if (Variable.reQuery == 1) {
+                            this.model.loadPayroll(this.view.getTable(), tableModel, this.model.getDepartmentID(), payrollStatus, workType, abCount, otCount);
+                        }
                         break;
                     case 5:
                         if (full == 0) {
@@ -302,6 +319,14 @@ public class PayRolController implements ActionListener, MouseListener, MouseMot
                         if (Variable.reQuery == 1) {
                             this.model.loadPayroll(this.view.getTable(), tableModel, this.model.getDepartmentID(), payrollStatus, workType, abCount, otCount);
                         }
+                        break;
+                     case 12:
+//                         this.view.getTable().getColumnModel().getColumn(12).setCellEditor(getCellEditor());
+                         break;
+                    case 13:
+                        double netSalary = Double.parseDouble(this.view.getTable().getValueAt(row, 12).toString().replace(",", ""));
+                        FrmViewTax vtax = new FrmViewTax(null, true, emid, emnbr, emName, netSalary);
+                        vtax.setVisible(true);
                         break;
                     case 14:
                         FrmAddDeduction asNonTax = new FrmAddDeduction(null, true, emid, emnbr, emName, col);

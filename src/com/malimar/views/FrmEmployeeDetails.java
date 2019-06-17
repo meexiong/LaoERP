@@ -1943,6 +1943,24 @@ public class FrmEmployeeDetails extends javax.swing.JDialog {
         tableSalary.setSelectionBackground(new java.awt.Color(255, 255, 255));
         tableSalary.setSelectionForeground(java.awt.Color.red);
         scrollPaneSalary.setViewportView(tableSalary);
+        if (tableSalary.getColumnModel().getColumnCount() > 0) {
+            tableSalary.getColumnModel().getColumn(0).setMinWidth(0);
+            tableSalary.getColumnModel().getColumn(0).setMaxWidth(0);
+            tableSalary.getColumnModel().getColumn(1).setMinWidth(200);
+            tableSalary.getColumnModel().getColumn(1).setMaxWidth(200);
+            tableSalary.getColumnModel().getColumn(2).setMinWidth(150);
+            tableSalary.getColumnModel().getColumn(2).setMaxWidth(150);
+            tableSalary.getColumnModel().getColumn(3).setMinWidth(70);
+            tableSalary.getColumnModel().getColumn(3).setMaxWidth(70);
+            tableSalary.getColumnModel().getColumn(4).setMinWidth(70);
+            tableSalary.getColumnModel().getColumn(4).setMaxWidth(70);
+            tableSalary.getColumnModel().getColumn(5).setMinWidth(80);
+            tableSalary.getColumnModel().getColumn(5).setMaxWidth(80);
+            tableSalary.getColumnModel().getColumn(6).setMinWidth(130);
+            tableSalary.getColumnModel().getColumn(6).setMaxWidth(130);
+            tableSalary.getColumnModel().getColumn(7).setMinWidth(80);
+            tableSalary.getColumnModel().getColumn(7).setMaxWidth(80);
+        }
 
         jPanel22.add(scrollPaneSalary, java.awt.BorderLayout.CENTER);
 
@@ -2234,6 +2252,18 @@ public class FrmEmployeeDetails extends javax.swing.JDialog {
         tableInsurance.setSelectionBackground(new java.awt.Color(255, 255, 255));
         tableInsurance.setSelectionForeground(java.awt.Color.red);
         tableInsuranceScrollPane.setViewportView(tableInsurance);
+        if (tableInsurance.getColumnModel().getColumnCount() > 0) {
+            tableInsurance.getColumnModel().getColumn(0).setMinWidth(0);
+            tableInsurance.getColumnModel().getColumn(0).setMaxWidth(0);
+            tableInsurance.getColumnModel().getColumn(1).setMinWidth(80);
+            tableInsurance.getColumnModel().getColumn(1).setMaxWidth(80);
+            tableInsurance.getColumnModel().getColumn(2).setMinWidth(270);
+            tableInsurance.getColumnModel().getColumn(2).setMaxWidth(270);
+            tableInsurance.getColumnModel().getColumn(3).setMinWidth(230);
+            tableInsurance.getColumnModel().getColumn(3).setMaxWidth(230);
+            tableInsurance.getColumnModel().getColumn(4).setMinWidth(150);
+            tableInsurance.getColumnModel().getColumn(4).setMaxWidth(150);
+        }
 
         jPanel28.add(tableInsuranceScrollPane, java.awt.BorderLayout.CENTER);
 
@@ -2330,6 +2360,24 @@ public class FrmEmployeeDetails extends javax.swing.JDialog {
         tableTax.setSelectionBackground(new java.awt.Color(255, 255, 255));
         tableTax.setSelectionForeground(java.awt.Color.red);
         scrollPanelTax.setViewportView(tableTax);
+        if (tableTax.getColumnModel().getColumnCount() > 0) {
+            tableTax.getColumnModel().getColumn(0).setMinWidth(0);
+            tableTax.getColumnModel().getColumn(0).setMaxWidth(0);
+            tableTax.getColumnModel().getColumn(1).setMinWidth(0);
+            tableTax.getColumnModel().getColumn(1).setMaxWidth(0);
+            tableTax.getColumnModel().getColumn(2).setMinWidth(210);
+            tableTax.getColumnModel().getColumn(2).setMaxWidth(210);
+            tableTax.getColumnModel().getColumn(3).setMinWidth(0);
+            tableTax.getColumnModel().getColumn(3).setMaxWidth(0);
+            tableTax.getColumnModel().getColumn(4).setMinWidth(130);
+            tableTax.getColumnModel().getColumn(4).setMaxWidth(130);
+            tableTax.getColumnModel().getColumn(5).setMinWidth(130);
+            tableTax.getColumnModel().getColumn(5).setMaxWidth(130);
+            tableTax.getColumnModel().getColumn(6).setMinWidth(130);
+            tableTax.getColumnModel().getColumn(6).setMaxWidth(130);
+            tableTax.getColumnModel().getColumn(7).setMinWidth(140);
+            tableTax.getColumnModel().getColumn(7).setMaxWidth(140);
+        }
 
         jPanel26.add(scrollPanelTax, java.awt.BorderLayout.CENTER);
 
@@ -2549,6 +2597,7 @@ public class FrmEmployeeDetails extends javax.swing.JDialog {
         txtEmpID.setBounds(830, 220, 50, 23);
 
         jPanel3.setBackground(new java.awt.Color(81, 87, 99));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         menuExit.setActiveColor(new java.awt.Color(255, 50, 50));
         menuExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/icons/Delete_30px.png"))); // NOI18N
@@ -2559,30 +2608,13 @@ public class FrmEmployeeDetails extends javax.swing.JDialog {
                 menuExitActionPerformed(evt);
             }
         });
+        jPanel3.add(menuExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1111, 0, 24, 25));
 
         lblEmployeeInfo.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
         lblEmployeeInfo.setForeground(new java.awt.Color(255, 255, 255));
         lblEmployeeInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEmployeeInfo.setText("Employee Details");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblEmployeeInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 1097, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(menuExit, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblEmployeeInfo)
-                    .addComponent(menuExit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2))
-        );
+        jPanel3.add(lblEmployeeInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 1, 1100, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

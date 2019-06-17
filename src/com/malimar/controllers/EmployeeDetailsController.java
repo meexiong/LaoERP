@@ -139,7 +139,7 @@ public class EmployeeDetailsController implements ActionListener, MouseListener,
         this.clearSalarTab();
         this.model.loadSalary(this.view.getTableSalary(), tableSalarModel);
         this.calculateSalary();
-        
+
     }
 
     private void setComboBoxBaseUI() {
@@ -659,6 +659,7 @@ public class EmployeeDetailsController implements ActionListener, MouseListener,
         if (this.view.getTxtEmpID().getText().equals("New")) {
             if (this.model.insert() == true) {
                 this.clear();
+                Variable.reQuery = 1;
             } else {
                 MessageBox.msgWarning();
             }
@@ -685,6 +686,7 @@ public class EmployeeDetailsController implements ActionListener, MouseListener,
         if (this.view.getTxtEmpSalaryID().getText().equals("New")) {
             if (this.model.insertEmpSalary() == true) {
                 this.clearSalarTab();
+                Variable.reQuery = 1;
             } else {
                 MessageBox.msgError();
             }
@@ -784,6 +786,7 @@ public class EmployeeDetailsController implements ActionListener, MouseListener,
         this.model.setEmpEmpEmergency(this.view.getTxtEmergencyContact().getText());
         if (this.model.insertEmpDetails() == true) {
             this.view.getTabPaneDetails().setSelectedIndex(1);
+            Variable.reQuery = 1;
         } else {
             MessageBox.msgError();
         }
@@ -858,7 +861,7 @@ public class EmployeeDetailsController implements ActionListener, MouseListener,
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.view.getMenuExit()) {
             this.view.dispose();
-            
+
         } else if (e.getSource() == this.view.getCmbDivision()) {
             if (this.view.getCmbDivision().getSelectedIndex() != -1) {
                 String division = this.view.getCmbDivision().getSelectedItem().toString();
@@ -909,6 +912,7 @@ public class EmployeeDetailsController implements ActionListener, MouseListener,
                 if (this.model.insertEmpInsurance() == true) {
                     this.model.loadEmpInsurance(this.view.getTableInsurance(), tableInsurModel);
                     this.clearInsurance();
+                    Variable.reQuery = 1;
                 } else {
                     MessageBox.msgError();
                 }
@@ -917,6 +921,7 @@ public class EmployeeDetailsController implements ActionListener, MouseListener,
                 if (this.model.updateEmpInsurance() == true) {
                     this.model.loadEmpInsurance(this.view.getTableInsurance(), tableInsurModel);
                     this.clearInsurance();
+                    Variable.reQuery = 1;
                 } else {
                     MessageBox.msgError();
                 }
@@ -926,6 +931,7 @@ public class EmployeeDetailsController implements ActionListener, MouseListener,
             if (this.model.deleteEmpInsurance() == true) {
                 this.model.loadEmpInsurance(this.view.getTableInsurance(), tableInsurModel);
                 this.clearInsurance();
+                Variable.reQuery = 1;
             } else {
                 MessageBox.msgError();
             }
@@ -949,7 +955,7 @@ public class EmployeeDetailsController implements ActionListener, MouseListener,
                     this.view.getLblImage().setIcon(new ImageIcon(ic));
                 }
             }
-        }  else if (e.getSource() == this.view.getTableSalary()) {
+        } else if (e.getSource() == this.view.getTableSalary()) {
             int rowSelect = this.view.getTableSalary().getSelectedRow();
             this.view.getTxtEmpSalaryID().setText(this.view.getTableSalary().getValueAt(rowSelect, 0).toString());
             this.view.getCmbSalaryType().setSelectedItem(this.view.getTableSalary().getValueAt(rowSelect, 1).toString());
@@ -969,7 +975,7 @@ public class EmployeeDetailsController implements ActionListener, MouseListener,
 
     @Override
     public void mousePressed(MouseEvent e) {
-        if(e.getSource() == this.view.getLblEmployeeInfo()){
+        if (e.getSource() == this.view.getLblEmployeeInfo()) {
             MoveForm.mousePressed(e);
         }
     }
@@ -1012,7 +1018,7 @@ public class EmployeeDetailsController implements ActionListener, MouseListener,
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        if(e.getSource() == this.view.getLblEmployeeInfo()){
+        if (e.getSource() == this.view.getLblEmployeeInfo()) {
             MoveForm.mouseDragded(e, this.view);
         }
     }
@@ -1069,7 +1075,7 @@ public class EmployeeDetailsController implements ActionListener, MouseListener,
 
     @Override
     public void stateChanged(ChangeEvent e) {
-        if(e.getSource() == this.view.getTabPaneDetails()){
+        if (e.getSource() == this.view.getTabPaneDetails()) {
             int index = this.view.getTabPaneDetails().getSelectedIndex();
             switch (index) {
                 case 0:

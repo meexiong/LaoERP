@@ -8,11 +8,13 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
 import javax.swing.ButtonGroup;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.border.MatteBorder;
 import javax.swing.table.TableCellRenderer;
 
 public class FrmPayRoll extends javax.swing.JInternalFrame {
@@ -187,6 +189,52 @@ public class FrmPayRoll extends javax.swing.JInternalFrame {
                     }
                     component.setBackground(color);
                 }
+                // Select row Bottom Border
+                int rowSelect = table.getSelectedRow();
+                int colSelect = table.getSelectedColumn();
+                JComponent jc = (JComponent)component;
+                if((rowIndex==rowSelect)){
+                    jc.setBorder(new MatteBorder(0,0,1,0, Color.BLACK));
+                }
+                // Calc Net Salary
+                if((rowIndex==rowSelect) && (colSelect==12)){
+                    if(columnIndex==12){
+                        jc.setBorder(new MatteBorder(2,2,2,2, Color.BLACK));
+                    }
+                    if(columnIndex==11){
+                        jc.setBorder(new MatteBorder(2,2,2,2, Color.decode("#1B8C05")));
+                    }
+                    if(columnIndex==10){
+                        jc.setBorder(new MatteBorder(2,2,2,2, Color.decode("#1B8C05")));
+                    }
+                    if(columnIndex==9){
+                        jc.setBorder(new MatteBorder(2,2,2,2, Color.decode("#CF1717")));
+                    }
+                    if(columnIndex==8){
+                        jc.setBorder(new MatteBorder(2,2,2,2,  Color.decode("#CF1717")));
+                    }
+                    if(columnIndex==6){
+                        jc.setBorder(new MatteBorder(2,2,2,2,  Color.decode("#1B8C05")));
+                    }
+                }
+                // Total Net Salary
+                if((rowIndex==rowSelect) && (colSelect==15)){
+                    if(columnIndex==15){
+                        jc.setBorder(new MatteBorder(2,2,2,2, Color.BLACK));
+                    }
+                    if(columnIndex==14){
+                        jc.setBorder(new MatteBorder(2,2,2,2, Color.decode("#1B8C05")));
+                    }
+                    if(columnIndex==13){
+                        jc.setBorder(new MatteBorder(2,2,2,2, Color.decode("#CF1717")));
+                    }
+                    if(columnIndex==12){
+                        jc.setBorder(new MatteBorder(2,2,2,2, Color.decode("#1B8C05")));
+                    }
+                    if(columnIndex==7){
+                        jc.setBorder(new MatteBorder(2,2,2,2,  Color.decode("#1B8C05")));
+                    }
+                }
                 return component;
             }
         };
@@ -224,7 +272,7 @@ public class FrmPayRoll extends javax.swing.JInternalFrame {
 
         tableScrollPane.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
-        table.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        table.setFont(new java.awt.Font("Saysettha OT", 0, 12));
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
