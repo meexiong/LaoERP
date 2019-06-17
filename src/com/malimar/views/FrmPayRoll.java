@@ -237,7 +237,7 @@ public class FrmPayRoll extends javax.swing.JInternalFrame {
                 java.lang.Object.class, java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -290,6 +290,10 @@ public class FrmPayRoll extends javax.swing.JInternalFrame {
             table.getColumnModel().getColumn(16).setMaxWidth(0);
             table.getColumnModel().getColumn(17).setMinWidth(0);
             table.getColumnModel().getColumn(17).setMaxWidth(0);
+            table.getColumnModel().getColumn(18).setMinWidth(0);
+            table.getColumnModel().getColumn(18).setMaxWidth(0);
+            table.getColumnModel().getColumn(19).setMinWidth(0);
+            table.getColumnModel().getColumn(19).setMaxWidth(0);
         }
 
         jPanel3.add(tableScrollPane, java.awt.BorderLayout.CENTER);

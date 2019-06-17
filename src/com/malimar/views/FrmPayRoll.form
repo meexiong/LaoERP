@@ -124,8 +124,8 @@
                             <Column editable="false" title="lblNetSalary" type="java.lang.Object"/>
                             <Column editable="false" title="lblProcess" type="java.lang.Object"/>
                             <Column editable="false" title="lblFulltime" type="java.lang.Object"/>
-                            <Column editable="true" title="lblAbsentCnt" type="java.lang.Object"/>
-                            <Column editable="true" title="lblOTCnt" type="java.lang.Object"/>
+                            <Column editable="false" title="lblAbsentCnt" type="java.lang.Object"/>
+                            <Column editable="false" title="lblOTCnt" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="autoResizeMode" type="int" value="0"/>
@@ -221,12 +221,12 @@
                               <Editor/>
                               <Renderer/>
                             </Column>
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                            <Column maxWidth="0" minWidth="0" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>
                               <Renderer/>
                             </Column>
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                            <Column maxWidth="0" minWidth="0" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>
                               <Renderer/>

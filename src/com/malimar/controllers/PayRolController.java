@@ -12,6 +12,7 @@ import com.malimar.utils.MessageBox;
 import com.malimar.utils.Variable;
 import com.malimar.views.FrmAddDeduction;
 import com.malimar.views.FrmEmpHourly;
+import com.malimar.views.FrmEmployeeDetails;
 import com.malimar.views.FrmNewAbsent;
 import com.malimar.views.FrmOvertime;
 import com.malimar.views.FrmPayRoll;
@@ -264,6 +265,10 @@ public class PayRolController implements ActionListener, MouseListener, MouseMot
                 String emName = this.view.getTable().getValueAt(row, 4).toString();
                 int full = Integer.parseInt(this.view.getTable().getValueAt(row, 17).toString());
                 switch (col) {
+                    case 3:
+                        FrmEmployeeDetails ed = new FrmEmployeeDetails(null, true, emid);
+                        ed.setVisible(true);
+                        break;
                     case 5:
                         if (full == 0) {
                             FrmEmpHourly emhrs = new FrmEmpHourly(null, true, emid, emnbr, emName);
