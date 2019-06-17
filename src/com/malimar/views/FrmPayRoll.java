@@ -351,15 +351,15 @@ public class FrmPayRoll extends javax.swing.JInternalFrame {
         btnProcess.setUnvisitColor(new java.awt.Color(255, 255, 255));
         btnProcess.setVisitedColor(new java.awt.Color(255, 255, 255));
         btnProcess.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
-        jPanel2.add(btnProcess, new org.netbeans.lib.awtextra.AbsoluteConstraints(1590, 40, 80, -1));
+        jPanel2.add(btnProcess, new org.netbeans.lib.awtextra.AbsoluteConstraints(1408, 44, 80, -1));
 
         panelProcess.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/Button.png"))); // NOI18N
         panelProcess.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jPanel2.add(panelProcess, new org.netbeans.lib.awtextra.AbsoluteConstraints(1580, 40, -1, -1));
+        jPanel2.add(panelProcess, new org.netbeans.lib.awtextra.AbsoluteConstraints(1400, 40, -1, -1));
 
         panelProcessHover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/malimar/images/ButtonHover.png"))); // NOI18N
         panelProcessHover.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jPanel2.add(panelProcessHover, new org.netbeans.lib.awtextra.AbsoluteConstraints(1580, 40, -1, -1));
+        jPanel2.add(panelProcessHover, new org.netbeans.lib.awtextra.AbsoluteConstraints(1400, 40, -1, -1));
 
         jSeparator1.setForeground(new java.awt.Color(81, 87, 99));
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 775, 1360, 10));

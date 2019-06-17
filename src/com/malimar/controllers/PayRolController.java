@@ -4,11 +4,11 @@ import static com.malimar.models.Label.LN;
 import static com.malimar.models.Label.hmapLang;
 import com.malimar.models.PayRoll;
 import com.malimar.models.SalaryCalc;
-import com.malimar.utils.FilterTable;
 import com.malimar.utils.HeaderCheckBoxHandler;
 import com.malimar.utils.HeaderRenderer;
 import com.malimar.utils.HorizontalAlignmentHeaderRenderer;
 import com.malimar.utils.ManageTable;
+import com.malimar.utils.MessageBox;
 import com.malimar.utils.Variable;
 import com.malimar.views.FrmAddDeduction;
 import com.malimar.views.FrmEmpHourly;
@@ -152,6 +152,7 @@ public class PayRolController implements ActionListener, MouseListener, MouseMot
         this.view.getRadPartTime().addActionListener(this);
         this.view.getRadViewAll().addActionListener(this);
         this.view.getRadAbsentCnt().addActionListener(this);
+        this.view.getRadOTCnt().addActionListener(this);
     }
 
     @Override
@@ -159,25 +160,29 @@ public class PayRolController implements ActionListener, MouseListener, MouseMot
         Cursor cur = new Cursor(Cursor.WAIT_CURSOR);
         this.view.setCursor(cur);
         if (e.getSource() == this.view.getBtnProcess()) {
-            int rowCnt = this.view.getTable().getRowCount() - 1;
-            for (int i = 0; i <= rowCnt; i++) {
-                Boolean check = (Boolean) this.view.getTable().getValueAt(i, 1);
-                if (check == true) {
-                    this.model.setPayrollID(Integer.parseInt(this.view.getTable().getValueAt(i, 0).toString()));
-                    this.model.setEmpID(Integer.parseInt(this.view.getTable().getValueAt(i, 2).toString()));
-                    this.model.setPayrollStatus(Integer.parseInt(this.view.getTable().getValueAt(i, 16).toString()));
-                    this.model.setEmpFullTime(Integer.parseInt(this.view.getTable().getValueAt(i, 17).toString()));
-                    this.model.updatePayrollSelected();
+            if (this.model.getAbsentCnt() == 0 && this.model.getOvertimeCnt() == 0) {
+                int rowCnt = this.view.getTable().getRowCount() - 1;
+                for (int i = 0; i <= rowCnt; i++) {
+                    Boolean check = (Boolean) this.view.getTable().getValueAt(i, 1);
+                    if (check == true) {
+                        this.model.setPayrollID(Integer.parseInt(this.view.getTable().getValueAt(i, 0).toString()));
+                        this.model.setEmpID(Integer.parseInt(this.view.getTable().getValueAt(i, 2).toString()));
+                        this.model.setPayrollStatus(Integer.parseInt(this.view.getTable().getValueAt(i, 16).toString()));
+                        this.model.setEmpFullTime(Integer.parseInt(this.view.getTable().getValueAt(i, 17).toString()));
+                        this.model.updatePayrollSelected();
+                    }
                 }
-            }
-            abCount = 0;
-            otCount = 0;
-            if (this.model.getDepartmentID() == 0) {
-                this.model.loadPayroll(this.view.getTable(), tableModel, 0, payrollStatus, workType, abCount, otCount);
+                abCount = 0;
+                otCount = 0;
+                if (this.model.getDepartmentID() == 0) {
+                    this.model.loadPayroll(this.view.getTable(), tableModel, 0, payrollStatus, workType, abCount, otCount);
+                } else {
+                    this.model.loadPayroll(this.view.getTable(), tableModel, this.model.getDepartmentID(), payrollStatus, workType, abCount, otCount);
+                }
+                this.setPayrollStatusInfo();
             } else {
-                this.model.loadPayroll(this.view.getTable(), tableModel, this.model.getDepartmentID(), payrollStatus, workType, abCount, otCount);
+                MessageBox.msgWarning();
             }
-            this.setPayrollStatusInfo();
         } else if (e.getSource() == this.view.getRadTotal()) {
             abCount = 0;
             otCount = 0;
@@ -214,8 +219,12 @@ public class PayRolController implements ActionListener, MouseListener, MouseMot
             abCount = 1;
             otCount = 0;
             this.model.loadPayroll(this.view.getTable(), tableModel, 0, payrollStatus, workType, abCount, otCount);
+        } else if (e.getSource() == this.view.getRadOTCnt()) {
+            abCount = 0;
+            otCount = 1;
+            this.model.loadPayroll(this.view.getTable(), tableModel, 0, payrollStatus, workType, abCount, otCount);
         }
-        if (abCount == 0) {
+        if (abCount == 0 && otCount == 0) {
             this.view.getBtnGroup3().clearSelection();
         }
         Cursor cur1 = new Cursor(Cursor.DEFAULT_CURSOR);
@@ -259,7 +268,9 @@ public class PayRolController implements ActionListener, MouseListener, MouseMot
                         if (full == 0) {
                             FrmEmpHourly emhrs = new FrmEmpHourly(null, true, emid, emnbr, emName);
                             emhrs.setVisible(true);
-                            this.model.loadPayroll(this.view.getTable(), tableModel, this.model.getDepartmentID(), payrollStatus, workType, abCount, otCount);
+                            if (Variable.reQuery == 1) {
+                                this.model.loadPayroll(this.view.getTable(), tableModel, this.model.getDepartmentID(), payrollStatus, workType, abCount, otCount);
+                            }
                         }
                         break;
                     case 8:
@@ -283,19 +294,23 @@ public class PayRolController implements ActionListener, MouseListener, MouseMot
                     case 10:
                         FrmAddDeduction asTax = new FrmAddDeduction(null, true, emid, emnbr, emName, col);
                         asTax.setVisible(true);
-                        this.model.loadPayroll(this.view.getTable(), tableModel, this.model.getDepartmentID(), payrollStatus, workType, abCount, otCount);
+                        if (Variable.reQuery == 1) {
+                            this.model.loadPayroll(this.view.getTable(), tableModel, this.model.getDepartmentID(), payrollStatus, workType, abCount, otCount);
+                        }
                         break;
                     case 14:
                         FrmAddDeduction asNonTax = new FrmAddDeduction(null, true, emid, emnbr, emName, col);
                         asNonTax.setVisible(true);
-                        this.model.loadPayroll(this.view.getTable(), tableModel, this.model.getDepartmentID(), payrollStatus, workType, abCount, otCount);
+                        if (Variable.reQuery == 1) {
+                            this.model.loadPayroll(this.view.getTable(), tableModel, this.model.getDepartmentID(), payrollStatus, workType, abCount, otCount);
+                        }
                         break;
                     default:
                         break;
                 }
             }
         }
-         Variable.reQuery = 0;
+        Variable.reQuery = 0;
         Cursor cur1 = new Cursor(Cursor.DEFAULT_CURSOR);
         this.view.setCursor(cur1);
     }

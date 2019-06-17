@@ -1,10 +1,14 @@
 package com.malimar.controllers;
 
+import static com.malimar.models.Label.LN;
+import static com.malimar.models.Label.hmapLang;
 import com.malimar.models.Overtime;
 import com.malimar.models.SalaryCalc;
+import com.malimar.utils.HorizontalAlignmentHeaderRenderer;
 import com.malimar.utils.ManageTable;
 import com.malimar.utils.MessageBox;
 import com.malimar.utils.MoveForm;
+import com.malimar.utils.Variable;
 import com.malimar.views.FrmOvertime;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,7 +23,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
+import javax.swing.SwingConstants;
 import javax.swing.plaf.basic.BasicComboBoxUI;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 public class OvertimeController implements ActionListener, MouseListener, MouseMotionListener, KeyListener {
@@ -28,16 +34,36 @@ public class OvertimeController implements ActionListener, MouseListener, MouseM
     private final Overtime model;
     DefaultTableModel tableModel = new DefaultTableModel();
     HashMap<Float, Object[]> mapMultiper = null;
+    String frm;
 
     public OvertimeController(FrmOvertime view, int emid, String emNbr, String emName) {
         this.view = view;
         Overtime OT = new Overtime();
         this.model = OT;
+        this.frm = this.view.getClass().getSimpleName();
         this.model.setEmpID(emid);
         this.setEvent();
         this.setInitial();
+        this.language();
         this.view.getTxtEmployee().setText(String.valueOf(emNbr) + " " + emName);
         this.model.load(this.view.getTable(), tableModel);
+    }
+
+    private void language() {
+        this.view.getLblOvertimeInfo().setText(hmapLang.get("lblOvertimeInfo".concat(frm).toUpperCase())[LN]);
+        this.view.getLblSalary().setText(hmapLang.get("lblSalary".concat(frm).toUpperCase())[LN]);
+        this.view.getLblDays().setText(hmapLang.get("lblDays".concat(frm).toUpperCase())[LN]);
+        this.view.getLblOTHours().setText(hmapLang.get("lblOTHours".concat(frm).toUpperCase())[LN]);
+        this.view.getLblOvertimeDate().setText(hmapLang.get("lblOvertimeDate".concat(frm).toUpperCase())[LN]);
+        this.view.getLblHours().setText(hmapLang.get("lblHours".concat(frm).toUpperCase())[LN]);
+        this.view.getLblMinute().setText(hmapLang.get("lblMinute".concat(frm).toUpperCase())[LN]);
+        this.view.getLblOvertimeRate().setText(hmapLang.get("lblOvertimeRate".concat(frm).toUpperCase())[LN]);
+        this.view.getLblAmount().setText(hmapLang.get("lblAmount".concat(frm).toUpperCase())[LN]);
+        this.view.getLblMgrApprove().setText(hmapLang.get("lblMgrApprove".concat(frm).toUpperCase())[LN]);
+        this.view.getLblHRApprove().setText(hmapLang.get("lblHRApprove".concat(frm).toUpperCase())[LN]);
+        this.view.getBtnSave().setText(hmapLang.get("btnSave".concat(frm).toUpperCase())[LN]);
+        this.view.getBtnDelete().setText(hmapLang.get("btnDelete".concat(frm).toUpperCase())[LN]);
+        ManageTable.changeTableHeaderLabel(this.view.getTable(), frm);
     }
 
     private void setEvent() {
@@ -66,6 +92,20 @@ public class OvertimeController implements ActionListener, MouseListener, MouseM
         this.view.getTxtSalary().setText(String.format("%,.0f", SalaryCalc.getSalary(this.model.getEmpID(), "O")));
         this.view.getTxtTotalDays().setText(String.valueOf(SalaryCalc.getOTday()));
         this.view.getTxtOTPerHours().setText(String.format("%,.0f", (SalaryCalc.getSalary(this.model.getEmpID(), "O") / SalaryCalc.getOTday()) / SalaryCalc.getDayHour(this.model.getEmpID())));
+        this.view.getTable().getColumnModel().getColumn(0).setHeaderRenderer(new HorizontalAlignmentHeaderRenderer(SwingConstants.LEFT));
+        this.view.getTable().getColumnModel().getColumn(1).setHeaderRenderer(new HorizontalAlignmentHeaderRenderer(SwingConstants.CENTER));
+        this.view.getTable().getColumnModel().getColumn(2).setHeaderRenderer(new HorizontalAlignmentHeaderRenderer(SwingConstants.RIGHT));
+        this.view.getTable().getColumnModel().getColumn(3).setHeaderRenderer(new HorizontalAlignmentHeaderRenderer(SwingConstants.RIGHT));
+        this.view.getTable().getColumnModel().getColumn(4).setHeaderRenderer(new HorizontalAlignmentHeaderRenderer(SwingConstants.RIGHT));
+        this.view.getTable().getColumnModel().getColumn(5).setHeaderRenderer(new HorizontalAlignmentHeaderRenderer(SwingConstants.RIGHT));
+        this.view.getTable().getColumnModel().getColumn(6).setHeaderRenderer(new HorizontalAlignmentHeaderRenderer(SwingConstants.CENTER));
+        this.view.getTable().getColumnModel().getColumn(7).setHeaderRenderer(new HorizontalAlignmentHeaderRenderer(SwingConstants.CENTER));
+        DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+        rightRenderer.setHorizontalAlignment(SwingConstants.RIGHT);
+        this.view.getTable().getColumnModel().getColumn(2).setCellRenderer(rightRenderer);
+        this.view.getTable().getColumnModel().getColumn(3).setCellRenderer(rightRenderer);
+        this.view.getTable().getColumnModel().getColumn(4).setCellRenderer(rightRenderer);
+        this.view.getTable().getColumnModel().getColumn(5).setCellRenderer(rightRenderer);
     }
 
     private void calculate() {
@@ -145,6 +185,7 @@ public class OvertimeController implements ActionListener, MouseListener, MouseM
                         }
                         if (this.model.insert() == true) {
                             this.clear();
+                            Variable.reQuery = 1;
                         } else {
                             MessageBox.msgError();
                         }
@@ -152,6 +193,7 @@ public class OvertimeController implements ActionListener, MouseListener, MouseM
                         this.model.setOvertimeID(Integer.parseInt(this.view.getTxtOvertimeID().getText()));
                         if (this.model.update() == true) {
                             this.clear();
+                            Variable.reQuery = 1;
                         } else {
                             MessageBox.msgError();
                         }
@@ -172,6 +214,7 @@ public class OvertimeController implements ActionListener, MouseListener, MouseM
             if (this.model.delete() == true) {
                 this.clear();
                 this.model.load(this.view.getTable(), tableModel);
+                Variable.reQuery = 1;
             } else {
                 MessageBox.msgError();
             }

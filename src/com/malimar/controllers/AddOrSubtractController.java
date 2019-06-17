@@ -1,10 +1,14 @@
 package com.malimar.controllers;
 
 import com.malimar.models.AddOrSubtract;
+import static com.malimar.models.Label.LN;
+import static com.malimar.models.Label.hmapLang;
 import com.malimar.models.SalaryCalc;
+import com.malimar.utils.HorizontalAlignmentHeaderRenderer;
 import com.malimar.utils.ManageTable;
 import com.malimar.utils.MessageBox;
 import com.malimar.utils.MoveForm;
+import com.malimar.utils.Variable;
 import com.malimar.views.FrmAddDeduction;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,6 +21,8 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 public class AddOrSubtractController implements ActionListener, MouseListener, MouseMotionListener, KeyListener {
@@ -25,13 +31,16 @@ public class AddOrSubtractController implements ActionListener, MouseListener, M
     private final AddOrSubtract model;
     DefaultTableModel tableModel = new DefaultTableModel();
     int column;
+    String frm;
     public AddOrSubtractController(FrmAddDeduction view, int emid, String emNbr, String emName, int col) {
         this.view = view;
         AddOrSubtract aos = new AddOrSubtract();
         this.model = aos;
+        this.frm = this.view.getClass().getSimpleName();
         this.column=col;
         this.setEvent();
         this.setInitial();
+        this.language();
         this.model.setEmpID(emid);
         this.view.getTxtEmployee().setText(String.valueOf(emNbr) + " " + emName);
         this.model.load(this.view.getTable(), tableModel);
@@ -48,6 +57,7 @@ public class AddOrSubtractController implements ActionListener, MouseListener, M
         this.view.getLblAddOrSubtract().addMouseListener(this);
         this.view.getLblAddOrSubtract().addMouseMotionListener(this);
         this.view.getTxtAmount().addKeyListener(this);
+        this.view.getMenuExit().addActionListener(this);
     }
     
     private void setInitial() {
@@ -62,6 +72,14 @@ public class AddOrSubtractController implements ActionListener, MouseListener, M
             this.view.getChTax().setSelected(false);
         }
         this.model.setColumn(column);
+        this.view.getTable().getColumnModel().getColumn(0).setHeaderRenderer(new HorizontalAlignmentHeaderRenderer(SwingConstants.LEFT));
+        this.view.getTable().getColumnModel().getColumn(1).setHeaderRenderer(new HorizontalAlignmentHeaderRenderer(SwingConstants.LEFT));
+        this.view.getTable().getColumnModel().getColumn(2).setHeaderRenderer(new HorizontalAlignmentHeaderRenderer(SwingConstants.RIGHT));
+        this.view.getTable().getColumnModel().getColumn(3).setHeaderRenderer(new HorizontalAlignmentHeaderRenderer(SwingConstants.CENTER));
+        this.view.getTable().getColumnModel().getColumn(4).setHeaderRenderer(new HorizontalAlignmentHeaderRenderer(SwingConstants.LEFT));
+        DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+        rightRenderer.setHorizontalAlignment(SwingConstants.RIGHT);
+        this.view.getTable().getColumnModel().getColumn(2).setCellRenderer(rightRenderer);
     }
     
     private void clear() {
@@ -69,6 +87,17 @@ public class AddOrSubtractController implements ActionListener, MouseListener, M
         this.view.getTxtAmount().setText("0");
         this.view.getTxtNote().setText("");
         this.view.getChTax().setSelected(false);
+    }
+    
+    private void language() {
+        this.view.getLblAddOrSubtract().setText(hmapLang.get("lblAddOrSubtract".concat(frm).toUpperCase())[LN]);
+        this.view.getLblDate().setText(hmapLang.get("lblDate".concat(frm).toUpperCase())[LN]);
+        this.view.getLblAmount().setText(hmapLang.get("lblAmount".concat(frm).toUpperCase())[LN]);
+        this.view.getLblNote().setText(hmapLang.get("lblNote".concat(frm).toUpperCase())[LN]);
+        this.view.getLblTax().setText(hmapLang.get("lblTax".concat(frm).toUpperCase())[LN]);
+        this.view.getBtnSave().setText(hmapLang.get("btnSave".concat(frm).toUpperCase())[LN]);
+        this.view.getBtnDelete().setText(hmapLang.get("btnDelete".concat(frm).toUpperCase())[LN]);
+        ManageTable.changeTableHeaderLabel(this.view.getTable(), frm);
     }
     
     @Override
@@ -92,6 +121,7 @@ public class AddOrSubtractController implements ActionListener, MouseListener, M
                     if (this.view.getTxtASID().getText().equals("New")) {
                         if (this.model.insert() == true) {
                             this.clear();
+                            Variable.reQuery=1;
                         } else {
                             MessageBox.msgError();
                         }
@@ -99,6 +129,7 @@ public class AddOrSubtractController implements ActionListener, MouseListener, M
                         this.model.setAsID(Integer.parseInt(this.view.getTxtASID().getText()));
                         if (this.model.update() == true) {
                             this.clear();
+                            Variable.reQuery=1;
                         } else {
                             MessageBox.msgError();
                         }
@@ -115,9 +146,12 @@ public class AddOrSubtractController implements ActionListener, MouseListener, M
             if (this.model.delete() == true) {
                 this.clear();
                 this.model.load(this.view.getTable(), tableModel);
+                Variable.reQuery=1;
             } else {
                 MessageBox.msgError();
             }
+        }else if(e.getSource() == this.view.getMenuExit()){
+            this.view.dispose();
         }
     }
     

@@ -265,8 +265,8 @@
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="5" rowCount="1">
-                            <Column editable="false" title="lblAddID" type="java.lang.Object"/>
-                            <Column editable="false" title="lblAddDate" type="java.lang.Object"/>
+                            <Column editable="false" title="lblID" type="java.lang.Object"/>
+                            <Column editable="false" title="lblDate" type="java.lang.Object"/>
                             <Column editable="false" title="lblAmount" type="java.lang.Object"/>
                             <Column editable="false" title="lblTax" type="java.lang.Boolean"/>
                             <Column editable="false" title="lblNote" type="java.lang.Object"/>
@@ -334,7 +334,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblAddDate">
+            <Component class="javax.swing.JLabel" name="lblDate">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Saysettha OT" size="12" style="0"/>
@@ -471,7 +471,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblBeforeTax">
+            <Component class="javax.swing.JLabel" name="lblTax">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Saysettha OT" size="12" style="0"/>

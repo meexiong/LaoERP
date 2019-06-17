@@ -7,6 +7,7 @@ import com.malimar.models.SalaryCalc;
 import com.malimar.utils.ManageTable;
 import com.malimar.utils.MessageBox;
 import com.malimar.utils.MoveForm;
+import com.malimar.utils.Variable;
 import com.malimar.views.FrmEmpHourly;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -111,6 +112,7 @@ public class EmpHourlyController implements ActionListener, MouseListener, Mouse
                 if (this.model.insert() == true) {
                     this.model.load(this.view.getTable(), tableModel);
                     this.clear();
+                    Variable.reQuery=1;
                 } else {
                     MessageBox.msgError();
                 }
@@ -119,6 +121,7 @@ public class EmpHourlyController implements ActionListener, MouseListener, Mouse
                 if (this.model.update() == true) {
                     this.model.load(this.view.getTable(), tableModel);
                     this.clear();
+                    Variable.reQuery=1;
                 } else {
                     MessageBox.msgError();
                 }
@@ -128,6 +131,7 @@ public class EmpHourlyController implements ActionListener, MouseListener, Mouse
             if (this.model.delete() == true) {
                 this.model.load(this.view.getTable(), tableModel);
                 this.clear();
+                Variable.reQuery=1;
             } else {
                 MessageBox.msgError();
             }

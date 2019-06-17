@@ -14,9 +14,9 @@ public class MessageBox {
     }
     public static void msgError() {
         if (langType.equals(EnumStatus.L1.name())) {
-            JOptionPane.showMessageDialog(null, "<html><p><font color=\"#000\"size=\"3\" face=\"Saysettha OT\">" + "ລະບົບມີບັນຫາ" + "</font></p></html>", "ແຈ້ງເຕືອນ", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "<html><p><font color=\"#000\"size=\"3\" face=\"Saysettha OT\">" + "ບັນທຶກບໍ່ສຳເລັດ" + "</font></p></html>", "ແຈ້ງເຕືອນ", JOptionPane.WARNING_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "<html><p><font color=\"#000\"size=\"3\" face=\"Saysettha OT\">" + "System Error" + "</font></p></html>", "MESSAGE", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "<html><p><font color=\"#000\"size=\"3\" face=\"Saysettha OT\">" + "Save failed" + "</font></p></html>", "MESSAGE", JOptionPane.WARNING_MESSAGE);
         }
     }
      public static void msgSuccess() {

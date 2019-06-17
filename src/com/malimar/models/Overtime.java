@@ -237,7 +237,7 @@ public class Overtime {
     public boolean checkRate() {
         try {
             SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-            String query = "Select * from tbl_Overtime where WorkDate='" + df.format(this.getOvertimeDate()) + "' and CategoryOTID=" + this.getRateID() + "";
+            String query = "Select * from tbl_Overtime where EmpID=" + this.getEmpID() + " and WorkDate='" + df.format(this.getOvertimeDate()) + "' and CategoryOTID=" + this.getRateID() + "";
             ResultSet rs = c.createStatement().executeQuery(query);
             if (rs.next()) {
                 return true;
